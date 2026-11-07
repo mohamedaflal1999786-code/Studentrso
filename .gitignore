@@ -35,3 +35,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# tooling and cache
+.bolt/
+__pycache__/
+*.pyc
