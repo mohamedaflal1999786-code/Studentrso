@@ -125,14 +125,14 @@ export async function POST(request: Request) {
     response.cookies.set('student_rso_session', sessionToken, {
       httpOnly: true,
       sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production',
+      secure: false,
       maxAge: 7 * 24 * 60 * 60,
       path: '/',
     });
     response.cookies.set('student_rso_access_token', sessionToken, {
       httpOnly: true,
       sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production',
+      secure: false,
       maxAge: 7 * 24 * 60 * 60,
       path: '/',
     });
