@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 50% 95%;
+    --foreground: 20 30% 15%;
+    --card: 40 60% 97%;
+    --card-foreground: 20 30% 15%;
+    --popover: 40 60% 97%;
+    --popover-foreground: 20 30% 15%;
+    --primary: 352 50% 37%;
+    --primary-foreground: 40 60% 97%;
+    --secondary: 40 75% 52%;
+    --secondary-foreground: 20 30% 15%;
+    --muted: 40 30% 90%;
+    --muted-foreground: 30 15% 45%;
+    --accent: 40 75% 52%;
+    --accent-foreground: 20 30% 15%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 40 60% 97%;
+    --border: 40 40% 85%;
+    --input: 40 40% 85%;
+    --ring: 352 50% 37%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+  }
+  section[id], div[id] {
+    scroll-margin-top: 80px;
+  }
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+}

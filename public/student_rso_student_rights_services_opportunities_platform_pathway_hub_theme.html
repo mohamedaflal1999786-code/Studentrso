@@ -1,0 +1,1053 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}[id]{scroll-margin-top:80px;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary-container": "#faeecf",
+          "on-primary-container": "#fdeced",
+          "on-tertiary-container": "#15362e",
+          "on-surface": "#2b2118",
+          "on-error-container": "#410e0b",
+          "surface-variant": "#f2dfd1",
+          "surface": "#fbf5e9",
+          "inverse-primary": "#ffb3b5",
+          "primary-fixed": "#ffdada",
+          "surface-container-high": "#f8e5d6",
+          "on-secondary-fixed-variant": "#5e4200",
+          "on-primary-fixed-variant": "#802631",
+          "primary": "#8c2f39",
+          "primary-dark": "#6d1824",
+          "tertiary-fixed-dim": "#a1d0c1",
+          "primary-container": "#a94852",
+          "surface-bright": "#fff8f5",
+          "tertiary-fixed": "#bdeddd",
+          "tertiary": "#5e8b7e",
+          "on-secondary-container": "#6f4e00",
+          "on-error": "#ffffff",
+          "on-surface-variant": "#7a6a5a",
+          "background": "#fbf5e9",
+          "on-tertiary": "#ffffff",
+          "primary-fixed-dim": "#ffb3b5",
+          "surface-container-lowest": "#ffffff",
+          "outline-variant": "#efe3cc",
+          "error": "#b3261e",
+          "surface-dim": "#efe3cc",
+          "secondary-fixed": "#ffdea8",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#214e43",
+          "tertiary-container": "#2a574c",
+          "surface-container": "#f6ede0",
+          "surface-container-low": "#fdfbf6",
+          "surface-container-highest": "#f2dfd1",
+          "on-primary": "#ffffff",
+          "inverse-surface": "#2b2118",
+          "surface-tint": "#8c2f39",
+          "error-container": "#ffdad6",
+          "secondary-fixed-dim": "#fabc3e",
+          "on-tertiary-fixed": "#002019",
+          "on-primary-fixed": "#40000c",
+          "on-secondary-fixed": "#271900",
+          "secondary": "#e0a526",
+          "on-background": "#2b2118",
+          "outline": "#d8c7ad",
+          "inverse-on-surface": "#fbf5e9"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "2xl": "1rem",
+          "full": "9999px"
+        },
+        spacing: {
+          "space-xl": "2.5rem",
+          "space-lg": "1.5rem",
+          "space-xs": "0.25rem",
+          "margin": "2rem",
+          "space-md": "1rem",
+          "gutter-mobile": "1rem",
+          "margin-mobile": "1rem",
+          "gutter": "1.5rem",
+          "space-sm": "0.5rem"
+        },
+        fontFamily: {
+          "title-sm": ["Inter", "sans-serif"],
+          "label-sm": ["Inter", "sans-serif"],
+          "title-md": ["Newsreader", "Georgia", "serif"],
+          "label-md": ["Inter", "sans-serif"],
+          "label-mono": ["Inter", "sans-serif"],
+          "display-hero": ["Newsreader", "Georgia", "serif"],
+          "display-lg": ["Newsreader", "Georgia", "serif"],
+          "title-lg": ["Newsreader", "Georgia", "serif"],
+          "headline-md": ["Newsreader", "Georgia", "serif"],
+          "body-md": ["Inter", "sans-serif"],
+          "label-lg": ["Inter", "sans-serif"],
+          "headline-sm": ["Newsreader", "Georgia", "serif"],
+          "body-sm": ["Inter", "sans-serif"],
+          "body-lg": ["Inter", "sans-serif"],
+          "headline-lg": ["Newsreader", "Georgia", "serif"],
+          "display-lg-mobile": ["Newsreader", "Georgia", "serif"]
+        },
+        fontSize: {
+          "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+          "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+          "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+          "title-md": ["17px", { "lineHeight": "24px", "fontWeight": "600" }],
+          "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "display-hero": ["52px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "title-lg": ["21px", { "lineHeight": "28px", "fontWeight": "600" }],
+          "headline-md": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+          "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+          "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+          "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+          "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+          "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "700" }]
+        }
+      }
+    }
+  }
+</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary/30 selection:text-primary"><header class="fixed top-0 w-full z-50 bg-[#fbf5e9]/95 backdrop-blur-md border-b border-[#efe3cc] shadow-[0_2px_12px_rgba(43,33,24,0.04)]"><div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="Student RSO Emblem" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG7kawzDHbBdehnlZq9prgfwON_gn9OFC6xl4XOqpyoVDs-S1TyWj4LYWbkiSFhFXNgeXvQIz9fOBbjJtcOmm3Lc4vBnwGU5Bjb_B-Mm0cJxDh1ouCMMpGYyc7PumRpL20NiXtxRlqB5O_SHTHMyzMRQq_kc0CUMr-PjISvNm2KSKAoHf1gvTLZlgHVSdOPmtzeL6D9ovMzsbD02bYkN8DchuVPvrgMvSvrhvjbc6nUqjHWiRBHKVDRZ_bbAHAt3XOFNC9m-1S_5kPdA"><a class="flex flex-col" data-path="overview" href="#"><span class="font-title-lg text-title-lg font-bold tracking-tight text-primary font-display-lg italic">Student RSO</span><span class="font-label-mono text-label-mono uppercase tracking-wider text-on-surface-variant text-[10px]">STUDENT RIGHTS • SERVICES • OPPORTUNITIES</span></a></div><nav class="hidden lg:flex items-center gap-space-xs"><div class="relative group py-2"><button class="flex items-center gap-1 px-3 py-2 rounded-lg font-label-lg text-label-lg text-on-surface hover:text-primary hover:bg-[#f6ede0] transition-colors" type="button"><span class="">Services</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:rotate-180 transition-transform">expand_more</span></button><div class="absolute left-0 top-full hidden group-hover:block w-[780px] pt-2 z-50"><div class="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] shadow-[0_12px_32px_rgba(43,33,24,0.12)] p-6 flex flex-col gap-5 overflow-hidden"><div class="flex items-center justify-between pb-3.5 border-b border-[#efe3cc]"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-mono text-label-mono uppercase tracking-wider text-secondary font-bold text-[11px]">STUDENT ESSENTIAL SERVICES • 7 SOVEREIGN PUBLIC PILLARS</span><span class="font-label-mono text-[11px] text-on-surface-variant"><br></span></div><span class="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-label-mono text-[10px] text-primary font-semibold uppercase tracking-wider">Public Digital Infrastructure</span></div><div class="grid grid-cols-3 gap-3"><a class="flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all group/item" data-path="scholarship-hub" href="#"><div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-primary flex items-center justify-center shrink-0 group-hover/item:border-primary/20"><span class="material-symbols-outlined text-[18px]">school</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-title-md text-[14px] text-on-surface font-bold group-hover/item:text-primary transition-colors">Scholarship Hub</span></div><span class="font-body-sm text-[12px] text-on-surface-variant leading-snug mt-0.5">Find eligible scholarships, access official aid and track applications.</span></div></a><a class="flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all group/item" data-path="safety-and-grievance" href="#"><div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-primary flex items-center justify-center shrink-0 group-hover/item:border-primary/20"><span class="material-symbols-outlined text-[18px]">shield</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-title-md text-[14px] text-on-surface font-bold group-hover/item:text-primary transition-colors">Safety &amp; Grievance</span></div><span class="font-body-sm text-[12px] text-on-surface-variant leading-snug mt-0.5">Access protected reporting pathways and track grievance resolution.</span></div></a><a class="flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all group/item" data-path="certificate-service" href="#"><div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-primary flex items-center justify-center shrink-0 group-hover/item:border-primary/20"><span class="material-symbols-outlined text-[18px]">verified_user</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-title-md text-[14px] text-on-surface font-bold group-hover/item:text-primary transition-colors">Certificate Service</span></div><span class="font-body-sm text-[12px] text-on-surface-variant leading-snug mt-0.5">Access official certificate services, digital records and authenticity verification.</span></div></a><a class="flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all group/item" data-path="exam-and-opportunity-hub" href="#"><div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-primary flex items-center justify-center shrink-0 group-hover/item:border-primary/20"><span class="material-symbols-outlined text-[18px]">assignment</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-title-md text-[14px] text-on-surface font-bold group-hover/item:text-primary transition-colors">Exam &amp; Opportunity</span></div><span class="font-body-sm text-[12px] text-on-surface-variant leading-snug mt-0.5">Discover official examination routes, recruitment notices and student opportunities.</span></div></a><a class="flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all group/item" data-path="ai-career-assistant" href="#"><div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-primary flex items-center justify-center shrink-0 group-hover/item:border-primary/20"><span class="material-symbols-outlined text-[18px]">psychology</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-title-md text-[14px] text-on-surface font-bold group-hover/item:text-primary transition-colors">AI Career Assistant</span></div><span class="font-body-sm text-[12px] text-on-surface-variant leading-snug mt-0.5">Explore structured career pathways with objective, criteria-based guidance.</span></div></a><a class="flex items-start gap-3 p-3 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all group/item" data-path="deadline-manager" href="#"><div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-primary flex items-center justify-center shrink-0 group-hover/item:border-primary/20"><span class="material-symbols-outlined text-[18px]">event_upcoming</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-title-md text-[14px] text-on-surface font-bold group-hover/item:text-primary transition-colors">Deadline Manager</span></div><span class="font-body-sm text-[12px] text-on-surface-variant leading-snug mt-0.5">Organise scholarships, examinations, admissions, certificates, competitions and renewal dates.</span></div></a></div><div class="p-3.5 rounded-xl bg-[#f6ede0] border border-[#efe3cc] flex items-center justify-between"><a class="flex items-center gap-3 group/item flex-1" data-path="verified-information" href="#"><div class="w-9 h-9 rounded-lg bg-white border border-[#efe3cc] text-tertiary flex items-center justify-center shrink-0 group-hover/item:border-primary/20"><span class="material-symbols-outlined text-[18px]">fact_check</span></div><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-title-md text-[14px] text-on-surface font-bold group-hover/item:text-primary transition-colors">Verified Information&nbsp;</span></div><span class="font-body-sm text-[12px] text-on-surface-variant">Official-source validation, authenticity checks &amp; trusted authority references.</span></div></a><div class="flex items-center gap-1 text-primary font-label-mono text-[12px] font-semibold pl-4 border-l border-[#d8c7ad]"><span class="">Explore</span><span class="material-symbols-outlined text-[16px] text-secondary">arrow_forward</span></div></div><div class="flex items-center justify-between pt-1 border-t border-[#efe3cc] text-[11px] font-label-mono text-on-surface-variant"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-secondary">lock</span><span class="">Official processes remain with the relevant authority or institution.</span></div></div></div></div></div><a class="px-3 py-2 rounded-lg font-label-lg text-label-lg text-on-surface hover:text-primary hover:bg-[#f6ede0] transition-colors" data-path="opportunities" href="#">Opportunities</a><a class="px-3 py-2 rounded-lg font-label-lg text-label-lg text-on-surface hover:text-primary hover:bg-[#f6ede0] transition-colors" data-path="career" href="#">Career Guidance</a><a class="px-3 py-2 rounded-lg font-label-lg text-label-lg text-on-surface hover:text-primary hover:bg-[#f6ede0] transition-colors" data-path="how-it-works" href="#">How It Works</a><a class="px-3 py-2 rounded-lg font-label-lg text-label-lg text-on-surface hover:text-primary hover:bg-[#f6ede0] transition-colors" data-path="about" href="#">About</a></nav><div class="flex items-center gap-space-sm"><a class="px-4 py-2 font-label-lg text-label-lg text-on-surface hover:text-primary transition-colors" data-path="sign-in" href="#">Sign In</a><a class="px-4 py-2.5 rounded-lg bg-primary hover:bg-[#6d1824] text-on-primary font-label-lg text-label-lg shadow-sm transition-all" data-path="explore-platform" href="#">Explore Platform</a><div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 text-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-[#fbf5e9] via-[#fdfbf6] to-[#fbf5e9] py-space-xl lg:py-24 border-b border-[#efe3cc]">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
+<!-- Eyebrow Tag -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] text-primary font-label-mono text-[11px] uppercase tracking-widest mb-space-lg shadow-xs">
+
+<span class="font-bold text-on-surface">STUDENT RIGHTS • SERVICES • OPPORTUNITIES</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight max-w-4xl font-bold mb-3">
+        Everything Students Need. <br class="hidden sm:inline">
+<span class="text-primary italic font-serif">One Trusted Place.</span>
+</h1>
+<div class="w-20 h-1 bg-secondary rounded-full mb-3"></div>
+<!-- Supporting Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8 leading-relaxed font-normal">From Class 10 to postgraduate study, Student RSO helps students discover opportunities, access essential services, understand their rights and make informed decisions — all in one trusted platform.</p>
+<!-- CTA Buttons -->
+<div class="flex flex-wrap items-center justify-center gap-space-md mb-20">
+<a class="px-7 py-3.5 rounded-lg bg-primary hover:bg-[#6d1824] text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all flex items-center gap-space-xs group" href="#services">
+<span class="">Explore Services</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<a class="px-7 py-3.5 rounded-lg bg-surface-container-low hover:bg-[#f6ede0] border border-[#d8c7ad] text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-space-xs" href="#how-it-works">
+<span class="">How It Works</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">account_tree</span>
+</a>
+</div>
+<!-- Visual Ecosystem Architecture -->
+<div class="w-full max-w-6xl relative bg-[#fdfbf6] border border-[#efe3cc] rounded-2xl p-6 lg:p-12 shadow-[0_8px_30px_rgba(43,33,24,0.06)]">
+<div class="flex flex-col items-center mb-8">
+<div class="flex flex-wrap items-center justify-center gap-2 mb-2 font-label-mono text-label-mono"><span class="font-bold text-primary tracking-wider uppercase">OUR PLATFORM</span><span class="text-[#7a6a5a]/50">•</span><span class="text-on-surface-variant font-normal normal-case text-body-sm">A unified starting point for scholarships, safety, certificates, examinations, career guidance, deadlines and verified information.</span></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">One Platform. Seven Essential Student Services.</h2>
+<div class="w-12 h-0.5 bg-secondary mt-2"></div>
+</div>
+<!-- Desktop Radial Grid System -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
+<!-- Node 1: Scholarship Hub -->
+<div class="group bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] p-5 rounded-xl transition-all flex flex-col justify-between text-left hover:shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Scholarship Hub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Find relevant scholarships, understand eligibility and access official application and tracking services.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center text-primary font-label-mono text-label-mono font-semibold border-t border-[#efe3cc]">
+<span class="">Explore Scholarships</span>
+<span class="material-symbols-outlined text-[14px] ml-1 text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Node 2: Safety & Grievance -->
+<div class="group bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] p-5 rounded-xl transition-all flex flex-col justify-between text-left hover:shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Safety &amp; Grievance</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Access appropriate reporting channels for student safety concerns, grievances and unfair treatment.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center text-primary font-label-mono text-label-mono font-semibold border-t border-[#efe3cc]">
+<span class="">Report Concern</span>
+<span class="material-symbols-outlined text-[14px] ml-1 text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Node 3: Certificate Service -->
+<div class="group bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] p-5 rounded-xl transition-all flex flex-col justify-between text-left hover:shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Certificate Service</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Access official certificate services for applications, tracking, digital documents and verification.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center text-primary font-label-mono text-label-mono font-semibold border-t border-[#efe3cc]">
+<span class="">Access Certificates</span>
+<span class="material-symbols-outlined text-[14px] ml-1 text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Node 4: Exam & Opportunity -->
+<div class="group bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] p-5 rounded-xl transition-all flex flex-col justify-between text-left hover:shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+</div>
+
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Exam &amp; Opportunity Hub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Discover official examinations, entrance opportunities, internships and skill development programmes.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center text-primary font-label-mono text-label-mono font-semibold border-t border-[#efe3cc]">
+<span class="">Explore Opportunities</span>
+<span class="material-symbols-outlined text-[14px] ml-1 text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Node 5: AI Career Assistant -->
+<div class="group bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] p-5 rounded-xl transition-all flex flex-col justify-between text-left hover:shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">AI Career Assistant</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Explore education pathways based on your subjects, interests, goals, budget and preferred location.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center text-primary font-label-mono text-label-mono font-semibold border-t border-[#efe3cc]">
+<span class="">Explore Careers</span>
+<span class="material-symbols-outlined text-[14px] ml-1 text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Node 6: Deadline Manager -->
+<div class="group bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] p-5 rounded-xl transition-all flex flex-col justify-between text-left hover:shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]">event_upcoming</span>
+</div>
+
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Deadline Manager</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Keep scholarships, examinations, admissions, certificates and other important deadlines organised.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center text-primary font-label-mono text-label-mono font-semibold border-t border-[#efe3cc]">
+<span class="">View Deadlines</span>
+<span class="material-symbols-outlined text-[14px] ml-1 text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Node 7: Verified Information -->
+<div class="group bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] p-5 rounded-xl transition-all flex flex-col justify-between text-left hover:shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Verified Information</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">See official sources, verification status and relevant links before relying on important information.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center text-primary font-label-mono text-label-mono font-semibold border-t border-[#efe3cc]">
+<span class="">Check Sources</span>
+<span class="material-symbols-outlined text-[14px] ml-1 text-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Central Identity Bar -->
+<div class="mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between bg-[#f6ede0] border border-[#efe3cc] px-6 py-4 rounded-xl text-left gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[26px]">hub</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface font-bold"><div class="">Student RSO</div><div class="">Connecting Students with Trusted Services &amp; Opportunities</div></div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">A student-first platform connecting learners with official services, opportunities, guidance and trusted information.</div>
+</div>
+</div>
+<div class="inline-flex items-center gap-2 bg-[#fdfbf6] border border-[#d8c7ad] px-3.5 py-1.5 rounded-lg text-primary font-label-mono text-label-mono">
+
+<span class="font-semibold text-on-surface">Official Sources · Transparent Information · Student-First</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CORE VALUE STRIP -->
+<section class="w-full bg-[#f6ede0] border-b border-[#efe3cc] py-10">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">01 / DISCOVER</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">Find relevant opportunities and essential services.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">02 / APPLY</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">Reach the appropriate official statutory source.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">03 / REPORT</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">Access protected grievance &amp; anti-ragging pathways.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[18px]">timeline</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">04 / TRACK</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">Follow supported applications and certificates.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">05 / VERIFY</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">See auditable sources and verification metadata.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">06 / PLAN</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">Organise future education and timeline decisions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- THE PROBLEM SECTION -->
+<section class="w-full bg-surface py-space-xl lg:py-24">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="max-w-3xl mb-16">
+<div class="inline-flex items-center gap-2">
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">THE Challenge</span>
+<div class="w-8 h-0.5 bg-secondary"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-4 font-bold">Good opportunities exist. <span class="italic font-serif text-primary">Finding them is the hard part.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">Students often navigate information across multiple portals, notices and sources. Understanding eligibility, finding the right service, completing an application and identifying reliable information can be unnecessarily difficult.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 01 -->
+<div class="bg-surface-container-low border border-[#efe3cc] p-8 rounded-xl shadow-xs flex flex-col justify-between hover:border-[#d8c7ad] transition-colors">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-3">01 / ELIGIBILITY</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Complex Eligibility Requirements</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Scholarships, examinations and courses often have different eligibility requirements, making it difficult for students to know what they qualify for.</p>
+</div>
+<div class="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px] text-primary">rule</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Unclear eligibility criteria</span>
+</div>
+</div>
+<!-- Card 02 -->
+<div class="bg-surface-container-low border border-[#efe3cc] p-8 rounded-xl shadow-xs flex flex-col justify-between hover:border-[#d8c7ad] transition-colors">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-3">02 / DEADLINES</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Scattered Deadlines</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Important dates can be spread across official portals, notices and institutional announcements, making them easy to miss.</p>
+</div>
+<div class="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px] text-primary">schedule</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Missed application dates</span>
+</div>
+</div>
+<!-- Card 03 -->
+<div class="bg-surface-container-low border border-[#efe3cc] p-8 rounded-xl shadow-xs flex flex-col justify-between hover:border-[#d8c7ad] transition-colors">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-3">03 / RIGHTS &amp; COMPLAINTS</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Unclear Support Pathways</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Students may not know where to turn when they face safety concerns, unfair treatment or other issues requiring formal support.</p>
+</div>
+<div class="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px] text-primary">lock</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Unclear reporting channels</span>
+</div>
+</div>
+<!-- Card 04 -->
+<div class="bg-surface-container-low border border-[#efe3cc] p-8 rounded-xl shadow-xs flex flex-col justify-between hover:border-[#d8c7ad] transition-colors h-full">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-3">04 / TRUST</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Unverified Information</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Information from unofficial websites, social media and informal sources can be outdated, incomplete or difficult to verify.</p>
+</div>
+<div class="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px] text-primary">warning</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Unchecked circulars</span>
+</div>
+</div>
+<!-- Card 05 -->
+<div class="bg-surface-container-low border border-[#efe3cc] p-8 rounded-xl shadow-xs flex flex-col justify-between hover:border-[#d8c7ad] transition-colors h-full">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-3">05 / VISIBILITY</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Limited Application Visibility</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Students may have difficulty knowing where an application, certificate request or reported concern stands after it has been submitted.</p>
+</div>
+<div class="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px] text-primary">visibility_off</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Limited status visibility</span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-[#efe3cc] p-8 rounded-xl shadow-xs flex flex-col justify-between hover:border-[#d8c7ad] transition-colors h-full"><div><span class="font-label-mono text-label-mono text-secondary font-bold block mb-3">06 / GUIDANCE</span><h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Unclear Education Pathways</h3><p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Students may struggle to understand which courses, institutions and career pathways best match their interests, academic background, budget and goals.</p></div><div class="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-[20px] text-primary">explore_off</span><span class="font-label-mono text-label-mono text-on-surface-variant">Limited personalised guidance</span></div></div></div>
+</div>
+</section>
+<!-- THE SOLUTION — 7 ESSENTIAL SERVICES -->
+<section class="w-full bg-[#f6ede0] py-space-xl lg:py-24 border-t border-b border-[#efe3cc]" id="services">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="max-w-3xl mb-16">
+<div class="inline-flex items-center gap-2">
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">THE PLATFORM</span>
+<div class="w-8 h-0.5 bg-secondary"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-4 font-bold">One platform. <span class="italic font-serif text-primary">Seven essential services.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">A simpler way to discover services, access official resources and stay informed throughout your education journey.</p>
+</div>
+<div class="flex flex-col gap-10">
+<!-- SERVICE 01: SCHOLARSHIP HUB -->
+<div id="scholarship-hub" class="bg-[#fdfbf6] rounded-2xl p-8 lg:p-12 border border-[#efe3cc] shadow-sm">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 mb-6 border-b border-[#efe3cc]">
+<div>
+<div class="flex items-center gap-3">
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">SERVICE 01</span>
+<span class="px-3 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-label-mono text-[11px] text-primary font-semibold">FINANCIAL AID</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">Scholarship Hub: <span class="italic font-serif text-primary">Find what you qualify for.</span></h3>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
+<span class="text-on-surface font-medium">Official source: National Scholarship Portal</span>
+</div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+            Discover scholarship eligibility information, access the official application process and reach available tracking services from one organised starting point.
+          </p>
+<!-- Core Feature Tags -->
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-label-mono text-on-surface font-medium">Eligibility Check</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-label-mono text-on-surface font-medium">Scholarships For You</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-label-mono text-on-surface font-medium">How to Apply</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-label-mono text-on-surface font-medium">Application Tracking</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-label-mono text-on-surface font-medium">Official Source Linkage</span>
+</div>
+<!-- Action Buttons with verified official targets -->
+<div class="flex flex-wrap gap-4 pt-4 border-t border-[#efe3cc]">
+<a class="px-5 py-2.5 rounded-lg bg-primary hover:bg-[#6d1824] text-on-primary font-label-lg text-label-lg transition-colors flex items-center gap-2 shadow-xs" href="https://scholarships.gov.in/scholarshipEligibility/" rel="noopener noreferrer" target="_blank">
+<span class="">Check Eligibility</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<a class="px-5 py-2.5 rounded-lg bg-secondary hover:bg-[#c9921e] text-[#2b2118] font-label-lg text-label-lg font-bold transition-colors flex items-center gap-2 shadow-xs" href="https://scholarships.gov.in/ApplicationForm/login" rel="noopener noreferrer" target="_blank">
+<span class="">Apply</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<a class="px-5 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2" href="https://scholarships.gov.in/payl/loginPage.action" rel="noopener noreferrer" target="_blank">
+<span class="">Track Application</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- SERVICE 02: SAFETY & GRIEVANCE -->
+<div id="safety-and-grievance" class="bg-[#fdfbf6] rounded-2xl p-8 lg:p-12 border border-[#efe3cc] shadow-sm">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 mb-6 border-b border-[#efe3cc]">
+<div>
+<div class="flex items-center gap-3">
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">SERVICE 02</span>
+<span class="px-3 py-0.5 rounded-full bg-[#fdeced] border border-[#f5b3b8] font-label-mono text-[11px] text-primary font-semibold">REPORT-ROUTE-TRACK</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">Safety &amp; Grievance: <span class="italic font-serif text-primary">Your concern deserves a clear path.</span></h3>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-primary">gavel</span>
+<span class="text-on-surface font-medium">UGC &amp; Supreme Court Compliance</span>
+</div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+            Help students identify appropriate official channels for concerns including ragging, bullying, harassment, discrimination, misconduct, intimidation and unfair treatment.
+          </p>
+<!-- Supported Categories -->
+<div class="mb-6">
+<span class="font-label-mono text-label-mono text-on-surface font-bold block mb-3">SUPPORTED GRIEVANCE PATHWAYS:</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Ragging</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Bullying</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Harassment</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Discrimination</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Staff Misconduct</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Threats / Intimidation</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Unfair Treatment</span>
+<span class="px-3 py-1 rounded-md bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[12px] text-on-surface">Other Concerns</span>
+</div>
+</div>
+<!-- Safeguards note -->
+<div class="bg-[#fbf5e9] border-l-4 border-primary p-4 rounded-r-xl mb-8 flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary mt-0.5">policy</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Official reporting pathways: Find the appropriate institutional or statutory channel for your concern and understand the available reporting process.</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap gap-4 pt-4 border-t border-[#efe3cc]">
+<a class="px-5 py-2.5 rounded-lg bg-primary hover:bg-[#6d1824] text-on-primary font-label-lg text-label-lg transition-colors flex items-center gap-2 shadow-xs" href="https://www.antiragging.in/" rel="noopener noreferrer" target="_blank">
+<span class="">National Anti-Ragging Portal</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<a class="px-5 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2" href="#how-it-works">
+<span class="">Find the Right Reporting Channel</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</a>
+</div>
+</div>
+<!-- SERVICE 03: CERTIFICATE SERVICE -->
+<div id="certificate-service" class="bg-[#fdfbf6] rounded-2xl p-8 lg:p-12 border border-[#efe3cc] shadow-sm">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 mb-6 border-b border-[#efe3cc]">
+<div>
+<div class="flex items-center gap-3">
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">SERVICE 03</span>
+<span class="px-3 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-label-mono text-[11px] text-primary font-semibold">DIGITAL CERTIFICATE SERVICES</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">Certificate Service: <span class="italic font-serif text-primary">Request. Track. Verify. Download.</span></h3>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-tertiary">cloud_done</span>
+<span class="text-on-surface font-medium">Official: Tamil Nadu e-District / e-Sevai</span>
+</div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+            Access official certificate services through the appropriate government portal and verification systems without administrative intermediaries.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-8">
+<div class="p-4 bg-[#fbf5e9] border border-[#efe3cc] rounded-lg text-center">
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-1">01. Application</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct e-Sevai route</span>
+</div>
+<div class="p-4 bg-[#fbf5e9] border border-[#efe3cc] rounded-lg text-center">
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-1">02. Tracking</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Application token query</span>
+</div>
+<div class="p-4 bg-[#fbf5e9] border border-[#efe3cc] rounded-lg text-center">
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-1">03. Turnaround</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Statutory timelines</span>
+</div>
+<div class="p-4 bg-[#fbf5e9] border border-[#efe3cc] rounded-lg text-center">
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-1">04. Access</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Digitally signed download</span>
+</div>
+<div class="p-4 bg-[#fbf5e9] border border-[#efe3cc] rounded-lg text-center">
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-1">05. Verify</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Barcode QR verification</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap gap-4 pt-4 border-t border-[#efe3cc]">
+<a class="px-5 py-2.5 rounded-lg bg-primary hover:bg-[#6d1824] text-on-primary font-label-lg text-label-lg transition-colors flex items-center gap-2 shadow-xs" href="http://www.tnesevai.tn.gov.in/" rel="noopener noreferrer" target="_blank">
+<span class="">Apply / Track Certificate</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<a class="px-5 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2" href="https://tnedistrict.tn.gov.in/tneda/VerifyCerti.xhtml" rel="noopener noreferrer" target="_blank">
+<span class="">Verify Certificate</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- SERVICE 04: EXAM & OPPORTUNITY HUB -->
+<div id="exam-and-opportunity-hub" class="bg-[#fdfbf6] rounded-2xl p-8 lg:p-12 border border-[#efe3cc] shadow-sm">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 mb-6 border-b border-[#efe3cc]">
+<div>
+<div class="flex items-center gap-3">
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">SERVICE 04</span>
+<span class="px-3 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-label-mono text-[11px] text-primary font-semibold">OPPORTUNITIES FOR CAREER</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">Exam &amp; Opportunity Hub</h3>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-secondary">source</span>
+<span class="text-on-surface font-medium">All Official Statutory Councils</span>
+</div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-4 leading-relaxed">
+            Bring together official examination and opportunity sources so students can discover eligibility, syllabus, important information and official application routes.
+          </p>
+<!-- Category Pills -->
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">TNPSC</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">UPSC</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">SSC</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">Banking</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">Railway</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">Defence</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">State Examinations</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">Entrance Examinations</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">Government Internships</span>
+<span class="px-3 py-1 rounded bg-[#f6ede0] border border-[#efe3cc] font-label-mono text-[11px] text-on-surface font-medium">Skill Programmes</span>
+</div>
+<!-- Direct Portal Access Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+<a class="p-4 rounded-xl bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] transition-all flex items-center justify-between group" href="https://www.tnpsc.gov.in/" rel="noopener noreferrer" target="_blank">
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block group-hover:text-primary">TNPSC Portal</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Tamil Nadu Public Service Commission</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">open_in_new</span>
+</a>
+<a class="p-4 rounded-xl bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] transition-all flex items-center justify-between group" href="https://www.upsc.gov.in/" rel="noopener noreferrer" target="_blank">
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block group-hover:text-primary">UPSC Official</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Union Public Service Commission</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">open_in_new</span>
+</a>
+<a class="p-4 rounded-xl bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] transition-all flex items-center justify-between group" href="https://ssc.gov.in/" rel="noopener noreferrer" target="_blank">
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block group-hover:text-primary">SSC Official</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Staff Selection Commission</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">open_in_new</span>
+</a>
+<a class="p-4 rounded-xl bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] transition-all flex items-center justify-between group" href="https://www.ibps.in/" rel="noopener noreferrer" target="_blank">
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block group-hover:text-primary">Banking (IBPS)</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Institute of Banking Personnel</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">open_in_new</span>
+</a>
+<a class="p-4 rounded-xl bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] transition-all flex items-center justify-between group" href="https://www.nta.ac.in/" rel="noopener noreferrer" target="_blank">
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block group-hover:text-primary">Entrance Exams (NTA)</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">National Testing Agency</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">open_in_new</span>
+</a>
+<a class="p-4 rounded-xl bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#efe3cc] transition-all flex items-center justify-between group" href="https://www.ncs.gov.in/" rel="noopener noreferrer" target="_blank">
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block group-hover:text-primary">Career Services (NCS)</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Ministry of Labour &amp; Employment</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">open_in_new</span>
+</a>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic border-t border-[#efe3cc] pt-4">
+            Governance Note: Student RSO curates verified pathways; examination conduct, syllabus governance and admissions remain strictly with respective statutory authorities.
+          </p>
+</div>
+<!-- SERVICE 05: AI CAREER ASSISTANT -->
+<div id="ai-career-assistant-section" class="bg-[#fdfbf6] rounded-2xl p-8 lg:p-12 border border-[#efe3cc] shadow-sm">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 mb-6 border-b border-[#efe3cc]">
+<div>
+<div class="flex items-center gap-3">
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">SERVICE 05</span>
+<span class="px-3 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-label-mono text-[11px] text-primary font-semibold">GUIDANCE</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">AI Career Assistant: <span class="italic font-serif text-primary">Make your next education decision clearer.</span></h3>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+<span class="text-on-surface font-medium">7-Parameter Evaluator</span>
+</div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+            Explore possible education pathways based on your subjects, academic performance, interests, preferred career, budget, location and government/private preference.
+          </p>
+<!-- Multi-Parameter Matrix Simulator -->
+<div class="bg-[#fbf5e9] border border-[#efe3cc] p-6 lg:p-8 rounded-xl mb-6">
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-4 uppercase">EVALUATION PARAMETERS SIMULATOR</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-6">
+<div class="p-3 bg-[#fdfbf6] border border-[#efe3cc] rounded-lg">
+<span class="font-label-mono text-label-mono text-secondary font-bold block text-[11px]">PARAM 01</span>
+<span class="font-title-md text-[16px] text-on-surface font-bold">Marks</span>
+</div>
+<div class="p-3 bg-[#fdfbf6] border border-[#efe3cc] rounded-lg">
+<span class="font-label-mono text-label-mono text-secondary font-bold block text-[11px]">PARAM 02</span>
+<span class="font-title-md text-[16px] text-on-surface font-bold">Subjects</span>
+</div>
+<div class="p-3 bg-[#fdfbf6] border border-[#efe3cc] rounded-lg">
+<span class="font-label-mono text-label-mono text-secondary font-bold block text-[11px]">PARAM 03</span>
+<span class="font-title-md text-[16px] text-on-surface font-bold">Interests</span>
+</div>
+<div class="p-3 bg-[#fdfbf6] border border-[#efe3cc] rounded-lg">
+<span class="font-label-mono text-label-mono text-secondary font-bold block text-[11px]">PARAM 04</span>
+<span class="font-title-md text-[16px] text-on-surface font-bold">Career</span>
+</div>
+<div class="p-3 bg-[#fdfbf6] border border-[#efe3cc] rounded-lg">
+<span class="font-label-mono text-label-mono text-secondary font-bold block text-[11px]">PARAM 05</span>
+<span class="font-title-md text-[16px] text-on-surface font-bold">Budget</span>
+</div>
+<div class="p-3 bg-[#fdfbf6] border border-[#efe3cc] rounded-lg">
+<span class="font-label-mono text-label-mono text-secondary font-bold block text-[11px]">PARAM 06</span>
+<span class="font-title-md text-[16px] text-on-surface font-bold">Location</span>
+</div>
+<div class="p-3 bg-[#fdfbf6] border border-[#efe3cc] rounded-lg">
+<span class="font-label-mono text-label-mono text-secondary font-bold block text-[11px]">PARAM 07</span>
+<span class="font-title-md text-[16px] text-on-surface font-bold">Gov / Pvt</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-secondary">info</span>
+<span class="font-body-sm text-body-sm">Tell us about your goals. We’ll help you explore possible pathways.</span>
+</div>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-[#6d1824] text-on-primary font-label-lg text-label-lg transition-colors flex items-center gap-2 shadow-xs">
+<span class="">Explore Career Options</span>
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+</button>
+</div>
+</div>
+<div class="p-3.5 bg-[#f6ede0] border border-[#efe3cc] rounded-lg font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-semibold">Decision Disclaimer:</strong> AI guidance is for exploration and decision support. Official eligibility and admission requirements should always be confirmed with the relevant institution or official authority.
+          </div>
+</div>
+<!-- SERVICE 06: DEADLINE MANAGER -->
+<div id="deadline-manager" class="bg-[#fdfbf6] rounded-2xl p-8 lg:p-12 border border-[#efe3cc] shadow-sm"><div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 mb-6 border-b border-[#efe3cc]"><div><div class="flex items-center gap-3"><span class="font-label-mono text-label-mono text-secondary uppercase font-bold">SERVICE 06</span><span class="px-3 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-label-mono text-[11px] text-primary font-semibold tracking-wider uppercase">Reminder Dashboard</span></div><h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">Deadline Manager: <span class="italic font-serif text-primary">Stay Ahead of Important Dates.</span></h3></div><div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono"><span class="material-symbols-outlined text-[16px] text-secondary">calendar_month</span><span class="text-on-surface font-medium">Official Calendar Framework</span></div></div><p class="font-body-lg text-body-lg text-on-surface-variant mb-3 leading-relaxed">Keep scholarships, examinations, admissions, certificate services, competitions and renewals in one clear timeline.</p><p class="font-body-md text-body-md text-[#5c4a3b] mb-8 font-medium">Stay informed about important dates and plan ahead with confidence.</p><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6"><div class="p-5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex flex-col justify-between hover:border-[#d8c7ad] transition-all"><div class="flex items-start justify-between mb-3"><div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[20px]">school</span></div><span class="font-label-mono text-label-mono text-secondary font-bold">01</span></div><div><h4 class="font-title-md text-title-md text-on-surface font-bold mb-1.5">Scholarships</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Track state, central and institutional merit &amp; welfare aid windows.</p></div></div><div class="p-5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex flex-col justify-between hover:border-[#d8c7ad] transition-all"><div class="flex items-start justify-between mb-3"><div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[20px]">edit_note</span></div><span class="font-label-mono text-label-mono text-secondary font-bold">02</span></div><div><h4 class="font-title-md text-title-md text-on-surface font-bold mb-1.5">Examinations</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Recruitment notices, state &amp; national competitive exam calendars.</p></div></div><div class="p-5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex flex-col justify-between hover:border-[#d8c7ad] transition-all"><div class="flex items-start justify-between mb-3"><div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[20px]">account_balance</span></div><span class="font-label-mono text-label-mono text-secondary font-bold">03</span></div><div><h4 class="font-title-md text-title-md text-on-surface font-bold mb-1.5">Admissions</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Undergraduate, postgraduate, professional counseling &amp; entry schedules.</p></div></div><div class="p-5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex flex-col justify-between hover:border-[#d8c7ad] transition-all"><div class="flex items-start justify-between mb-3"><div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[20px]">emoji_events</span></div><span class="font-label-mono text-label-mono text-secondary font-bold">04</span></div><div><h4 class="font-title-md text-title-md text-on-surface font-bold mb-1.5">Competitions</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Academic hackathons, technical paper contests &amp; innovation grants.</p></div></div><div class="p-5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex flex-col justify-between hover:border-[#d8c7ad] transition-all md:col-span-2 lg:col-span-1"><div class="flex items-start justify-between mb-3"><div class="w-10 h-10 rounded-lg bg-white border border-[#efe3cc] text-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-[20px]">autorenew</span></div><span class="font-label-mono text-label-mono text-secondary font-bold">05</span></div><div><h4 class="font-title-md text-title-md text-on-surface font-bold mb-1.5">Renewals</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Annual fee concessions, recurring scholarship maintenance &amp; document renewals.</p></div></div><div class="p-5 rounded-xl bg-[#f6ede0] border border-[#efe3cc] flex flex-col justify-center items-start md:col-span-2 lg:col-span-1"><div class="flex items-center gap-2 text-secondary mb-2"><span class="material-symbols-outlined text-[20px]">schedule</span><span class="font-label-mono text-[11px] font-bold uppercase tracking-wider">TIMELINE WORKFLOW</span></div><p class="font-body-sm text-body-sm text-on-surface font-semibold">DISCOVER → ORGANISE → TRACK → STAY AHEAD</p></div></div><div class="p-4 bg-[#f6ede0] border border-[#efe3cc] rounded-xl flex items-center gap-3 mb-6"><span class="material-symbols-outlined text-[20px] text-primary shrink-0">verified_user</span><p class="font-body-sm text-body-sm text-on-surface-variant"><strong class="text-on-surface font-semibold">Source-linked tracking:</strong> Deadlines can be linked to verified official sources for easier tracking.</p></div><div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#efe3cc]"><div class="flex items-center gap-2 text-on-surface-variant font-label-mono text-label-mono"><span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span><span class="">Source-linked • Transparent • Student-first</span></div><div class="flex flex-wrap gap-4"><a class="px-5 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2" href="#official-sources"><span class="">View Official Sources</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a><button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-[#6d1824] text-on-primary font-label-lg text-label-lg transition-colors flex items-center gap-2 shadow-xs"><span class="">Manage Deadlines</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></button></div></div></div>
+<!-- SERVICE 07: VERIFIED INFORMATION -->
+<div id="verified-information" class="bg-[#fdfbf6] rounded-2xl p-8 lg:p-12 border border-[#efe3cc] shadow-sm">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 mb-6 border-b border-[#efe3cc]">
+<div>
+<div class="flex items-center gap-3">
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">SERVICE 07</span>
+<span class="px-3 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-label-mono text-[11px] text-primary font-semibold">STAYING ON TRACK</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">Verified Information: <span class="italic font-serif text-primary">Know where the information came from.</span></h3>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-secondary">security</span>
+<span class="text-on-surface font-medium">Official Verified Standard</span>
+</div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+            Make important student information easier to evaluate by showing its source, verification status, last verification date and official link.
+          </p>
+<!-- Verification Tri-State Model Indicators -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<div class="p-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block">VERIFIED</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Checked and current against gazette notice</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block">VERIFICATION DUE</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Scheduled cycle needs a fresh gazette check</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<div>
+<span class="font-title-md text-[16px] text-on-surface font-bold block">EXPIRED</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">No longer valid or officially superseded</span>
+</div>
+</div>
+</div>
+<!-- Live Schema Preview Table -->
+<div class="overflow-x-auto bg-[#fbf5e9] border border-[#efe3cc] rounded-xl mb-6">
+<table class="w-full text-left font-body-sm text-body-sm"><thead class="bg-[#f6ede0] text-on-surface font-label-mono text-label-mono uppercase border-b border-[#efe3cc]"><tr><th class="p-4">Tracked Subject</th><th class="p-4">Issuing Body / Authority</th><th class="p-4">Verification Status</th><th class="p-4">Last Verified</th><th class="p-4 text-right">Official Source</th></tr></thead><tbody class="divide-y divide-[#efe3cc] text-on-surface"><tr><td class="p-4 font-semibold text-on-surface">National Scholarship Portal</td><td class="p-4 text-on-surface-variant">Ministry of Electronics &amp; IT</td><td class="p-4"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#dbe8e4] text-[#15362e] font-label-mono text-[11px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Verified</span></td><td class="p-4 font-label-mono text-[12px] text-on-surface-variant">14 Oct 2026<br></td><td class="p-4 text-right"><a class="text-primary hover:text-primary-dark underline font-label-mono text-label-mono inline-flex items-center gap-1 font-semibold" href="https://scholarships.gov.in" rel="noopener noreferrer" target="_blank">scholarships.gov.in <span class="material-symbols-outlined text-[14px]">open_in_new</span></a></td></tr><tr><td class="p-4 font-semibold text-on-surface">Anti-Ragging Regulatory Cell</td><td class="p-4 text-on-surface-variant">University Grants Commission (UGC)</td><td class="p-4"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#dbe8e4] text-[#15362e] font-label-mono text-[11px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Verified</span></td><td class="p-4 font-label-mono text-[12px] text-on-surface-variant">08 Nov 2026</td><td class="p-4 text-right"><a class="text-primary hover:text-primary-dark underline font-label-mono text-label-mono inline-flex items-center gap-1 font-semibold" href="https://www.antiragging.in" rel="noopener noreferrer" target="_blank">antiragging.in <span class="material-symbols-outlined text-[14px]">open_in_new</span></a></td></tr><tr><td class="p-4 font-semibold text-on-surface">Tamil Nadu e-Sevai Service</td><td class="p-4 text-on-surface-variant">TNeGA / Revenue Administration</td><td class="p-4"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#dbe8e4] text-[#15362e] font-label-mono text-[11px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Verified</span></td><td class="p-4 font-label-mono text-[12px] text-on-surface-variant">22 Oct 2026</td><td class="p-4 text-right"><a class="text-primary hover:text-primary-dark underline font-label-mono text-label-mono inline-flex items-center gap-1 font-semibold" href="http://www.tnesevai.tn.gov.in/" rel="noopener noreferrer" target="_blank">tnesevai.tn.gov.in <span class="material-symbols-outlined text-[14px]">open_in_new</span></a></td></tr></tbody></table>
+</div>
+<div class="flex justify-end pt-2">
+<button class="px-5 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2">
+<span class="">View Verification Information</span>
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HOW IT WORKS -->
+<section class="w-full bg-surface py-space-xl lg:py-24" id="how-it-works">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="max-w-3xl mb-16">
+<div class="inline-flex items-center gap-2">
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">HOW IT WORKS</span>
+<div class="w-8 h-0.5 bg-secondary"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-4 font-bold">A clearer way to <span class="italic font-serif text-primary">navigate student services.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">A simple six-step journey from finding the right service to reaching the appropriate official source.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-display-hero text-headline-lg text-secondary font-bold font-serif">01</span>
+<span class="material-symbols-outlined text-primary text-[24px]">search</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">DISCOVER</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Find the service, grant, or opportunity you need through categorized public inventories.</p>
+</div>
+<div class="mt-6 pt-4 border-t border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">Initial intake</div>
+</div>
+<!-- Step 2 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-display-hero text-headline-lg text-secondary font-bold font-serif">02</span>
+<span class="material-symbols-outlined text-primary text-[24px]">fact_check</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">CHECK</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Review eligibility parameters, required documentation, and official statutory guidelines.</p>
+</div>
+<div class="mt-6 pt-4 border-t border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">Prerequisite audit</div>
+</div>
+<!-- Step 3 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-display-hero text-headline-lg text-secondary font-bold font-serif">03</span>
+<span class="material-symbols-outlined text-primary text-[24px]">open_in_new</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">CONNECT</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Go directly to the relevant official statutory portal without passing personal data to commercial proxies.</p>
+</div>
+<div class="mt-6 pt-4 border-t border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">Direct routing</div>
+</div>
+<!-- Step 4 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-display-hero text-headline-lg text-secondary font-bold font-serif">04</span>
+<span class="material-symbols-outlined text-primary text-[24px]">sync_alt</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">TRACK</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Follow supported processes and state application cycles where tracking is available.</p>
+</div>
+<div class="mt-6 pt-4 border-t border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">Application lifecycle</div>
+</div>
+<!-- Step 5 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-display-hero text-headline-lg text-secondary font-bold font-serif">05</span>
+<span class="material-symbols-outlined text-primary text-[24px]">verified</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">VERIFY</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Check source authenticity, last audit timestamp, and gazette validation status.</p>
+</div>
+<div class="mt-6 pt-4 border-t border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">Provenance assurance</div>
+</div>
+<!-- Step 6 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-display-hero text-headline-lg text-secondary font-bold font-serif">06</span>
+<span class="material-symbols-outlined text-primary text-[24px]">event_available</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">PLAN</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Keep upcoming statutory deadlines and career milestones synchronized in your central register.</p>
+</div>
+<div class="mt-6 pt-4 border-t border-[#efe3cc] text-on-surface-variant font-label-mono text-label-mono">Forward trajectory</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHO IT IS FOR -->
+<section id="student-journey" class="w-full bg-[#f6ede0] py-space-xl lg:py-24 border-t border-b border-[#efe3cc]">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="max-w-3xl mb-16">
+<div class="inline-flex items-center gap-2">
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">STUDENT JOURNEY</span>
+<div class="w-8 h-0.5 bg-secondary"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-4 font-bold">Built for every stage of the <span class="italic font-serif text-primary">student journey.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">Relevant services, opportunities and guidance for every stage of education.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Cohort 1 -->
+<div id="class-10-pathway" class="bg-[#fdfbf6] p-6 rounded-xl border border-[#efe3cc] flex flex-col justify-between shadow-xs">
+<div>
+<div class="w-10 h-10 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[20px]">looks_one</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">LEVEL 01</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-1 mb-3">CLASS 10</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Explore education pathways, early merit scholarships and foundational career opportunity profiles.</p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#efe3cc] flex items-center gap-1 text-primary font-label-mono text-label-mono font-semibold">
+<span class="">Secondary Pathway</span>
+</div>
+</div>
+<!-- Cohort 2 -->
+<div id="class-11-12-pathway" class="bg-[#fdfbf6] p-6 rounded-xl border border-[#efe3cc] flex flex-col justify-between shadow-xs">
+<div>
+<div class="w-10 h-10 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[20px]">looks_two</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">LEVEL 02</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-1 mb-3">CLASS 11–12</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Explore state and central scholarships, national entrance examinations and higher education options.</p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#efe3cc] flex items-center gap-1 text-primary font-label-mono text-label-mono font-semibold">
+<span class="">Senior Secondary</span>
+</div>
+</div>
+<!-- Cohort 3 -->
+<div id="undergraduate-pathway" class="bg-[#fdfbf6] p-6 rounded-xl border border-[#efe3cc] flex flex-col justify-between shadow-xs">
+<div>
+<div class="w-10 h-10 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[20px]">looks_3</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">LEVEL 03</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-1 mb-3">UNDERGRADUATE</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Find scholarships, public civil examinations, research internships, official certificates and skill councils.</p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#efe3cc] flex items-center gap-1 text-primary font-label-mono text-label-mono font-semibold">
+<span class="">Degree Cycle</span>
+</div>
+</div>
+<!-- Cohort 4 -->
+<div id="postgraduate-pathway" class="bg-[#fdfbf6] p-6 rounded-xl border border-[#efe3cc] flex flex-col justify-between shadow-xs">
+<div>
+<div class="w-10 h-10 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[20px]">looks_4</span>
+</div>
+<span class="font-label-mono text-label-mono text-secondary uppercase font-bold">LEVEL 04</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-1 mb-3">POSTGRADUATE</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Explore research grants, doctoral fellowships, statutory examinations, documentation verification and career portals.</p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#efe3cc] flex items-center gap-1 text-primary font-label-mono text-label-mono font-semibold">
+<span class="">Research &amp; Advanced</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OFFICIAL SOURCES / TRUST FRAMEWORK -->
+<section id="official-sources" class="w-full bg-surface py-space-xl lg:py-24">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="max-w-3xl mb-16">
+<div class="inline-flex items-center gap-2">
+<span class="font-label-mono text-label-mono text-secondary font-bold tracking-wider uppercase">AUTHENTICITY &amp; OFFICIAL SOURCES</span>
+<div class="w-8 h-0.5 bg-secondary"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-4 font-bold">Start with the <span class="italic font-serif text-primary">source that matters.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">Student RSO helps students discover trusted information and navigate official services. Applications, registrations, certificates and institutional decisions remain with the relevant government authority or institution.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Trust Card 1 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-2">FINANCIAL AID</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">Scholarships</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Discover scholarship opportunities through official national, state and institutional sources, with eligibility information and direct application routes.</p>
+</div>
+<div class="pt-4 border-t border-[#efe3cc] flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant">scholarships.gov.in</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+</div>
+</div>
+<!-- Trust Card 2 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-2">PUBLIC COMPETITION</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">Examinations</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Find official examination information from recognised authorities, including UPSC, TNPSC, SSC, IBPS, NTA and Railway Recruitment Boards.</p>
+</div>
+<div class="pt-4 border-t border-[#efe3cc] flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant">upsc.gov.in • tnpsc.gov.in</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+</div>
+</div>
+<!-- Trust Card 3 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-2">GUIDANCE</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">Career &amp; Employment</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Explore official career and employment services, including opportunities and guidance provided through the National Career Service.</p>
+</div>
+<div class="pt-4 border-t border-[#efe3cc] flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant">ncs.gov.in</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+</div>
+</div>
+<!-- Trust Card 4 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-2">DIGITAL CERTIFICATE SERVICES</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">Certificates</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Access official digital certificate services through authorised e-Sevai and e-District platforms for applications, records and verification.</p>
+</div>
+<div class="pt-4 border-t border-[#efe3cc] flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant">tnesevai.tn.gov.in</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+</div>
+</div>
+<!-- Trust Card 5 -->
+<div class="p-6 bg-surface-container-low border border-[#efe3cc] rounded-xl flex flex-col justify-between hover:border-[#d8c7ad] transition-all">
+<div>
+<span class="font-label-mono text-label-mono text-secondary font-bold block mb-2">REPORT-ROUTE-TRACK</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-2">Safety &amp; Grievance Redress</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">National Anti-Ragging Helpline, University Grants Commission (UGC) monitoring cells, and regional statutory education ombudsman offices.</p>
+</div>
+<div class="pt-4 border-t border-[#efe3cc] flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant">antiragging.in • Helpline: 1800-180-5522</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CALL TO ACTION (EDITORIAL BURGUNDY BANNER) -->
+<section class="w-full bg-[#8c2f39] text-[#fbf5e9] py-space-xl lg:py-24 relative overflow-hidden">
+<div class="max-w-5xl mx-auto px-6 lg:px-12 text-center flex flex-col items-center relative z-10">
+<div class="inline-flex items-center gap-2 mb-4">
+<span class="w-6 h-0.5 bg-secondary"></span>
+<span class="font-label-mono text-[12px] uppercase tracking-widest text-secondary font-bold">STUDENT RSO CIVIC INFRASTRUCTURE</span>
+<span class="w-6 h-0.5 bg-secondary"></span>
+</div>
+<h2 class="font-display-hero text-display-hero text-white font-bold tracking-tight mb-3">
+        Your education journey has enough challenges.
+      </h2>
+<p class="font-headline-md text-headline-md text-secondary font-serif italic mb-6">
+        Finding the right information shouldn't be one of them.
+      </p>
+<p class="font-body-lg text-body-lg text-[#f3dde0] max-w-2xl mb-12 leading-relaxed">
+        Scholarships. Services. Safety. Examinations. Career guidance. Deadlines. One organised starting point.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-space-md">
+<a class="px-8 py-4 rounded-lg bg-[#fbf5e9] hover:bg-white text-primary font-label-lg text-label-lg font-bold shadow-lg transition-all flex items-center gap-2" href="#services">
+<span class="">Explore the Platform</span>
+<span class="material-symbols-outlined text-[18px]">explore</span>
+</a>
+<a class="px-8 py-4 rounded-lg bg-[#6d1824] hover:bg-[#57121b] border border-[#a94852] text-white font-label-lg text-label-lg transition-colors flex items-center gap-2" href="#services">
+<span class="">Explore Services</span>
+<span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+</a>
+</div>
+<div class="mt-16 flex items-center gap-2 text-[#f3dde0] font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified_user</span>
+<span class="">Student-first · Source-linked · Transparent · Independent</span>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-[#2b2118] text-[#efe3cc] border-t border-[#413328] pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-6 lg:px-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 pb-space-xl gap-10"><div class="lg:col-span-2 flex flex-col gap-4"><div class="flex items-center gap-3"><img alt="Student RSO Emblem" class="h-9 w-auto object-contain brightness-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADZRzXzBabbIZ5IwKvYriW4531iWvT9KTJ08dabXAkDWt4U2UcFw_3_tqkwGjF-6gGs8lzlijAMM6oHCLij0mk5vAVLhDAvIVfP06G9tsAV0P07OT1Uz-twoxgV0nSpmtX4AO2h8edr-iu3f-ncwAP6_p1ZRmjVrcfcBK2Jy5offP7WTh1HN-LYAB_KBcWG9ZoT-AQuxGOzoChAnLqBn_SMi2h3I8FU2sX_L3wJQZtRh4F1Gg-Yr1i_J25v7mK00XSaJqlhJXAnAoioA"><span class="font-title-lg text-title-lg font-bold text-white font-display-lg italic"><div class="">Student RSO</div><div class="">Student Rights · Services · Opportunities</div></span></div><p class="font-body-sm text-body-sm text-[#d8c7ad] max-w-sm leading-relaxed">A student-first platform connecting learners with trusted information, essential services, opportunities and official support pathways — from secondary education to postgraduate study.</p></div><div class="flex flex-col gap-2.5"><span class="font-title-md text-[15px] font-bold text-secondary uppercase tracking-wider mb-2">Platform</span><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="scholarship-hub" href="#">Scholarship Hub</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="safety-and-grievance" href="#">Safety &amp; Grievance</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="certificate-service" href="#">Certificate Service</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="exam-and-opportunity-hub" href="#">Exam &amp; Opportunity Hub</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="ai-career-assistant" href="#">AI Career Assistant</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="deadline-manager" href="#">Deadline Manager</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="verified-information" href="#">Verified Information</a></div><div class="flex flex-col gap-2.5"><span class="font-title-md text-[15px] font-bold text-secondary uppercase tracking-wider mb-2">Student Journey</span><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="class-10-pathway" href="#">Class 10 Foundation</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="class-11-12-pathway" href="#">Class 11–12 Senior Cycle</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="undergraduate-pathway" href="#">Undergraduate Degree</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="postgraduate-pathway" href="#">Postgraduate &amp; Research</a></div><div class="flex flex-col gap-2.5"><span class="font-title-md text-[15px] font-bold text-secondary uppercase tracking-wider mb-2">Governance</span><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="official-sources" href="#">Official Sources</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="verification-framework" href="#">Verification Standards</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="privacy-policy" href="#">Privacy</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="terms-of-service" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-[#d8c7ad] hover:text-white transition-colors" data-path="contact" href="#">Contact</a></div></div><div class="pt-space-md border-t border-[#413328] flex flex-col gap-space-sm"><p class="font-body-sm leading-relaxed text-[#efe3cc] text-[14px]">Platform Disclaimer: Student RSO is an independent student information and navigation platform. It does not replace government departments, educational institutions, examination authorities, statutory bodies or official service providers. Applications, decisions, certificates and official processes remain subject to the respective authority's rules and procedures.</p><div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#a89a8a] pt-space-xs"><p class="text-xs text-[#a89a8a]">© 2026 Student RSO. All rights reserved.</p><div class="flex items-center gap-6 text-xs text-[#a89a8a]"><a href="#" class="hover:text-white transition-colors">Privacy</a><span class="text-[#5c4a3b]">·</span><a href="#" class="hover:text-white transition-colors">Terms</a><span class="text-[#5c4a3b]">·</span><a href="#" class="hover:text-white transition-colors">Accessibility</a><span class="text-[#5c4a3b]">·</span><a href="#" class="hover:text-white transition-colors">Contact</a></div></div></div></div></footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,22 @@
+name: Scholarship URL Health Audit
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * 1" # Every Monday at 02:17 UTC
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check scholarship URLs
+        run: node scholarship-link-monitor.mjs
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholarship-link-health
+          path: |
+            scholarship-link-health.json
+            scholarship-link-health.csv

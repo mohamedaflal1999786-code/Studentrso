@@ -1,0 +1,2230 @@
+[
+  {
+    "url": "https://cmhelpline.tnega.org/portal/en/home",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 6,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 218,
+    "sampleContext": "officialUrl: 'https://cmhelpline.tnega.org/portal/en/home',"
+  },
+  {
+    "url": "https://dce.tn.gov.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 233,
+    "sampleContext": "officialUrl: 'https://dce.tn.gov.in/',"
+  },
+  {
+    "url": "https://www.antiragging.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 248,
+    "sampleContext": "officialUrl: 'https://www.antiragging.in/',"
+  },
+  {
+    "url": "https://www.antiragging.in/complaint_register_form.html",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 249,
+    "sampleContext": "complaintUrl: 'https://www.antiragging.in/complaint_register_form.html',"
+  },
+  {
+    "url": "https://samadhaan.ugc.ac.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 13,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 263,
+    "sampleContext": "officialUrl: 'https://samadhaan.ugc.ac.in/',"
+  },
+  {
+    "url": "https://www.aicte-india.org/feedback/index.php",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 276,
+    "sampleContext": "officialUrl: 'https://www.aicte-india.org/feedback/index.php',"
+  },
+  {
+    "url": "https://ncsc.nic.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 291,
+    "sampleContext": "officialUrl: 'https://ncsc.nic.in/',"
+  },
+  {
+    "url": "https://ncsccmis.nic.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 292,
+    "sampleContext": "complaintUrl: 'https://ncsccmis.nic.in/',"
+  },
+  {
+    "url": "https://ncpcr.gov.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 304,
+    "sampleContext": "officialUrl: 'https://ncpcr.gov.in/',"
+  },
+  {
+    "url": "https://ncpcr.gov.in/index_ebaalnidan.php/main/complaint",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 305,
+    "sampleContext": "complaintUrl: 'https://ncpcr.gov.in/index_ebaalnidan.php/main/complaint',"
+  },
+  {
+    "url": "https://ncw.nic.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 319,
+    "sampleContext": "officialUrl: 'https://ncw.nic.in/',"
+  },
+  {
+    "url": "http://ncwapps.nic.in/onlinecomplaintsv2/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 320,
+    "sampleContext": "complaintUrl: 'http://ncwapps.nic.in/onlinecomplaintsv2/',"
+  },
+  {
+    "url": "https://www.ugc.gov.in/Home/student_Corner",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 336,
+    "sampleContext": "officialUrl: 'https://www.ugc.gov.in/Home/student_Corner',"
+  },
+  {
+    "url": "https://112.gov.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 351,
+    "sampleContext": "officialUrl: 'https://112.gov.in/',"
+  },
+  {
+    "url": "https://eservices.tnpolice.gov.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 366,
+    "sampleContext": "officialUrl: 'https://eservices.tnpolice.gov.in/',"
+  },
+  {
+    "url": "https://eservices.tnpolice.gov.in/CCTNSNICSDC/Index?0",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 367,
+    "sampleContext": "complaintUrl: 'https://eservices.tnpolice.gov.in/CCTNSNICSDC/Index?0',"
+  },
+  {
+    "url": "https://cybercrime.gov.in/",
+    "modules": [
+      "mod-02",
+      "mod-10",
+      "digital-safety"
+    ],
+    "occurrenceCount": 12,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 398,
+    "sampleContext": "officialUrl: 'https://cybercrime.gov.in/',"
+  },
+  {
+    "url": "https://cybercrime.gov.in/Webform/Accept.aspx",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 399,
+    "sampleContext": "complaintUrl: 'https://cybercrime.gov.in/Webform/Accept.aspx',"
+  },
+  {
+    "url": "https://www.antiragging.in/assets/pdf/annexure/Notice-Ragging.pdf",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 447,
+    "sampleContext": "url: 'https://www.antiragging.in/assets/pdf/annexure/Notice-Ragging.pdf',"
+  },
+  {
+    "url": "https://scd.tn.gov.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 691,
+    "sampleContext": "url: 'https://scd.tn.gov.in/',"
+  },
+  {
+    "url": "https://www.dote.tn.gov.in/",
+    "modules": [
+      "mod-02",
+      "mod-03"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 772,
+    "sampleContext": "url: 'https://www.dote.tn.gov.in/',"
+  },
+  {
+    "url": "https://www.annauniv.edu/grievance/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 925,
+    "sampleContext": "url: 'https://www.annauniv.edu/grievance/',"
+  },
+  {
+    "url": "https://www.unom.ac.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 930,
+    "sampleContext": "url: 'https://www.unom.ac.in/',"
+  },
+  {
+    "url": "https://cybercrime.gov.in/Webform/Crime_AuthoLogin.aspx",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 1004,
+    "sampleContext": "url: 'https://cybercrime.gov.in/Webform/Crime_AuthoLogin.aspx',"
+  },
+  {
+    "url": "https://www.cert-in.org.in/",
+    "modules": [
+      "mod-02",
+      "mod-10"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 1009,
+    "sampleContext": "url: 'https://www.cert-in.org.in/',"
+  },
+  {
+    "url": "https://ncpcr.gov.in/index_pocso.php",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 1085,
+    "sampleContext": "url: 'https://ncpcr.gov.in/index_pocso.php',"
+  },
+  {
+    "url": "https://samagrax.tnschools.gov.in/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 1092,
+    "sampleContext": "url: 'https://samagrax.tnschools.gov.in/',"
+  },
+  {
+    "url": "https://foscos.fssai.gov.in/consumergrievance/",
+    "modules": [
+      "mod-02"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/safety-data.ts",
+    "sampleLine": 1168,
+    "sampleContext": "url: 'https://foscos.fssai.gov.in/consumergrievance/',"
+  },
+  {
+    "url": "https://www.tnesevai.tn.gov.in/citizen/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 16,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 176,
+    "sampleContext": "applicationPortalUrl: 'https://www.tnesevai.tn.gov.in/citizen/',"
+  },
+  {
+    "url": "https://tnedistrict.tn.gov.in/web/VerifyCerti.xhtml",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 32,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 178,
+    "sampleContext": "downloadPortalUrl: 'https://tnedistrict.tn.gov.in/web/VerifyCerti.xhtml',"
+  },
+  {
+    "url": "https://www.swavlambancard.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 6,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 538,
+    "sampleContext": "applicationPortalUrl: 'https://www.swavlambancard.gov.in/',"
+  },
+  {
+    "url": "https://www.swavlambancard.gov.in/pwd/application-status",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 540,
+    "sampleContext": "downloadPortalUrl: 'https://www.swavlambancard.gov.in/pwd/application-status',"
+  },
+  {
+    "url": "https://myaadhaar.uidai.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 677,
+    "sampleContext": "applicationPortalUrl: 'https://myaadhaar.uidai.gov.in/',"
+  },
+  {
+    "url": "https://myaadhaar.uidai.gov.in/genricDownloadAadhaar",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 679,
+    "sampleContext": "downloadPortalUrl: 'https://myaadhaar.uidai.gov.in/genricDownloadAadhaar',"
+  },
+  {
+    "url": "https://myaadhaar.uidai.gov.in/verifyAadhaar",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 681,
+    "sampleContext": "verificationPortalUrl: 'https://myaadhaar.uidai.gov.in/verifyAadhaar',"
+  },
+  {
+    "url": "https://www.incometax.gov.in/iec/foportal/instant-e-pan",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 721,
+    "sampleContext": "applicationPortalUrl: 'https://www.incometax.gov.in/iec/foportal/instant-e-pan',"
+  },
+  {
+    "url": "https://www.onlineservices.nsdl.com/paam/requestAndDownloadEPAN.html",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 723,
+    "sampleContext": "downloadPortalUrl: 'https://www.onlineservices.nsdl.com/paam/requestAndDownloadEPAN.html',"
+  },
+  {
+    "url": "https://www.incometax.gov.in/iec/foportal/verify-your-pan",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 725,
+    "sampleContext": "verificationPortalUrl: 'https://www.incometax.gov.in/iec/foportal/verify-your-pan',"
+  },
+  {
+    "url": "https://voters.eci.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 765,
+    "sampleContext": "applicationPortalUrl: 'https://voters.eci.gov.in/',"
+  },
+  {
+    "url": "https://voters.eci.gov.in/e-epic",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 767,
+    "sampleContext": "downloadPortalUrl: 'https://voters.eci.gov.in/e-epic',"
+  },
+  {
+    "url": "https://electoralsearch.eci.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 769,
+    "sampleContext": "verificationPortalUrl: 'https://electoralsearch.eci.gov.in/',"
+  },
+  {
+    "url": "https://www.passportindia.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 6,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 809,
+    "sampleContext": "applicationPortalUrl: 'https://www.passportindia.gov.in/',"
+  },
+  {
+    "url": "https://www.passportindia.gov.in/AppOnlineProject/statusTracker/trackStatusInpNew",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 811,
+    "sampleContext": "downloadPortalUrl: 'https://www.passportindia.gov.in/AppOnlineProject/statusTracker/trackStatusInpNew',"
+  },
+  {
+    "url": "https://www.dge.tn.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 12,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 850,
+    "sampleContext": "applicationPortalUrl: 'https://www.dge.tn.gov.in/',"
+  },
+  {
+    "url": "https://www.digilocker.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 14,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 852,
+    "sampleContext": "downloadPortalUrl: 'https://www.digilocker.gov.in/',"
+  },
+  {
+    "url": "https://emis.tnschools.gov.in/",
+    "modules": [
+      "mod-03",
+      "mod-06"
+    ],
+    "occurrenceCount": 7,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 919,
+    "sampleContext": "applicationPortalUrl: 'https://emis.tnschools.gov.in/',"
+  },
+  {
+    "url": "https://www.annauniv.edu/",
+    "modules": [
+      "mod-03",
+      "mod-04"
+    ],
+    "occurrenceCount": 7,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 966,
+    "sampleContext": "applicationPortalUrl: 'https://www.annauniv.edu/',"
+  },
+  {
+    "url": "https://nad.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 970,
+    "sampleContext": "verificationPortalUrl: 'https://nad.gov.in/',"
+  },
+  {
+    "url": "https://cfr.annauniv.edu/",
+    "modules": [
+      "mod-03",
+      "mod-06"
+    ],
+    "occurrenceCount": 7,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 1062,
+    "sampleContext": "applicationPortalUrl: 'https://cfr.annauniv.edu/',"
+  },
+  {
+    "url": "https://www.ncbc.nic.in/User_Panel/CentralListStateView.aspx",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 1125,
+    "sampleContext": "applicationUrl: 'https://www.ncbc.nic.in/User_Panel/CentralListStateView.aspx',"
+  },
+  {
+    "url": "https://www.ncbc.nic.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 1126,
+    "sampleContext": "downloadUrl: 'https://www.ncbc.nic.in/',"
+  },
+  {
+    "url": "https://verify.digitallocker.gov.in/",
+    "modules": [
+      "mod-03"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/certificates-data.ts",
+    "sampleLine": 1269,
+    "sampleContext": "verificationUrl: 'https://verify.digitallocker.gov.in/',"
+  },
+  {
+    "url": "https://www.tnpsc.gov.in/",
+    "modules": [
+      "mod-04",
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 14,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 296,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.tnpsc.gov.in/\","
+  },
+  {
+    "url": "https://apply.tnpscexams.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 298,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://apply.tnpscexams.in/\","
+  },
+  {
+    "url": "https://www.tnpsc.gov.in/English/syllabus.html",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 299,
+    "sampleContext": "\"officialSyllabusUrl\": \"https://www.tnpsc.gov.in/English/syllabus.html\","
+  },
+  {
+    "url": "https://www.tnpsc.gov.in/English/previous_questions.html",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 300,
+    "sampleContext": "\"previousPapersUrl\": \"https://www.tnpsc.gov.in/English/previous_questions.html\","
+  },
+  {
+    "url": "https://tnusrb.tn.gov.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 9,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 920,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://tnusrb.tn.gov.in/\","
+  },
+  {
+    "url": "https://trb.tn.gov.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 9,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1153,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://trb.tn.gov.in/\","
+  },
+  {
+    "url": "https://msutnset.com/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1378,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://msutnset.com/\","
+  },
+  {
+    "url": "https://mrb.tn.gov.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1491,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://mrb.tn.gov.in/\","
+  },
+  {
+    "url": "https://www.tangedco.gov.in/",
+    "modules": [
+      "mod-04",
+      "mod-08"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1602,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.tangedco.gov.in/\","
+  },
+  {
+    "url": "https://dge.tn.gov.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 7,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1710,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://dge.tn.gov.in/\","
+  },
+  {
+    "url": "https://scholarships.gov.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1712,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://scholarships.gov.in/\","
+  },
+  {
+    "url": "https://www.dte.tn.gov.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1922,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.dte.tn.gov.in/\","
+  },
+  {
+    "url": "https://www.polyadmission.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 1924,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://www.polyadmission.in/\","
+  },
+  {
+    "url": "https://skilltraining.tn.gov.in/",
+    "modules": [
+      "mod-04",
+      "mod-06"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2032,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://skilltraining.tn.gov.in/\","
+  },
+  {
+    "url": "https://www.tneaonline.org/",
+    "modules": [
+      "mod-04",
+      "mod-06",
+      "exams"
+    ],
+    "occurrenceCount": 10,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2150,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.tneaonline.org/\","
+  },
+  {
+    "url": "https://tnmedicalselection.net/",
+    "modules": [
+      "mod-04",
+      "mod-06",
+      "exams"
+    ],
+    "occurrenceCount": 10,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2261,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://tnmedicalselection.net/\","
+  },
+  {
+    "url": "https://www.tngasa.in/",
+    "modules": [
+      "mod-04",
+      "mod-06"
+    ],
+    "occurrenceCount": 7,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2376,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.tngasa.in/\","
+  },
+  {
+    "url": "https://tnau.ac.in/",
+    "modules": [
+      "mod-04",
+      "mod-06"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2486,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://tnau.ac.in/\","
+  },
+  {
+    "url": "https://tnagfi.ucanapply.com/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2488,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://tnagfi.ucanapply.com/\","
+  },
+  {
+    "url": "https://tanuvas.ac.in/",
+    "modules": [
+      "mod-04",
+      "mod-06"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2597,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://tanuvas.ac.in/\","
+  },
+  {
+    "url": "https://adm.tanuvas.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2599,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://adm.tanuvas.ac.in/\","
+  },
+  {
+    "url": "https://tndalu.ac.in/",
+    "modules": [
+      "mod-04",
+      "mod-06"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2704,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://tndalu.ac.in/\","
+  },
+  {
+    "url": "https://upsc.gov.in/",
+    "modules": [
+      "mod-04",
+      "internships"
+    ],
+    "occurrenceCount": 14,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2822,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://upsc.gov.in/\","
+  },
+  {
+    "url": "https://upsconline.nic.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2824,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://upsconline.nic.in/\","
+  },
+  {
+    "url": "https://upsc.gov.in/examinations/previous-question-papers",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 2826,
+    "sampleContext": "\"previousPapersUrl\": \"https://upsc.gov.in/examinations/previous-question-papers\","
+  },
+  {
+    "url": "https://ssc.gov.in/",
+    "modules": [
+      "mod-04",
+      "internships"
+    ],
+    "occurrenceCount": 18,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 3290,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://ssc.gov.in/\","
+  },
+  {
+    "url": "https://www.ibps.in/",
+    "modules": [
+      "mod-04",
+      "internships"
+    ],
+    "occurrenceCount": 6,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 3751,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.ibps.in/\","
+  },
+  {
+    "url": "https://sbi.co.in/careers",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 3867,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://sbi.co.in/careers\","
+  },
+  {
+    "url": "https://jeemain.nta.nic.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 3980,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://jeemain.nta.nic.in/\","
+  },
+  {
+    "url": "https://nta.ac.in/Downloads",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 3984,
+    "sampleContext": "\"previousPapersUrl\": \"https://nta.ac.in/Downloads\","
+  },
+  {
+    "url": "https://jeeadv.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4097,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://jeeadv.ac.in/\","
+  },
+  {
+    "url": "https://neet.nta.nic.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4212,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://neet.nta.nic.in/\","
+  },
+  {
+    "url": "https://exams.nta.ac.in/CUET-UG/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4333,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://exams.nta.ac.in/CUET-UG/\","
+  },
+  {
+    "url": "https://cuetug.ntaonline.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4335,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://cuetug.ntaonline.in/\","
+  },
+  {
+    "url": "https://gate2026.iitg.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4452,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://gate2026.iitg.ac.in/\","
+  },
+  {
+    "url": "https://gate2026.iitg.ac.in/previous-papers",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4456,
+    "sampleContext": "\"previousPapersUrl\": \"https://gate2026.iitg.ac.in/previous-papers\","
+  },
+  {
+    "url": "https://ugcnet.nta.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4575,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://ugcnet.nta.ac.in/\","
+  },
+  {
+    "url": "https://www.ugcnetonline.in/syllabus-new.php",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4578,
+    "sampleContext": "\"officialSyllabusUrl\": \"https://www.ugcnetonline.in/syllabus-new.php\","
+  },
+  {
+    "url": "https://ugcnet.nta.ac.in/previous-papers",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4579,
+    "sampleContext": "\"previousPapersUrl\": \"https://ugcnet.nta.ac.in/previous-papers\","
+  },
+  {
+    "url": "https://csirnet.nta.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4693,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://csirnet.nta.ac.in/\","
+  },
+  {
+    "url": "https://csirhrdg.res.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4696,
+    "sampleContext": "\"officialSyllabusUrl\": \"https://csirhrdg.res.in/\","
+  },
+  {
+    "url": "https://iimcat.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4811,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://iimcat.ac.in/\","
+  },
+  {
+    "url": "https://consortiumofnlus.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 4925,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://consortiumofnlus.ac.in/\","
+  },
+  {
+    "url": "https://www.nata.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5038,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.nata.in/\","
+  },
+  {
+    "url": "https://kalasalingam.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5151,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://kalasalingam.ac.in/\","
+  },
+  {
+    "url": "https://hindustanuniv.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5262,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://hindustanuniv.ac.in/\","
+  },
+  {
+    "url": "https://vistas.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5373,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://vistas.ac.in/\","
+  },
+  {
+    "url": "https://www.karunya.edu/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5485,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.karunya.edu/\","
+  },
+  {
+    "url": "https://www.karunya.edu/admissions",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5487,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://www.karunya.edu/admissions\","
+  },
+  {
+    "url": "https://www.snuchennai.edu.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5595,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.snuchennai.edu.in/\","
+  },
+  {
+    "url": "https://www.snuchennai.edu.in/admissions/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5597,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://www.snuchennai.edu.in/admissions/\","
+  },
+  {
+    "url": "https://www.ametuniv.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5710,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.ametuniv.ac.in/\","
+  },
+  {
+    "url": "https://www.ametuniv.ac.in/admissions.html",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5712,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://www.ametuniv.ac.in/admissions.html\","
+  },
+  {
+    "url": "https://tancet.annauniv.edu/",
+    "modules": [
+      "mod-04",
+      "mod-06"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5828,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://tancet.annauniv.edu/\","
+  },
+  {
+    "url": "https://vit.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5943,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://vit.ac.in/\","
+  },
+  {
+    "url": "https://viteee.vit.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 5944,
+    "sampleContext": "\"officialNotificationUrl\": \"https://viteee.vit.ac.in/\","
+  },
+  {
+    "url": "https://www.srmist.edu.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6057,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.srmist.edu.in/\","
+  },
+  {
+    "url": "https://applications.srmist.edu.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6059,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://applications.srmist.edu.in/\","
+  },
+  {
+    "url": "https://www.sathyabama.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6170,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.sathyabama.ac.in/\","
+  },
+  {
+    "url": "https://www.amrita.edu/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6283,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.amrita.edu/\","
+  },
+  {
+    "url": "https://www.amrita.edu/admissions/btech",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6284,
+    "sampleContext": "\"officialNotificationUrl\": \"https://www.amrita.edu/admissions/btech\","
+  },
+  {
+    "url": "https://aoap.amrita.edu/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6285,
+    "sampleContext": "\"officialApplicationPortalUrl\": \"https://aoap.amrita.edu/\","
+  },
+  {
+    "url": "https://www.bits-pilani.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6398,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://www.bits-pilani.ac.in/\","
+  },
+  {
+    "url": "https://www.bitsadmission.com/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6399,
+    "sampleContext": "\"officialNotificationUrl\": \"https://www.bitsadmission.com/\","
+  },
+  {
+    "url": "https://learning.tcsionhub.in/hub/national-qualifier-test/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6514,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://learning.tcsionhub.in/hub/national-qualifier-test/\","
+  },
+  {
+    "url": "https://nats.education.gov.in/",
+    "modules": [
+      "mod-04",
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 9,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6631,
+    "sampleContext": "\"officialWebsiteUrl\": \"https://nats.education.gov.in/\","
+  },
+  {
+    "url": "https://nta.ac.in/",
+    "modules": [
+      "mod-04"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/exams-data.ts",
+    "sampleLine": 6804,
+    "sampleContext": "officialWebsite: 'https://nta.ac.in/',"
+  },
+  {
+    "url": "https://dte.tn.gov.in/",
+    "modules": [
+      "mod-06",
+      "exams"
+    ],
+    "occurrenceCount": 6,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 224,
+    "sampleContext": "portalUrl: 'https://dte.tn.gov.in/',"
+  },
+  {
+    "url": "https://josaa.nic.in/",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 822,
+    "sampleContext": "portalUrl: 'https://josaa.nic.in/',"
+  },
+  {
+    "url": "https://cuet.samarth.ac.in/",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 870,
+    "sampleContext": "portalUrl: 'https://cuet.samarth.ac.in/',"
+  },
+  {
+    "url": "https://www.tneaonline.org/guidelines.pdf",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 920,
+    "sampleContext": "guidelinesPdfUrl: 'https://www.tneaonline.org/guidelines.pdf',"
+  },
+  {
+    "url": "https://www.tngasa.in/guidelines",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 935,
+    "sampleContext": "guidelinesPdfUrl: 'https://www.tngasa.in/guidelines',"
+  },
+  {
+    "url": "https://tnmedicalselection.net/prospectus.aspx",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 950,
+    "sampleContext": "guidelinesPdfUrl: 'https://tnmedicalselection.net/prospectus.aspx',"
+  },
+  {
+    "url": "https://tnau.ac.in/admissions/guidelines",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 965,
+    "sampleContext": "guidelinesPdfUrl: 'https://tnau.ac.in/admissions/guidelines',"
+  },
+  {
+    "url": "https://tanuvas.ac.in/admission.php",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 980,
+    "sampleContext": "guidelinesPdfUrl: 'https://tanuvas.ac.in/admission.php',"
+  },
+  {
+    "url": "https://dte.tn.gov.in/notifications",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 995,
+    "sampleContext": "guidelinesPdfUrl: 'https://dte.tn.gov.in/notifications',"
+  },
+  {
+    "url": "https://josaa.nic.in/business-rules/",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1010,
+    "sampleContext": "guidelinesPdfUrl: 'https://josaa.nic.in/business-rules/',"
+  },
+  {
+    "url": "https://mcc.nic.in/",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1019,
+    "sampleContext": "officialUrl: 'https://mcc.nic.in/',"
+  },
+  {
+    "url": "https://mcc.nic.in/ug-counselling/",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1025,
+    "sampleContext": "guidelinesPdfUrl: 'https://mcc.nic.in/ug-counselling/',"
+  },
+  {
+    "url": "https://www.abc.gov.in/",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1034,
+    "sampleContext": "officialUrl: 'https://www.abc.gov.in/',"
+  },
+  {
+    "url": "https://www.abc.gov.in/assets/resources/Academic-Bank-of-Credits-Guidelines.pdf",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1040,
+    "sampleContext": "guidelinesPdfUrl: 'https://www.abc.gov.in/assets/resources/Academic-Bank-of-Credits-Guidelines.pdf',"
+  },
+  {
+    "url": "https://www.tneaonline.org/notifications",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1431,
+    "sampleContext": "officialNoticeUrl: 'https://www.tneaonline.org/notifications',"
+  },
+  {
+    "url": "https://www.tngasa.in/news",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1445,
+    "sampleContext": "officialNoticeUrl: 'https://www.tngasa.in/news',"
+  },
+  {
+    "url": "https://dte.tn.gov.in/lateral-entry",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1459,
+    "sampleContext": "officialNoticeUrl: 'https://dte.tn.gov.in/lateral-entry',"
+  },
+  {
+    "url": "https://tnmedicalselection.net/news.aspx",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1473,
+    "sampleContext": "officialNoticeUrl: 'https://tnmedicalselection.net/news.aspx',"
+  },
+  {
+    "url": "https://josaa.nic.in/schedule",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1487,
+    "sampleContext": "officialNoticeUrl: 'https://josaa.nic.in/schedule',"
+  },
+  {
+    "url": "https://dte.tn.gov.in/diploma-admission",
+    "modules": [
+      "mod-06"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/admissions-data.ts",
+    "sampleLine": 1501,
+    "sampleContext": "officialNoticeUrl: 'https://dte.tn.gov.in/diploma-admission',"
+  },
+  {
+    "url": "https://swayam.gov.in",
+    "modules": [
+      "mod-07",
+      "academic-support"
+    ],
+    "occurrenceCount": 8,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 172,
+    "sampleContext": "officialUrl: 'https://swayam.gov.in',"
+  },
+  {
+    "url": "https://nptel.ac.in",
+    "modules": [
+      "mod-07",
+      "academic-support"
+    ],
+    "occurrenceCount": 11,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 194,
+    "sampleContext": "officialUrl: 'https://nptel.ac.in',"
+  },
+  {
+    "url": "https://diksha.gov.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 6,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 216,
+    "sampleContext": "officialUrl: 'https://diksha.gov.in',"
+  },
+  {
+    "url": "https://epathshala.nic.in",
+    "modules": [
+      "mod-07",
+      "academic-support"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 238,
+    "sampleContext": "officialUrl: 'https://epathshala.nic.in',"
+  },
+  {
+    "url": "https://ndl.iitkgp.ac.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 5,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 260,
+    "sampleContext": "officialUrl: 'https://ndl.iitkgp.ac.in',"
+  },
+  {
+    "url": "https://scert.tnschools.gov.in",
+    "modules": [
+      "mod-07",
+      "academic-support"
+    ],
+    "occurrenceCount": 19,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 282,
+    "sampleContext": "officialUrl: 'https://scert.tnschools.gov.in',"
+  },
+  {
+    "url": "https://vlabs.ac.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 8,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 304,
+    "sampleContext": "officialUrl: 'https://vlabs.ac.in',"
+  },
+  {
+    "url": "https://spoken-tutorial.org",
+    "modules": [
+      "mod-07",
+      "academic-support"
+    ],
+    "occurrenceCount": 9,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 326,
+    "sampleContext": "officialUrl: 'https://spoken-tutorial.org',"
+  },
+  {
+    "url": "https://ncert.nic.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 10,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 348,
+    "sampleContext": "officialUrl: 'https://ncert.nic.in',"
+  },
+  {
+    "url": "https://ugc.gov.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 370,
+    "sampleContext": "officialUrl: 'https://ugc.gov.in',"
+  },
+  {
+    "url": "https://aicte-india.org",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 392,
+    "sampleContext": "officialUrl: 'https://aicte-india.org',"
+  },
+  {
+    "url": "https://tnschools.gov.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 414,
+    "sampleContext": "officialUrl: 'https://tnschools.gov.in',"
+  },
+  {
+    "url": "https://dte.tn.gov.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 542,
+    "sampleContext": "{ title: 'DOTE Official Syllabus & Question Bank Portal', url: 'https://dte.tn.gov.in', platform: 'DOTE Tamil Nadu', free: true },"
+  },
+  {
+    "url": "https://shodhganga.inflibnet.ac.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 650,
+    "sampleContext": "{ title: 'Shodhganga National Repository of Indian ETDs', url: 'https://shodhganga.inflibnet.ac.in', platform: 'INFLIBNET / UGC', free: true },"
+  },
+  {
+    "url": "https://epgp.inflibnet.ac.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 651,
+    "sampleContext": "{ title: 'UGC e-PG Pathshala Research Methodology Modules', url: 'https://epgp.inflibnet.ac.in', platform: 'UGC', free: true },"
+  },
+  {
+    "url": "https://annauniv.edu",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 858,
+    "sampleContext": "officialSyllabusUrl: 'https://annauniv.edu',"
+  },
+  {
+    "url": "https://dge.tn.gov.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 900,
+    "sampleContext": "officialPortalUrl: 'https://dge.tn.gov.in',"
+  },
+  {
+    "url": "https://coe1.annauniv.edu",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 960,
+    "sampleContext": "officialPortalUrl: 'https://coe1.annauniv.edu',"
+  },
+  {
+    "url": "https://www.isea.gov.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1164,
+    "sampleContext": "{ title: 'Information Security Education and Awareness (ISEA) Modules', platform: 'C-DAC / MeitY', url: 'https://www.isea.gov.in' },"
+  },
+  {
+    "url": "https://www.nvaccess.org",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1186,
+    "sampleContext": "{ name: 'NVDA (NonVisual Desktop Access) Screen Reader', developer: 'NV Access', url: 'https://www.nvaccess.org', free: true },"
+  },
+  {
+    "url": "https://library.daisyindia.org",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1187,
+    "sampleContext": "{ name: 'Sugamya Pustakalaya Online Library for Persons with Print Disabilities', developer: 'DAISY Forum of India / Ministry of Social Justice', url:"
+  },
+  {
+    "url": "https://unom.ac.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1192,
+    "sampleContext": "{ university: 'University of Madras - Special Education Cell', contactEmail: 'registrar@unom.ac.in', portal: 'https://unom.ac.in' },"
+  },
+  {
+    "url": "https://islrtc.nic.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1208,
+    "sampleContext": "{ name: 'Indian Sign Language (ISL) Dictionary & Video Portal', developer: 'ISLRTC (DEPwD)', url: 'https://islrtc.nic.in', free: true },"
+  },
+  {
+    "url": "https://tnou.ac.in",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1212,
+    "sampleContext": "{ university: 'Tamil Nadu Open University - School of Special Education', contactEmail: 'contact@tnou.ac.in', portal: 'https://tnou.ac.in' },"
+  },
+  {
+    "url": "https://opendyslexic.org",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1228,
+    "sampleContext": "{ name: 'OpenDyslexic Free Accessible Font', developer: 'Abbie Gonzalez', url: 'https://opendyslexic.org', free: true },"
+  },
+  {
+    "url": "https://mdaindia.com",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1231,
+    "sampleContext": "{ university: 'Madras Dyslexia Association (Recognized Guidance Partner)', contactEmail: 'ananya@mdaindia.com', portal: 'https://mdaindia.com' },"
+  },
+  {
+    "url": "https://www.zotero.org",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1291,
+    "sampleContext": "{ name: 'Zotero Open Source Reference Manager', url: 'https://www.zotero.org', note: 'Free, automated bibliography and citation generator' },"
+  },
+  {
+    "url": "https://www.mendeley.com",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1292,
+    "sampleContext": "{ name: 'Mendeley Reference Management', url: 'https://www.mendeley.com', note: 'PDF indexing and citation integration' },"
+  },
+  {
+    "url": "https://www.overleaf.com",
+    "modules": [
+      "mod-07"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/academic-data.ts",
+    "sampleLine": 1321,
+    "sampleContext": "{ name: 'Overleaf Collaborative LaTeX Platform', url: 'https://www.overleaf.com', note: 'Standard university LaTeX thesis template authoring' },"
+  },
+  {
+    "url": "https://internship.aicte-india.org/",
+    "modules": [
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 162,
+    "sampleContext": "officialNotificationUrl: 'https://internship.aicte-india.org/',"
+  },
+  {
+    "url": "https://www.niti.gov.in/internship",
+    "modules": [
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 204,
+    "sampleContext": "officialNotificationUrl: 'https://www.niti.gov.in/internship',"
+  },
+  {
+    "url": "https://www.isro.gov.in/",
+    "modules": [
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 248,
+    "sampleContext": "officialNotificationUrl: 'https://www.isro.gov.in/',"
+  },
+  {
+    "url": "https://www.iprc.gov.in/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 249,
+    "sampleContext": "officialApplicationUrl: 'https://www.iprc.gov.in/',"
+  },
+  {
+    "url": "https://www.cecri.res.in/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 291,
+    "sampleContext": "officialNotificationUrl: 'https://www.cecri.res.in/',"
+  },
+  {
+    "url": "https://tnega.tn.gov.in/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 334,
+    "sampleContext": "officialNotificationUrl: 'https://tnega.tn.gov.in/',"
+  },
+  {
+    "url": "https://www.zoho.com/careers/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 378,
+    "sampleContext": "officialNotificationUrl: 'https://www.zoho.com/careers/',"
+  },
+  {
+    "url": "https://www.tcs.com/careers",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 420,
+    "sampleContext": "officialNotificationUrl: 'https://www.tcs.com/careers',"
+  },
+  {
+    "url": "https://nextstep.tcs.com/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 421,
+    "sampleContext": "officialApplicationUrl: 'https://nextstep.tcs.com/',"
+  },
+  {
+    "url": "https://www.ashokleyland.com/careers",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 462,
+    "sampleContext": "officialNotificationUrl: 'https://www.ashokleyland.com/careers',"
+  },
+  {
+    "url": "https://www.apollohospitals.com/careers/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 503,
+    "sampleContext": "officialNotificationUrl: 'https://www.apollohospitals.com/careers/',"
+  },
+  {
+    "url": "https://naanmudhalvan.tn.gov.in/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 7,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 633,
+    "sampleContext": "officialNotificationUrl: 'https://naanmudhalvan.tn.gov.in/',"
+  },
+  {
+    "url": "https://www.skillindiadigital.gov.in/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 4,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 673,
+    "sampleContext": "officialNotificationUrl: 'https://www.skillindiadigital.gov.in/',"
+  },
+  {
+    "url": "https://www.tnpscexams.in/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 719,
+    "sampleContext": "officialApplicationUrl: 'https://www.tnpscexams.in/',"
+  },
+  {
+    "url": "https://www.tnusrb.tn.gov.in/",
+    "modules": [
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 762,
+    "sampleContext": "officialNotificationUrl: 'https://www.tnusrb.tn.gov.in/',"
+  },
+  {
+    "url": "https://www.freshworks.com/company/careers/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 806,
+    "sampleContext": "officialNotificationUrl: 'https://www.freshworks.com/company/careers/',"
+  },
+  {
+    "url": "https://www.larsentoubro.com/corporate/careers/",
+    "modules": [
+      "mod-08"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 847,
+    "sampleContext": "officialNotificationUrl: 'https://www.larsentoubro.com/corporate/careers/',"
+  },
+  {
+    "url": "https://www.apprenticeshipindia.gov.in/",
+    "modules": [
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 892,
+    "sampleContext": "officialUrl: 'https://www.apprenticeshipindia.gov.in/',"
+  },
+  {
+    "url": "https://tnvelaivaaippu.gov.in/",
+    "modules": [
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 8,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 904,
+    "sampleContext": "officialUrl: 'https://tnvelaivaaippu.gov.in/',"
+  },
+  {
+    "url": "https://www.ncs.gov.in/",
+    "modules": [
+      "mod-08",
+      "internships"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/internship-data.ts",
+    "sampleLine": 917,
+    "sampleContext": "officialUrl: 'https://www.ncs.gov.in/',"
+  },
+  {
+    "url": "https://portal.naanmudhalvan.tn.gov.in/",
+    "modules": [
+      "mod-09"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/skill-lab-data.ts",
+    "sampleLine": 133,
+    "sampleContext": "officialSourceUrl: 'https://portal.naanmudhalvan.tn.gov.in/',"
+  },
+  {
+    "url": "https://swayamplus.education.gov.in/courses/essentials-of-english-communication",
+    "modules": [
+      "mod-09"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/skill-lab-data.ts",
+    "sampleLine": 254,
+    "sampleContext": "officialSourceUrl: 'https://swayamplus.education.gov.in/courses/essentials-of-english-communication',"
+  },
+  {
+    "url": "https://www.ncs.gov.in/Pages/TCSION.aspx",
+    "modules": [
+      "mod-09"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/skill-lab-data.ts",
+    "sampleLine": 341,
+    "sampleContext": "officialSourceUrl: 'https://www.ncs.gov.in/Pages/TCSION.aspx',"
+  },
+  {
+    "url": "https://employmentexchange.tn.gov.in/",
+    "modules": [
+      "mod-09"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/skill-lab-data.ts",
+    "sampleLine": 429,
+    "sampleContext": "officialSourceUrl: 'https://employmentexchange.tn.gov.in/',"
+  },
+  {
+    "url": "https://swayamplus.education.gov.in/courses/job-readiness-building-your-future",
+    "modules": [
+      "mod-09"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/skill-lab-data.ts",
+    "sampleLine": 485,
+    "sampleContext": "officialSourceUrl: 'https://swayamplus.education.gov.in/courses/job-readiness-building-your-future',"
+  },
+  {
+    "url": "https://swayamplus.education.gov.in/courses/professional-and-communicative-english",
+    "modules": [
+      "mod-09"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/skill-lab-data.ts",
+    "sampleLine": 785,
+    "sampleContext": "officialUrl: 'https://swayamplus.education.gov.in/courses/professional-and-communicative-english',"
+  },
+  {
+    "url": "https://www.csk.gov.in/",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 363,
+    "sampleContext": "officialPortalUrl: 'https://www.csk.gov.in/',"
+  },
+  {
+    "url": "https://www.sancharsaathi.gov.in/",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 3,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 429,
+    "sampleContext": "officialPortalUrl: 'https://www.sancharsaathi.gov.in/',"
+  },
+  {
+    "url": "https://www.cert-in.org.in/AwarenessBooklets.jsp",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 641,
+    "sampleContext": "portalUrl: 'https://www.cert-in.org.in/AwarenessBooklets.jsp',"
+  },
+  {
+    "url": "https://www.isea.gov.in/",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 668,
+    "sampleContext": "portalUrl: 'https://www.isea.gov.in/',"
+  },
+  {
+    "url": "https://cytrain.ncrb.gov.in/staticpage/r0.php",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 677,
+    "sampleContext": "portalUrl: 'https://cytrain.ncrb.gov.in/staticpage/r0.php',"
+  },
+  {
+    "url": "http://scholarship-portal.gov-scheme.in",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 766,
+    "sampleContext": "'http://scholarship-portal.gov-scheme.in',"
+  },
+  {
+    "url": "https://scholarships.gov.in",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 767,
+    "sampleContext": "'https://scholarships.gov.in',"
+  },
+  {
+    "url": "https://national-scholarship-online.com",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 768,
+    "sampleContext": "'https://national-scholarship-online.com',"
+  },
+  {
+    "url": "https://gov.in.scholarships-direct-apply.org",
+    "modules": [
+      "mod-10"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "lib/digital-safety-data.ts",
+    "sampleLine": 769,
+    "sampleContext": "'https://gov.in.scholarships-direct-apply.org',"
+  },
+  {
+    "url": "https://www.tnesevai.tn.gov.in/Citizen/",
+    "modules": [
+      "certificates"
+    ],
+    "occurrenceCount": 2,
+    "sampleSourceFile": "components\\certificates\\ApplicationGuidanceSection.tsx",
+    "sampleLine": 79,
+    "sampleContext": "href=\"https://www.tnesevai.tn.gov.in/Citizen/\""
+  },
+  {
+    "url": "https://cmhelpline.tnega.org",
+    "modules": [
+      "certificates"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\certificates\\ApplicationGuidanceSection.tsx",
+    "sampleLine": 210,
+    "sampleContext": "If the delay exceeds 30 days without lawful reason, dial <strong>1100</strong> (Mukhya Mantri / CM Helpline Tamil Nadu) or submit a grievance at <a hr"
+  },
+  {
+    "url": "https://www.digilocker.gov.in",
+    "modules": [
+      "certificates"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\certificates\\DigiLockerCentre.tsx",
+    "sampleLine": 125,
+    "sampleContext": "href=\"https://www.digilocker.gov.in\""
+  },
+  {
+    "url": "https://edistricts.tn.gov.in/revenue/verifyCertificate.html",
+    "modules": [
+      "certificates"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\certificates\\DownloadVerificationSection.tsx",
+    "sampleLine": 54,
+    "sampleContext": "href=\"https://edistricts.tn.gov.in/revenue/verifyCertificate.html\""
+  },
+  {
+    "url": "https://esanad.nic.in",
+    "modules": [
+      "certificates"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\certificates\\DownloadVerificationSection.tsx",
+    "sampleLine": 89,
+    "sampleContext": "Planning higher education abroad? Ministry of External Affairs (MEA) provides contactless online verification and apostille attestation for Indian aca"
+  },
+  {
+    "url": "https://myaadhaar.uidai.gov.in",
+    "modules": [
+      "certificates"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\certificates\\IdentityDocumentsSection.tsx",
+    "sampleLine": 57,
+    "sampleContext": "• <strong>Privacy Guarantee:</strong> Student RSO strictly never collects or stores your 12-digit Aadhaar number, OTPs, or biometric records. For gene"
+  },
+  {
+    "url": "https://edistricts.tn.gov.in/revenue/status.html",
+    "modules": [
+      "certificates"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\certificates\\MyApplicationTracker.tsx",
+    "sampleLine": 321,
+    "sampleContext": "href=\"https://edistricts.tn.gov.in/revenue/status.html\""
+  },
+  {
+    "url": "https://tngasa.in/",
+    "modules": [
+      "exams"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\exams\\ApplicationGuidanceSection.tsx",
+    "sampleLine": 80,
+    "sampleContext": "portal: 'https://tngasa.in/',"
+  },
+  {
+    "url": "https://ceg.annauniv.edu/",
+    "modules": [
+      "exams"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\exams\\SavedOpportunitiesTracker.tsx",
+    "sampleLine": 49,
+    "sampleContext": "portalUrl: 'https://ceg.annauniv.edu/',"
+  },
+  {
+    "url": "https://",
+    "modules": [
+      "exams"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\exams\\SavedOpportunitiesTracker.tsx",
+    "sampleLine": 164,
+    "sampleContext": "placeholder=\"https://...\""
+  },
+  {
+    "url": "https://www.tamilvu.org",
+    "modules": [
+      "academic-support"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\academic-support\\LanguageDevelopmentSection.tsx",
+    "sampleLine": 71,
+    "sampleContext": "{ title: 'Tamil Virtual Academy (TVA) Educational Portal', platform: 'Govt. of Tamil Nadu', url: 'https://www.tamilvu.org' },"
+  },
+  {
+    "url": "https://www.csir.res.in/",
+    "modules": [
+      "internships"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\internships\\GovernmentInternshipsSection.tsx",
+    "sampleLine": 52,
+    "sampleContext": "{ name: 'CSIR Research', url: 'https://www.csir.res.in/', code: 'csir.res.in' },"
+  },
+  {
+    "url": "https://www.drdo.gov.in/",
+    "modules": [
+      "internships"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\internships\\GovernmentInternshipsSection.tsx",
+    "sampleLine": 53,
+    "sampleContext": "{ name: 'DRDO Labs', url: 'https://www.drdo.gov.in/', code: 'drdo.gov.in' },"
+  },
+  {
+    "url": "https://www.trb.tn.gov.in/",
+    "modules": [
+      "internships"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\internships\\GovernmentJobsSection.tsx",
+    "sampleLine": 28,
+    "sampleContext": "{ name: 'TRB Tamil Nadu', url: 'https://www.trb.tn.gov.in/', desc: 'Teachers Recruitment Board' },"
+  },
+  {
+    "url": "https://www.mrb.tn.gov.in/",
+    "modules": [
+      "internships"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\internships\\GovernmentJobsSection.tsx",
+    "sampleLine": 29,
+    "sampleContext": "{ name: 'MRB Tamil Nadu', url: 'https://www.mrb.tn.gov.in/', desc: 'Medical Services Recruitment' },"
+  },
+  {
+    "url": "https://www.rrbapply.gov.in/",
+    "modules": [
+      "internships"
+    ],
+    "occurrenceCount": 1,
+    "sampleSourceFile": "components\\internships\\GovernmentJobsSection.tsx",
+    "sampleLine": 31,
+    "sampleContext": "{ name: 'Railway RRB', url: 'https://www.rrbapply.gov.in/', desc: 'Railway Recruitment Boards' },"
+  }
+]

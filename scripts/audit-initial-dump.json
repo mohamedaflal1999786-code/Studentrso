@@ -1,0 +1,450 @@
+{
+  "total": 52,
+  "uniqueUrlsCount": 26,
+  "uniqueUrls": [
+    "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+    "https://tndce.tn.gov.in/Home/scholarship",
+    "https://www.tneaonline.org/",
+    "https://www.tndte.gov.in/",
+    "https://tnadw.top/",
+    "https://tnadwscholarship.in/",
+    "https://tils.tn.gov.in/schemes",
+    "https://bcmbcmw.tn.gov.in/welfschemes_minorities.htm",
+    "https://scholarships.gov.in/",
+    "https://tribal.nic.in/ScholarshiP.aspx",
+    "https://www.aicte-india.org/schemes/students-development-schemes",
+    "https://www.ugc.gov.in/Home/student_Corner",
+    "https://scholarship.canarabank.in/",
+    "https://www.ugc.gov.in/Fellowship/",
+    "https://icar.org.in/",
+    "https://phd.dic.gov.in/",
+    "https://www.pmrf.in/",
+    "https://www.serbonline.in/",
+    "https://www.vidyadhan.org/apply",
+    "https://www.vidyadhan.org/",
+    "https://www.scholarships.reliancefoundation.org/",
+    "https://www.tatacapital.com/csr.html",
+    "https://www.hdfcbank.com/personal/about-us/corporate-social-responsibility",
+    "https://kotakeducation.org/",
+    "https://www.sitaramjindalfoundation.org/scholarships.php",
+    "https://www.sitaramjindalfoundation.org/"
+  ],
+  "records": [
+    {
+      "id": "tn-bc-prematric",
+      "name": "BC / MBC / DNC Pre-Matric Educational Assistance",
+      "category": "Tamil Nadu Government",
+      "provider": "Department of Backward Classes, Most Backward Classes & Minorities Welfare",
+      "appUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "guideUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm"
+    },
+    {
+      "id": "tn-bc-postmatric",
+      "name": "BC Post-Matric Scholarship Scheme",
+      "category": "Tamil Nadu Government",
+      "provider": "Department of Backward Classes Welfare",
+      "appUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "guideUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm"
+    },
+    {
+      "id": "tn-mbc-postmatric",
+      "name": "MBC / DNC Post-Matric Scholarship Scheme",
+      "category": "Tamil Nadu Government",
+      "provider": "Department of Most Backward Classes & Denotified Communities Welfare",
+      "appUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "guideUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm"
+    },
+    {
+      "id": "tn-bc-free-education",
+      "name": "BC / MBC / DNC Free Education Scheme for 3-Year Degree Courses",
+      "category": "Tamil Nadu Government",
+      "provider": "Department of Backward Classes Welfare",
+      "appUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "guideUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm"
+    },
+    {
+      "id": "tn-rural-girls-incentive",
+      "name": "Rural Girls' Incentive Scheme",
+      "category": "Tamil Nadu Government",
+      "provider": "Directorate of School Education / Social Welfare",
+      "appUrl": "https://tndce.tn.gov.in/Home/scholarship",
+      "guideUrl": "https://tndce.tn.gov.in/Home/scholarship"
+    },
+    {
+      "id": "tn-first-graduate",
+      "name": "First Graduate Fee Concession Scheme",
+      "category": "Tamil Nadu Government",
+      "provider": "Directorate of Technical Education (DoTE) & Higher Education Department",
+      "appUrl": "https://www.tneaonline.org/",
+      "guideUrl": "https://www.tndte.gov.in/"
+    },
+    {
+      "id": "tn-central-institutions-bc",
+      "name": "Special Educational Assistance for Students in Central Government Premier Institutions",
+      "category": "Tamil Nadu Government",
+      "provider": "Department of Backward Classes Welfare",
+      "appUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "guideUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm"
+    },
+    {
+      "id": "tn-sc-postmatric",
+      "name": "SC / ST Post-Matric Scholarship Scheme (Tamil Nadu)",
+      "category": "Tamil Nadu Government",
+      "provider": "Adi Dravidar and Tribal Welfare Department",
+      "appUrl": "https://tnadw.top/",
+      "guideUrl": "https://tnadw.top/"
+    },
+    {
+      "id": "tn-adw-hess",
+      "name": "ADW Higher Education Special Scholarship (HESS)",
+      "category": "Tamil Nadu Government",
+      "provider": "Adi Dravidar and Tribal Welfare Department",
+      "appUrl": "https://tnadw.top/",
+      "guideUrl": "https://tnadw.top/"
+    },
+    {
+      "id": "tn-adw-phd-incentive",
+      "name": "ADW PhD Incentive Scheme for Full-Time Scholars",
+      "category": "Tamil Nadu Government",
+      "provider": "Adi Dravidar and Tribal Welfare Department",
+      "appUrl": "https://tnadw.top/",
+      "guideUrl": "https://tnadw.top/"
+    },
+    {
+      "id": "tn-adw-phd-fellowship",
+      "name": "ADW PhD Fellowship Scheme",
+      "category": "Tamil Nadu Government",
+      "provider": "Adi Dravidar and Tribal Welfare Department",
+      "appUrl": "https://tnadw.top/",
+      "guideUrl": "https://tnadw.top/"
+    },
+    {
+      "id": "tn-overseas-ambedkar",
+      "name": "Annal Ambedkar Overseas Higher Education Scholarship",
+      "category": "Tamil Nadu Government",
+      "provider": "Adi Dravidar and Tribal Welfare Department",
+      "appUrl": "https://tnadwscholarship.in/",
+      "guideUrl": "https://tnadwscholarship.in/"
+    },
+    {
+      "id": "tn-pudhumai-penn",
+      "name": "Pudhumai Penn Scheme (Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme)",
+      "category": "Tamil Nadu Government",
+      "provider": "Social Welfare and Women Empowerment Department",
+      "appUrl": "https://tils.tn.gov.in/schemes",
+      "guideUrl": "https://tils.tn.gov.in/schemes"
+    },
+    {
+      "id": "tn-tamil-pudhalvan",
+      "name": "Tamil Pudhalvan Scheme",
+      "category": "Tamil Nadu Government",
+      "provider": "Social Welfare & Higher Education Department",
+      "appUrl": "https://tils.tn.gov.in/schemes",
+      "guideUrl": "https://tils.tn.gov.in/schemes"
+    },
+    {
+      "id": "tn-perarignar-anna-award",
+      "name": "Perarignar Anna Memorial Award",
+      "category": "Tamil Nadu Government",
+      "provider": "Adi Dravidar and Tribal Welfare Department",
+      "appUrl": "https://tnadw.top/",
+      "guideUrl": "https://tnadw.top/"
+    },
+    {
+      "id": "tn-cm-overseas-minority",
+      "name": "Chief Minister's Overseas Scholarship for Minorities",
+      "category": "Tamil Nadu Government",
+      "provider": "Minorities Welfare Department",
+      "appUrl": "https://bcmbcmw.tn.gov.in/welfschemes_minorities.htm",
+      "guideUrl": "https://bcmbcmw.tn.gov.in/welfschemes_minorities.htm"
+    },
+    {
+      "id": "nsp-nmmss",
+      "name": "National Means-cum-Merit Scholarship Scheme (NMMSS)",
+      "category": "Central Government",
+      "provider": "Department of School Education & Literacy, Ministry of Education",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-pmusp",
+      "name": "PM-USP Central Sector Scheme of Scholarship for College and University Students",
+      "category": "Central Government",
+      "provider": "Department of Higher Education, Ministry of Education",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-yasasvi-school",
+      "name": "PM YASASVI Top Class School Education for OBC, EBC and DNT",
+      "category": "Central Government",
+      "provider": "Department of Social Justice and Empowerment",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-yasasvi-college",
+      "name": "PM YASASVI Top Class Education in College for OBC, EBC and DNT",
+      "category": "Central Government",
+      "provider": "Department of Social Justice and Empowerment",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-sc-topclass",
+      "name": "Central Sector Top Class Education Scheme for SC Students",
+      "category": "Central Government",
+      "provider": "Ministry of Social Justice and Empowerment",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "central-nfst",
+      "name": "National Fellowship and Scholarship for Higher Education of ST Students",
+      "category": "Central Government",
+      "provider": "Ministry of Tribal Affairs",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://tribal.nic.in/ScholarshiP.aspx"
+    },
+    {
+      "id": "nsp-pwd-prematric",
+      "name": "Pre-Matric Scholarship for Students with Disabilities",
+      "category": "Central Government",
+      "provider": "Department of Empowerment of Persons with Disabilities",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-pwd-postmatric",
+      "name": "Post-Matric Scholarship for Students with Disabilities",
+      "category": "Central Government",
+      "provider": "Department of Empowerment of Persons with Disabilities",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-pwd-topclass",
+      "name": "Top Class Education for Students with Disabilities",
+      "category": "Central Government",
+      "provider": "Department of Empowerment of Persons with Disabilities",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-labour-beedi",
+      "name": "Financial Assistance for Education to Wards of Beedi / Cine / IOMC / LSDM Workers",
+      "category": "Central Government",
+      "provider": "Labour Welfare Organisation, Ministry of Labour and Employment",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-pmss-capf",
+      "name": "Prime Minister’s Scholarship Scheme for Central Armed Police Forces & Assam Rifles",
+      "category": "Central Government",
+      "provider": "Welfare and Rehabilitation Board (WARB), Ministry of Home Affairs",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "nsp-pmss-police",
+      "name": "Prime Minister’s Scholarship Scheme for Wards of State Police Personnel Martyred in Terror / Naxal Attacks",
+      "category": "Central Government",
+      "provider": "Police Division, Ministry of Home Affairs",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://scholarships.gov.in/"
+    },
+    {
+      "id": "aicte-pragati-degree",
+      "name": "AICTE Pragati Scholarship for Girl Students – Technical Degree",
+      "category": "AICTE",
+      "provider": "All India Council for Technical Education (AICTE)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.aicte-india.org/schemes/students-development-schemes"
+    },
+    {
+      "id": "aicte-pragati-diploma",
+      "name": "AICTE Pragati Scholarship for Girl Students – Technical Diploma",
+      "category": "AICTE",
+      "provider": "All India Council for Technical Education (AICTE)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.aicte-india.org/schemes/students-development-schemes"
+    },
+    {
+      "id": "aicte-saksham-degree",
+      "name": "AICTE Saksham Scholarship – Technical Degree",
+      "category": "AICTE",
+      "provider": "All India Council for Technical Education (AICTE)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.aicte-india.org/schemes/students-development-schemes"
+    },
+    {
+      "id": "aicte-saksham-diploma",
+      "name": "AICTE Saksham Scholarship – Technical Diploma",
+      "category": "AICTE",
+      "provider": "All India Council for Technical Education (AICTE)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.aicte-india.org/schemes/students-development-schemes"
+    },
+    {
+      "id": "aicte-swanath-degree",
+      "name": "AICTE Swanath Scholarship – Technical Degree",
+      "category": "AICTE",
+      "provider": "All India Council for Technical Education (AICTE)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.aicte-india.org/schemes/students-development-schemes"
+    },
+    {
+      "id": "aicte-swanath-diploma",
+      "name": "AICTE Swanath Scholarship – Technical Diploma",
+      "category": "AICTE",
+      "provider": "All India Council for Technical Education (AICTE)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.aicte-india.org/schemes/students-development-schemes"
+    },
+    {
+      "id": "ugc-nspgs",
+      "name": "National Scholarship for Post Graduate Studies (UGC)",
+      "category": "UGC",
+      "provider": "University Grants Commission (UGC)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.ugc.gov.in/Home/student_Corner"
+    },
+    {
+      "id": "ugc-jrf-humanities-science",
+      "name": "UGC Junior Research Fellowship in Science, Humanities and Social Sciences",
+      "category": "UGC",
+      "provider": "University Grants Commission (UGC)",
+      "appUrl": "https://scholarship.canarabank.in/",
+      "guideUrl": "https://www.ugc.gov.in/Fellowship/"
+    },
+    {
+      "id": "ugc-savitribai-single-girl",
+      "name": "Savitribai Jyotirao Phule Fellowship for Single Girl Child",
+      "category": "UGC",
+      "provider": "University Grants Commission (UGC)",
+      "appUrl": "https://scholarships.gov.in/",
+      "guideUrl": "https://www.ugc.gov.in/Fellowship/"
+    },
+    {
+      "id": "icar-nts-ug",
+      "name": "ICAR National Talent Scholarship (NTS) – Undergraduate",
+      "category": "ICAR",
+      "provider": "Indian Council of Agricultural Research (ICAR)",
+      "appUrl": "https://icar.org.in/",
+      "guideUrl": "https://icar.org.in/"
+    },
+    {
+      "id": "icar-pgs-jrf",
+      "name": "ICAR Post Graduate Scholarship / Junior Research Fellowship (ICAR-PG-JRF)",
+      "category": "ICAR",
+      "provider": "Indian Council of Agricultural Research (ICAR)",
+      "appUrl": "https://icar.org.in/",
+      "guideUrl": "https://icar.org.in/"
+    },
+    {
+      "id": "icar-srf-phd",
+      "name": "ICAR Senior Research Fellowship for PhD Studies (ICAR-SRF)",
+      "category": "ICAR",
+      "provider": "Indian Council of Agricultural Research (ICAR)",
+      "appUrl": "https://icar.org.in/",
+      "guideUrl": "https://icar.org.in/"
+    },
+    {
+      "id": "visvesvaraya-phd-fulltime",
+      "name": "Visvesvaraya PhD Scheme for Electronics and IT – Full Time",
+      "category": "Research Council",
+      "provider": "Digital India Corporation / MeitY",
+      "appUrl": "https://phd.dic.gov.in/",
+      "guideUrl": "https://phd.dic.gov.in/"
+    },
+    {
+      "id": "visvesvaraya-phd-parttime",
+      "name": "Visvesvaraya PhD Scheme for Electronics and IT – Part Time",
+      "category": "Research Council",
+      "provider": "Digital India Corporation / MeitY",
+      "appUrl": "https://phd.dic.gov.in/",
+      "guideUrl": "https://phd.dic.gov.in/"
+    },
+    {
+      "id": "visvesvaraya-postdoc",
+      "name": "Visvesvaraya Postdoctoral Fellowship",
+      "category": "Research Council",
+      "provider": "Digital India Corporation / MeitY",
+      "appUrl": "https://phd.dic.gov.in/",
+      "guideUrl": "https://phd.dic.gov.in/"
+    },
+    {
+      "id": "pmrf-scheme",
+      "name": "Prime Minister’s Research Fellowship (PMRF)",
+      "category": "Research Council",
+      "provider": "National Coordination Committee (IIT Madras / MoE)",
+      "appUrl": "https://www.pmrf.in/",
+      "guideUrl": "https://www.pmrf.in/"
+    },
+    {
+      "id": "serb-npdf",
+      "name": "SERB National Postdoctoral Fellowship (N-PDF)",
+      "category": "Research Council",
+      "provider": "Science and Engineering Research Board / ANRF, DST",
+      "appUrl": "https://www.serbonline.in/",
+      "guideUrl": "https://www.serbonline.in/"
+    },
+    {
+      "id": "vidyadhan-tn",
+      "name": "Vidyadhan Scholarship Programme (Tamil Nadu & Puducherry)",
+      "category": "Institution / Foundation",
+      "provider": "Sarojini Damodaran Foundation (SDF)",
+      "appUrl": "https://www.vidyadhan.org/apply",
+      "guideUrl": "https://www.vidyadhan.org/"
+    },
+    {
+      "id": "reliance-ug",
+      "name": "Reliance Foundation Undergraduate Scholarship",
+      "category": "Institution / Foundation",
+      "provider": "Reliance Foundation",
+      "appUrl": "https://www.scholarships.reliancefoundation.org/",
+      "guideUrl": "https://www.scholarships.reliancefoundation.org/"
+    },
+    {
+      "id": "reliance-pg",
+      "name": "Reliance Foundation Postgraduate Scholarship",
+      "category": "Institution / Foundation",
+      "provider": "Reliance Foundation",
+      "appUrl": "https://www.scholarships.reliancefoundation.org/",
+      "guideUrl": "https://www.scholarships.reliancefoundation.org/"
+    },
+    {
+      "id": "tata-capital-pankh",
+      "name": "Tata Capital Pankh Scholarship Programme",
+      "category": "Institution / Foundation",
+      "provider": "Tata Capital Limited (CSR)",
+      "appUrl": "https://www.tatacapital.com/csr.html",
+      "guideUrl": "https://www.tatacapital.com/csr.html"
+    },
+    {
+      "id": "hdfc-parivartan-ecss",
+      "name": "HDFC Bank Parivartan's ECSS Programme (Educational Crisis Scholarship Support)",
+      "category": "Institution / Foundation",
+      "provider": "HDFC Bank Parivartan (CSR)",
+      "appUrl": "https://www.hdfcbank.com/personal/about-us/corporate-social-responsibility",
+      "guideUrl": "https://www.hdfcbank.com/personal/about-us/corporate-social-responsibility"
+    },
+    {
+      "id": "kotak-kanya-scholarship",
+      "name": "Kotak Kanya Scholarship for Girl Students",
+      "category": "Institution / Foundation",
+      "provider": "Kotak Education Foundation (CSR)",
+      "appUrl": "https://kotakeducation.org/",
+      "guideUrl": "https://kotakeducation.org/"
+    },
+    {
+      "id": "sitaram-jindal-foundation",
+      "name": "Sitaram Jindal Foundation Scholarship",
+      "category": "Institution / Foundation",
+      "provider": "Sitaram Jindal Foundation",
+      "appUrl": "https://www.sitaramjindalfoundation.org/scholarships.php",
+      "guideUrl": "https://www.sitaramjindalfoundation.org/"
+    }
+  ]
+}

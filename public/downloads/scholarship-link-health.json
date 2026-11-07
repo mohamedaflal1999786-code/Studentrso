@@ -1,0 +1,1012 @@
+{
+  "auditDate": "2026-11-07T10:23:23.270Z",
+  "totalTested": 41,
+  "summary": {
+    "activeOk": 27,
+    "activeRedirected": 4,
+    "wafProtected": 0,
+    "retries": 10
+  },
+  "results": [
+    {
+      "type": "Information / Guidelines",
+      "url": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "finalUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 228,
+      "title": "(Unavailable)",
+      "schemesCount": 5,
+      "schemes": [
+        {
+          "id": "tn-bc-prematric",
+          "name": "BC / MBC / DNC Pre-Matric Educational Assistance"
+        },
+        {
+          "id": "tn-bc-postmatric",
+          "name": "BC Post-Matric Scholarship Scheme"
+        },
+        {
+          "id": "tn-mbc-postmatric",
+          "name": "MBC / DNC Post-Matric Scholarship Scheme"
+        },
+        {
+          "id": "tn-bc-free-education",
+          "name": "BC / MBC / DNC Free Education Scheme for 3-Year Degree Courses"
+        },
+        {
+          "id": "tn-central-institutions-bc",
+          "name": "Special Educational Assistance for Students in Central Government Premier Institutions"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "finalUrl": "https://bcmbcmw.tn.gov.in/welfschemes.htm",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 78,
+      "title": "(Unavailable)",
+      "schemesCount": 5,
+      "schemes": [
+        {
+          "id": "tn-bc-prematric",
+          "name": "BC / MBC / DNC Pre-Matric Educational Assistance"
+        },
+        {
+          "id": "tn-bc-postmatric",
+          "name": "BC Post-Matric Scholarship Scheme"
+        },
+        {
+          "id": "tn-mbc-postmatric",
+          "name": "MBC / DNC Post-Matric Scholarship Scheme"
+        },
+        {
+          "id": "tn-bc-free-education",
+          "name": "BC / MBC / DNC Free Education Scheme for 3-Year Degree Courses"
+        },
+        {
+          "id": "tn-central-institutions-bc",
+          "name": "Special Educational Assistance for Students in Central Government Premier Institutions"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://tndce.tn.gov.in/Home/scholarship",
+      "finalUrl": "https://tndce.tn.gov.in/Home/scholarship",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 1312,
+      "title": "Home | Directorate of College Education, Department Of Higher Education, Government Of Tamil Nadu, I",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-rural-girls-incentive",
+          "name": "Rural Girls' Incentive Scheme"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://tndce.tn.gov.in/Home/scholarship",
+      "finalUrl": "https://tndce.tn.gov.in/Home/scholarship",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 1255,
+      "title": "Home | Directorate of College Education, Department Of Higher Education, Government Of Tamil Nadu, I",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-rural-girls-incentive",
+          "name": "Rural Girls' Incentive Scheme"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.tndte.gov.in/",
+      "finalUrl": "https://www.tndte.gov.in/",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 1216,
+      "title": "(Unavailable)",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-first-graduate",
+          "name": "First Graduate Fee Concession Scheme"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.tneaonline.org/",
+      "finalUrl": "https://www.tneaonline.org/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 244,
+      "title": "Tamil nadu Engineering Admissions(TNEA Online Counselling)-2026",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-first-graduate",
+          "name": "First Graduate Fee Concession Scheme"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://tnadw.top/",
+      "finalUrl": "https://tnadw.top/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 399,
+      "title": "Arivu Paalam - அறிவு பாலம் | Alumni Connect - Government of Tamil Nadu Social Justice Department",
+      "schemesCount": 5,
+      "schemes": [
+        {
+          "id": "tn-sc-postmatric",
+          "name": "SC / ST Post-Matric Scholarship Scheme (Tamil Nadu)"
+        },
+        {
+          "id": "tn-adw-hess",
+          "name": "ADW Higher Education Special Scholarship (HESS)"
+        },
+        {
+          "id": "tn-adw-phd-incentive",
+          "name": "ADW PhD Incentive Scheme for Full-Time Scholars"
+        },
+        {
+          "id": "tn-adw-phd-fellowship",
+          "name": "ADW PhD Fellowship Scheme"
+        },
+        {
+          "id": "tn-perarignar-anna-award",
+          "name": "Perarignar Anna Memorial Award"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://tnadw.top/",
+      "finalUrl": "https://tnadw.top/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 339,
+      "title": "Arivu Paalam - அறிவு பாலம் | Alumni Connect - Government of Tamil Nadu Social Justice Department",
+      "schemesCount": 5,
+      "schemes": [
+        {
+          "id": "tn-sc-postmatric",
+          "name": "SC / ST Post-Matric Scholarship Scheme (Tamil Nadu)"
+        },
+        {
+          "id": "tn-adw-hess",
+          "name": "ADW Higher Education Special Scholarship (HESS)"
+        },
+        {
+          "id": "tn-adw-phd-incentive",
+          "name": "ADW PhD Incentive Scheme for Full-Time Scholars"
+        },
+        {
+          "id": "tn-adw-phd-fellowship",
+          "name": "ADW PhD Fellowship Scheme"
+        },
+        {
+          "id": "tn-perarignar-anna-award",
+          "name": "Perarignar Anna Memorial Award"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://tnadwscholarship.in/",
+      "finalUrl": "https://tnadwscholarship.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 246,
+      "title": "Overseas Scholarship | Adi Dravidar and Tribal Welfare",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-overseas-ambedkar",
+          "name": "Annal Ambedkar Overseas Higher Education Scholarship"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://tnadwscholarship.in/",
+      "finalUrl": "https://tnadwscholarship.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 87,
+      "title": "Overseas Scholarship | Adi Dravidar and Tribal Welfare",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-overseas-ambedkar",
+          "name": "Annal Ambedkar Overseas Higher Education Scholarship"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://tils.tn.gov.in/schemes",
+      "finalUrl": "https://tils.tn.gov.in/schemes",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 221,
+      "title": "Schemes",
+      "schemesCount": 2,
+      "schemes": [
+        {
+          "id": "tn-pudhumai-penn",
+          "name": "Pudhumai Penn Scheme (Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme)"
+        },
+        {
+          "id": "tn-tamil-pudhalvan",
+          "name": "Tamil Pudhalvan Scheme"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://tils.tn.gov.in/schemes",
+      "finalUrl": "https://tils.tn.gov.in/schemes",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 87,
+      "title": "Schemes",
+      "schemesCount": 2,
+      "schemes": [
+        {
+          "id": "tn-pudhumai-penn",
+          "name": "Pudhumai Penn Scheme (Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme)"
+        },
+        {
+          "id": "tn-tamil-pudhalvan",
+          "name": "Tamil Pudhalvan Scheme"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://bcmbcmw.tn.gov.in/welfschemes_minorities.htm",
+      "finalUrl": "https://bcmbcmw.tn.gov.in/welfschemes_minorities.htm",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 87,
+      "title": "(Unavailable)",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-cm-overseas-minority",
+          "name": "Chief Minister's Overseas Scholarship for Minorities"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://bcmbcmw.tn.gov.in/welfschemes_minorities.htm",
+      "finalUrl": "https://bcmbcmw.tn.gov.in/welfschemes_minorities.htm",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 88,
+      "title": "(Unavailable)",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tn-cm-overseas-minority",
+          "name": "Chief Minister's Overseas Scholarship for Minorities"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "finalUrl": "https://scholarships.gov.in/All-Scholarships",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 594,
+      "title": "NSP : National Scholarship Portal",
+      "schemesCount": 11,
+      "schemes": [
+        {
+          "id": "nsp-nmmss",
+          "name": "National Means-cum-Merit Scholarship Scheme (NMMSS)"
+        },
+        {
+          "id": "nsp-pmusp",
+          "name": "PM-USP Central Sector Scheme of Scholarship for College and University Students"
+        },
+        {
+          "id": "nsp-yasasvi-school",
+          "name": "PM YASASVI Top Class School Education for OBC, EBC and DNT"
+        },
+        {
+          "id": "nsp-yasasvi-college",
+          "name": "PM YASASVI Top Class Education in College for OBC, EBC and DNT"
+        },
+        {
+          "id": "nsp-sc-topclass",
+          "name": "Central Sector Top Class Education Scheme for SC Students"
+        },
+        {
+          "id": "nsp-pwd-prematric",
+          "name": "Pre-Matric Scholarship for Students with Disabilities"
+        },
+        {
+          "id": "nsp-pwd-postmatric",
+          "name": "Post-Matric Scholarship for Students with Disabilities"
+        },
+        {
+          "id": "nsp-pwd-topclass",
+          "name": "Top Class Education for Students with Disabilities"
+        },
+        {
+          "id": "nsp-labour-beedi",
+          "name": "Financial Assistance for Education to Wards of Beedi / Cine / IOMC / LSDM Workers"
+        },
+        {
+          "id": "nsp-pmss-capf",
+          "name": "Prime Minister’s Scholarship Scheme for Central Armed Police Forces & Assam Rifles"
+        },
+        {
+          "id": "nsp-pmss-police",
+          "name": "Prime Minister’s Scholarship Scheme for Wards of State Police Personnel Martyred in Terror / Naxal Attacks"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "finalUrl": "https://scholarships.gov.in/All-Scholarships",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 496,
+      "title": "NSP : National Scholarship Portal",
+      "schemesCount": 22,
+      "schemes": [
+        {
+          "id": "nsp-nmmss",
+          "name": "National Means-cum-Merit Scholarship Scheme (NMMSS)"
+        },
+        {
+          "id": "nsp-pmusp",
+          "name": "PM-USP Central Sector Scheme of Scholarship for College and University Students"
+        },
+        {
+          "id": "nsp-yasasvi-school",
+          "name": "PM YASASVI Top Class School Education for OBC, EBC and DNT"
+        },
+        {
+          "id": "nsp-yasasvi-college",
+          "name": "PM YASASVI Top Class Education in College for OBC, EBC and DNT"
+        },
+        {
+          "id": "nsp-sc-topclass",
+          "name": "Central Sector Top Class Education Scheme for SC Students"
+        },
+        {
+          "id": "central-nfst",
+          "name": "National Fellowship and Scholarship for Higher Education of ST Students"
+        },
+        {
+          "id": "nsp-pwd-prematric",
+          "name": "Pre-Matric Scholarship for Students with Disabilities"
+        },
+        {
+          "id": "nsp-pwd-postmatric",
+          "name": "Post-Matric Scholarship for Students with Disabilities"
+        },
+        {
+          "id": "nsp-pwd-topclass",
+          "name": "Top Class Education for Students with Disabilities"
+        },
+        {
+          "id": "nsp-labour-beedi",
+          "name": "Financial Assistance for Education to Wards of Beedi / Cine / IOMC / LSDM Workers"
+        },
+        {
+          "id": "nsp-pmss-capf",
+          "name": "Prime Minister’s Scholarship Scheme for Central Armed Police Forces & Assam Rifles"
+        },
+        {
+          "id": "nsp-pmss-police",
+          "name": "Prime Minister’s Scholarship Scheme for Wards of State Police Personnel Martyred in Terror / Naxal Attacks"
+        },
+        {
+          "id": "aicte-pragati-degree",
+          "name": "AICTE Pragati Scholarship for Girl Students – Technical Degree"
+        },
+        {
+          "id": "aicte-pragati-diploma",
+          "name": "AICTE Pragati Scholarship for Girl Students – Technical Diploma"
+        },
+        {
+          "id": "aicte-saksham-degree",
+          "name": "AICTE Saksham Scholarship – Technical Degree"
+        },
+        {
+          "id": "aicte-saksham-diploma",
+          "name": "AICTE Saksham Scholarship – Technical Diploma"
+        },
+        {
+          "id": "aicte-swanath-degree",
+          "name": "AICTE Swanath Scholarship – Technical Degree"
+        },
+        {
+          "id": "aicte-swanath-diploma",
+          "name": "AICTE Swanath Scholarship – Technical Diploma"
+        },
+        {
+          "id": "ugc-nspgs",
+          "name": "National Scholarship for Post Graduate Studies (UGC)"
+        },
+        {
+          "id": "ugc-savitribai-single-girl",
+          "name": "Savitribai Jyotirao Phule Fellowship for Single Girl Child"
+        },
+        {
+          "id": "icar-nts-ug",
+          "name": "ICAR National Talent Scholarship (NTS) – Undergraduate"
+        },
+        {
+          "id": "icar-srf-phd",
+          "name": "ICAR Senior Research Fellowship for PhD Studies (ICAR-SRF)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://tribal.nic.in/ScholarshiP.aspx",
+      "finalUrl": "https://tribal.nic.in/ScholarshiP.aspx",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 355,
+      "title": "(Unavailable)",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "central-nfst",
+          "name": "National Fellowship and Scholarship for Higher Education of ST Students"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.aicte-india.org/schemes/students-development-schemes",
+      "finalUrl": "https://www.aicte-india.org/schemes/students-development-schemes",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 10004,
+      "title": "(Unavailable)",
+      "schemesCount": 6,
+      "schemes": [
+        {
+          "id": "aicte-pragati-degree",
+          "name": "AICTE Pragati Scholarship for Girl Students – Technical Degree"
+        },
+        {
+          "id": "aicte-pragati-diploma",
+          "name": "AICTE Pragati Scholarship for Girl Students – Technical Diploma"
+        },
+        {
+          "id": "aicte-saksham-degree",
+          "name": "AICTE Saksham Scholarship – Technical Degree"
+        },
+        {
+          "id": "aicte-saksham-diploma",
+          "name": "AICTE Saksham Scholarship – Technical Diploma"
+        },
+        {
+          "id": "aicte-swanath-degree",
+          "name": "AICTE Swanath Scholarship – Technical Degree"
+        },
+        {
+          "id": "aicte-swanath-diploma",
+          "name": "AICTE Swanath Scholarship – Technical Diploma"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.ugc.gov.in/Home/student_Corner",
+      "finalUrl": "https://www.ugc.gov.in/Home/student_Corner",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 463,
+      "title": "Welcome to UGC, New Delhi, India",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "ugc-nspgs",
+          "name": "National Scholarship for Post Graduate Studies (UGC)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.ugc.gov.in/Fellowship/",
+      "finalUrl": "https://www.ugc.gov.in/Fellowship/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 442,
+      "title": "Welcome to UGC, New Delhi, India",
+      "schemesCount": 2,
+      "schemes": [
+        {
+          "id": "ugc-jrf-humanities-science",
+          "name": "UGC Junior Research Fellowship in Science, Humanities and Social Sciences"
+        },
+        {
+          "id": "ugc-savitribai-single-girl",
+          "name": "Savitribai Jyotirao Phule Fellowship for Single Girl Child"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://scholarship.canarabank.in/",
+      "finalUrl": "https://scholarship.canarabank.in/",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 100,
+      "title": "(Unavailable)",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "ugc-jrf-humanities-science",
+          "name": "UGC Junior Research Fellowship in Science, Humanities and Social Sciences"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://icar.org.in/",
+      "finalUrl": "https://icar.org.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 412,
+      "title": "Home | Indian Council of Agricultural Research Krishi Bhavan",
+      "schemesCount": 3,
+      "schemes": [
+        {
+          "id": "icar-nts-ug",
+          "name": "ICAR National Talent Scholarship (NTS) – Undergraduate"
+        },
+        {
+          "id": "icar-pgs-jrf",
+          "name": "ICAR Post Graduate Scholarship / Junior Research Fellowship (ICAR-PG-JRF)"
+        },
+        {
+          "id": "icar-srf-phd",
+          "name": "ICAR Senior Research Fellowship for PhD Studies (ICAR-SRF)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://icar.org.in/",
+      "finalUrl": "https://icar.org.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 263,
+      "title": "Home | Indian Council of Agricultural Research Krishi Bhavan",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "icar-pgs-jrf",
+          "name": "ICAR Post Graduate Scholarship / Junior Research Fellowship (ICAR-PG-JRF)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://phd.dic.gov.in/",
+      "finalUrl": "https://phd.dic.gov.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 298,
+      "title": "Visvesvaraya PhD Scheme",
+      "schemesCount": 3,
+      "schemes": [
+        {
+          "id": "visvesvaraya-phd-fulltime",
+          "name": "Visvesvaraya PhD Scheme for Electronics and IT – Full Time"
+        },
+        {
+          "id": "visvesvaraya-phd-parttime",
+          "name": "Visvesvaraya PhD Scheme for Electronics and IT – Part Time"
+        },
+        {
+          "id": "visvesvaraya-postdoc",
+          "name": "Visvesvaraya Postdoctoral Fellowship"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://phd.dic.gov.in/",
+      "finalUrl": "https://phd.dic.gov.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 62,
+      "title": "Visvesvaraya PhD Scheme",
+      "schemesCount": 3,
+      "schemes": [
+        {
+          "id": "visvesvaraya-phd-fulltime",
+          "name": "Visvesvaraya PhD Scheme for Electronics and IT – Full Time"
+        },
+        {
+          "id": "visvesvaraya-phd-parttime",
+          "name": "Visvesvaraya PhD Scheme for Electronics and IT – Part Time"
+        },
+        {
+          "id": "visvesvaraya-postdoc",
+          "name": "Visvesvaraya Postdoctoral Fellowship"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.pmrf.in/",
+      "finalUrl": "https://www.pmrf.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 1083,
+      "title": "PMRF",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "pmrf-scheme",
+          "name": "Prime Minister’s Research Fellowship (PMRF)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.pmrf.in/",
+      "finalUrl": "https://www.pmrf.in/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 858,
+      "title": "PMRF",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "pmrf-scheme",
+          "name": "Prime Minister’s Research Fellowship (PMRF)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.serbonline.in/",
+      "finalUrl": "https://anrfonline.in/ANRF/HomePage",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_REDIRECTED",
+      "redirected": true,
+      "durationMs": 1090,
+      "title": "The Electronic Project Proposal Management System, For ANRF",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "serb-npdf",
+          "name": "SERB National Postdoctoral Fellowship (N-PDF)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.serbonline.in/",
+      "finalUrl": "https://anrfonline.in/ANRF/HomePage",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_REDIRECTED",
+      "redirected": true,
+      "durationMs": 140,
+      "title": "The Electronic Project Proposal Management System, For ANRF",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "serb-npdf",
+          "name": "SERB National Postdoctoral Fellowship (N-PDF)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.vidyadhan.org/",
+      "finalUrl": "https://www.vidyadhan.org/web/index.php",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_REDIRECTED",
+      "redirected": true,
+      "durationMs": 387,
+      "title": "Vidyadhan SDF Scholarships",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "vidyadhan-tn",
+          "name": "Vidyadhan Scholarship Programme (Tamil Nadu & Puducherry)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.vidyadhan.org/apply",
+      "finalUrl": "https://www.vidyadhan.org/apply",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 1013,
+      "title": "SDF",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "vidyadhan-tn",
+          "name": "Vidyadhan Scholarship Programme (Tamil Nadu & Puducherry)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.reliancefoundation.org/media/media-release/Reliance_Foundation_Scholarships_2026-27",
+      "finalUrl": "https://www.reliancefoundation.org/media/media-release/Reliance_Foundation_Scholarships_2026-27",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 1149,
+      "title": "Reliance Foundation Scholarships | Application Open for 2026–27",
+      "schemesCount": 2,
+      "schemes": [
+        {
+          "id": "reliance-ug",
+          "name": "Reliance Foundation Undergraduate Scholarship"
+        },
+        {
+          "id": "reliance-pg",
+          "name": "Reliance Foundation Postgraduate Scholarship"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.scholarships.reliancefoundation.org/",
+      "finalUrl": "https://www.scholarships.reliancefoundation.org/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 255,
+      "title": "Reliance Foundation Scholarships",
+      "schemesCount": 2,
+      "schemes": [
+        {
+          "id": "reliance-ug",
+          "name": "Reliance Foundation Undergraduate Scholarship"
+        },
+        {
+          "id": "reliance-pg",
+          "name": "Reliance Foundation Postgraduate Scholarship"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.tatacapital.com/sustainability/education.html",
+      "finalUrl": "https://www.tatacapital.com/sustainability/education.html",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 681,
+      "title": "Education - Corporate Sustainability | Tata Capital",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tata-capital-pankh",
+          "name": "Tata Capital Pankh Scholarship Programme"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.tatacapital.com/sustainability/education.html",
+      "finalUrl": "https://www.tatacapital.com/sustainability/education.html",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 91,
+      "title": "Education - Corporate Sustainability | Tata Capital",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "tata-capital-pankh",
+          "name": "Tata Capital Pankh Scholarship Programme"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.parivartanecss.com/",
+      "finalUrl": "https://www.parivartanecss.com/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 320,
+      "title": "Parivartan ECSS Programme 2025-26",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "hdfc-parivartan-ecss",
+          "name": "HDFC Bank Parivartan's ECSS Programme (Educational Crisis Scholarship Support)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.parivartanecss.com/",
+      "finalUrl": "https://www.parivartanecss.com/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 220,
+      "title": "Parivartan ECSS Programme 2025-26",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "hdfc-parivartan-ecss",
+          "name": "HDFC Bank Parivartan's ECSS Programme (Educational Crisis Scholarship Support)"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.kotakeducationfoundation.org/kotak-kanya-scholarship",
+      "finalUrl": "https://www.kotakeducationfoundation.org/kotak-kanya-scholarship",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 273,
+      "title": "(Unavailable)",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "kotak-kanya-scholarship",
+          "name": "Kotak Kanya Scholarship for Girl Students"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.kotakeducationfoundation.org/kotak-kanya-scholarship",
+      "finalUrl": "https://www.kotakeducationfoundation.org/kotak-kanya-scholarship",
+      "httpStatus": 0,
+      "statusLabel": "NETWORK_RETRY",
+      "redirected": false,
+      "durationMs": 157,
+      "title": "(Unavailable)",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "kotak-kanya-scholarship",
+          "name": "Kotak Kanya Scholarship for Girl Students"
+        }
+      ],
+      "error": "fetch failed",
+      "verified": false
+    },
+    {
+      "type": "Information / Guidelines",
+      "url": "https://www.sitaramjindalfoundation.org/",
+      "finalUrl": "https://www.sitaramjindalfoundation.org/",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_OK",
+      "redirected": false,
+      "durationMs": 898,
+      "title": "Charitable Trust in Bangalore, India | Charity Organizations in Bangalore, India | Sitaram Jindal Fo",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "sitaram-jindal-foundation",
+          "name": "Sitaram Jindal Foundation Scholarship"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "type": "Application Portal",
+      "url": "https://www.sitaramjindalfoundation.org/scholarships.php",
+      "finalUrl": "https://www.sitaramjindalfoundation.org/scholarships-for-students-in-bangalore.php",
+      "httpStatus": 200,
+      "statusLabel": "ACTIVE_REDIRECTED",
+      "redirected": true,
+      "durationMs": 1207,
+      "title": "Scholarship for Degree Students (BE, Diploma, B.com. PG) | Scholarships for PG Students in Bangalore",
+      "schemesCount": 1,
+      "schemes": [
+        {
+          "id": "sitaram-jindal-foundation",
+          "name": "Sitaram Jindal Foundation Scholarship"
+        }
+      ],
+      "verified": true
+    }
+  ]
+}
