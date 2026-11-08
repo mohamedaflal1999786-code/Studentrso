@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   X,
   User,
@@ -14,9 +14,11 @@ import {
   ChevronLeft,
   Loader2,
   Sparkles,
+  Camera,
 } from 'lucide-react';
 import { UserProfileData } from '@/lib/auth-service';
 import { useAuth } from '@/lib/auth-context';
+import { validateImageFile, processAvatarFile } from '@/lib/image-utils';
 
 const TN_DISTRICTS = [
   'Ariyalur', 'Chengalpattu', 'Chennai', 'Coimbatore', 'Cuddalore', 'Dharmapuri', 'Dindigul',
@@ -76,6 +78,10 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
   const [dob, setDob] = useState('');
   const [state, setState] = useState('Tamil Nadu');
   const [district, setDistrict] = useState('Chennai');
+  const [avatarUrl, setAvatarUrl] = useState<string>('');
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
+  const [avatarError, setAvatarError] = useState('');
+  const avatarInputRef = useRef<HTMLInputElement>(null);
 
   // Step B: Educational Information
   const [educationLevel, setEducationLevel] = useState('Undergraduate');
@@ -111,6 +117,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
     const p = initialProfile || profile;
     if (p) {
       if (p.full_name) setFullName(p.full_name);
+      if (p.avatar_url) setAvatarUrl(p.avatar_url);
       if (p.phone) setPhone(p.phone);
       if (p.date_of_birth) setDob(p.date_of_birth);
       if (p.state) setState(p.state);
@@ -161,6 +168,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
     try {
       const payload: Partial<UserProfileData> = {
         full_name: fullName.trim(),
+        avatar_url: avatarUrl || undefined,
         phone: phone.trim() || undefined,
         date_of_birth: dob || undefined,
         state,
@@ -272,6 +280,75 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
             <div className="border-b border-[#efe3cc] pb-2">
               <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 1: Basic Information</h3>
               <p className="text-xs text-[#7a6a5a]">Confirm your verified identity and domicile in Tamil Nadu.</p>
+            </div>
+
+            {/* Profile Picture Uploader (Max 2MB) */}
+            <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-[#f6ede0]/60 border border-[#efe3cc]">
+              <input
+                ref={avatarInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  setAvatarError('');
+                  const validation = validateImageFile(file);
+                  if (!validation.valid) {
+                    setAvatarError(validation.error || 'Please select an image under 2MB.');
+                    if (avatarInputRef.current) avatarInputRef.current.value = '';
+                    return;
+                  }
+                  setUploadingAvatar(true);
+                  try {
+                    const dataUrl = await processAvatarFile(file);
+                    setAvatarUrl(dataUrl);
+                  } catch (err) {
+                    setAvatarError(err instanceof Error ? err.message : 'Failed to process photo.');
+                  } finally {
+                    setUploadingAvatar(false);
+                    if (avatarInputRef.current) avatarInputRef.current.value = '';
+                  }
+                }}
+              />
+              <div className="relative group shrink-0">
+                {avatarUrl ? (
+                  <img
+                    src={avatarUrl}
+                    alt="Preview"
+                    className="w-14 h-14 rounded-2xl object-cover border-2 border-[#8c2f39] shadow-xs"
+                  />
+                ) : (
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-[#d8c7ad] flex items-center justify-center text-[#7a6a5a]">
+                    <User size={24} />
+                  </div>
+                )}
+                <button
+                  type="button"
+                  disabled={uploadingAvatar}
+                  onClick={() => avatarInputRef.current?.click()}
+                  className="absolute -bottom-1 -right-1 p-1 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-xs cursor-pointer"
+                  title="Upload profile picture (Max 2MB)"
+                >
+                  {uploadingAvatar ? <Loader2 size={11} className="animate-spin" /> : <Camera size={11} />}
+                </button>
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="block text-xs font-bold text-[#2b2118]">Profile Picture</span>
+                <span className="block text-[11px] text-[#7a6a5a]">Max 2MB • JPG, PNG, WEBP</span>
+                {avatarError ? (
+                  <span className="block text-[11px] font-semibold text-red-600 mt-0.5">{avatarError}</span>
+                ) : (
+                  <button
+                    type="button"
+                    disabled={uploadingAvatar}
+                    onClick={() => avatarInputRef.current?.click()}
+                    className="text-[11px] font-mono font-bold text-[#8c2f39] hover:underline mt-0.5 cursor-pointer block"
+                  >
+                    {avatarUrl ? 'Change Profile Picture' : 'Upload Profile Picture'}
+                  </button>
+                )}
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">

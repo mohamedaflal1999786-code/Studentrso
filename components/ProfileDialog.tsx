@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, ChangeEvent } from 'react';
 import Link from 'next/link';
 import {
   Loader2,
@@ -15,8 +15,11 @@ import {
   LayoutDashboard,
   Edit3,
   Award,
+  Camera,
+  AlertCircle,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
+import { processAvatarFile, validateImageFile } from '@/lib/image-utils';
 
 interface ProfileDialogProps {
   open: boolean;
@@ -25,7 +28,11 @@ interface ProfileDialogProps {
 }
 
 export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogProps) {
-  const { profile, user, signOut } = useAuth();
+  const { profile, user, refresh, signOut } = useAuth();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [uploadingPhoto, setUploadingPhoto] = useState(false);
+  const [photoError, setPhotoError] = useState('');
+  const [photoSuccess, setPhotoSuccess] = useState('');
 
   if (!open) return null;
 
@@ -52,11 +59,58 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
     }
   }
 
-  const isCompleted = Boolean(profile?.onboarding_completed);
+  async function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setPhotoError('');
+    setPhotoSuccess('');
+
+    // Strict 2MB size check
+    const validation = validateImageFile(file);
+    if (!validation.valid) {
+      setPhotoError(validation.error || 'Please select an image smaller than 2MB.');
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
+    setUploadingPhoto(true);
+    try {
+      const dataUrl = await processAvatarFile(file);
+      const res = await fetch('/api/auth/profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ avatar_url: dataUrl }),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || 'Failed to save profile picture.');
+      }
+
+      await refresh();
+      setPhotoSuccess('Profile picture updated successfully!');
+      setTimeout(() => setPhotoSuccess(''), 3000);
+    } catch (err) {
+      setPhotoError(err instanceof Error ? err.message : 'Failed to update photo.');
+    } finally {
+      setUploadingPhoto(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  }
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#2b2118]/60 backdrop-blur-md px-4 py-8 animate-in fade-in">
       <div className="relative w-full max-w-[460px] rounded-3xl border border-[#efe3cc] bg-[#fdfbf6] shadow-[0_24px_80px_rgba(43,33,24,0.25)] max-h-[92vh] overflow-y-auto">
+        {/* Hidden File Input */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={handleFileChange}
+        />
+
         {/* Gradient strip */}
         <div className="h-2 rounded-t-3xl bg-gradient-to-r from-[#8c2f39] via-[#b8543e] to-[#e0a526]" />
 
@@ -70,14 +124,55 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
 
         {/* Avatar & Header */}
         <div className="flex flex-col items-center px-6 pt-7 pb-4 text-center">
-          <div className="relative">
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#8c2f39] text-[28px] font-bold text-white shadow-lg border-2 border-[#e0a526]">
-              {initials}
-            </div>
-            <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-600 border-2 border-[#fdfbf6]">
-              <CheckCircle2 size={13} className="text-white" />
-            </div>
+          <div className="relative group">
+            {profile?.avatar_url ? (
+              <img
+                src={profile.avatar_url}
+                alt={displayName}
+                className="h-22 w-22 rounded-2xl object-cover shadow-lg border-2 border-[#e0a526]"
+              />
+            ) : (
+              <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#8c2f39] text-[28px] font-bold text-white shadow-lg border-2 border-[#e0a526]">
+                {initials}
+              </div>
+            )}
+
+            {/* Camera Edit Badge */}
+            <button
+              type="button"
+              disabled={uploadingPhoto}
+              onClick={() => fileInputRef.current?.click()}
+              title="Upload / Change profile picture (Max 2MB)"
+              className="absolute -bottom-1.5 -right-1.5 p-2 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer disabled:opacity-60"
+            >
+              {uploadingPhoto ? <Loader2 size={13} className="animate-spin" /> : <Camera size={13} />}
+            </button>
           </div>
+
+          {/* Upload Button Link */}
+          <button
+            type="button"
+            disabled={uploadingPhoto}
+            onClick={() => fileInputRef.current?.click()}
+            className="mt-2.5 text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1"
+          >
+            <Camera size={12} />
+            <span>{profile?.avatar_url ? 'Change Photo (Max 2MB)' : 'Upload Profile Picture (Max 2MB)'}</span>
+          </button>
+
+          {photoError && (
+            <div className="mt-2 text-xs text-red-700 bg-red-50 border border-red-200 rounded-xl px-3 py-1.5 flex items-center gap-1.5 max-w-sm">
+              <AlertCircle size={14} className="shrink-0" />
+              <span>{photoError}</span>
+            </div>
+          )}
+
+          {photoSuccess && (
+            <div className="mt-2 text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-1.5 flex items-center gap-1.5 max-w-sm">
+              <CheckCircle2 size={14} className="shrink-0" />
+              <span>{photoSuccess}</span>
+            </div>
+          )}
 
           <h2 className="mt-3 font-serif text-[22px] font-bold text-[#2b2118]">
             {displayName}
@@ -166,26 +261,6 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
           </button>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ProfileField({
-  icon: Icon,
-  label,
-  children,
-}: {
-  icon: typeof User;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <div className="flex items-center gap-1.5 text-[12px] font-semibold text-[#7a6a5a]">
-        <Icon size={13} />
-        <span>{label}</span>
-      </div>
-      {children}
     </div>
   );
 }

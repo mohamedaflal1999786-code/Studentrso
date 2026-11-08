@@ -370,7 +370,15 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
               className="flex items-center gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg font-sans text-[13px] sm:text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
               title="My Profile"
             >
-              <UserCircle size={22} className="text-[#8c2f39] shrink-0" />
+              {profile?.avatar_url ? (
+                <img
+                  src={profile.avatar_url}
+                  alt={displayName}
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border-2 border-[#8c2f39] shadow-xs shrink-0"
+                />
+              ) : (
+                <UserCircle size={22} className="text-[#8c2f39] shrink-0" />
+              )}
               <span className="hidden sm:inline truncate max-w-[120px]">{displayName}</span>
             </button>
           ) : (
@@ -517,7 +525,15 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                   }}
                   className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-[#f6ede0] text-[#2b2118] font-sans text-[13px] font-semibold cursor-pointer text-left"
                 >
-                  <UserCircle size={20} className="text-[#8c2f39] shrink-0" />
+                  {profile?.avatar_url ? (
+                    <img
+                      src={profile.avatar_url}
+                      alt={displayName}
+                      className="w-7 h-7 rounded-full object-cover border border-[#8c2f39] shrink-0"
+                    />
+                  ) : (
+                    <UserCircle size={20} className="text-[#8c2f39] shrink-0" />
+                  )}
                   <span className="truncate flex-1">
                     Student: <strong className="text-[#8c2f39]">{displayName}</strong>
                   </span>

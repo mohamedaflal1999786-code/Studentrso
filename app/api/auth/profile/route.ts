@@ -73,6 +73,7 @@ export async function POST(request: Request) {
     if (typeof body.is_first_graduate === 'boolean') updates.is_first_graduate = body.is_first_graduate;
     if (typeof body.is_single_girl_child === 'boolean') updates.is_single_girl_child = body.is_single_girl_child;
     if (typeof body.has_disability === 'boolean') updates.has_disability = body.has_disability;
+    if (typeof body.avatar_url === 'string' || body.avatar_url === null) updates.avatar_url = body.avatar_url;
     if (Array.isArray(body.study_interests)) updates.study_interests = body.study_interests;
     if (Array.isArray(body.career_interests)) updates.career_interests = body.career_interests;
     if (Array.isArray(body.learning_preferences)) updates.learning_preferences = body.learning_preferences;

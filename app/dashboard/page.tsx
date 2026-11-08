@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -30,6 +30,7 @@ import {
   AlertCircle,
   Check,
   Building,
+  Camera,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { StudentOnboardingModal } from '@/components/onboarding/StudentOnboardingModal';
@@ -124,7 +125,7 @@ const ALL_10_MODULES = [
 
 export default function StudentDashboardPage() {
   const router = useRouter();
-  const { user, profile, loading: authLoading, signOut } = useAuth();
+  const { user, profile, loading: authLoading, signOut, refresh } = useAuth();
 
   // State
   const [onboardingOpen, setOnboardingOpen] = useState(false);
@@ -159,35 +160,36 @@ export default function StudentDashboardPage() {
   const [savingPref, setSavingPref] = useState(false);
   const [prefSavedMessage, setPrefSavedMessage] = useState('');
 
-  // Fetch Dashboard Data
-  useEffect(() => {
-    async function loadDashboard() {
-      if (!user) return;
-      setLoadingData(true);
-      try {
-        const [recRes, oppRes] = await Promise.all([
-          fetch('/api/dashboard/recommendations', { cache: 'no-store' }),
-          fetch('/api/dashboard/opportunities', { cache: 'no-store' }),
-        ]);
+  // Fetch Dashboard Data live with cache-busting
+  const loadDashboard = useCallback(async () => {
+    if (!user) return;
+    setLoadingData(true);
+    try {
+      const ts = Date.now();
+      const [recRes, oppRes] = await Promise.all([
+        fetch(`/api/dashboard/recommendations?t=${ts}`, { cache: 'no-store' }),
+        fetch(`/api/dashboard/opportunities?t=${ts}`, { cache: 'no-store' }),
+      ]);
 
-        if (recRes.ok) {
-          const recData = await recRes.json();
-          setRecommendations(recData.recommendations || []);
-        }
-
-        if (oppRes.ok) {
-          const oppData = await oppRes.json();
-          setSavedOpportunities(oppData.opportunities || []);
-        }
-      } catch {
-        // Network fallback
-      } finally {
-        setLoadingData(false);
+      if (recRes.ok) {
+        const recData = await recRes.json();
+        setRecommendations(recData.recommendations || []);
       }
-    }
 
+      if (oppRes.ok) {
+        const oppData = await oppRes.json();
+        setSavedOpportunities(oppData.opportunities || []);
+      }
+    } catch {
+      // Network fallback
+    } finally {
+      setLoadingData(false);
+    }
+  }, [user]);
+
+  useEffect(() => {
     loadDashboard();
-  }, [profile, user]);
+  }, [loadDashboard, profile]);
 
   // Initial notification pref sync
   useEffect(() => {
@@ -365,9 +367,27 @@ export default function StudentDashboardPage() {
 
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div className="flex items-start sm:items-center gap-3.5 sm:gap-5 min-w-0">
-              {/* Avatar Initials with Gold Ring */}
-              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#fdfbf6] text-[#8c2f39] font-serif font-bold text-xl sm:text-3xl flex items-center justify-center shadow-lg shrink-0 border-2 border-[#e0a526]">
-                {studentInitials}
+              {/* Avatar Photo / Initials with Gold Ring */}
+              <div className="relative group shrink-0">
+                {profile?.avatar_url ? (
+                  <img
+                    src={profile.avatar_url}
+                    alt={studentDisplayName}
+                    className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl object-cover shadow-lg border-2 border-[#e0a526]"
+                  />
+                ) : (
+                  <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#fdfbf6] text-[#8c2f39] font-serif font-bold text-xl sm:text-3xl flex items-center justify-center shadow-lg border-2 border-[#e0a526]">
+                    {studentInitials}
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setProfileDialogOpen(true)}
+                  title="Upload / Change profile picture (Max 2MB)"
+                  className="absolute -bottom-1 -right-1 p-1 sm:p-1.5 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer"
+                >
+                  <Camera size={12} />
+                </button>
               </div>
 
               {/* Identity & Educational Status */}
@@ -1075,11 +1095,8 @@ export default function StudentDashboardPage() {
         onClose={() => setOnboardingOpen(false)}
         initialProfile={profile}
         onSaved={async () => {
-          const res = await fetch('/api/dashboard/recommendations', { cache: 'no-store' });
-          if (res.ok) {
-            const d = await res.json();
-            setRecommendations(d.recommendations || []);
-          }
+          await refresh();
+          await loadDashboard();
         }}
       />
     </div>

@@ -208,7 +208,8 @@ export function generatePersonalizedRecommendations(profile: UserProfileData): O
 
   // Sort descending by calculated relevance score
   scholarshipMatches.sort((a, b) => b.score - a.score);
-  recommendations.push(...scholarshipMatches.slice(0, 6).map((m) => m.rec));
+  // Suggest all genuine matches based on student's actual attributes (no static hardcoded 6)
+  recommendations.push(...scholarshipMatches.map((m) => m.rec));
 
   // =========================================================================
   // 2. CERTIFICATES (Module 03)
@@ -312,7 +313,7 @@ export function generatePersonalizedRecommendations(profile: UserProfileData): O
   }
 
   internshipMatches.sort((a, b) => b.score - a.score);
-  recommendations.push(...internshipMatches.slice(0, 2).map((m) => m.rec));
+  recommendations.push(...internshipMatches.slice(0, 4).map((m) => m.rec));
 
   // =========================================================================
   // 4. EXAMINATIONS (Module 04)
@@ -378,7 +379,7 @@ export function generatePersonalizedRecommendations(profile: UserProfileData): O
   }
 
   examMatches.sort((a, b) => b.score - a.score);
-  recommendations.push(...examMatches.slice(0, 2).map((m) => m.rec));
+  recommendations.push(...examMatches.slice(0, 4).map((m) => m.rec));
 
   // =========================================================================
   // 5. ADMISSIONS & CONTINUITY (Module 06)
@@ -420,9 +421,7 @@ export function generatePersonalizedRecommendations(profile: UserProfileData): O
   }
 
   admissionMatches.sort((a, b) => b.score - a.score);
-  if (admissionMatches.length > 0) {
-    recommendations.push(admissionMatches[0].rec);
-  }
+  recommendations.push(...admissionMatches.slice(0, 2).map((m) => m.rec));
 
   // =========================================================================
   // 6. ACADEMIC SUPPORT (Module 07)
