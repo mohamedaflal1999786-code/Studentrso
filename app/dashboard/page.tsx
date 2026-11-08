@@ -357,11 +357,21 @@ export default function StudentDashboardPage() {
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#f6ede0] mt-1.5 flex items-center gap-2 flex-wrap">
-                  <span className="font-medium">{profile?.education_level || 'Undergraduate'}</span>
-                  <span>•</span>
-                  <span>{profile?.course || 'Degree Program'}</span>
-                  <span>•</span>
-                  <span className="text-[#f5cf7b] font-medium">{profile?.institution_name || 'Tamil Nadu Institution'}</span>
+                  {profile?.course ? (
+                    <>
+                      <span className="font-medium">{profile?.education_level || 'Undergraduate'}</span>
+                      <span>•</span>
+                      <span>{profile.course}</span>
+                      {profile.institution_name && (
+                        <>
+                          <span>•</span>
+                          <span className="text-[#f5cf7b] font-medium">{profile.institution_name}</span>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    <span className="italic text-[#f5cf7b]">Complete onboarding to personalize your scholarship & exam matches</span>
+                  )}
                 </p>
                 <div className="flex items-center gap-3 mt-2 text-[11px] text-[#eed8b7] font-mono flex-wrap">
                   <span className="break-all">{profile?.email || user?.email || 'student@studentrso.in'}</span>

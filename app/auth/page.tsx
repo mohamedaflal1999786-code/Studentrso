@@ -12,7 +12,11 @@ function AuthPageContent() {
   const { user, profile } = useAuth();
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
 
-  if (user) {
+  const isCreatePasswordStep =
+    typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('step') === 'create-password';
+
+  if (user && !isCreatePasswordStep) {
     return (
       <div className="min-h-screen bg-[#fbf5e9] flex flex-col items-center justify-center p-4 font-sans">
         <div className="w-full max-w-md bg-[#fdfbf6] rounded-3xl border border-[#efe3cc] p-8 shadow-xl text-center space-y-5">

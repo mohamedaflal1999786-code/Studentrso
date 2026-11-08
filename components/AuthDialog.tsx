@@ -77,17 +77,21 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
       if (step === 'create-password') {
         setView('create-password');
         if (emailParam) setEmail(emailParam);
+        else if (user?.email) setEmail(user.email);
       }
     }
-  }, [open]);
+  }, [open, user]);
 
   useEffect(() => {
     if (open) {
       if (typeof window !== 'undefined') {
         const search = new URLSearchParams(window.location.search);
         const step = search.get('step');
+        const emailParam = search.get('email');
         if (step === 'create-password') {
           setView('create-password');
+          if (emailParam) setEmail(emailParam);
+          else if (user?.email) setEmail(user.email);
         } else {
           setView('main');
         }
@@ -97,7 +101,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
       setStatus('');
       setIsError(false);
     }
-  }, [open, mode]);
+  }, [open, mode, user]);
 
   if (!open) return null;
 
@@ -211,7 +215,11 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
       const res = await fetch('/api/auth/set-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password, confirmPassword }),
+        body: JSON.stringify({
+          password,
+          confirmPassword,
+          email: email.trim().toLowerCase(),
+        }),
       });
 
       const data = await res.json();

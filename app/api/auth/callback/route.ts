@@ -93,11 +93,14 @@ export async function POST(request: Request) {
         .select()
         .maybeSingle();
 
+      const needsPassword = Boolean(isSignup || !profile?.has_password);
+      const isNewUser = Boolean(isSignup || !profile?.onboarding_completed);
+
       const sessionToken = createSessionToken(userId, userEmail);
       const response = NextResponse.json({
         success: true,
-        isNewUser: isSignup || !profile?.onboarding_completed,
-        needsPassword: isSignup,
+        isNewUser,
+        needsPassword,
         user: { id: userId, email: userEmail },
         profile: profile || {
           id: userId,
@@ -142,7 +145,7 @@ export async function POST(request: Request) {
     const response = NextResponse.json({
       success: true,
       isNewUser: isSignup || !authResult.profile.onboarding_completed,
-      needsPassword: isSignup,
+      needsPassword: Boolean(isSignup || !authResult.profile.onboarding_completed),
       user: authResult.user,
       profile: authResult.profile,
     });

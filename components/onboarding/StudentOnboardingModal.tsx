@@ -79,31 +79,25 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
 
   // Step B: Educational Information
   const [educationLevel, setEducationLevel] = useState('Undergraduate');
-  const [course, setCourse] = useState('B.E. Computer Science and Engineering');
-  const [specialization, setSpecialization] = useState('Artificial Intelligence & Data Systems');
-  const [academicYear, setAcademicYear] = useState('3rd Year');
-  const [institutionName, setInstitutionName] = useState('Anna University');
-  const [graduationYear, setGraduationYear] = useState<number>(2027);
-  const [academicPercentage, setAcademicPercentage] = useState<number | ''>(85);
-  const [cgpa, setCgpa] = useState<number | ''>(8.5);
+  const [course, setCourse] = useState('');
+  const [specialization, setSpecialization] = useState('');
+  const [academicYear, setAcademicYear] = useState('1st Year');
+  const [institutionName, setInstitutionName] = useState('');
+  const [graduationYear, setGraduationYear] = useState<number>(new Date().getFullYear() + 2);
+  const [academicPercentage, setAcademicPercentage] = useState<number | ''>('');
+  const [cgpa, setCgpa] = useState<number | ''>('');
 
   // Step C: Study Interests
-  const [studyInterests, setStudyInterests] = useState<string[]>([
-    'Engineering & Technology',
-    'Pure Sciences & Research',
-  ]);
+  const [studyInterests, setStudyInterests] = useState<string[]>([]);
 
   // Step D: Career Interests
-  const [careerInterests, setCareerInterests] = useState<string[]>([
-    'Higher Education & Competitive Exams',
-    'Internships & Apprenticeships',
-  ]);
+  const [careerInterests, setCareerInterests] = useState<string[]>([]);
 
   // Step E: Financial & Statutory Criteria
   const [familyIncome, setFamilyIncome] = useState('Below ₹2,50,000');
-  const [communityCategory, setCommunityCategory] = useState('BC');
-  const [studiedInGovtSchool, setStudiedInGovtSchool] = useState(true);
-  const [isFirstGraduate, setIsFirstGraduate] = useState(true);
+  const [communityCategory, setCommunityCategory] = useState('General');
+  const [studiedInGovtSchool, setStudiedInGovtSchool] = useState(false);
+  const [isFirstGraduate, setIsFirstGraduate] = useState(false);
   const [isSingleGirlChild, setIsSingleGirlChild] = useState(false);
   const [hasDisability, setHasDisability] = useState(false);
 
@@ -111,7 +105,6 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
   const [learningPreferences, setLearningPreferences] = useState<string[]>([
     'Finding Scholarships',
     'Preparing for Competitive Examinations',
-    'Skill Building & Internships',
   ]);
 
   useEffect(() => {

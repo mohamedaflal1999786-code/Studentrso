@@ -36,6 +36,7 @@ export interface UserProfileData {
     security_alerts?: boolean;
     promotional_emails?: boolean;
   };
+  has_password?: boolean;
   onboarding_completed?: boolean;
   created_at?: string;
   updated_at?: string;

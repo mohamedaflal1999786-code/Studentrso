@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { verifySessionToken } from '@/lib/auth-service';
+import { verifySessionToken, createSessionToken, hashPassword, getAccountByEmail } from '@/lib/auth-service';
 import { getSupabaseServerClient } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
@@ -12,24 +12,30 @@ export async function POST(request: Request) {
       cookieStore.get('student_rso_session')?.value ||
       request.headers.get('cookie')?.match(/student_rso_session=([^;]+)/)?.[1];
 
-    if (!sessionToken) {
-      return NextResponse.json(
-        { error: 'Authentication required. Please sign in with Google first.' },
-        { status: 401 }
-      );
+    let userId = '';
+    let userEmail = '';
+
+    if (sessionToken) {
+      const decoded = verifySessionToken(sessionToken);
+      if (decoded && decoded.userId) {
+        userId = decoded.userId;
+        userEmail = decoded.email || '';
+      }
     }
 
-    const decoded = verifySessionToken(sessionToken);
-    if (!decoded || !decoded.userId) {
-      return NextResponse.json(
-        { error: 'Session expired. Please sign in with Google again.' },
-        { status: 401 }
-      );
-    }
+    const body = (await request.json()) as {
+      password?: unknown;
+      confirmPassword?: unknown;
+      email?: unknown;
+    };
 
-    const body = await request.json();
     const password = typeof body.password === 'string' ? body.password : '';
     const confirmPassword = typeof body.confirmPassword === 'string' ? body.confirmPassword : '';
+    const providedEmail = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+
+    if (providedEmail && !userEmail) {
+      userEmail = providedEmail;
+    }
 
     if (!password || password.length < 8) {
       return NextResponse.json(
@@ -46,33 +52,110 @@ export async function POST(request: Request) {
     }
 
     const supabase = getSupabaseServerClient();
-    if (supabase) {
-      // 1. Update password in Supabase Auth
-      const { error: updateError } = await supabase.auth.admin.updateUserById(
-        decoded.userId,
-        {
-          password,
-          email_confirm: true,
+
+    // If userId not found from cookie, resolve via email in Supabase
+    if (!userId && userEmail && supabase) {
+      try {
+        const { data: profile } = await supabase
+          .from('user_profiles')
+          .select('id, email, full_name')
+          .eq('email', userEmail)
+          .maybeSingle();
+
+        if (profile?.id) {
+          userId = profile.id;
+        } else {
+          // Check Supabase Auth users list
+          const { data: usersData } = await supabase.auth.admin.listUsers();
+          const authUser = usersData?.users?.find(
+            (u) => u.email?.toLowerCase() === userEmail
+          );
+          if (authUser?.id) {
+            userId = authUser.id;
+          }
         }
-      );
-
-      if (updateError) {
-        console.error('Supabase password update error:', updateError.message);
+      } catch (err) {
+        console.warn('Could not resolve user by email:', err);
       }
-
-      // 2. Mark password as created in user_profiles
-      await supabase
-        .from('user_profiles')
-        .update({
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', decoded.userId);
     }
 
-    return NextResponse.json({
+    // Fallback to local account store
+    if (!userId && userEmail) {
+      const localAccount = getAccountByEmail(userEmail);
+      if (localAccount?.id) {
+        userId = localAccount.id;
+      }
+    }
+
+    // If still no user exists, create one in Supabase Auth
+    if (!userId && userEmail && supabase) {
+      try {
+        const { data: newUser, error: createError } = await supabase.auth.admin.createUser({
+          email: userEmail,
+          password,
+          email_confirm: true,
+        });
+        if (!createError && newUser?.user?.id) {
+          userId = newUser.user.id;
+        }
+      } catch (err) {
+        console.warn('Could not create new user via admin:', err);
+      }
+    }
+
+    if (!userId) {
+      return NextResponse.json(
+        { error: 'Please enter your registered Google email address or sign in first.' },
+        { status: 400 }
+      );
+    }
+
+    // 1. Update password in Supabase Auth
+    if (supabase) {
+      try {
+        const { error: updateError } = await supabase.auth.admin.updateUserById(userId, {
+          password,
+          email_confirm: true,
+        });
+
+        if (updateError) {
+          console.error('Supabase password update error:', updateError.message);
+        }
+
+        // 2. Upsert profile with has_password flag
+        await supabase
+          .from('user_profiles')
+          .upsert(
+            {
+              id: userId,
+              email: userEmail,
+              has_password: true,
+              updated_at: new Date().toISOString(),
+            },
+            { onConflict: 'id' }
+          );
+      } catch (err) {
+        console.warn('Supabase DB update warning:', err);
+      }
+    }
+
+    // Issue fresh session cookies so student is immediately signed in
+    const newSessionToken = createSessionToken(userId, userEmail);
+    const response = NextResponse.json({
       success: true,
-      message: 'Password created successfully! You can now log in using your Gmail and this password.',
+      message: 'Password saved successfully! Opening your student dashboard...',
+      user: { id: userId, email: userEmail },
     });
+
+    response.cookies.set('student_rso_session', newSessionToken, {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 7 * 24 * 60 * 60,
+      path: '/',
+    });
+
+    return response;
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'Could not set password.';
     return NextResponse.json({ error: msg }, { status: 500 });

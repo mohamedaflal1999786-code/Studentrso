@@ -349,35 +349,29 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
           >
             About
           </a>
+
+          {user && (
+            <Link
+              href="/dashboard"
+              className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
+            >
+              Dashboard
+            </Link>
+          )}
         </nav>
 
         {/* Right side actions */}
         <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           {user ? (
-            <>
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg font-sans text-[12px] sm:text-[13px] font-bold bg-[#8c2f39] text-white hover:bg-[#6d1824] transition-colors cursor-pointer shadow-xs"
-              >
-                <span>Dashboard</span>
-              </Link>
-              <button
-                type="button"
-                onClick={onOpenProfile}
-                className="flex items-center gap-2 px-2 sm:px-3 py-2 rounded-lg font-sans text-[13px] sm:text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
-              >
-                <UserCircle size={20} className="text-[#8c2f39] shrink-0" />
-                <span className="hidden sm:inline truncate max-w-[120px]">{displayName}</span>
-              </button>
-              <button
-                type="button"
-                onClick={handleSignOut}
-                className="flex items-center gap-1.5 px-2 sm:px-3 py-2 rounded-lg font-sans text-[13px] sm:text-[14px] font-semibold text-[#7a6a5a] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
-              >
-                <LogOut size={18} className="shrink-0" />
-                <span className="hidden sm:inline">Sign Out</span>
-              </button>
-            </>
+            <button
+              type="button"
+              onClick={onOpenProfile}
+              className="flex items-center gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg font-sans text-[13px] sm:text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
+              title="My Profile"
+            >
+              <UserCircle size={22} className="text-[#8c2f39] shrink-0" />
+              <span className="hidden sm:inline truncate max-w-[120px]">{displayName}</span>
+            </button>
           ) : (
             <button
               type="button"
@@ -387,7 +381,8 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
               Sign In
             </button>
           )}
-          {/* Hamburger menu for mobile/tablet */}
+
+          {/* Hamburger menu: ALWAYS visible on mobile & tablet, identically before and after login */}
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -506,28 +501,41 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                   setMobileOpen(false);
                   onSignIn();
                 }}
-                className="w-full text-center px-4 py-3 rounded-lg bg-[#8c2f39] text-white font-sans text-[14px] font-semibold cursor-pointer min-h-[44px] shadow-sm"
+                className="w-full text-center px-4 py-3 rounded-lg bg-[#8c2f39] text-white font-sans text-[14px] font-semibold cursor-pointer min-h-[44px] shadow-sm mt-2"
               >
                 Sign In
               </button>
             )}
             {user && (
-              <Link
-                href="/dashboard"
-                onClick={() => setMobileOpen(false)}
-                className="block w-full text-center px-4 py-3 rounded-lg bg-[#8c2f39] text-white font-sans text-[14px] font-bold cursor-pointer min-h-[44px] shadow-sm mb-2"
-              >
-                Go to Student Dashboard
-              </Link>
-            )}
-            {user && (
-              <button
-                type="button"
-                onClick={handleSignOut}
-                className="w-full text-center px-4 py-3 rounded-lg border border-[#d8c7ad] text-[#8c2f39] font-sans text-[14px] font-semibold cursor-pointer min-h-[44px]"
-              >
-                Sign Out
-              </button>
+              <div className="pt-2 pb-1 border-t border-[#efe3cc] mt-2 space-y-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    onOpenProfile();
+                  }}
+                  className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-[#f6ede0] text-[#2b2118] font-sans text-[13px] font-semibold cursor-pointer text-left"
+                >
+                  <UserCircle size={20} className="text-[#8c2f39] shrink-0" />
+                  <span className="truncate flex-1">
+                    Student: <strong className="text-[#8c2f39]">{displayName}</strong>
+                  </span>
+                </button>
+                <Link
+                  href="/dashboard"
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full text-center px-4 py-2.5 rounded-xl bg-[#8c2f39] text-white font-sans text-[14px] font-bold cursor-pointer shadow-sm"
+                >
+                  Go to Student Dashboard →
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleSignOut}
+                  className="w-full text-center px-4 py-2.5 rounded-xl border border-[#d8c7ad] text-[#8c2f39] font-sans text-[13px] font-semibold cursor-pointer hover:bg-[#f6ede0]"
+                >
+                  Sign Out
+                </button>
+              </div>
             )}
           </div>
         </nav>

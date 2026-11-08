@@ -1,37 +1,47 @@
 import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 import {
   verifySessionToken,
   updateUserProfile,
-  getAccountById,
-  getSupabaseClient,
   UserProfileData,
 } from '@/lib/auth-service';
+import { getSupabaseServerClient } from '@/lib/supabase';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function POST(request: Request) {
   try {
-    const cookiesHeader = request.headers.get('cookie') || '';
-    const sessionToken = cookiesHeader.match(/student_rso_session=([^;]+)/)?.[1];
-    const accessToken = cookiesHeader.match(/student_rso_access_token=([^;]+)/)?.[1];
+    const cookieStore = cookies();
+    const sessionToken =
+      cookieStore.get('student_rso_session')?.value ||
+      request.headers.get('cookie')?.match(/student_rso_session=([^;]+)/)?.[1];
+    const accessToken =
+      cookieStore.get('student_rso_access_token')?.value ||
+      request.headers.get('cookie')?.match(/student_rso_access_token=([^;]+)/)?.[1];
 
     let userId: string | null = null;
     let userEmail: string | null = null;
 
     if (sessionToken) {
       const decoded = verifySessionToken(sessionToken);
-      if (decoded) {
+      if (decoded && decoded.userId) {
         userId = decoded.userId;
-        userEmail = decoded.email;
+        userEmail = decoded.email || null;
       }
     }
 
-    if (!userId && accessToken) {
-      const supabase = getSupabaseClient();
-      if (supabase) {
+    const supabase = getSupabaseServerClient();
+
+    if (!userId && accessToken && supabase) {
+      try {
         const { data: { user } } = await supabase.auth.getUser(accessToken);
         if (user) {
           userId = user.id;
           userEmail = user.email || null;
         }
+      } catch {
+        // Continue
       }
     }
 
@@ -71,26 +81,40 @@ export async function POST(request: Request) {
     }
     if (typeof body.onboarding_completed === 'boolean') updates.onboarding_completed = body.onboarding_completed;
 
-    // Update in-memory account store
+    // Update in-memory account store for local fallback
     const updated = updateUserProfile(userId, updates);
 
-    // If Supabase is available, sync to user_profiles table as well
-    const supabase = getSupabaseClient();
+    // Sync to Supabase user_profiles table with service role client (bypasses RLS)
+    let persistentProfile = null;
     if (supabase) {
-      await supabase
-        .from('user_profiles')
-        .upsert({
-          id: userId,
-          email: userEmail,
-          ...updates,
-          updated_at: new Date().toISOString(),
-        })
-        .select();
+      try {
+        const { data: dbProfile, error: dbError } = await supabase
+          .from('user_profiles')
+          .upsert(
+            {
+              id: userId,
+              email: userEmail,
+              ...updates,
+              updated_at: new Date().toISOString(),
+            },
+            { onConflict: 'id' }
+          )
+          .select()
+          .maybeSingle();
+
+        if (dbError) {
+          console.error('Supabase user_profiles upsert error:', dbError.message);
+        } else {
+          persistentProfile = dbProfile;
+        }
+      } catch (err) {
+        console.warn('Supabase DB error:', err);
+      }
     }
 
     return NextResponse.json({
       message: 'Profile updated successfully.',
-      profile: updated || updates,
+      profile: persistentProfile || updated || updates,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Could not update profile.';
