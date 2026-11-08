@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import crypto from 'crypto';
 import { generateEmailOtp } from '@/lib/auth-service';
 import { sendRegistrationOtpEmail, sendPasswordResetEmail } from '@/lib/email-service';
 import { getSupabaseServerClient } from '@/lib/supabase';
@@ -21,24 +22,35 @@ export async function POST(request: Request) {
     const purpose = typeof body.purpose === 'string' ? body.purpose : 'signup';
 
     if (!email || !email.includes('@')) {
-      return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Please enter a valid email address.' },
+        { status: 400 }
+      );
     }
 
     const supabase = getSupabaseServerClient();
+    const otpCode = crypto.randomInt(100000, 1000000).toString();
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+
     if (supabase) {
-      if (purpose === 'reset') {
-        const { error } = await supabase.auth.resetPasswordForEmail(email);
-        if (error) {
-          return NextResponse.json({ error: error.message }, { status: 400 });
-        }
-      } else {
-        const { error } = await supabase.auth.resend({
-          type: 'signup',
-          email,
+      try {
+        await supabase.from('auth_otps').insert({
+          target: email,
+          channel: 'email',
+          code: otpCode,
+          purpose,
+          expires_at: expiresAt,
+          used: false,
+          attempts: 0,
         });
-        if (error) {
-          return NextResponse.json({ error: error.message }, { status: 400 });
-        }
+      } catch {
+        // Table insert fallback
+      }
+
+      if (purpose === 'reset') {
+        sendPasswordResetEmail(email, email.split('@')[0], otpCode).catch(() => {});
+      } else {
+        sendRegistrationOtpEmail(email, email.split('@')[0], otpCode).catch(() => {});
       }
 
       return NextResponse.json({
@@ -48,13 +60,13 @@ export async function POST(request: Request) {
       });
     }
 
-    // Fallback: Generate OTP and send email via SMTP/Resend
+    // Fallback: Local OTP store
     const { plainOtp } = generateEmailOtp(email, purpose as 'signup' | 'login' | 'reset');
 
     if (purpose === 'reset') {
-      await sendPasswordResetEmail(email, email.split('@')[0], plainOtp);
+      sendPasswordResetEmail(email, email.split('@')[0], plainOtp).catch(() => {});
     } else {
-      await sendRegistrationOtpEmail(email, email.split('@')[0], plainOtp);
+      sendRegistrationOtpEmail(email, email.split('@')[0], plainOtp).catch(() => {});
     }
 
     return NextResponse.json({
@@ -63,7 +75,8 @@ export async function POST(request: Request) {
       email,
     });
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Could not send verification code.';
+    const message =
+      err instanceof Error ? err.message : 'Could not send verification code.';
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

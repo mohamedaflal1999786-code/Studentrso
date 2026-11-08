@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
 import { Loader2, CheckCircle2, AlertCircle, ArrowLeft } from 'lucide-react';
+import { getSupabaseBrowserClient } from '@/lib/supabase';
 
 function AuthCallbackContent() {
   const router = useRouter();
@@ -11,21 +12,30 @@ function AuthCallbackContent() {
   const [isCancelled, setIsCancelled] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function handleCallback() {
       try {
         const hash = typeof window !== 'undefined' ? window.location.hash.substring(1) : '';
         const hashParams = new URLSearchParams(hash);
-        const queryParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
+        const queryParams =
+          typeof window !== 'undefined'
+            ? new URLSearchParams(window.location.search)
+            : new URLSearchParams();
 
         // 1. Check for OAuth Error or User Cancellation
         const error = queryParams.get('error') || hashParams.get('error');
-        const errorDescription = queryParams.get('error_description') || hashParams.get('error_description');
+        const errorDescription =
+          queryParams.get('error_description') || hashParams.get('error_description');
 
         if (error) {
+          if (!isMounted) return;
           setStatus('error');
           if (error === 'access_denied') {
             setIsCancelled(true);
-            setErrorMessage('Google sign-in was cancelled. You can try again whenever you are ready.');
+            setErrorMessage(
+              'Google sign-in was cancelled. You can try again whenever you are ready.'
+            );
           } else {
             setErrorMessage(errorDescription || 'Authentication failed. Please try again.');
           }
@@ -34,46 +44,83 @@ function AuthCallbackContent() {
 
         // 2. PKCE Authorization Code or Access Token
         const code = queryParams.get('code');
-        const accessToken = hashParams.get('access_token') || queryParams.get('access_token');
-        const refreshToken = hashParams.get('refresh_token') || queryParams.get('refresh_token');
-        const expiresIn = hashParams.get('expires_in') || queryParams.get('expires_in');
+        let accessToken = hashParams.get('access_token') || queryParams.get('access_token');
+        let refreshToken = hashParams.get('refresh_token') || queryParams.get('refresh_token');
+        let expiresIn = hashParams.get('expires_in') || queryParams.get('expires_in');
         const provider = queryParams.get('provider') || hashParams.get('provider') || 'google';
 
-        if (code || accessToken || provider === 'google') {
-          const response = await fetch('/api/auth/callback', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              code: code || undefined,
-              access_token: accessToken || undefined,
-              refresh_token: refreshToken || undefined,
-              expires_in: expiresIn ? parseInt(expiresIn, 10) : 3600,
-              provider,
-            }),
-          });
-
-          const data = await response.json();
-
-          if (response.ok && data.success) {
-            setStatus('success');
-            // If new user or onboarding incomplete, open onboarding immediately
-            const destination = data.isNewUser ? '/dashboard?onboarding=true' : '/dashboard';
-            setTimeout(() => router.push(destination), 800);
-          } else {
-            setStatus('error');
-            setErrorMessage(data.error || 'Could not verify student session. Please try again.');
+        // 3. Client-side exchange with Supabase browser client (has PKCE code_verifier in localStorage)
+        const supabase = getSupabaseBrowserClient();
+        if (code && supabase) {
+          try {
+            const { data: exchangeData, error: exchangeError } =
+              await supabase.auth.exchangeCodeForSession(code);
+            if (!exchangeError && exchangeData?.session) {
+              accessToken = exchangeData.session.access_token;
+              refreshToken = exchangeData.session.refresh_token;
+              expiresIn = String(exchangeData.session.expires_in || 3600);
+            }
+          } catch {
+            // Fall through to server-side code exchange
           }
+        }
+
+        // If no tokens yet, check if supabase client already holds a session
+        if (!accessToken && supabase) {
+          try {
+            const { data: sessionData } = await supabase.auth.getSession();
+            if (sessionData?.session?.access_token) {
+              accessToken = sessionData.session.access_token;
+              refreshToken = sessionData.session.refresh_token;
+              expiresIn = String(sessionData.session.expires_in || 3600);
+            }
+          } catch {
+            // Continue to API call
+          }
+        }
+
+        const response = await fetch('/api/auth/callback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            code: code || undefined,
+            access_token: accessToken || undefined,
+            refresh_token: refreshToken || undefined,
+            expires_in: expiresIn ? parseInt(expiresIn, 10) : 3600,
+            provider,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          if (!isMounted) return;
+          setStatus('success');
+          // Mask URL back to '/' cleanly
+          if (typeof window !== 'undefined') {
+            window.history.replaceState(null, '', '/');
+          }
+          const destination = data.isNewUser ? '/dashboard?onboarding=true' : '/dashboard';
+          setTimeout(() => router.push(destination), 600);
         } else {
+          if (!isMounted) return;
           setStatus('error');
-          setErrorMessage('No valid authentication token or authorization code was found.');
+          setErrorMessage(
+            data.error || 'Could not verify student session. Please try again.'
+          );
         }
       } catch {
+        if (!isMounted) return;
         setStatus('error');
         setErrorMessage('A network error occurred while finalizing sign-in.');
       }
     }
 
     handleCallback();
+
+    return () => {
+      isMounted = false;
+    };
   }, [router]);
 
   return (
@@ -88,7 +135,9 @@ function AuthCallbackContent() {
           />
           <div className="h-7 w-px bg-[#d8c7ad]" />
           <div className="flex flex-col text-left">
-            <span className="font-serif text-lg font-bold text-[#8c2f39] italic leading-tight">Student RSO</span>
+            <span className="font-serif text-lg font-bold text-[#8c2f39] italic leading-tight">
+              Student RSO
+            </span>
             <span className="font-mono text-[8px] uppercase tracking-widest text-[#7a6a5a] font-semibold">
               RIGHTS • SERVICES • OPPORTUNITIES
             </span>
@@ -98,7 +147,9 @@ function AuthCallbackContent() {
         {status === 'loading' && (
           <div className="space-y-4">
             <Loader2 size={40} className="mx-auto animate-spin text-[#8c2f39]" />
-            <h2 className="font-serif text-xl font-bold text-[#2b2118]">Verifying Student Session...</h2>
+            <h2 className="font-serif text-xl font-bold text-[#2b2118]">
+              Verifying Student Session...
+            </h2>
             <p className="text-xs text-[#7a6a5a] leading-relaxed">
               Exchanging secure credentials and setting up your personalized dashboard.
             </p>
@@ -110,7 +161,9 @@ function AuthCallbackContent() {
             <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto shadow-xs">
               <CheckCircle2 size={32} />
             </div>
-            <h2 className="font-serif text-xl font-bold text-[#2b2118]">Authentication Successful!</h2>
+            <h2 className="font-serif text-xl font-bold text-[#2b2118]">
+              Authentication Successful!
+            </h2>
             <p className="text-xs text-[#7a6a5a] leading-relaxed">
               Redirecting you to your Student RSO dashboard...
             </p>

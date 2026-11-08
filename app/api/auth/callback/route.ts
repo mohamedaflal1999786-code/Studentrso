@@ -18,127 +18,53 @@ export async function POST(request: Request) {
     };
 
     const code = typeof body.code === 'string' ? body.code.trim() : '';
-    const accessToken = typeof body.access_token === 'string' ? body.access_token : '';
-    const refreshToken = typeof body.refresh_token === 'string' ? body.refresh_token : '';
+    const accessToken = typeof body.access_token === 'string' ? body.access_token.trim() : '';
     const expiresIn = typeof body.expires_in === 'number' ? body.expires_in : 3600;
-    const provider = typeof body.provider === 'string' ? body.provider : '';
 
     const supabase = getSupabaseServerClient();
 
-    // 1. PKCE Code Exchange via Supabase
-    if (code && supabase) {
-      const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-      if (error || !data.user) {
-        return NextResponse.json(
-          { error: error?.message || 'Failed to exchange authorization code.' },
-          { status: 400 }
-        );
-      }
-
-      const user = data.user;
-      const userId = user.id;
-      const userEmail = user.email || '';
-      const fullName = user.user_metadata?.full_name || user.user_metadata?.name || 'Google Student';
-
-      // Check existing database state to identify first-time vs existing student
-      const { data: existingProfile } = await supabase
-        .from('user_profiles')
-        .select('*')
-        .eq('id', userId)
-        .maybeSingle();
-
-      let isNewUser = false;
-      let profile = existingProfile;
-
-      if (!existingProfile) {
-        // First-time Google user: create safe initial profile with onboarding_completed = false
-        isNewUser = true;
-        const { data: newProfile } = await supabase
-          .from('user_profiles')
-          .insert({
-            id: userId,
-            email: userEmail,
-            full_name: fullName,
-            state: 'Tamil Nadu',
-            onboarding_completed: false,
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
-          })
-          .select()
-          .single();
-        profile = newProfile;
-      }
-
-      const sessionToken = createSessionToken(userId, userEmail);
-      const response = NextResponse.json({
-        success: true,
-        isNewUser: isNewUser || !profile?.onboarding_completed,
-        user: { id: userId, email: userEmail },
-        profile,
-      });
-
-      response.cookies.set('student_rso_session', sessionToken, {
-        httpOnly: true,
-        sameSite: 'lax',
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 7 * 24 * 60 * 60,
-        path: '/',
-      });
-
-      if (data.session?.access_token) {
-        response.cookies.set('student_rso_access_token', data.session.access_token, {
-          httpOnly: true,
-          sameSite: 'lax',
-          secure: process.env.NODE_ENV === 'production',
-          maxAge: data.session.expires_in || 3600,
-          path: '/',
-        });
-      }
-
-      return response;
-    }
-
-    // 2. Token Exchange with Supabase (if tokens supplied from implicit grant or client SDK)
+    // 1. If accessToken is already exchanged and provided
     if (accessToken && supabase) {
-      const { data: { user }, error } = await supabase.auth.getUser(accessToken);
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.getUser(accessToken);
+
       if (!error && user) {
         const userId = user.id;
         const userEmail = user.email || '';
-        const fullName = user.user_metadata?.full_name || 'Google Student';
+        const fullName =
+          user.user_metadata?.full_name ||
+          user.user_metadata?.name ||
+          'Google Student';
 
-        const { data: existingProfile } = await supabase
+        // Upsert user profile into Supabase
+        const { data: profile } = await supabase
           .from('user_profiles')
-          .select('*')
-          .eq('id', userId)
-          .maybeSingle();
-
-        let isNewUser = false;
-        let profile = existingProfile;
-
-        if (!existingProfile) {
-          isNewUser = true;
-          const { data: newProfile } = await supabase
-            .from('user_profiles')
-            .insert({
+          .upsert(
+            {
               id: userId,
               email: userEmail,
               full_name: fullName,
               state: 'Tamil Nadu',
-              onboarding_completed: false,
-              created_at: new Date().toISOString(),
               updated_at: new Date().toISOString(),
-            })
-            .select()
-            .single();
-          profile = newProfile;
-        }
+            },
+            { onConflict: 'id' }
+          )
+          .select()
+          .maybeSingle();
 
         const sessionToken = createSessionToken(userId, userEmail);
         const response = NextResponse.json({
           success: true,
-          isNewUser: isNewUser || !profile?.onboarding_completed,
+          isNewUser: !profile?.onboarding_completed,
           user: { id: userId, email: userEmail },
-          profile,
+          profile: profile || {
+            id: userId,
+            email: userEmail,
+            full_name: fullName,
+            onboarding_completed: false,
+          },
         });
 
         response.cookies.set('student_rso_session', sessionToken, {
@@ -148,6 +74,7 @@ export async function POST(request: Request) {
           maxAge: 7 * 24 * 60 * 60,
           path: '/',
         });
+
         response.cookies.set('student_rso_access_token', accessToken, {
           httpOnly: true,
           sameSite: 'lax',
@@ -160,13 +87,77 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3. Fallback: Local Google Authentication Simulation
-    const targetEmail = typeof body.email === 'string' && body.email.includes('@')
-      ? body.email
-      : 'student.google@studentrso.in';
-    const fullName = typeof body.full_name === 'string' && body.full_name
-      ? body.full_name
-      : 'Google Student';
+    // 2. PKCE Code Exchange via Supabase Server
+    if (code && supabase) {
+      const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+      if (!error && data?.user) {
+        const user = data.user;
+        const userId = user.id;
+        const userEmail = user.email || '';
+        const fullName =
+          user.user_metadata?.full_name ||
+          user.user_metadata?.name ||
+          'Google Student';
+
+        const { data: profile } = await supabase
+          .from('user_profiles')
+          .upsert(
+            {
+              id: userId,
+              email: userEmail,
+              full_name: fullName,
+              state: 'Tamil Nadu',
+              updated_at: new Date().toISOString(),
+            },
+            { onConflict: 'id' }
+          )
+          .select()
+          .maybeSingle();
+
+        const sessionToken = createSessionToken(userId, userEmail);
+        const response = NextResponse.json({
+          success: true,
+          isNewUser: !profile?.onboarding_completed,
+          user: { id: userId, email: userEmail },
+          profile: profile || {
+            id: userId,
+            email: userEmail,
+            full_name: fullName,
+            onboarding_completed: false,
+          },
+        });
+
+        response.cookies.set('student_rso_session', sessionToken, {
+          httpOnly: true,
+          sameSite: 'lax',
+          secure: process.env.NODE_ENV === 'production',
+          maxAge: 7 * 24 * 60 * 60,
+          path: '/',
+        });
+
+        if (data.session?.access_token) {
+          response.cookies.set('student_rso_access_token', data.session.access_token, {
+            httpOnly: true,
+            sameSite: 'lax',
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: data.session.expires_in || 3600,
+            path: '/',
+          });
+        }
+
+        return response;
+      }
+    }
+
+    // 3. Fallback: Authenticate or register simulated Google user
+    const targetEmail =
+      typeof body.email === 'string' && body.email.includes('@')
+        ? body.email
+        : 'student.google@studentrso.in';
+    const fullName =
+      typeof body.full_name === 'string' && body.full_name
+        ? body.full_name
+        : 'Google Student';
 
     const authResult = authenticateOrRegisterGoogleUser(targetEmail, fullName);
     const sessionToken = createSessionToken(authResult.user.id, authResult.user.email);
@@ -195,7 +186,8 @@ export async function POST(request: Request) {
 
     return response;
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Could not process authentication callback.';
+    const message =
+      err instanceof Error ? err.message : 'Could not process authentication callback.';
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
@@ -208,12 +200,17 @@ export async function GET(request: Request) {
 
   if (error || errorDescription) {
     return NextResponse.redirect(
-      new URL(`/auth/callback?error=${encodeURIComponent(errorDescription || error || 'Access denied')}`, request.url)
+      new URL(
+        `/auth/callback?error=${encodeURIComponent(errorDescription || error || 'Access denied')}`,
+        request.url
+      )
     );
   }
 
   if (code) {
-    return NextResponse.redirect(new URL(`/auth/callback?code=${encodeURIComponent(code)}`, request.url));
+    return NextResponse.redirect(
+      new URL(`/auth/callback?code=${encodeURIComponent(code)}`, request.url)
+    );
   }
 
   return NextResponse.redirect(new URL('/auth', request.url));

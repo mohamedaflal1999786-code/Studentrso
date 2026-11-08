@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Newsreader } from 'next/font/google';
 import { AuthProvider } from '@/lib/auth-context';
+import { UrlMasker } from '@/components/UrlMasker';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
 const newsreader = Newsreader({
@@ -13,7 +14,8 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   title: 'Student RSO — Rights, Services & Opportunities',
-  description: 'A pathway hub helping Indian students discover scholarships, government exams, anti-ragging resources, and AI-guided career planning.',
+  description:
+    'A pathway hub helping Indian students discover scholarships, government exams, anti-ragging resources, and AI-guided career planning.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,7 +28,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.variable} ${newsreader.variable}`} style={{ fontFamily: 'var(--font-sans)' }}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <UrlMasker />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

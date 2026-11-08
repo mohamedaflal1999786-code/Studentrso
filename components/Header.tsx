@@ -276,6 +276,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                         <Link
                           key={m.number}
                           href={m.route}
+                          as="/"
                           onClick={() => setDesktopModulesOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all text-left cursor-pointer group/item"
                         >
@@ -356,6 +357,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             <>
               <Link
                 href="/dashboard"
+                as="/"
                 className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg font-sans text-[12px] sm:text-[13px] font-bold bg-[#8c2f39] text-white hover:bg-[#6d1824] transition-colors cursor-pointer shadow-xs"
               >
                 <span>Dashboard</span>
@@ -438,6 +440,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                       <Link
                         key={m.number}
                         href={m.route}
+                        as="/"
                         onClick={() => {
                           setMobileOpen(false);
                           setServicesOpen(false);
@@ -509,6 +512,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             {user && (
               <Link
                 href="/dashboard"
+                as="/"
                 onClick={() => setMobileOpen(false)}
                 className="block w-full text-center px-4 py-3 rounded-lg bg-[#8c2f39] text-white font-sans text-[14px] font-bold cursor-pointer min-h-[44px] shadow-sm mb-2"
               >

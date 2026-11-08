@@ -56,6 +56,7 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
           ) : (
             <Link
               href="/auth"
+              as="/"
               className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 rounded-xl bg-[#6d1824] hover:bg-[#58131d] border border-white/30 hover:border-white text-white font-sans text-[14px] sm:text-[15px] font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
             >
               <span className="material-symbols-outlined text-[19px]">login</span>

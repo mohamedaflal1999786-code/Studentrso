@@ -86,7 +86,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
       {/* Bottom Action Bar — Exactly ONE full-width primary button: Open Module → */}
       <div className="pt-4 border-t border-[#efe3cc] mt-auto">
         {hasDedicatedRoute ? (
-          <Link href={module.route!} className={buttonClasses}>
+          <Link href={module.route!} as="/" className={buttonClasses}>
             <span>Open Module →</span>
           </Link>
         ) : (

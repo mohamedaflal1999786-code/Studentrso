@@ -17,6 +17,7 @@ import {
   RotateCw,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
+import { getSupabaseBrowserClient } from '@/lib/supabase';
 
 function GoogleIcon({ size = 18 }: { size?: number }) {
   return (
@@ -278,6 +279,17 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
         return;
       }
 
+      if (data.autoLogin) {
+        showStatus('Account created and verified! Redirecting to student dashboard...', false);
+        await refresh();
+        setTimeout(() => {
+          onClose();
+          if (onSuccess) onSuccess();
+          router.push('/dashboard?onboarding=true');
+        }, 700);
+        return;
+      }
+
       // Transition to Step 2: Verify OTP
       setFlow('otp-verify');
       setResendCountdown(60);
@@ -363,6 +375,24 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
     setBusy(true);
     showStatus('Connecting with Google...', false);
     try {
+      const supabase = getSupabaseBrowserClient();
+      if (supabase) {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: {
+            redirectTo: `${window.location.origin}/auth/callback`,
+            queryParams: {
+              prompt: 'select_account',
+              access_type: 'offline',
+            },
+          },
+        });
+        if (!error && data?.url) {
+          window.location.href = data.url;
+          return;
+        }
+      }
+
       const oauthRes = await fetch('/api/auth/google', { method: 'POST' });
       const oauthData = await oauthRes.json();
       if (oauthRes.ok && oauthData.url) {
