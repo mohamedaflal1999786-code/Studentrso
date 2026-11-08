@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AuthDialog } from '@/components/AuthDialog';
+import { AdmissionsDiagnosticsModal } from '@/components/admissions/AdmissionsDiagnosticsModal';
 import {
   EducationStage,
   AdmissionPathway,
@@ -72,7 +73,7 @@ const NAV_TABS: { id: AdmissionsNavTab; label: string; icon: any }[] = [
 ];
 
 function AdmissionsCentreContent() {
-  const { user } = useAuth();
+  const { user, profile: authProfile } = useAuth();
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -83,6 +84,7 @@ function AdmissionsCentreContent() {
   const [selectedPathway, setSelectedPathway] = useState<AdmissionPathway | null>(null);
   const [selectedStage, setSelectedStage] = useState<EducationStage>('All Stages');
   const [searchQuery, setSearchQuery] = useState('');
+  const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
 
   // Auth Dialog
   const [authOpen, setAuthOpen] = useState(false);
@@ -127,18 +129,21 @@ function AdmissionsCentreContent() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <Link
-              href="/career-assistant"
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39]/30 bg-[#8c2f39]/10 px-3 py-1.5 font-sans text-[12px] font-bold text-[#8c2f39] hover:bg-[#8c2f39]/20 transition"
+            {/* Autonomous System Diagnostics Trigger */}
+            <button
+              type="button"
+              onClick={() => setDiagnosticsOpen(true)}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              title="Inspect Admission Portals & Single-Window Telemetry"
             >
-              <Sparkles size={14} />
-              <span>Ask AI Assistant</span>
-            </Link>
+              <Activity size={13} className="text-emerald-700" />
+              <span>Diagnostics</span>
+            </button>
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#8c2f39]" />
-                {user.email?.split('@')[0]}
+                {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
               <button
@@ -337,6 +342,12 @@ function AdmissionsCentreContent() {
         mode={authMode}
         onModeChange={setAuthMode}
         onClose={() => setAuthOpen(false)}
+      />
+
+      {/* Diagnostics Modal */}
+      <AdmissionsDiagnosticsModal
+        isOpen={diagnosticsOpen}
+        onClose={() => setDiagnosticsOpen(false)}
       />
     </div>
   );

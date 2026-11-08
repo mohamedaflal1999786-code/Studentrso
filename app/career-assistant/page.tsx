@@ -8,7 +8,8 @@ import {
   Sparkles,
   User,
   ShieldCheck,
-  AlertCircle
+  AlertCircle,
+  Activity
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AuthDialog } from '@/components/AuthDialog';
@@ -19,6 +20,7 @@ import {
 } from '@/lib/ai/types';
 
 import { ChatInterface } from '@/components/career-assistant/ChatInterface';
+import { CareerAssistantDiagnosticsModal } from '@/components/career-assistant/CareerAssistantDiagnosticsModal';
 
 const CONVERSATIONS_STORAGE_KEY = 'student_rso_conversations_v3';
 const PROFILE_STORAGE_KEY = 'student_rso_ai_profile_v3';
@@ -30,7 +32,8 @@ export interface ApiStatusData {
 }
 
 function CareerAssistantContent() {
-  const { user } = useAuth();
+  const { user, profile: authProfile } = useAuth();
+  const [diagnosticsModalOpen, setDiagnosticsModalOpen] = useState(false);
 
   // Auth Dialog
   const [authOpen, setAuthOpen] = useState(false);
@@ -391,30 +394,22 @@ function CareerAssistantContent() {
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
-            {/* Status Indicator */}
-            <span
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[#efe3cc] bg-white text-[#2b2118] text-[11px] font-semibold shadow-2xs"
-              title={apiStatus.message}
-            >
-              <span className={`w-2 h-2 rounded-full ${badgeDotColor} ${isReady ? 'animate-pulse' : ''}`} />
-              <span>{badgeText}</span>
-            </span>
-
-            {/* New Chat Button */}
+          <div className="flex items-center gap-2.5">
+            {/* Autonomous System Diagnostics Trigger */}
             <button
               type="button"
-              onClick={handleNewConversation}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer shadow-xs"
+              onClick={() => setDiagnosticsModalOpen(true)}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              title="Inspect AI Engine Status & Diagnostics"
             >
-              <Sparkles size={14} />
-              <span>New Chat</span>
+              <Activity size={13} className="text-emerald-700" />
+              <span>Diagnostics</span>
             </button>
 
             {user ? (
-              <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#8c2f39]" />
-                {user.email?.split('@')[0]}
+                {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
               <button
@@ -451,6 +446,12 @@ function CareerAssistantContent() {
         mode={authMode}
         onModeChange={setAuthMode}
         onClose={() => setAuthOpen(false)}
+      />
+
+      {/* Diagnostics Modal */}
+      <CareerAssistantDiagnosticsModal
+        isOpen={diagnosticsModalOpen}
+        onClose={() => setDiagnosticsModalOpen(false)}
       />
     </div>
   );

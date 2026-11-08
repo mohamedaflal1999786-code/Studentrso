@@ -16,10 +16,12 @@ import {
   Search,
   ExternalLink,
   ShieldCheck,
-  User
+  User,
+  Activity
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AuthDialog } from '@/components/AuthDialog';
+import { InternshipsDiagnosticsModal } from '@/components/internships/InternshipsDiagnosticsModal';
 import {
   VERIFIED_OPPORTUNITIES,
   OpportunityListing,
@@ -60,9 +62,10 @@ function InternshipPageContent() {
   const [activeTab, setActiveTab] = useState<TabId>(initialTab);
   const [selectedOpportunity, setSelectedOpportunity] = useState<OpportunityListing | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
 
   // User Auth & Dialog
-  const { user } = useAuth();
+  const { user, profile: authProfile } = useAuth();
   const [authOpen, setAuthOpen] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
 
@@ -186,15 +189,21 @@ function InternshipPageContent() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-800 text-[11px] font-mono font-bold">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-              <span>LIVE • ZERO-FEE VERIFIED</span>
-            </span>
+            {/* Autonomous System Diagnostics Trigger */}
+            <button
+              type="button"
+              onClick={() => setDiagnosticsOpen(true)}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              title="Inspect Internship & Apprenticeship Registry Health"
+            >
+              <Activity size={13} className="text-emerald-700" />
+              <span>Diagnostics</span>
+            </button>
 
             {user ? (
-              <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#8c2f39]" />
-                {user.email?.split('@')[0]}
+                {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
               <button
@@ -371,6 +380,12 @@ function InternshipPageContent() {
         mode={authMode}
         onModeChange={setAuthMode}
         onClose={() => setAuthOpen(false)}
+      />
+
+      {/* Diagnostics Modal */}
+      <InternshipsDiagnosticsModal
+        isOpen={diagnosticsOpen}
+        onClose={() => setDiagnosticsOpen(false)}
       />
     </div>
   );

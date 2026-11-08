@@ -25,10 +25,12 @@ import {
   Target,
   Laptop,
   MessageSquare,
-  Accessibility
+  Accessibility,
+  Activity
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { AuthDialog } from '@/components/AuthDialog';
+import { AcademicSupportDiagnosticsModal } from '@/components/academic-support/AcademicSupportDiagnosticsModal';
 import {
   EducationStage,
   VerifiedLearningResource,
@@ -77,7 +79,7 @@ const NAV_TABS: { id: AcademicNavTab; label: string; icon: any }[] = [
 ];
 
 function AcademicSupportContent() {
-  const { user } = useAuth();
+  const { user, profile: authProfile } = useAuth();
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -87,6 +89,7 @@ function AcademicSupportContent() {
   const [selectedStage, setSelectedStage] = useState<EducationStage>('All Stages');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedResource, setSelectedResource] = useState<VerifiedLearningResource | null>(null);
+  const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
 
   // Auth Dialog
   const [authOpen, setAuthOpen] = useState(false);
@@ -123,19 +126,21 @@ function AcademicSupportContent() {
           </div>
 
           <div className="flex items-center gap-2.5">
+            {/* Autonomous System Diagnostics Trigger */}
             <button
               type="button"
-              onClick={() => handleTabChange('free-resources')}
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39]/30 bg-[#8c2f39]/10 px-3 py-1.5 font-sans text-[12px] font-bold text-[#8c2f39] hover:bg-[#8c2f39]/20 transition cursor-pointer"
+              onClick={() => setDiagnosticsOpen(true)}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              title="Inspect Academic Support & Curriculum Health"
             >
-              <ShieldCheck size={14} />
-              <span>Free Learning Portals</span>
+              <Activity size={13} className="text-emerald-700" />
+              <span>Diagnostics</span>
             </button>
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#8c2f39]" />
-                {user.email?.split('@')[0]}
+                {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
               <button
@@ -275,6 +280,12 @@ function AcademicSupportContent() {
         mode={authMode}
         onModeChange={setAuthMode}
         onClose={() => setAuthOpen(false)}
+      />
+
+      {/* Diagnostics Modal */}
+      <AcademicSupportDiagnosticsModal
+        isOpen={diagnosticsOpen}
+        onClose={() => setDiagnosticsOpen(false)}
       />
     </div>
   );

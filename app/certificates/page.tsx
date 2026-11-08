@@ -155,14 +155,6 @@ function CertificatesContent() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <button
-              onClick={() => setActiveTab('finder')}
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39]/30 bg-[#8c2f39]/10 px-3 py-1.5 font-sans text-[12px] font-bold text-[#8c2f39] hover:bg-[#8c2f39]/20 transition"
-            >
-              <Compass size={14} />
-              <span>Find My Certificate</span>
-            </button>
-
             {/* Autonomous System Diagnostics Trigger */}
             <button
               onClick={() => setDiagnosticsOpen(true)}
@@ -170,7 +162,7 @@ function CertificatesContent() {
               title="Inspect Official Government Source Telemetry"
             >
               <Activity size={13} className="text-emerald-700" />
-              <span>Source Audit</span>
+              <span>Diagnostics</span>
             </button>
 
             {user ? (

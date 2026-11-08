@@ -94,16 +94,6 @@ export default function SafetyHubPage() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            {/* Quick Emergency 112 Badge */}
-            <a
-              href="tel:112"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-red-300 bg-red-50 px-3 py-1.5 font-mono text-[12px] font-bold text-red-700 hover:bg-red-100 transition shadow-2xs"
-              title="Immediate Danger? Call 112"
-            >
-              <PhoneCall size={13} className="text-red-600" />
-              <span>Emergency 112</span>
-            </a>
-
             {/* Autonomous System Diagnostics Trigger */}
             <button
               onClick={() => setDiagnosticsModalOpen(true)}
@@ -111,7 +101,7 @@ export default function SafetyHubPage() {
               title="Inspect Official Government Source Telemetry"
             >
               <Activity size={13} className="text-emerald-700" />
-              <span>Source Audit</span>
+              <span>Diagnostics</span>
             </button>
 
             {user ? (

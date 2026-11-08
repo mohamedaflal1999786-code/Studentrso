@@ -189,22 +189,14 @@ function ExamsHubContent() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <button
-              onClick={() => handleTabChange('eligibility')}
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39]/30 bg-[#8c2f39]/10 px-3 py-1.5 font-sans text-[12px] font-bold text-[#8c2f39] hover:bg-[#8c2f39]/20 transition"
-            >
-              <CheckCircle2 size={14} />
-              <span>Check Eligibility</span>
-            </button>
-
-            {/* Source Audit Trigger */}
+            {/* Autonomous System Diagnostics Trigger */}
             <button
               onClick={() => setDiagnosticsOpen(true)}
               className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition"
               title="Inspect Official Government & University Source Telemetry"
             >
               <Activity size={13} className="text-emerald-700" />
-              <span>Source Audit</span>
+              <span>Diagnostics</span>
             </button>
 
             {user ? (
