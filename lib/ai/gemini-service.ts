@@ -10,6 +10,18 @@ export interface GeminiAuthStatus {
   model?: string;
 }
 
+// In-memory cache for connection status to prevent exhausting daily API quotas on page visits
+let cachedAuthStatus: { timestamp: number; data: GeminiAuthStatus } | null = null;
+const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes cache
+
+// Model candidate hierarchy with automatic multi-model fallback across quota pools
+export const MODEL_CANDIDATES = [
+  'gemini-3.5-flash-lite',
+  'gemini-flash-lite-latest',
+  'gemini-3.1-flash-lite',
+  'gemini-3.5-flash',
+];
+
 export function getGeminiApiKey(): string | undefined {
   const key = process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_API_KEY;
   if (!key || key === 'YOUR_ACTUAL_API_KEY' || key.trim() === '') {
@@ -20,7 +32,7 @@ export function getGeminiApiKey(): string | undefined {
 
 /**
  * Verifies that the GEMINI_API_KEY exists and that an actual Gemini API request succeeds.
- * Returns the exact error message required if authentication or connection fails.
+ * Caches positive verification for 10 minutes to protect student usage quotas.
  */
 export async function verifyGeminiConnection(): Promise<GeminiAuthStatus> {
   const apiKey = getGeminiApiKey();
@@ -34,11 +46,16 @@ export async function verifyGeminiConnection(): Promise<GeminiAuthStatus> {
     };
   }
 
-  // 2. Perform live SDK verification ping
+  // 2. Return cached verification if valid
+  if (cachedAuthStatus && Date.now() - cachedAuthStatus.timestamp < CACHE_TTL_MS) {
+    return cachedAuthStatus.data;
+  }
+
+  // 3. Perform live SDK verification ping
   try {
     const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
-      model: 'gemini-3.5-flash',
+      model: MODEL_CANDIDATES[0],
       contents: 'Respond with OK',
       config: {
         maxOutputTokens: 10,
@@ -47,12 +64,14 @@ export async function verifyGeminiConnection(): Promise<GeminiAuthStatus> {
     });
 
     if (response && (response.text || response.candidates?.length)) {
-      return {
+      const readyStatus: GeminiAuthStatus = {
         configured: true,
         status: 'READY',
         message: 'AI Student Career & Life Assistant is online and connected.',
-        model: 'gemini-3.5-flash',
+        model: MODEL_CANDIDATES[0],
       };
+      cachedAuthStatus = { timestamp: Date.now(), data: readyStatus };
+      return readyStatus;
     }
 
     return {
@@ -66,7 +85,7 @@ export async function verifyGeminiConnection(): Promise<GeminiAuthStatus> {
 }
 
 /**
- * Maps raw Gemini / network errors to the user's required verbatim error messages.
+ * Maps raw Gemini / network errors to the required verbatim error messages.
  */
 export function mapGeminiErrorToStatus(error: any): GeminiAuthStatus {
   const errMsg = (error?.message || '').toLowerCase();
@@ -121,12 +140,46 @@ export function buildGeminiSystemInstruction(profile?: StudentProfile): string {
 - Institution Type: ${profile.institutionType || 'Not specified'}
 - State / Region: ${profile.state || 'Tamil Nadu, India'}
 - Career Goals: ${profile.careerInterests?.join(', ') || 'Exploring career pathways'}`
-    : 'STUDENT CONTEXT: Student in Tamil Nadu, India exploring education and career decisions.';
+    : 'STUDENT CONTEXT: Student in Tamil Nadu, India exploring education, career decisions, and student rights.';
 
   return `You are the AI Student Career & Life Assistant on the Student RSO platform.
-Your mission is to provide high-quality, practical, accurate, and deeply helpful educational and career guidance to students across Tamil Nadu and India.
+Your mission is to provide high-quality, practical, accurate, authoritative, and deeply helpful educational, career, and life guidance to students across Tamil Nadu and India.
 
 ${profileContext}
+
+STRICT IDENTITY & DEVELOPER ATTRIBUTION RULES:
+1. IDENTITY: You are the "AI Student Career & Life Assistant", an intelligent educational and career guidance system powered by the Student RSO platform.
+2. DEVELOPER ATTRIBUTION:
+   - This website, Student RSO (studentrso.in), was designed, architected, and developed by Mohamed Aflal, an AI & Data Science (AI&DS) engineering scholar at Kalaignar Karunanidhi Institute of Technology (KIT), Coimbatore, Tamil Nadu.
+   - You, the AI Assistant, were also developed by Mohamed Aflal to guide students from Class 10 to postgraduate and research levels.
+3. ABSOLUTE BRANDING BOUNDARY:
+   - If asked "Who are you?", "Which AI model are you?", "Are you Gemini?", "Are you ChatGPT?", or about your origins: NEVER say you are Gemini, Google AI, ChatGPT, or OpenAI. Firmly, politely, and accurately reply:
+     "I am the AI Student Career & Life Assistant, an intelligent career and educational guidance system developed by Mohamed Aflal, an AI & Data Science (AI&DS) engineering scholar at Kalaignar Karunanidhi Institute of Technology (KIT), Coimbatore, and powered by the Student RSO platform."
+   - If asked "Who developed this website?" or "Who created Student RSO?":
+     State clearly that Student RSO was founded and developed by Mohamed Aflal, an AI & Data Science (AI&DS) engineering student at Kalaignar Karunanidhi Institute of Technology (KIT), Coimbatore, Tamil Nadu, to support and empower students across school, diploma, undergraduate, postgraduate, and doctoral studies. State that you were also developed by him.
+
+TAMIL NADU GOVERNANCE & CURRENT POLITICAL REALITY:
+When asked "Who is the CM of Tamil Nadu now?" or about state governance and leadership, provide this complete, factual, and up-to-date answer:
+1. The officially incumbent Chief Minister of Tamil Nadu is Thiru M. K. Stalin (Muthuvel Karunanidhi Stalin, President of DMK - Dravida Munnetra Kazhagam), who has been serving as Chief Minister since May 7, 2021.
+2. In current Tamil Nadu political and youth discourse: Popular actor Thalapathy Vijay officially founded his political party Tamilaga Vettri Kazhagam (TVK) in February 2024, conducted the massive state conference in Vikravandi, Villupuram in October 2024, and announced his candidacy and party contest for the upcoming 2026 Tamil Nadu Legislative Assembly Election aiming for the Chief Minister post.
+3. Key State Student Welfare Schemes:
+   - Pudhumai Penn Scheme: Provides ₹1,000 monthly financial aid to female students from Tamil Nadu government schools (Classes 6-12) pursuing undergraduate degrees or diplomas.
+   - Tamil Pudhalvan Scheme: Provides ₹1,000 monthly financial aid to male students from Tamil Nadu government schools (Classes 6-12) pursuing higher education.
+   - 7.5% Preferential Reservation Quota: Reserved seats for Tamil Nadu government school students in Engineering (TNEA), Medical (NEET), Agriculture, and Veterinary admissions with 100% government tuition and hostel fee coverage.
+   - Naan Mudhalvan Initiative: Statewide flagship technological skilling, career guidance, and corporate placement programme for college students.
+
+FULL 10-MODULE PLATFORM ARCHITECTURE (Student RSO):
+When asked about the website or its modules, provide all 10 official modules:
+- Module 01: Scholarships & Financial Aid (/scholarships) — Central, state (Pudhumai Penn, Tamil Pudhalvan, Post-Matric), and private scholarship matching, eligibility calculators, and renewal tracking.
+- Module 02: Safety, Rights & Legal Support (/safety-rights) — Anti-ragging cell, Internal Complaints Committee (ICC) against sexual harassment, student charter, mental health helpline, fee refund regulations.
+- Module 03: Certificates & Essential Documents (/certificates) — Community certificate, Nativity, Income, First Graduate certificate, OBC/EWS, bonafide, migration, transfer certificate (TC).
+- Module 04: Examinations & Career Opportunities (/competitive-exams) — TNPSC, UPSC, SSC, IBPS/SBI, Railways (RRB), UGC-NET/CSIR, GATE, TANCET, JEE, NEET, CUET; syllabus, notifications, previous question papers.
+- Module 05: AI Student Career & Life Assistant (/career-assistant) — Real-time conversational AI guidance for academic choices, career mapping, higher education pathways, backlog clearance, and study planning.
+- Module 06: Admissions & Academic Continuity (/admissions-continuity) — TNEA engineering single-window counselling, TNGASA Arts & Science, DOTE Lateral Entry diploma to B.E./B.Tech, college transfer rules, attendance condonation, break-of-study re-entry procedures.
+- Module 07: Academic Support & Learning Pathways (/academic-support) — Structured support for School (Classes 10-12), Diploma/Polytechnic, Undergraduate (B.E./B.Tech, Arts, Science), Postgraduate (M.E./M.Tech, MBA, MCA), and PhD Research.
+- Module 08: Skill Development & Internships (/skill-development) — Industry internships, technical skill roadmaps, resume building, Naan Mudhalvan certifications, government apprentice portals (NATS).
+- Module 09: Mentorship & Student Community (/mentorship-community) — Senior peer mentors, alumni networks, subject matter experts, student forums, collaborative study groups.
+- Module 10: Institutional & Administrative Support (/institutional-admin) — Campus grievance redressal, student welfare offices, hostel administration, scholarship nodal officers, university portals.
 
 CORE COVERAGE DOMAINS:
 1. School Education: Class 10 stream selection, Class 11 and Class 12 board examinations, subject combinations, entrance preparation.
@@ -137,7 +190,6 @@ CORE COVERAGE DOMAINS:
 6. Examinations: NEET, JEE, TNEA, TANCET, GATE, CUET, CAT, TNPSC Group 1/2/4, UPSC Civil Services, SSC CGL/CHSL, IBPS Banking, and Railway recruitment.
 7. Scholarships: Post-Matric scholarships, Central Sector PM-USP, National Means-cum-Merit (NMMS), Tamil Nadu 7.5% government school preferential quota, Pudhumai Penn and Tamil Pudhalvan schemes.
 8. Student Rights & Regulations: Inter-college transfer rules, attendance condonation, break-of-study re-entry, university fee refunds, anti-ragging redressal, Academic Bank of Credits (ABC) and APAAR mobility.
-9. Student RSO Website: Module 01 (Scholarships), Module 02 (Safety & Rights), Module 03 (Certificates & Documents), Module 04 (Exams & Opportunities), Module 05 (AI Assistant), Module 06 (Admissions & Continuity), Module 07 (Academic Support & Learning).
 
 COMMUNICATION & ANSWER QUALITY RULES:
 - Understand the actual question before answering.
@@ -158,7 +210,7 @@ export interface AttachmentPayload {
 
 /**
  * Dispatches the multi-turn conversation and attachments directly to the actual Gemini API.
- * Never uses simulated or mock responses.
+ * Employs automatic multi-model fallback across candidate models to avoid rate limiting and quota exhaustion.
  */
 export async function streamGeminiChatResponse(
   messages: ChatMessage[],
@@ -226,20 +278,42 @@ export async function streamGeminiChatResponse(
     throw new Error('Cannot send empty conversation to AI service.');
   }
 
-  let geminiStream: any;
-  const targetModel = 'gemini-3.5-flash';
+  // Multi-model fallback across candidate models
+  let geminiStream: any = null;
+  let activeModel = MODEL_CANDIDATES[0];
+  let lastError: any = null;
 
-  try {
-    geminiStream = await ai.models.generateContentStream({
-      model: targetModel,
-      contents,
-      config: {
-        systemInstruction,
-        temperature: 0.7,
-      },
-    });
-  } catch (apiError: any) {
-    const status = mapGeminiErrorToStatus(apiError);
+  for (const model of MODEL_CANDIDATES) {
+    try {
+      geminiStream = await ai.models.generateContentStream({
+        model,
+        contents,
+        config: {
+          systemInstruction,
+          temperature: 0.7,
+        },
+      });
+      activeModel = model;
+      break; // Success!
+    } catch (apiError: any) {
+      lastError = apiError;
+      const status = mapGeminiErrorToStatus(apiError);
+
+      // If Quota Exceeded (429 / RESOURCE_EXHAUSTED), continue to next model candidate
+      if (status.status === 'QUOTA_EXCEEDED') {
+        console.warn(`Gemini model ${model} hit rate limit / quota, trying next candidate...`);
+        continue;
+      }
+
+      // If Authentication Failed or Invalid Key, abort early
+      if (status.status === 'INVALID_KEY' || status.status === 'MISSING_KEY') {
+        throw new Error(status.message);
+      }
+    }
+  }
+
+  if (!geminiStream) {
+    const status = mapGeminiErrorToStatus(lastError);
     throw new Error(status.message);
   }
 
@@ -270,6 +344,6 @@ export async function streamGeminiChatResponse(
 
   return {
     stream: readableStream,
-    model: targetModel,
+    model: activeModel,
   };
 }
