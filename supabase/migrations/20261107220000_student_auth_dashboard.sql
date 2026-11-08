@@ -36,6 +36,13 @@ CREATE TABLE IF NOT EXISTS user_profiles (
 );
 
 -- 2. Enhanced secure auth_otps table for hashed email OTP verification
+-- Ensure auth_otps has all required columns if already created
+ALTER TABLE IF EXISTS auth_otps ADD COLUMN IF NOT EXISTS target text;
+ALTER TABLE IF EXISTS auth_otps ADD COLUMN IF NOT EXISTS channel text DEFAULT 'email';
+ALTER TABLE IF EXISTS auth_otps ADD COLUMN IF NOT EXISTS code_hash text;
+ALTER TABLE IF EXISTS auth_otps ADD COLUMN IF NOT EXISTS purpose text DEFAULT 'signup';
+ALTER TABLE IF EXISTS auth_otps ADD COLUMN IF NOT EXISTS used boolean DEFAULT false;
+ALTER TABLE IF EXISTS auth_otps ADD COLUMN IF NOT EXISTS attempts int DEFAULT 0;
 CREATE TABLE IF NOT EXISTS auth_otps (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   channel text NOT NULL DEFAULT 'email' CHECK (channel IN ('email', 'phone')),

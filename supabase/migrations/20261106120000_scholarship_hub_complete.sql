@@ -1,3 +1,24 @@
+
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS source_id text;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS provider text;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS department text;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS education_levels text[] DEFAULT '{}';
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS eligible_courses text[] DEFAULT '{}';
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS detailed_description text;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS benefits_description text DEFAULT '';
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS amount_published boolean DEFAULT false;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS amount_details text DEFAULT 'Not officially confirmed';
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS academic_year text DEFAULT '2026-2027';
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS application_status text DEFAULT 'Upcoming / To Be Announced';
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS application_start_date date;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS application_deadline date;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS deadline_notes text;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS official_notification_url text;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS last_verified_at timestamptz DEFAULT now();
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS verification_status text DEFAULT 'Official portal';
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS is_published boolean DEFAULT true;
+    ALTER TABLE IF EXISTS public.scholarship_programs ADD COLUMN IF NOT EXISTS renewal_notes text;
+  
 -- Migration: 20261106120000_scholarship_hub_complete.sql
 -- Description: Complete schema for Student RSO Module 01 - Scholarship Hub
 -- Includes programs, sources, eligibility rules, student profiles, bookmarks,
@@ -14,8 +35,7 @@ as $$
     select 1 from public.user_profiles
     where id = auth.uid()
     and (
-      (raw_user_meta_data->>'role') = 'admin'
-      or email in ('admin@studentrso.org', 'moderator@studentrso.org')
+      email in ('admin@studentrso.org', 'moderator@studentrso.org')
     )
   );
 $$;
