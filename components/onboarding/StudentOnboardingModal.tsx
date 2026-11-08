@@ -138,12 +138,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
   if (!open) return null;
 
   const STEPS = [
-    { title: 'Basic Information', icon: User, code: 'A' },
-    { title: 'Educational Background', icon: GraduationCap, code: 'B' },
-    { title: 'Study Interests', icon: BookOpen, code: 'C' },
-    { title: 'Career Goals', icon: Briefcase, code: 'D' },
-    { title: 'Scholarship Eligibility', icon: Award, code: 'E' },
-    { title: 'Learning Preferences', icon: Compass, code: 'F' },
+    { title: 'Basic Information', icon: User, code: '1' },
+    { title: 'Educational Background', icon: GraduationCap, code: '2' },
+    { title: 'Study Interests', icon: BookOpen, code: '3' },
+    { title: 'Career Goals', icon: Briefcase, code: '4' },
+    { title: 'Scholarship Eligibility', icon: Award, code: '5' },
+    { title: 'Learning Preferences', icon: Compass, code: '6' },
   ];
 
   function toggleArrayItem(currentList: string[], item: string, setter: (val: string[]) => void) {
@@ -265,12 +265,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         </div>
 
         {/* ========================================================
-            STEP A: BASIC INFORMATION
+            STEP 1: BASIC INFORMATION
         ======================================================== */}
         {currentStep === 0 && (
           <div className="space-y-4">
             <div className="border-b border-[#efe3cc] pb-2">
-              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step A: Basic Information</h3>
+              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 1: Basic Information</h3>
               <p className="text-xs text-[#7a6a5a]">Confirm your verified identity and domicile in Tamil Nadu.</p>
             </div>
 
@@ -347,12 +347,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         )}
 
         {/* ========================================================
-            STEP B: EDUCATIONAL BACKGROUND
+            STEP 2: EDUCATIONAL BACKGROUND
         ======================================================== */}
         {currentStep === 1 && (
           <div className="space-y-4">
             <div className="border-b border-[#efe3cc] pb-2">
-              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step B: Educational Background</h3>
+              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 2: Educational Background</h3>
               <p className="text-xs text-[#7a6a5a]">Used to match eligible scholarship tiers, exams and entrance tests.</p>
             </div>
 
@@ -447,12 +447,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         )}
 
         {/* ========================================================
-            STEP C: STUDY INTERESTS
+            STEP 3: STUDY INTERESTS
         ======================================================== */}
         {currentStep === 2 && (
           <div className="space-y-4">
             <div className="border-b border-[#efe3cc] pb-2">
-              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step C: Study Interests</h3>
+              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 3: Study Interests</h3>
               <p className="text-xs text-[#7a6a5a]">Select your fields of intellectual interest and target research areas.</p>
             </div>
 
@@ -480,12 +480,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         )}
 
         {/* ========================================================
-            STEP D: CAREER GOALS
+            STEP 4: CAREER GOALS
         ======================================================== */}
         {currentStep === 3 && (
           <div className="space-y-4">
             <div className="border-b border-[#efe3cc] pb-2">
-              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step D: Career Interests</h3>
+              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 4: Career Interests</h3>
               <p className="text-xs text-[#7a6a5a]">What are your post-study ambitions and career pathways?</p>
             </div>
 
@@ -513,12 +513,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         )}
 
         {/* ========================================================
-            STEP E: SCHOLARSHIP & FINANCIAL ELIGIBILITY INDICATORS
+            STEP 5: SCHOLARSHIP & FINANCIAL ELIGIBILITY INDICATORS
         ======================================================== */}
         {currentStep === 4 && (
           <div className="space-y-4">
             <div className="border-b border-[#efe3cc] pb-2">
-              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step E: Scholarship & Financial Eligibility</h3>
+              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 5: Scholarship & Financial Eligibility</h3>
               <p className="text-xs text-[#7a6a5a]">
                 Statutory indicators used to match Pudhumai Penn, Tamil Pudhalvan, First Graduate and Central welfare schemes.
               </p>
@@ -623,12 +623,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         )}
 
         {/* ========================================================
-            STEP F: LEARNING PREFERENCES
+            STEP 6: LEARNING PREFERENCES
         ======================================================== */}
         {currentStep === 5 && (
           <div className="space-y-4">
             <div className="border-b border-[#efe3cc] pb-2">
-              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step F: Learning Preferences</h3>
+              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 6: Learning Preferences</h3>
               <p className="text-xs text-[#7a6a5a]">Customize which portal modules prioritize alerts on your dashboard.</p>
             </div>
 
@@ -663,46 +663,54 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         )}
 
         {/* Navigation & Submission Controls */}
-        <div className="flex items-center justify-between pt-6 mt-6 border-t border-[#efe3cc]">
-          <button
-            type="button"
-            disabled={currentStep === 0 || busy}
-            onClick={() => setCurrentStep((prev) => Math.max(0, prev - 1))}
-            className="px-4 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-xs font-semibold text-[#2b2118] hover:bg-[#f6ede0] disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 cursor-pointer"
-          >
-            <ChevronLeft size={16} />
-            <span>Previous</span>
-          </button>
-
-          {currentStep < 5 ? (
+        <div className="flex items-center justify-between pt-6 mt-6 border-t border-[#efe3cc] flex-wrap gap-2.5">
+          {currentStep > 0 ? (
             <button
               type="button"
-              onClick={() => setCurrentStep((prev) => Math.min(5, prev + 1))}
-              className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-xs flex items-center gap-1.5 cursor-pointer"
+              disabled={busy}
+              onClick={() => setCurrentStep((prev) => Math.max(0, prev - 1))}
+              className="px-4 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-xs font-semibold text-[#2b2118] hover:bg-[#f6ede0] disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 cursor-pointer shadow-2xs"
             >
-              <span>Next Step</span>
-              <ChevronRight size={16} />
+              <ChevronLeft size={16} />
+              <span>Previous</span>
             </button>
           ) : (
+            <div />
+          )}
+
+          <div className="flex items-center gap-2 ml-auto">
             <button
               type="button"
               disabled={busy}
               onClick={handleSaveAndComplete}
-              className="px-6 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-60"
+              className="px-4 py-2.5 rounded-xl border-2 border-[#8c2f39] text-[#8c2f39] bg-white hover:bg-[#f6ede0] text-xs font-bold transition flex items-center gap-1.5 cursor-pointer disabled:opacity-60 shadow-2xs"
+              title="Save current details to your profile"
             >
-              {busy ? (
-                <>
-                  <Loader2 size={16} className="animate-spin" />
-                  <span>Building Dashboard...</span>
-                </>
-              ) : (
-                <>
-                  <CheckCircle2 size={16} />
-                  <span>Save and Create My Student Dashboard</span>
-                </>
-              )}
+              {busy ? <Loader2 size={15} className="animate-spin" /> : <CheckCircle2 size={15} />}
+              <span>Save Details</span>
             </button>
-          )}
+
+            {currentStep < 5 ? (
+              <button
+                type="button"
+                onClick={() => setCurrentStep((prev) => Math.min(5, prev + 1))}
+                className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-xs flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>Next Step</span>
+                <ChevronRight size={16} />
+              </button>
+            ) : (
+              <button
+                type="button"
+                disabled={busy}
+                onClick={handleSaveAndComplete}
+                className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-60"
+              >
+                {busy ? <Loader2 size={16} className="animate-spin" /> : <CheckCircle2 size={16} />}
+                <span>Save & Complete Dashboard</span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

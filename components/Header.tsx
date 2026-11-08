@@ -179,6 +179,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
     setMobileOpen(false);
     setDesktopModulesOpen(false);
     await signOut();
+    window.location.href = '/';
   }
 
   const displayName = profile?.full_name || user?.email || 'Account';

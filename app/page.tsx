@@ -121,7 +121,14 @@ export default function Home() {
         onModeChange={setAuthMode}
         onClose={() => setAuthOpen(false)}
       />
-      <ProfileDialog open={profileOpen} onClose={() => setProfileOpen(false)} />
+      <ProfileDialog
+        open={profileOpen}
+        onClose={() => setProfileOpen(false)}
+        onEditProfile={() => {
+          setProfileOpen(false);
+          window.location.href = '/dashboard?onboarding=true';
+        }}
+      />
     </main>
   );
 }

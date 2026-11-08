@@ -33,6 +33,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { StudentOnboardingModal } from '@/components/onboarding/StudentOnboardingModal';
+import { ProfileDialog } from '@/components/ProfileDialog';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { OpportunityRecommendation } from '@/lib/recommendation-engine';
@@ -127,10 +128,18 @@ export default function StudentDashboardPage() {
 
   // State
   const [onboardingOpen, setOnboardingOpen] = useState(false);
+  const [profileDialogOpen, setProfileDialogOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'recommendations' | 'tracker' | 'notifications' | 'modules'>('recommendations');
   const [recommendations, setRecommendations] = useState<OpportunityRecommendation[]>([]);
   const [savedOpportunities, setSavedOpportunities] = useState<SavedOpportunityRecord[]>([]);
   const [loadingData, setLoadingData] = useState(true);
+
+  // Authentication guard: if signed out, return immediately to home page
+  useEffect(() => {
+    if (!authLoading && !user) {
+      window.location.href = '/';
+    }
+  }, [authLoading, user]);
 
   // Filters
   const [categoryFilter, setCategoryFilter] = useState<string>('All');
@@ -153,11 +162,12 @@ export default function StudentDashboardPage() {
   // Fetch Dashboard Data
   useEffect(() => {
     async function loadDashboard() {
+      if (!user) return;
       setLoadingData(true);
       try {
         const [recRes, oppRes] = await Promise.all([
-          fetch('/api/dashboard/recommendations'),
-          fetch('/api/dashboard/opportunities'),
+          fetch('/api/dashboard/recommendations', { cache: 'no-store' }),
+          fetch('/api/dashboard/opportunities', { cache: 'no-store' }),
         ]);
 
         if (recRes.ok) {
@@ -177,7 +187,7 @@ export default function StudentDashboardPage() {
     }
 
     loadDashboard();
-  }, [profile]);
+  }, [profile, user]);
 
   // Initial notification pref sync
   useEffect(() => {
@@ -314,6 +324,14 @@ export default function StudentDashboardPage() {
     .join('')
     .toUpperCase();
 
+  if (authLoading || !user) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9]">
+        <Loader2 size={36} className="animate-spin text-[#8c2f39]" />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-[#fbf5e9] text-[#2b2118] flex flex-col font-sans selection:bg-[#8c2f39] selection:text-[#fbf5e9]">
       <Header
@@ -321,7 +339,13 @@ export default function StudentDashboardPage() {
         onNavigate={(id) => {
           if (id === 'overview') router.push('/');
         }}
-        onOpenProfile={() => setOnboardingOpen(true)}
+        onOpenProfile={() => {
+          if (profile?.onboarding_completed) {
+            setProfileDialogOpen(true);
+          } else {
+            setOnboardingOpen(true);
+          }
+        }}
         onServiceClick={() => {}}
       />
 
@@ -1035,15 +1059,27 @@ export default function StudentDashboardPage() {
 
       <Footer onNavigate={() => {}} />
 
+      {/* Profile Dialog */}
+      <ProfileDialog
+        open={profileDialogOpen}
+        onClose={() => setProfileDialogOpen(false)}
+        onEditProfile={() => {
+          setProfileDialogOpen(false);
+          setOnboardingOpen(true);
+        }}
+      />
+
       {/* Onboarding Modal */}
       <StudentOnboardingModal
         open={onboardingOpen}
         onClose={() => setOnboardingOpen(false)}
         initialProfile={profile}
-        onSaved={() => {
-          fetch('/api/dashboard/recommendations')
-            .then((r) => r.json())
-            .then((d) => setRecommendations(d.recommendations || []));
+        onSaved={async () => {
+          const res = await fetch('/api/dashboard/recommendations', { cache: 'no-store' });
+          if (res.ok) {
+            const d = await res.json();
+            setRecommendations(d.recommendations || []);
+          }
         }}
       />
     </div>
