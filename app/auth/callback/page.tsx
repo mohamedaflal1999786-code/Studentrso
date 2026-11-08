@@ -96,12 +96,10 @@ function AuthCallbackContent() {
         if (response.ok && data.success) {
           if (!isMounted) return;
           setStatus('success');
-          // Mask URL back to '/' cleanly
-          if (typeof window !== 'undefined') {
-            window.history.replaceState(null, '', '/');
-          }
           const destination = data.isNewUser ? '/dashboard?onboarding=true' : '/dashboard';
-          setTimeout(() => router.push(destination), 600);
+          setTimeout(() => {
+            window.location.href = destination;
+          }, 600);
         } else {
           if (!isMounted) return;
           setStatus('error');

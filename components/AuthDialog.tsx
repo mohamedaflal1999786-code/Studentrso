@@ -227,7 +227,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
       setTimeout(() => {
         onClose();
         if (onSuccess) onSuccess();
-        router.push('/dashboard');
+        window.location.href = '/dashboard';
       }, 700);
     } catch {
       showStatus('We could not complete sign in. Please try again.', true);
@@ -285,7 +285,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
         setTimeout(() => {
           onClose();
           if (onSuccess) onSuccess();
-          router.push('/dashboard?onboarding=true');
+          window.location.href = '/dashboard?onboarding=true';
         }, 700);
         return;
       }
@@ -336,7 +336,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
       setTimeout(() => {
         onClose();
         if (onSuccess) onSuccess();
-        router.push('/dashboard?onboarding=true');
+        window.location.href = '/dashboard?onboarding=true';
       }, 700);
     } catch {
       showStatus('Failed to verify code. Please check your connection.', true);

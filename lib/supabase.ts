@@ -2,18 +2,24 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 let browserClient: SupabaseClient | null = null;
 
+const DEFAULT_SUPABASE_URL = 'https://venwgcsyqgonummzzepo.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_cPTEK1unPkvwqPbtTemNWw_yjDB7Ra5';
+const DEFAULT_SERVICE_KEY = 'sb_secret_j08Lnf8ePI6KzxSl7bIXpw_k8mbmuH4';
+
 export function getSupabaseEnv() {
   const url =
     process.env.NEXT_PUBLIC_SUPABASE_URL ||
     process.env.SUPABASE_URL ||
-    '';
+    DEFAULT_SUPABASE_URL;
+
   const anonKey =
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
     process.env.SUPABASE_ANON_KEY ||
-    '';
+    DEFAULT_SUPABASE_ANON_KEY;
+
   const serviceKey =
     process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    '';
+    DEFAULT_SERVICE_KEY;
 
   const isConfigured = Boolean(
     url &&
@@ -25,7 +31,7 @@ export function getSupabaseEnv() {
   return {
     url,
     anonKey,
-    serviceKey: serviceKey && !serviceKey.includes('your_') ? serviceKey : anonKey,
+    serviceKey,
     isConfigured,
   };
 }

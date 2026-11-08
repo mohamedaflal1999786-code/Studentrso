@@ -38,9 +38,6 @@ export default function Home() {
   const handleNavigate = useCallback((id: string) => {
     if (id === 'overview') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (typeof window !== 'undefined' && window.history && window.history.pushState) {
-        window.history.pushState(null, '', '/');
-      }
       return;
     }
     if (id === 'contact') {
@@ -51,9 +48,6 @@ export default function Home() {
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-      if (typeof window !== 'undefined' && window.history && window.history.pushState) {
-        window.history.pushState(null, '', `#${id}`);
-      }
     }
   }, []);
 

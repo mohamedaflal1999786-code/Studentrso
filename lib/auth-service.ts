@@ -150,10 +150,13 @@ accountsStore.set('student@studentrso.in', {
   },
 });
 
+const DEFAULT_SUPABASE_URL = 'https://venwgcsyqgonummzzepo.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_cPTEK1unPkvwqPbtTemNWw_yjDB7Ra5';
+
 export function getSupabaseClient(): SupabaseClient | null {
-  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key || url === 'your_supabase_project_url' || key === 'your_supabase_anon_key') {
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || DEFAULT_SUPABASE_URL;
+  const key = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
+  if (!url || !key || url.includes('your_supabase_project_url') || key.includes('your_supabase_anon_key')) {
     return null;
   }
   return createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });

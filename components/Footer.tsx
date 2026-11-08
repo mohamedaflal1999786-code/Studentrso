@@ -53,7 +53,6 @@ export function Footer({ onNavigate }: FooterProps) {
                   <Link
                     key={s.id}
                     href={s.route!}
-                    as="/"
                     className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5"
                   >
                     {s.title}
@@ -79,16 +78,16 @@ export function Footer({ onNavigate }: FooterProps) {
               <span className="w-1.5 h-1.5 rounded-full bg-[#cfa052]"></span>
               <span>Student Journey</span>
             </span>
-            <Link href="/admissions" as="/" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
+            <Link href="/admissions" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
               Class 10 Foundation
             </Link>
-            <Link href="/admissions" as="/" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
+            <Link href="/admissions" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
               Class 11–12 Senior Cycle
             </Link>
-            <Link href="/admissions" as="/" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
+            <Link href="/admissions" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
               Undergraduate Degree
             </Link>
-            <Link href="/admissions" as="/" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
+            <Link href="/admissions" className="font-sans text-[13px] text-[#5c4a3b] hover:text-[#8c2f39] transition-colors text-left py-0.5">
               Postgraduate &amp; Research
             </Link>
           </div>

@@ -149,9 +149,6 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
     }
     if (id === 'overview') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (typeof window !== 'undefined' && window.history && window.history.pushState) {
-        window.history.pushState(null, '', '/');
-      }
       return;
     }
     onNavigate(id);
@@ -276,7 +273,6 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                         <Link
                           key={m.number}
                           href={m.route}
-                          as="/"
                           onClick={() => setDesktopModulesOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all text-left cursor-pointer group/item"
                         >
@@ -326,11 +322,13 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
           </div>
 
           <a
-            href="/#how-it-works"
+            href="/"
             onClick={(e) => {
+              e.preventDefault();
               if (typeof window !== 'undefined' && window.location.pathname === '/') {
-                e.preventDefault();
                 handleNav('how-it-works');
+              } else {
+                window.location.href = '/';
               }
             }}
             className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
@@ -338,11 +336,13 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             How It Works
           </a>
           <a
-            href="/#about"
+            href="/"
             onClick={(e) => {
+              e.preventDefault();
               if (typeof window !== 'undefined' && window.location.pathname === '/') {
-                e.preventDefault();
                 handleNav('about');
+              } else {
+                window.location.href = '/';
               }
             }}
             className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
@@ -357,7 +357,6 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             <>
               <Link
                 href="/dashboard"
-                as="/"
                 className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg font-sans text-[12px] sm:text-[13px] font-bold bg-[#8c2f39] text-white hover:bg-[#6d1824] transition-colors cursor-pointer shadow-xs"
               >
                 <span>Dashboard</span>
@@ -440,7 +439,6 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                       <Link
                         key={m.number}
                         href={m.route}
-                        as="/"
                         onClick={() => {
                           setMobileOpen(false);
                           setServicesOpen(false);
@@ -472,12 +470,14 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
               </div>
             )}
             <a
-              href="/#how-it-works"
+              href="/"
               onClick={(e) => {
+                e.preventDefault();
                 setMobileOpen(false);
                 if (typeof window !== 'undefined' && window.location.pathname === '/') {
-                  e.preventDefault();
                   handleNav('how-it-works');
+                } else {
+                  window.location.href = '/';
                 }
               }}
               className="block w-full text-left px-3 py-3 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:bg-[#f6ede0] cursor-pointer min-h-[44px]"
@@ -485,12 +485,14 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
               How It Works
             </a>
             <a
-              href="/#about"
+              href="/"
               onClick={(e) => {
+                e.preventDefault();
                 setMobileOpen(false);
                 if (typeof window !== 'undefined' && window.location.pathname === '/') {
-                  e.preventDefault();
                   handleNav('about');
+                } else {
+                  window.location.href = '/';
                 }
               }}
               className="block w-full text-left px-3 py-3 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:bg-[#f6ede0] cursor-pointer min-h-[44px]"
@@ -512,7 +514,6 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             {user && (
               <Link
                 href="/dashboard"
-                as="/"
                 onClick={() => setMobileOpen(false)}
                 className="block w-full text-center px-4 py-3 rounded-lg bg-[#8c2f39] text-white font-sans text-[14px] font-bold cursor-pointer min-h-[44px] shadow-sm mb-2"
               >
