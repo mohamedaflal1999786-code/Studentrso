@@ -16,6 +16,7 @@ import {
   Edit3,
   Award,
   Camera,
+  Trash2,
   AlertCircle,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
@@ -99,6 +100,33 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
     }
   }
 
+  async function handleDeletePhoto() {
+    setPhotoError('');
+    setPhotoSuccess('');
+    setUploadingPhoto(true);
+    try {
+      const res = await fetch('/api/auth/profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ avatar_url: '' }),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || 'Failed to remove profile picture.');
+      }
+
+      await refresh();
+      setPhotoSuccess('Profile picture removed successfully.');
+      setTimeout(() => setPhotoSuccess(''), 3000);
+    } catch (err) {
+      setPhotoError(err instanceof Error ? err.message : 'Failed to remove photo.');
+    } finally {
+      setUploadingPhoto(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  }
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#2b2118]/60 backdrop-blur-md px-4 py-8 animate-in fade-in">
       <div className="relative w-full max-w-[460px] rounded-3xl border border-[#efe3cc] bg-[#fdfbf6] shadow-[0_24px_80px_rgba(43,33,24,0.25)] max-h-[92vh] overflow-y-auto">
@@ -151,16 +179,40 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
             </button>
           </div>
 
-          {/* Upload Button Link */}
-          <button
-            type="button"
-            disabled={uploadingPhoto}
-            onClick={() => fileInputRef.current?.click()}
-            className="mt-2 text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1"
-          >
-            <Camera size={12} />
-            <span>{profile?.avatar_url ? 'Change Photo (Max 2MB)' : 'Upload Profile Picture (Max 2MB)'}</span>
-          </button>
+          {/* Photo Actions: Upload / Change / Delete */}
+          {profile?.avatar_url ? (
+            <div className="flex items-center justify-center gap-2.5 mt-2">
+              <button
+                type="button"
+                disabled={uploadingPhoto}
+                onClick={() => fileInputRef.current?.click()}
+                className="text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1 disabled:opacity-50"
+              >
+                <Camera size={12} />
+                <span>Change Photo</span>
+              </button>
+              <span className="text-[#efe3cc]">•</span>
+              <button
+                type="button"
+                disabled={uploadingPhoto}
+                onClick={handleDeletePhoto}
+                className="text-[11px] font-mono font-semibold text-red-600 hover:text-red-700 hover:underline cursor-pointer flex items-center gap-1 disabled:opacity-50"
+              >
+                <Trash2 size={12} />
+                <span>Delete Photo</span>
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              disabled={uploadingPhoto}
+              onClick={() => fileInputRef.current?.click()}
+              className="mt-2 text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1 disabled:opacity-50"
+            >
+              <Camera size={12} />
+              <span>Upload Profile Picture (Max 2MB)</span>
+            </button>
+          )}
 
           {photoError && (
             <div className="mt-2 text-xs text-red-700 bg-red-50 border border-red-200 rounded-xl px-3 py-1.5 flex items-center gap-1.5 max-w-sm">

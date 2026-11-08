@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useAuth } from '@/lib/auth-context';
 
 interface EducationJourneySectionProps {
   onNavigate: (id: string) => void;
@@ -8,6 +9,13 @@ interface EducationJourneySectionProps {
 }
 
 export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourneySectionProps) {
+  const { user, signOut } = useAuth();
+
+  async function handleSignOut() {
+    await signOut();
+    window.location.href = '/';
+  }
+
   return (
     <section id="education-journey" className="w-full bg-[#8c2f39] text-white py-14 sm:py-20 lg:py-24 border-t border-[#77212a] scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
@@ -26,7 +34,7 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
           Scholarships. Services. Safety. Examinations. Career guidance. Deadlines. One organised starting point.
         </p>
 
-        {/* Two Functional Action Buttons */}
+        {/* Two/Three Functional Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
           {/* Button 1: Explore the Platform (White Button with Burgundy Text & Compass Icon) */}
           <a
@@ -43,8 +51,29 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
             </span>
           </a>
 
-          {/* Button 2: Sign In (Darker Burgundy with subtle border matching screenshot design) */}
-          {onSignIn ? (
+          {/* Conditional Action Buttons based on Auth State */}
+          {user ? (
+            <>
+              {/* Button 2: Open Dashboard */}
+              <Link
+                href="/dashboard"
+                className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 rounded-xl bg-[#6d1824] hover:bg-[#58131d] border border-[#f5cf7b]/60 hover:border-[#f5cf7b] text-white font-sans text-[14px] sm:text-[15px] font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+              >
+                <span className="material-symbols-outlined text-[19px] text-[#f5cf7b]">dashboard</span>
+                <span>Go to Dashboard</span>
+              </Link>
+
+              {/* Button 3: Sign Out */}
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="w-full sm:w-auto min-h-[48px] px-6 py-3.5 sm:py-4 rounded-xl bg-transparent hover:bg-black/20 border border-white/30 hover:border-white text-[#f6ede0] hover:text-white font-sans text-[14px] sm:text-[15px] font-medium transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+              >
+                <span className="material-symbols-outlined text-[19px]">logout</span>
+                <span>Sign Out</span>
+              </button>
+            </>
+          ) : onSignIn ? (
             <button
               type="button"
               onClick={onSignIn}

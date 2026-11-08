@@ -285,11 +285,15 @@ export default function StudentDashboardPage() {
         body: JSON.stringify({ notification_preferences: notificationPrefs }),
       });
       if (res.ok) {
+        await refresh();
         setPrefSavedMessage('Alert preferences updated and synced successfully.');
-        setTimeout(() => setPrefSavedMessage(''), 3000);
+        setTimeout(() => setPrefSavedMessage(''), 4000);
+      } else {
+        const errData = await res.json();
+        setPrefSavedMessage(errData.error || 'Failed to save alert preferences.');
       }
     } catch {
-      // Error handling
+      setPrefSavedMessage('Network error while saving preferences. Please try again.');
     } finally {
       setSavingPref(false);
     }

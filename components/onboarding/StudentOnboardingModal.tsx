@@ -15,6 +15,7 @@ import {
   Loader2,
   Sparkles,
   Camera,
+  Trash2,
 } from 'lucide-react';
 import { UserProfileData } from '@/lib/auth-service';
 import { useAuth } from '@/lib/auth-context';
@@ -171,7 +172,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
       const payload: Partial<UserProfileData> = {
         full_name: fullName.trim(),
         gender,
-        avatar_url: avatarUrl || undefined,
+        avatar_url: avatarUrl ? avatarUrl : null,
         phone: phone.trim() || undefined,
         date_of_birth: dob || undefined,
         state,
@@ -344,6 +345,27 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                 <span className="block text-[11px] text-[#7a6a5a]">Max 2MB • JPG, PNG, WEBP</span>
                 {avatarError ? (
                   <span className="block text-[11px] font-semibold text-red-600 mt-0.5">{avatarError}</span>
+                ) : avatarUrl ? (
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <button
+                      type="button"
+                      disabled={uploadingAvatar}
+                      onClick={() => avatarInputRef.current?.click()}
+                      className="text-[11px] font-mono font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                    >
+                      Change Photo
+                    </button>
+                    <span className="text-[#efe3cc]">•</span>
+                    <button
+                      type="button"
+                      disabled={uploadingAvatar}
+                      onClick={() => setAvatarUrl('')}
+                      className="text-[11px] font-mono font-bold text-red-600 hover:text-red-700 hover:underline cursor-pointer flex items-center gap-0.5"
+                    >
+                      <Trash2 size={11} />
+                      <span>Delete</span>
+                    </button>
+                  </div>
                 ) : (
                   <button
                     type="button"
@@ -351,7 +373,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                     onClick={() => avatarInputRef.current?.click()}
                     className="text-[11px] font-mono font-bold text-[#8c2f39] hover:underline mt-0.5 cursor-pointer block"
                   >
-                    {avatarUrl ? 'Change Profile Picture' : 'Upload Profile Picture'}
+                    Upload Profile Picture (Max 2MB)
                   </button>
                 )}
               </div>

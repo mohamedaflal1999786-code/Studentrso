@@ -74,7 +74,9 @@ export async function POST(request: Request) {
     if (typeof body.is_first_graduate === 'boolean') updates.is_first_graduate = body.is_first_graduate;
     if (typeof body.is_single_girl_child === 'boolean') updates.is_single_girl_child = body.is_single_girl_child;
     if (typeof body.has_disability === 'boolean') updates.has_disability = body.has_disability;
-    if (typeof body.avatar_url === 'string' || body.avatar_url === null) updates.avatar_url = body.avatar_url;
+    if (typeof body.avatar_url === 'string' || body.avatar_url === null) {
+      updates.avatar_url = body.avatar_url === '' ? null : body.avatar_url;
+    }
     if (Array.isArray(body.study_interests)) updates.study_interests = body.study_interests;
     if (Array.isArray(body.career_interests)) updates.career_interests = body.career_interests;
     if (Array.isArray(body.learning_preferences)) updates.learning_preferences = body.learning_preferences;
@@ -90,24 +92,50 @@ export async function POST(request: Request) {
     let persistentProfile = null;
     if (supabase) {
       try {
+        // Query existing profile to safely merge notification preferences and preserve gender
+        let existingGender = updated?.gender || 'Male';
+        let existingNotificationPrefs: Record<string, unknown> = {};
+
+        const { data: existingRow } = await supabase
+          .from('user_profiles')
+          .select('gender, notification_preferences')
+          .eq('id', userId)
+          .maybeSingle();
+
+        if (existingRow) {
+          if (existingRow.gender) existingGender = existingRow.gender;
+          if (existingRow.notification_preferences && typeof existingRow.notification_preferences === 'object') {
+            existingNotificationPrefs = existingRow.notification_preferences as Record<string, unknown>;
+            if (existingNotificationPrefs.gender && typeof existingNotificationPrefs.gender === 'string') {
+              existingGender = existingNotificationPrefs.gender as any;
+            }
+          }
+        }
+
+        const safeGender = updates.gender || existingGender;
+        const incomingPrefs = (updates.notification_preferences as Record<string, unknown>) || {};
+        const mergedNotificationPrefs = {
+          ...existingNotificationPrefs,
+          ...incomingPrefs,
+          gender: safeGender,
+        };
+
         const { gender, ...dbFields } = updates;
-        const currentPrefs = (dbFields.notification_preferences as Record<string, unknown>) || {};
-        if (gender) {
-          currentPrefs.gender = gender;
+        const dbPayload: Record<string, unknown> = {
+          id: userId,
+          email: userEmail,
+          ...dbFields,
+          notification_preferences: mergedNotificationPrefs,
+          updated_at: new Date().toISOString(),
+        };
+
+        if (updates.avatar_url === null) {
+          dbPayload.avatar_url = null;
         }
 
         const { data: dbProfile, error: dbError } = await supabase
           .from('user_profiles')
-          .upsert(
-            {
-              id: userId,
-              email: userEmail,
-              ...dbFields,
-              notification_preferences: currentPrefs,
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: 'id' }
-          )
+          .upsert(dbPayload, { onConflict: 'id' })
           .select()
           .maybeSingle();
 
@@ -116,7 +144,7 @@ export async function POST(request: Request) {
         } else if (dbProfile) {
           persistentProfile = {
             ...dbProfile,
-            gender: dbProfile.gender || (dbProfile.notification_preferences as any)?.gender || updates.gender || 'Male',
+            gender: dbProfile.gender || (dbProfile.notification_preferences as any)?.gender || safeGender,
           };
         }
       } catch (err) {

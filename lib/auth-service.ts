@@ -530,11 +530,25 @@ export function getAccountById(id: string): StoredAccount | null {
 export function updateUserProfile(id: string, updates: Partial<UserProfileData>): UserProfileData | null {
   for (const [email, acc] of Array.from(accountsStore.entries())) {
     if (acc.id === id) {
+      const existingGender = acc.profile?.gender || (acc.profile?.notification_preferences as any)?.gender || 'Male';
+      const safeGender = updates.gender || existingGender;
+
+      const mergedNotificationPrefs = updates.notification_preferences
+        ? { ...(acc.profile?.notification_preferences || {}), ...updates.notification_preferences, gender: safeGender }
+        : (acc.profile?.notification_preferences ? { ...acc.profile.notification_preferences, gender: safeGender } : { gender: safeGender });
+
       acc.profile = {
         ...acc.profile,
         ...updates,
+        gender: safeGender,
+        notification_preferences: mergedNotificationPrefs,
         updated_at: new Date().toISOString(),
       };
+
+      if (updates.avatar_url === null || updates.avatar_url === '') {
+        delete acc.profile.avatar_url;
+      }
+
       accountsStore.set(email, acc);
       return acc.profile;
     }
