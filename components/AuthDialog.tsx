@@ -153,7 +153,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
   async function handleLoginSubmit(e: FormEvent) {
     e.preventDefault();
     if (!email || !password) {
-      showStatus('Please enter your Google Gmail and password.', true);
+      showStatus('Please enter your Username / Email ID and password.', true);
       return;
     }
 
@@ -238,8 +238,8 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
   // --- 4. FORGOT PASSWORD REQUEST ---
   async function handleForgotPasswordSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!email || !email.includes('@')) {
-      showStatus('Please enter your Google Gmail address.', true);
+    if (!email) {
+      showStatus('Please enter your Username / Email ID.', true);
       return;
     }
 
@@ -420,13 +420,13 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
             <form onSubmit={handleForgotPasswordSubmit} className="space-y-4">
               <div>
                 <label className="block font-mono text-[11px] uppercase tracking-wider text-[#7a6a5a] font-semibold mb-1">
-                  Google Gmail Address
+                  Username / Email ID
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="yourname@gmail.com"
+                  placeholder="Username or email address"
                   disabled={busy}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8c2f39]"
                   required
@@ -526,7 +526,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                   </div>
                   <div className="flex items-center gap-2 text-xs text-[#5c4a3b] font-medium">
                     <ShieldCheck size={15} className="text-[#5e8b7e] shrink-0" />
-                    <span>100% free access to all 52+ scholarship schemes</span>
+                    <span>100% free access to all modules</span>
                   </div>
                 </div>
 
@@ -580,7 +580,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                 <div className="flex items-center gap-3 my-2">
                   <div className="h-px flex-1 bg-[#efe3cc]" />
                   <span className="font-mono text-[10px] uppercase text-[#a09080] font-semibold">
-                    or with Gmail & password
+                    or with account credentials
                   </span>
                   <div className="h-px flex-1 bg-[#efe3cc]" />
                 </div>
@@ -588,13 +588,13 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                 <form onSubmit={handleLoginSubmit} className="space-y-3.5">
                   <div>
                     <label className="block font-mono text-[11px] uppercase tracking-wider text-[#7a6a5a] font-semibold mb-1">
-                      Google Gmail Address
+                      Username / Email ID
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="yourname@gmail.com"
+                      placeholder="Username or email address"
                       disabled={busy}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8c2f39]"
                       required
@@ -604,7 +604,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                   <div>
                     <div className="flex items-center justify-between mb-1">
                       <label className="font-mono text-[11px] uppercase tracking-wider text-[#7a6a5a] font-semibold">
-                        Created Password
+                        Password
                       </label>
                       <button
                         type="button"

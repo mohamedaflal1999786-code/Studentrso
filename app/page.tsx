@@ -57,12 +57,25 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const targetId = window.location.hash.replace('#', '');
-      if (targetId) {
-        setTimeout(() => {
-          handleNavigate(targetId);
-        }, 150);
+    if (typeof window !== 'undefined') {
+      const search = window.location.search;
+      const hash = window.location.hash;
+      // Catch any root OAuth redirect containing code or tokens and exchange at /auth/callback
+      if (
+        (search && (search.includes('code=') || search.includes('error='))) ||
+        (hash && hash.includes('access_token='))
+      ) {
+        window.location.replace(`/auth/callback${search}${hash || ''}`);
+        return;
+      }
+
+      if (window.location.hash) {
+        const targetId = window.location.hash.replace('#', '');
+        if (targetId) {
+          setTimeout(() => {
+            handleNavigate(targetId);
+          }, 150);
+        }
       }
     }
   }, [handleNavigate]);

@@ -14,6 +14,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // 1b. Catch root OAuth redirects: If Google/Supabase redirected to / with ?code= or ?error=,
+  // forward immediately to /auth/callback so the authorization code is exchanged into a student session!
+  if (
+    pathname === '/' &&
+    (request.nextUrl.searchParams.has('code') || request.nextUrl.searchParams.has('error'))
+  ) {
+    const callbackUrl = request.nextUrl.clone();
+    callbackUrl.pathname = '/auth/callback';
+    return NextResponse.redirect(callbackUrl);
+  }
+
   // 2. Client Identifier for Rate Limiting (IP or forwarded header)
   const ip =
     request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||

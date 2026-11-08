@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     };
 
     const code = typeof body.code === 'string' ? body.code.trim() : '';
-    const accessToken = typeof body.access_token === 'string' ? body.access_token.trim() : '';
+    let accessToken = typeof body.access_token === 'string' ? body.access_token.trim() : '';
     const expiresIn = typeof body.expires_in === 'number' ? body.expires_in : 3600;
     const isSignup = Boolean(body.is_signup);
 
@@ -67,6 +67,9 @@ export async function POST(request: Request) {
             data.user.user_metadata?.name ||
             fullName ||
             'Student';
+          if (data.session?.access_token) {
+            accessToken = data.session.access_token;
+          }
         }
       } catch {
         // Continue
