@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { LayoutDashboard, Home, CheckCircle2 } from 'lucide-react';
+import { LayoutDashboard, Home, CheckCircle2, Loader2 } from 'lucide-react';
 import { AuthDialog } from '@/components/AuthDialog';
 import { useAuth } from '@/lib/auth-context';
 
-export default function AuthPage() {
+function AuthPageContent() {
   const router = useRouter();
   const { user, profile } = useAuth();
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
@@ -59,5 +59,19 @@ export default function AuthPage() {
         onSuccess={() => router.push('/dashboard')}
       />
     </div>
+  );
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9]">
+          <Loader2 size={36} className="animate-spin text-[#8c2f39]" />
+        </div>
+      }
+    >
+      <AuthPageContent />
+    </Suspense>
   );
 }

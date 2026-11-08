@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 import {
   verifySessionToken,
   getAccountById,
@@ -6,11 +7,18 @@ import {
 } from '@/lib/auth-service';
 import { getSupabaseServerClient } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: Request) {
   try {
-    const cookiesHeader = request.headers.get('cookie') || '';
-    const sessionToken = cookiesHeader.match(/student_rso_session=([^;]+)/)?.[1];
-    const accessToken = cookiesHeader.match(/student_rso_access_token=([^;]+)/)?.[1];
+    const cookieStore = cookies();
+    const sessionToken =
+      cookieStore.get('student_rso_session')?.value ||
+      request.headers.get('cookie')?.match(/student_rso_session=([^;]+)/)?.[1];
+    const accessToken =
+      cookieStore.get('student_rso_access_token')?.value ||
+      request.headers.get('cookie')?.match(/student_rso_access_token=([^;]+)/)?.[1];
 
     const supabase = getSupabaseServerClient();
 
@@ -27,10 +35,40 @@ export async function GET(request: Request) {
             .maybeSingle();
 
           if (profile) {
-            return NextResponse.json({
-              user: { id: profile.id, email: profile.email || decoded.email },
-              profile,
-            });
+            return NextResponse.json(
+              {
+                user: { id: profile.id, email: profile.email || decoded.email },
+                profile,
+              },
+              {
+                headers: {
+                  'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                },
+              }
+            );
+          }
+
+          // Fallback by email lookup
+          if (decoded.email) {
+            const { data: profileByEmail } = await supabase
+              .from('user_profiles')
+              .select('*')
+              .eq('email', decoded.email)
+              .maybeSingle();
+
+            if (profileByEmail) {
+              return NextResponse.json(
+                {
+                  user: { id: profileByEmail.id, email: profileByEmail.email },
+                  profile: profileByEmail,
+                },
+                {
+                  headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                  },
+                }
+              );
+            }
           }
         }
 
@@ -39,22 +77,36 @@ export async function GET(request: Request) {
           getAccountById(decoded.userId) ||
           (decoded.email ? getAccountByEmail(decoded.email) : null);
         if (account) {
-          return NextResponse.json({
-            user: { id: account.id, email: account.email },
-            profile: account.profile,
-          });
+          return NextResponse.json(
+            {
+              user: { id: account.id, email: account.email },
+              profile: account.profile,
+            },
+            {
+              headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+              },
+            }
+          );
         }
 
         // If session token is cryptographically valid, return baseline user profile
-        return NextResponse.json({
-          user: { id: decoded.userId, email: decoded.email },
-          profile: {
-            id: decoded.userId,
-            email: decoded.email,
-            full_name: 'Student',
-            onboarding_completed: false,
+        return NextResponse.json(
+          {
+            user: { id: decoded.userId, email: decoded.email },
+            profile: {
+              id: decoded.userId,
+              email: decoded.email,
+              full_name: 'Student',
+              onboarding_completed: false,
+            },
           },
-        });
+          {
+            headers: {
+              'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+          }
+        );
       }
     }
 
@@ -71,20 +123,41 @@ export async function GET(request: Request) {
           .eq('id', user.id)
           .maybeSingle();
 
-        return NextResponse.json({
-          user: { id: user.id, email: user.email },
-          profile: profile || {
-            id: user.id,
-            email: user.email,
-            full_name: user.user_metadata?.full_name || 'Student',
-            onboarding_completed: false,
+        return NextResponse.json(
+          {
+            user: { id: user.id, email: user.email },
+            profile: profile || {
+              id: user.id,
+              email: user.email,
+              full_name: user.user_metadata?.full_name || 'Student',
+              onboarding_completed: false,
+            },
           },
-        });
+          {
+            headers: {
+              'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+          }
+        );
       }
     }
 
-    return NextResponse.json({ user: null, profile: null });
+    return NextResponse.json(
+      { user: null, profile: null },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        },
+      }
+    );
   } catch {
-    return NextResponse.json({ user: null, profile: null });
+    return NextResponse.json(
+      { user: null, profile: null },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        },
+      }
+    );
   }
 }

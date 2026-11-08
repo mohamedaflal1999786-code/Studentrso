@@ -5,6 +5,9 @@ import {
 } from '@/lib/auth-service';
 import { getSupabaseServerClient } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as {
@@ -13,68 +16,103 @@ export async function POST(request: Request) {
       refresh_token?: unknown;
       expires_in?: unknown;
       provider?: unknown;
+      user_id?: unknown;
       email?: unknown;
       full_name?: unknown;
+      is_signup?: unknown;
     };
 
     const code = typeof body.code === 'string' ? body.code.trim() : '';
     const accessToken = typeof body.access_token === 'string' ? body.access_token.trim() : '';
     const expiresIn = typeof body.expires_in === 'number' ? body.expires_in : 3600;
+    const isSignup = Boolean(body.is_signup);
+
+    let userId = typeof body.user_id === 'string' ? body.user_id : '';
+    let userEmail = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+    let fullName = typeof body.full_name === 'string' ? body.full_name : '';
 
     const supabase = getSupabaseServerClient();
 
-    // 1. If accessToken is already exchanged and provided
+    // 1. Check with Supabase Access Token
     if (accessToken && supabase) {
-      const {
-        data: { user },
-        error,
-      } = await supabase.auth.getUser(accessToken);
+      try {
+        const {
+          data: { user },
+          error,
+        } = await supabase.auth.getUser(accessToken);
 
-      if (!error && user) {
-        const userId = user.id;
-        const userEmail = user.email || '';
-        const fullName =
-          user.user_metadata?.full_name ||
-          user.user_metadata?.name ||
-          'Google Student';
+        if (!error && user) {
+          userId = user.id;
+          userEmail = user.email || userEmail;
+          fullName =
+            user.user_metadata?.full_name ||
+            user.user_metadata?.name ||
+            fullName ||
+            'Student';
+        }
+      } catch {
+        // Continue
+      }
+    }
 
-        // Upsert user profile into Supabase
-        const { data: profile } = await supabase
-          .from('user_profiles')
-          .upsert(
-            {
-              id: userId,
-              email: userEmail,
-              full_name: fullName,
-              state: 'Tamil Nadu',
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: 'id' }
-          )
-          .select()
-          .maybeSingle();
+    // 2. PKCE Code Exchange on Server if code provided
+    if (code && !userId && supabase) {
+      try {
+        const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+        if (!error && data?.user) {
+          userId = data.user.id;
+          userEmail = data.user.email || userEmail;
+          fullName =
+            data.user.user_metadata?.full_name ||
+            data.user.user_metadata?.name ||
+            fullName ||
+            'Student';
+        }
+      } catch {
+        // Continue
+      }
+    }
 
-        const sessionToken = createSessionToken(userId, userEmail);
-        const response = NextResponse.json({
-          success: true,
-          isNewUser: !profile?.onboarding_completed,
-          user: { id: userId, email: userEmail },
-          profile: profile || {
+    // 3. Upsert user profile into Supabase
+    if (userId && supabase) {
+      const { data: profile } = await supabase
+        .from('user_profiles')
+        .upsert(
+          {
             id: userId,
             email: userEmail,
             full_name: fullName,
-            onboarding_completed: false,
+            state: 'Tamil Nadu',
+            updated_at: new Date().toISOString(),
           },
-        });
+          { onConflict: 'id' }
+        )
+        .select()
+        .maybeSingle();
 
-        response.cookies.set('student_rso_session', sessionToken, {
-          httpOnly: true,
-          sameSite: 'lax',
-          secure: process.env.NODE_ENV === 'production',
-          maxAge: 7 * 24 * 60 * 60,
-          path: '/',
-        });
+      const sessionToken = createSessionToken(userId, userEmail);
+      const response = NextResponse.json({
+        success: true,
+        isNewUser: isSignup || !profile?.onboarding_completed,
+        needsPassword: isSignup,
+        user: { id: userId, email: userEmail },
+        profile: profile || {
+          id: userId,
+          email: userEmail,
+          full_name: fullName,
+          onboarding_completed: false,
+        },
+      });
 
+      response.cookies.set('student_rso_session', sessionToken, {
+        httpOnly: true,
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 7 * 24 * 60 * 60,
+        path: '/',
+      });
+
+      if (accessToken) {
         response.cookies.set('student_rso_access_token', accessToken, {
           httpOnly: true,
           sameSite: 'lax',
@@ -82,89 +120,26 @@ export async function POST(request: Request) {
           maxAge: expiresIn,
           path: '/',
         });
-
-        return response;
       }
+
+      return response;
     }
 
-    // 2. PKCE Code Exchange via Supabase Server
-    if (code && supabase) {
-      const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-      if (!error && data?.user) {
-        const user = data.user;
-        const userId = user.id;
-        const userEmail = user.email || '';
-        const fullName =
-          user.user_metadata?.full_name ||
-          user.user_metadata?.name ||
-          'Google Student';
-
-        const { data: profile } = await supabase
-          .from('user_profiles')
-          .upsert(
-            {
-              id: userId,
-              email: userEmail,
-              full_name: fullName,
-              state: 'Tamil Nadu',
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: 'id' }
-          )
-          .select()
-          .maybeSingle();
-
-        const sessionToken = createSessionToken(userId, userEmail);
-        const response = NextResponse.json({
-          success: true,
-          isNewUser: !profile?.onboarding_completed,
-          user: { id: userId, email: userEmail },
-          profile: profile || {
-            id: userId,
-            email: userEmail,
-            full_name: fullName,
-            onboarding_completed: false,
-          },
-        });
-
-        response.cookies.set('student_rso_session', sessionToken, {
-          httpOnly: true,
-          sameSite: 'lax',
-          secure: process.env.NODE_ENV === 'production',
-          maxAge: 7 * 24 * 60 * 60,
-          path: '/',
-        });
-
-        if (data.session?.access_token) {
-          response.cookies.set('student_rso_access_token', data.session.access_token, {
-            httpOnly: true,
-            sameSite: 'lax',
-            secure: process.env.NODE_ENV === 'production',
-            maxAge: data.session.expires_in || 3600,
-            path: '/',
-          });
-        }
-
-        return response;
-      }
-    }
-
-    // 3. Fallback: Authenticate or register simulated Google user
+    // 4. Fallback: Authenticate or register simulated Google user
     const targetEmail =
-      typeof body.email === 'string' && body.email.includes('@')
+      userEmail ||
+      (typeof body.email === 'string' && body.email.includes('@')
         ? body.email
-        : 'student.google@studentrso.in';
-    const fullName =
-      typeof body.full_name === 'string' && body.full_name
-        ? body.full_name
-        : 'Google Student';
+        : 'student.google@studentrso.in');
+    const targetName = fullName || 'Google Student';
 
-    const authResult = authenticateOrRegisterGoogleUser(targetEmail, fullName);
+    const authResult = authenticateOrRegisterGoogleUser(targetEmail, targetName);
     const sessionToken = createSessionToken(authResult.user.id, authResult.user.email);
 
     const response = NextResponse.json({
       success: true,
-      isNewUser: !authResult.profile.onboarding_completed,
+      isNewUser: isSignup || !authResult.profile.onboarding_completed,
+      needsPassword: isSignup,
       user: authResult.user,
       profile: authResult.profile,
     });

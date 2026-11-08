@@ -49,7 +49,11 @@ function AuthCallbackContent() {
         let expiresIn = hashParams.get('expires_in') || queryParams.get('expires_in');
         const provider = queryParams.get('provider') || hashParams.get('provider') || 'google';
 
-        // 3. Client-side exchange with Supabase browser client (has PKCE code_verifier in localStorage)
+        let userId = '';
+        let email = '';
+        let fullName = '';
+
+        // 3. Client-side exchange with Supabase browser client
         const supabase = getSupabaseBrowserClient();
         if (code && supabase) {
           try {
@@ -59,13 +63,19 @@ function AuthCallbackContent() {
               accessToken = exchangeData.session.access_token;
               refreshToken = exchangeData.session.refresh_token;
               expiresIn = String(exchangeData.session.expires_in || 3600);
+              userId = exchangeData.session.user?.id || '';
+              email = exchangeData.session.user?.email || '';
+              fullName =
+                exchangeData.session.user?.user_metadata?.full_name ||
+                exchangeData.session.user?.user_metadata?.name ||
+                '';
             }
           } catch {
-            // Fall through to server-side code exchange
+            // Continue
           }
         }
 
-        // If no tokens yet, check if supabase client already holds a session
+        // Check if session exists in browser client
         if (!accessToken && supabase) {
           try {
             const { data: sessionData } = await supabase.auth.getSession();
@@ -73,11 +83,21 @@ function AuthCallbackContent() {
               accessToken = sessionData.session.access_token;
               refreshToken = sessionData.session.refresh_token;
               expiresIn = String(sessionData.session.expires_in || 3600);
+              userId = sessionData.session.user?.id || '';
+              email = sessionData.session.user?.email || '';
+              fullName =
+                sessionData.session.user?.user_metadata?.full_name ||
+                sessionData.session.user?.user_metadata?.name ||
+                '';
             }
           } catch {
-            // Continue to API call
+            // Continue
           }
         }
+
+        const isSignup =
+          typeof window !== 'undefined' &&
+          window.sessionStorage.getItem('auth_mode') === 'signup';
 
         const response = await fetch('/api/auth/callback', {
           method: 'POST',
@@ -88,6 +108,10 @@ function AuthCallbackContent() {
             refresh_token: refreshToken || undefined,
             expires_in: expiresIn ? parseInt(expiresIn, 10) : 3600,
             provider,
+            user_id: userId || undefined,
+            email: email || undefined,
+            full_name: fullName || undefined,
+            is_signup: isSignup,
           }),
         });
 
@@ -96,10 +120,15 @@ function AuthCallbackContent() {
         if (response.ok && data.success) {
           if (!isMounted) return;
           setStatus('success');
-          const destination = data.isNewUser ? '/dashboard?onboarding=true' : '/dashboard';
+
+          // If signing up, prompt to create a password
+          const destination = data.needsPassword
+            ? `/auth?step=create-password&email=${encodeURIComponent(data.user?.email || '')}`
+            : '/dashboard';
+
           setTimeout(() => {
             window.location.href = destination;
-          }, 600);
+          }, 500);
         } else {
           if (!isMounted) return;
           setStatus('error');
