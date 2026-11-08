@@ -242,27 +242,40 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
 
         {/* Saved Student Profile Details */}
         <div className="border-t border-[#efe3cc] px-6 py-5 space-y-3">
-          <div className="p-4 rounded-2xl bg-white border border-[#efe3cc] space-y-2.5 text-xs text-[#2b2118]">
-            <div className="flex items-center gap-2.5">
-              <GraduationCap size={16} className="text-[#8c2f39] shrink-0" />
-              <div>
-                <span className="font-semibold text-[#7a6a5a] block text-[10px] uppercase font-mono">Course / Program</span>
-                <span className="font-bold text-[13px]">{profile?.course || 'Undergraduate Degree'}</span>
-                {profile?.education_level && (
-                  <span className="text-[#7a6a5a] ml-1.5">({profile.education_level})</span>
-                )}
-              </div>
-            </div>
+          {(() => {
+            const isSchool = profile?.education_level
+              ? profile.education_level.includes('Class 10') ||
+                profile.education_level.includes('Class 11') ||
+                profile.education_level.includes('Class 12') ||
+                profile.education_level.includes('School')
+              : false;
 
-            {profile?.institution_name && (
-              <div className="flex items-center gap-2.5 pt-2 border-t border-[#efe3cc]/60">
-                <Building size={16} className="text-[#cfa052] shrink-0" />
-                <div>
-                  <span className="font-semibold text-[#7a6a5a] block text-[10px] uppercase font-mono">Institution / College</span>
-                  <span className="font-medium text-[12px]">{profile.institution_name}</span>
+            return (
+              <div className="p-4 rounded-2xl bg-white border border-[#efe3cc] space-y-2.5 text-xs text-[#2b2118]">
+                <div className="flex items-center gap-2.5">
+                  <GraduationCap size={16} className="text-[#8c2f39] shrink-0" />
+                  <div>
+                    <span className="font-semibold text-[#7a6a5a] block text-[10px] uppercase font-mono">
+                      {isSchool ? 'School Board / Stream' : 'Course / Program'}
+                    </span>
+                    <span className="font-bold text-[13px]">{profile?.course || (isSchool ? 'Secondary Education' : 'Undergraduate Degree')}</span>
+                    {profile?.education_level && (
+                      <span className="text-[#7a6a5a] ml-1.5 font-medium">({profile.education_level})</span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+
+                {profile?.institution_name && (
+                  <div className="flex items-center gap-2.5 pt-2 border-t border-[#efe3cc]/60">
+                    <Building size={16} className="text-[#cfa052] shrink-0" />
+                    <div>
+                      <span className="font-semibold text-[#7a6a5a] block text-[10px] uppercase font-mono">
+                        {isSchool ? 'School Name' : 'Institution / College'}
+                      </span>
+                      <span className="font-medium text-[12px]">{profile.institution_name}</span>
+                    </div>
+                  </div>
+                )}
 
             <div className="flex items-center gap-2.5 pt-2 border-t border-[#efe3cc]/60">
               <User size={16} className="text-[#8c2f39] shrink-0" />
@@ -294,6 +307,8 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
               </div>
             )}
           </div>
+            );
+          })()}
 
           {/* Action Buttons */}
           <button

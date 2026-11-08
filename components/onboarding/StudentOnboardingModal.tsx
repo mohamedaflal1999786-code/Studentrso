@@ -91,7 +91,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
   const [specialization, setSpecialization] = useState('');
   const [academicYear, setAcademicYear] = useState('1st Year');
   const [institutionName, setInstitutionName] = useState('');
-  const [graduationYear, setGraduationYear] = useState<number>(new Date().getFullYear() + 2);
+  const [graduationYear, setGraduationYear] = useState<number | ''>('');
   const [academicPercentage, setAcademicPercentage] = useState<number | ''>('');
   const [cgpa, setCgpa] = useState<number | ''>('');
 
@@ -467,102 +467,329 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         {/* ========================================================
             STEP 2: EDUCATIONAL BACKGROUND
         ======================================================== */}
-        {currentStep === 1 && (
-          <div className="space-y-4">
-            <div className="border-b border-[#efe3cc] pb-2">
-              <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 2: Educational Background</h3>
-              <p className="text-xs text-[#7a6a5a]">Used to match eligible scholarship tiers, exams and entrance tests.</p>
+        {/* ========================================================
+            STEP 2: EDUCATIONAL BACKGROUND (DYNAMIC ADAPTIVE FOR SCHOOL, DIPLOMA, UG, PG, FINISHED)
+        ======================================================== */}
+        {currentStep === 1 && (() => {
+          const isSchool =
+            educationLevel === 'Class 10' ||
+            educationLevel === 'Class 11' ||
+            educationLevel === 'Class 12' ||
+            educationLevel === 'Class 11-12' ||
+            educationLevel.includes('Class') ||
+            educationLevel.includes('School');
+
+          const isDiploma = educationLevel === 'Diploma';
+          const isGraduated = educationLevel === 'Completed Studies';
+
+          return (
+            <div className="space-y-4">
+              <div className="border-b border-[#efe3cc] pb-2">
+                <h3 className="font-serif font-bold text-base text-[#2b2118]">Step 2: Educational Background</h3>
+                <p className="text-xs text-[#7a6a5a]">
+                  {isSchool
+                    ? 'School information used to match Tamil Nadu board schemes, Pudhumai Penn/Tamil Pudhalvan, and entrance tests.'
+                    : isDiploma
+                    ? 'Polytechnic & trade details used to match lateral entry, state apprenticeships, and scholarships.'
+                    : isGraduated
+                    ? 'Completed degree details used to match competitive examinations (TNPSC, UPSC, GATE) and employment tracks.'
+                    : 'College & degree details used to match eligible scholarships, exams, internships, and single-window admissions.'}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {/* 1. Education Level Selector */}
+                <div className="sm:col-span-2">
+                  <label className="block text-xs font-semibold text-[#2b2118] mb-1">
+                    Current Education Level / Student Category
+                  </label>
+                  <select
+                    value={educationLevel}
+                    onChange={(e) => {
+                      const newLevel = e.target.value;
+                      setEducationLevel(newLevel);
+                      if (newLevel.includes('Class 10')) {
+                        if (!course) setCourse('Tamil Nadu State Board (English Medium)');
+                        if (!specialization) setSpecialization('Class 10 (SSLC All Subjects)');
+                        if (!academicYear) setAcademicYear('Currently Studying');
+                      } else if (newLevel.includes('Class 11') || newLevel.includes('Class 12')) {
+                        if (!course) setCourse('Tamil Nadu State Board (English Medium)');
+                        if (!academicYear) setAcademicYear('Currently Studying');
+                      }
+                    }}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] font-medium"
+                  >
+                    <optgroup label="School Education">
+                      <option value="Class 10">Class 10 (Secondary / SSLC)</option>
+                      <option value="Class 11">Class 11 (Higher Secondary - 1st Year)</option>
+                      <option value="Class 12">Class 12 (Higher Secondary - 2nd Year)</option>
+                    </optgroup>
+                    <optgroup label="Vocational & Diploma">
+                      <option value="Diploma">Diploma / Polytechnic / ITI</option>
+                    </optgroup>
+                    <optgroup label="Higher Education">
+                      <option value="Undergraduate">Undergraduate (B.E. / B.Tech / B.Sc / B.Com / B.A. / MBBS / Law)</option>
+                      <option value="Postgraduate">Postgraduate (M.E. / M.Tech / M.Sc / MBA / MCA / M.Com)</option>
+                      <option value="PhD / Research">PhD / Doctoral Research Fellow</option>
+                    </optgroup>
+                    <optgroup label="Completed Studies">
+                      <option value="Completed Studies">Completed Studies / Competitive Exam Aspirant</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                {/* 2. School / College / Institution Name */}
+                <div className="sm:col-span-2">
+                  <label className="block text-xs font-semibold text-[#2b2118] mb-1">
+                    {isSchool
+                      ? 'School Name'
+                      : isDiploma
+                      ? 'Polytechnic / ITI Institution Name'
+                      : isGraduated
+                      ? 'College / University Graduated From'
+                      : 'Institution / College Name'}
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={institutionName}
+                    onChange={(e) => setInstitutionName(e.target.value)}
+                    placeholder={
+                      isSchool
+                        ? 'e.g. Govt Girls Higher Secondary School, Ashok Nagar, Chennai'
+                        : isDiploma
+                        ? 'e.g. Central Polytechnic College, Taramani'
+                        : isGraduated
+                        ? 'e.g. Anna University CEG Campus, Chennai'
+                        : 'e.g. Kalaignar Karunanidhi Institute of Technology, Coimbatore'
+                    }
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                  />
+                </div>
+
+                {/* 3. Program / Board */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#2b2118] mb-1">
+                    {isSchool
+                      ? 'School Board & Medium'
+                      : isDiploma
+                      ? 'Diploma Course / ITI Trade'
+                      : isGraduated
+                      ? 'Highest Degree Completed'
+                      : 'Course / Degree Program'}
+                  </label>
+                  {isSchool ? (
+                    <select
+                      value={course || 'Tamil Nadu State Board (English Medium)'}
+                      onChange={(e) => setCourse(e.target.value)}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                    >
+                      <option value="Tamil Nadu State Board (English Medium)">Tamil Nadu State Board (English Medium)</option>
+                      <option value="Tamil Nadu State Board (Tamil Medium)">Tamil Nadu State Board (Tamil Medium)</option>
+                      <option value="CBSE (Central Board)">CBSE (Central Board)</option>
+                      <option value="ICSE / ISC">ICSE / ISC</option>
+                      <option value="Matriculation Board">Matriculation Board</option>
+                      <option value="Other Recognized Board">Other Recognized Board</option>
+                    </select>
+                  ) : (
+                    <input
+                      type="text"
+                      required
+                      value={course}
+                      onChange={(e) => setCourse(e.target.value)}
+                      placeholder={
+                        isDiploma
+                          ? 'e.g. Diploma in Mechanical Engineering'
+                          : isGraduated
+                          ? 'e.g. B.E. Computer Science / B.Sc Physics'
+                          : 'e.g. B.Tech Artificial Intelligence and Data Science'
+                      }
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                    />
+                  )}
+                </div>
+
+                {/* 4. Stream / Department / Specialization */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#2b2118] mb-1">
+                    {isSchool
+                      ? educationLevel === 'Class 10'
+                        ? 'Standard'
+                        : 'Higher Secondary Stream / Group'
+                      : isDiploma
+                      ? 'Branch / Department'
+                      : isGraduated
+                      ? 'Target Career / Exam Goal'
+                      : 'Specialization / Department'}
+                  </label>
+                  {isSchool && educationLevel === 'Class 10' ? (
+                    <input
+                      type="text"
+                      disabled
+                      value="Class 10 (SSLC All Subjects)"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#efe3cc] bg-gray-50 text-sm text-[#7a6a5a]"
+                    />
+                  ) : isSchool ? (
+                    <select
+                      value={specialization}
+                      onChange={(e) => setSpecialization(e.target.value)}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                    >
+                      <option value="">Select Higher Secondary Group...</option>
+                      <option value="Bio-Maths (Physics, Chemistry, Biology, Mathematics)">Group 1: Bio-Maths (Physics, Chemistry, Biology, Maths)</option>
+                      <option value="Computer-Maths (Physics, Chemistry, Maths, Computer Science)">Group 2: Comp-Maths (Physics, Chemistry, Maths, CS)</option>
+                      <option value="Pure Science (Physics, Chemistry, Botany, Zoology)">Group 3: Pure Science (Physics, Chemistry, Botany, Zoology)</option>
+                      <option value="Commerce with Business Mathematics">Group 4: Commerce with Business Maths & Accountancy</option>
+                      <option value="Commerce with Computer Applications">Group 5: Commerce with Computer Applications</option>
+                      <option value="Arts / Humanities / History">Group 6: Arts / Humanities / History</option>
+                      <option value="Vocational Stream">Vocational Stream</option>
+                    </select>
+                  ) : isGraduated ? (
+                    <select
+                      value={specialization}
+                      onChange={(e) => setSpecialization(e.target.value)}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                    >
+                      <option value="">Select Target Aspiration...</option>
+                      <option value="TNPSC / State Civil Services Aspirant">TNPSC / State Public Service Exams</option>
+                      <option value="UGC-NET / CSIR / Research Fellow">UGC-NET / CSIR JRF / Research</option>
+                      <option value="GATE / Postgraduate Engineering">GATE / Higher Studies Entrance</option>
+                      <option value="Banking / SSC / Railways Exams">Banking / SSC / RRB Exams</option>
+                      <option value="Placement / Industry IT & Core Employment">Industry Placement & Core Employment</option>
+                    </select>
+                  ) : (
+                    <input
+                      type="text"
+                      value={specialization}
+                      onChange={(e) => setSpecialization(e.target.value)}
+                      placeholder="e.g. Artificial Intelligence & Data Systems"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                    />
+                  )}
+                </div>
+
+                {/* 5. Current Academic Year / Status */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#2b2118] mb-1">
+                    {isSchool ? 'Current Academic Status' : 'Current Academic Year'}
+                  </label>
+                  <select
+                    value={academicYear}
+                    onChange={(e) => setAcademicYear(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                  >
+                    {isSchool ? (
+                      <>
+                        <option value="Currently Studying">Currently Studying</option>
+                        <option value="Appearing for Board Exams (2026)">Appearing for Board Exams (2026)</option>
+                        <option value="Passed / Awaiting Admissions">Passed / Awaiting College Admissions</option>
+                      </>
+                    ) : isDiploma ? (
+                      <>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year (Final Year)</option>
+                        <option value="Graduated">Completed / Passed Out</option>
+                      </>
+                    ) : isGraduated ? (
+                      <>
+                        <option value="Graduated">Graduated / Passed Out</option>
+                        <option value="Full-time Aspirant">Full-time Exam Aspirant</option>
+                        <option value="Employed & Upskilling">Employed & Upskilling</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="1st Year">1st Year / Fresher</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="Final Year">Final Year</option>
+                        <option value="Graduated">Graduated / Alumnus</option>
+                      </>
+                    )}
+                  </select>
+                </div>
+
+                {/* 6. Board Exam / Passing / Graduation Year (NO sticky default!) */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#2b2118] mb-1">
+                    {isSchool
+                      ? 'Board Exam / Completion Year'
+                      : isGraduated
+                      ? 'Year of Graduation / Passing'
+                      : 'Expected Graduation Year'}
+                  </label>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={4}
+                    value={graduationYear}
+                    onChange={(e) => {
+                      const clean = e.target.value.replace(/\D/g, '');
+                      setGraduationYear(clean ? parseInt(clean, 10) : '');
+                    }}
+                    placeholder="e.g. 2026"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                  />
+                  <span className="block text-[10px] text-[#7a6a5a] mt-0.5">
+                    Enter the 4-digit year (leave empty or type your year)
+                  </span>
+                </div>
+
+                {/* 7. Academic Performance: Percentage for School, CGPA/% for Higher Ed */}
+                {isSchool ? (
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-semibold text-[#2b2118] mb-1">
+                      Marks Percentage (%) (Previous Class / Term Exam)
+                    </label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      max="100"
+                      value={academicPercentage}
+                      onChange={(e) => setAcademicPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                      placeholder="e.g. 88.5"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                    />
+                    <span className="block text-[10px] text-[#7a6a5a] mt-0.5">
+                      Enter your overall percentage out of 100% (e.g. 85.5)
+                    </span>
+                  </div>
+                ) : (
+                  <>
+                    <div>
+                      <label className="block text-xs font-semibold text-[#2b2118] mb-1">Academic CGPA (out of 10)</label>
+                      <input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        max="10"
+                        value={cgpa}
+                        onChange={(e) => setCgpa(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                        placeholder="e.g. 8.5"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-[#2b2118] mb-1">Percentage Equivalent (%)</label>
+                      <input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        max="100"
+                        value={academicPercentage}
+                        onChange={(e) => setAcademicPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                        placeholder="e.g. 85.0"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div>
-                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Current Education Level</label>
-                <select
-                  value={educationLevel}
-                  onChange={(e) => setEducationLevel(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
-                >
-                  <option value="Class 10">Class 10 Secondary</option>
-                  <option value="Class 11-12">Class 11–12 Higher Secondary</option>
-                  <option value="Diploma">Diploma / Polytechnic</option>
-                  <option value="Undergraduate">Undergraduate (B.E./B.Tech/B.Sc/B.Com/B.A.)</option>
-                  <option value="Postgraduate">Postgraduate (M.E./M.Tech/M.Sc/MBA/MCA)</option>
-                  <option value="PhD / Research">PhD / Doctoral Research Fellow</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Course / Degree Program</label>
-                <input
-                  type="text"
-                  value={course}
-                  onChange={(e) => setCourse(e.target.value)}
-                  placeholder="e.g. B.E. Computer Science and Engineering"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Specialization / Department</label>
-                <input
-                  type="text"
-                  value={specialization}
-                  onChange={(e) => setSpecialization(e.target.value)}
-                  placeholder="e.g. Artificial Intelligence & Data Systems"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Current Academic Year</label>
-                <select
-                  value={academicYear}
-                  onChange={(e) => setAcademicYear(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
-                >
-                  <option value="1st Year">1st Year / Fresher</option>
-                  <option value="2nd Year">2nd Year</option>
-                  <option value="3rd Year">3rd Year</option>
-                  <option value="Final Year">Final Year</option>
-                  <option value="Graduated">Graduated / Alumnus</option>
-                </select>
-              </div>
-
-              <div className="sm:col-span-2">
-                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Institution / College Name</label>
-                <input
-                  type="text"
-                  value={institutionName}
-                  onChange={(e) => setInstitutionName(e.target.value)}
-                  placeholder="e.g. Anna University, CEG Campus, Chennai"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Graduation Year</label>
-                <input
-                  type="number"
-                  value={graduationYear}
-                  onChange={(e) => setGraduationYear(parseInt(e.target.value) || 2026)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Academic CGPA (out of 10) or %</label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={cgpa}
-                  onChange={(e) => setCgpa(parseFloat(e.target.value) || '')}
-                  placeholder="e.g. 8.9"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
-                />
-              </div>
-            </div>
-          </div>
-        )}
+          );
+        })()}
 
         {/* ========================================================
             STEP 3: STUDY INTERESTS
