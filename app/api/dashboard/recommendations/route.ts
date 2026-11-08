@@ -55,6 +55,10 @@ export async function GET(request: Request) {
           const account = getAccountById(decoded.userId) || (decoded.email ? getAccountByEmail(decoded.email) : null);
           if (account) profile = account.profile;
         }
+
+        if (profile && !profile.gender) {
+          profile.gender = (profile.notification_preferences as any)?.gender || 'Male';
+        }
       }
     }
 

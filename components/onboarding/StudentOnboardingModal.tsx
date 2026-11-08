@@ -74,6 +74,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
   // Form states
   // Step A: Basic Information
   const [fullName, setFullName] = useState('');
+  const [gender, setGender] = useState<'Male' | 'Female' | 'Transgender' | 'Other'>('Male');
   const [phone, setPhone] = useState('');
   const [dob, setDob] = useState('');
   const [state, setState] = useState('Tamil Nadu');
@@ -117,6 +118,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
     const p = initialProfile || profile;
     if (p) {
       if (p.full_name) setFullName(p.full_name);
+      if (p.gender) setGender(p.gender as any);
       if (p.avatar_url) setAvatarUrl(p.avatar_url);
       if (p.phone) setPhone(p.phone);
       if (p.date_of_birth) setDob(p.date_of_birth);
@@ -168,6 +170,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
     try {
       const payload: Partial<UserProfileData> = {
         full_name: fullName.trim(),
+        gender,
         avatar_url: avatarUrl || undefined,
         phone: phone.trim() || undefined,
         date_of_birth: dob || undefined,
@@ -206,6 +209,9 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
 
       await refresh();
       onClose();
+      if (typeof window !== 'undefined' && window.location.search.includes('onboarding=')) {
+        window.history.replaceState({}, '', window.location.pathname);
+      }
       if (onSaved) onSaved();
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : 'Error completing onboarding.');
@@ -362,6 +368,19 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   placeholder="e.g. Ananya Ramanathan"
                   className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
                 />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#2b2118] mb-1">Gender (Used for Scheme Matching)</label>
+                <select
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value as any)}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                >
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Transgender">Transgender / Other</option>
+                </select>
               </div>
 
               <div>

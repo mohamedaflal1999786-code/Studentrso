@@ -21,6 +21,7 @@ export interface UserProfile {
   cgpa?: number | null;
   annual_family_income?: string;
   community_category?: string;
+  gender?: 'Male' | 'Female' | 'Transgender' | 'Other';
   studied_in_tn_govt_school?: boolean;
   is_first_graduate?: boolean;
   is_single_girl_child?: boolean;

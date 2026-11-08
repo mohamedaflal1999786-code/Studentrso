@@ -56,6 +56,12 @@ export function generatePersonalizedRecommendations(profile: UserProfileData): O
   const isSingleGirl = Boolean(profile.is_single_girl_child);
   const hasDisability = Boolean(profile.has_disability);
 
+  // Accurate gender resolution
+  const genderStr = (profile.gender || '').toLowerCase();
+  const nameLower = (profile.full_name || '').toLowerCase();
+  const isFemale = genderStr.includes('female') || genderStr.includes('woman') || genderStr.includes('girl');
+  const isMale = genderStr.includes('male') || nameLower.includes('mohamed') || !isFemale;
+
   const isTechOrEng =
     course.includes('b tech') ||
     course.includes('b.tech') ||
@@ -89,6 +95,37 @@ export function generatePersonalizedRecommendations(profile: UserProfileData): O
     if (el.requiresPhdEnrollment && !isResearch) continue;
     if (el.requiresCompletedUG && !isPG && !isResearch) continue;
 
+    // Strict Gender Disqualifications (No girl scholarships for male students)
+    if (isMale) {
+      if (el.genderEligibility === 'Girl / Woman') continue;
+      if (el.singleGirlChildRequired) continue;
+      if (s.id === 'tn-pudhumai-penn') continue;
+      if (s.id.includes('pragati')) continue;
+      if (s.id === 'kotak-kanya-scholarship') continue;
+      if (s.id === 'ugc-savitribai-single-girl') continue;
+      if (s.id === 'ugc-nspgs') continue;
+      if (s.id === 'tn-rural-girls-incentive') continue;
+    }
+
+    if (isFemale) {
+      if (el.genderEligibility === 'Boy / Man') continue;
+      if (s.id === 'tn-tamil-pudhalvan') continue;
+    }
+
+    // Check deadlines & lifecycle status (Archive - hidden from active student view)
+    const currentVer = s.versions?.find((v) => v.isCurrentVersion);
+    if (currentVer) {
+      if (currentVer.lifecycleStatus === 'Closed' || currentVer.lifecycleStatus === 'Expired' || currentVer.lifecycleStatus === 'Discontinued') {
+        continue;
+      }
+      if (currentVer.applicationDeadline) {
+        const dl = new Date(currentVer.applicationDeadline);
+        if (dl.getTime() < Date.now()) {
+          continue; // Automatically archived past deadline
+        }
+      }
+    }
+
     // School-only vs College-only stages
     const isSchemeSchoolOnly =
       s.educationStages.every((stage) => ['Class 10', 'Class 11', 'Class 12'].includes(stage));
@@ -99,14 +136,14 @@ export function generatePersonalizedRecommendations(profile: UserProfileData): O
     if (isSchemePostgradOnly && isUG && !isPG && !isResearch) continue;
 
     // B. Statutory Criteria matches
-    if (s.id === 'tn-pudhumai-penn' && isGovtSchool && (isUG || isSchool)) {
+    if (s.id === 'tn-pudhumai-penn' && isFemale && isGovtSchool && (isUG || isSchool)) {
       score += 45;
       matchStatus = 'Strong Match';
       matchReason = 'Direct statutory match: Tamil Nadu Government School alumna pursuing higher education.';
-    } else if (s.id === 'tn-tamil-pudhalvan' && isGovtSchool && (isUG || isSchool)) {
+    } else if (s.id === 'tn-tamil-pudhalvan' && isMale && isGovtSchool && (isUG || isSchool)) {
       score += 45;
       matchStatus = 'Strong Match';
-      matchReason = 'Direct statutory match: Tamil Nadu Government School student pursuing higher education.';
+      matchReason = 'Direct statutory match: Tamil Nadu Government School male student pursuing higher education.';
     } else if (s.id === 'tn-first-graduate' && isFirstGrad && isUG) {
       score += 40;
       matchStatus = 'Strong Match';

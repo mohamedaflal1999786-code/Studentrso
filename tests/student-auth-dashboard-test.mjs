@@ -126,6 +126,7 @@ const sampleProfile = {
   id: 'usr-student-001',
   email: 'student@studentrso.in',
   full_name: 'Ananya Ramanathan',
+  gender: 'Female',
   state: 'Tamil Nadu',
   education_level: 'Undergraduate',
   course: 'B.E. Computer Science and Engineering',
@@ -146,6 +147,32 @@ assert(strongMatches.length > 0, 'Must produce Strong Match recommendations for 
 const pudhumaiMatch = recs.find((r) => r.id.includes('pudhumai-penn') || r.id.includes('first-graduate'));
 assert(pudhumaiMatch, 'Eligible TN government school student must receive welfare match');
 assert(pudhumaiMatch.matchReason && pudhumaiMatch.matchReason.length > 10, 'Match rationale must be detailed and clear');
+
+// Male profile test: strictly no female/girl scholarship recommendations
+const maleProfile = {
+  id: 'usr-male-002',
+  email: 'mohamed@studentrso.in',
+  full_name: 'Mohamed Aflal',
+  gender: 'Male',
+  state: 'Tamil Nadu',
+  education_level: 'Undergraduate',
+  course: 'B tech',
+  institution_name: 'KalaignarKarunanidhi Institute of Technology',
+  studied_in_tn_govt_school: false,
+  is_first_graduate: false,
+  community_category: 'BC',
+  annual_family_income: 'Below ₹2,50,000',
+};
+const maleRecs = generatePersonalizedRecommendations(maleProfile);
+const girlScheme = maleRecs.find(
+  (r) =>
+    r.id.includes('pudhumai-penn') ||
+    r.id.includes('pragati') ||
+    r.id.includes('kanya') ||
+    r.id.includes('single-girl')
+);
+assert.strictEqual(girlScheme, undefined, 'Male student must NEVER be recommended girl/female scholarships');
+assert(maleRecs.some((r) => r.id.includes('pmusp') || r.id.includes('reliance') || r.id.includes('tata')), 'Must recommend genuine engineering degree scholarships for male student');
 console.log(`✓ Test 07 Passed: Generated ${recs.length} personalized recommendations with ${strongMatches.length} strong matches`);
 
 // 8. Saved Opportunity Tracker Lifecycle (8 Statuses)

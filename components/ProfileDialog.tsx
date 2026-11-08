@@ -123,16 +123,18 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
         </button>
 
         {/* Avatar & Header */}
-        <div className="flex flex-col items-center px-6 pt-7 pb-4 text-center">
-          <div className="relative group">
+        <div className="flex flex-col items-center px-6 pt-6 pb-4 text-center">
+          <div className="relative group mx-auto">
             {profile?.avatar_url ? (
-              <img
-                src={profile.avatar_url}
-                alt={displayName}
-                className="h-22 w-22 rounded-2xl object-cover shadow-lg border-2 border-[#e0a526]"
-              />
+              <div className="w-[104px] h-[104px] rounded-2xl overflow-hidden border-2 border-[#e0a526] shadow-md bg-[#f6ede0] mx-auto">
+                <img
+                  src={profile.avatar_url}
+                  alt={displayName}
+                  className="w-full h-full object-cover block"
+                />
+              </div>
             ) : (
-              <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#8c2f39] text-[28px] font-bold text-white shadow-lg border-2 border-[#e0a526]">
+              <div className="w-[104px] h-[104px] flex items-center justify-center rounded-2xl bg-[#8c2f39] text-[30px] font-bold text-white shadow-md border-2 border-[#e0a526] mx-auto">
                 {initials}
               </div>
             )}
@@ -143,7 +145,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
               disabled={uploadingPhoto}
               onClick={() => fileInputRef.current?.click()}
               title="Upload / Change profile picture (Max 2MB)"
-              className="absolute -bottom-1.5 -right-1.5 p-2 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer disabled:opacity-60"
+              className="absolute -bottom-1 -right-1 p-2 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer disabled:opacity-60"
             >
               {uploadingPhoto ? <Loader2 size={13} className="animate-spin" /> : <Camera size={13} />}
             </button>
@@ -154,7 +156,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
             type="button"
             disabled={uploadingPhoto}
             onClick={() => fileInputRef.current?.click()}
-            className="mt-2.5 text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1"
+            className="mt-2 text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1"
           >
             <Camera size={12} />
             <span>{profile?.avatar_url ? 'Change Photo (Max 2MB)' : 'Upload Profile Picture (Max 2MB)'}</span>
@@ -209,6 +211,14 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
                 </div>
               </div>
             )}
+
+            <div className="flex items-center gap-2.5 pt-2 border-t border-[#efe3cc]/60">
+              <User size={16} className="text-[#8c2f39] shrink-0" />
+              <div>
+                <span className="font-semibold text-[#7a6a5a] block text-[10px] uppercase font-mono">Gender</span>
+                <span className="font-medium text-[12px]">{profile?.gender || 'Male'}</span>
+              </div>
+            </div>
 
             <div className="flex items-center gap-2.5 pt-2 border-t border-[#efe3cc]/60">
               <MapPin size={16} className="text-[#5e8b7e] shrink-0" />

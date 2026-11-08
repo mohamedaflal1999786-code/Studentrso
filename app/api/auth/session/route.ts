@@ -35,10 +35,14 @@ export async function GET(request: Request) {
             .maybeSingle();
 
           if (profile) {
+            const formatted = {
+              ...profile,
+              gender: profile.gender || (profile.notification_preferences as any)?.gender || 'Male',
+            };
             return NextResponse.json(
               {
                 user: { id: profile.id, email: profile.email || decoded.email },
-                profile,
+                profile: formatted,
               },
               {
                 headers: {
@@ -57,10 +61,14 @@ export async function GET(request: Request) {
               .maybeSingle();
 
             if (profileByEmail) {
+              const formattedByEmail = {
+                ...profileByEmail,
+                gender: profileByEmail.gender || (profileByEmail.notification_preferences as any)?.gender || 'Male',
+              };
               return NextResponse.json(
                 {
                   user: { id: profileByEmail.id, email: profileByEmail.email },
-                  profile: profileByEmail,
+                  profile: formattedByEmail,
                 },
                 {
                   headers: {

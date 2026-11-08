@@ -207,6 +207,9 @@ export default function StudentDashboardPage() {
       const params = new URLSearchParams(window.location.search);
       if (params.get('onboarding') === 'true' || (profile && profile.onboarding_completed === false)) {
         setOnboardingOpen(true);
+        if (params.get('onboarding') === 'true') {
+          window.history.replaceState({}, '', '/dashboard');
+        }
       }
     }
   }, [profile]);
@@ -1092,9 +1095,18 @@ export default function StudentDashboardPage() {
       {/* Onboarding Modal */}
       <StudentOnboardingModal
         open={onboardingOpen}
-        onClose={() => setOnboardingOpen(false)}
+        onClose={() => {
+          if (typeof window !== 'undefined') {
+            window.history.replaceState({}, '', '/dashboard');
+          }
+          setOnboardingOpen(false);
+        }}
         initialProfile={profile}
         onSaved={async () => {
+          if (typeof window !== 'undefined') {
+            window.history.replaceState({}, '', '/dashboard');
+          }
+          setOnboardingOpen(false);
           await refresh();
           await loadDashboard();
         }}

@@ -69,6 +69,7 @@ export async function POST(request: Request) {
     if (typeof body.cgpa === 'number') updates.cgpa = body.cgpa;
     if (typeof body.annual_family_income === 'string') updates.annual_family_income = body.annual_family_income;
     if (typeof body.community_category === 'string') updates.community_category = body.community_category;
+    if (typeof body.gender === 'string') updates.gender = body.gender as 'Male' | 'Female' | 'Transgender' | 'Other';
     if (typeof body.studied_in_tn_govt_school === 'boolean') updates.studied_in_tn_govt_school = body.studied_in_tn_govt_school;
     if (typeof body.is_first_graduate === 'boolean') updates.is_first_graduate = body.is_first_graduate;
     if (typeof body.is_single_girl_child === 'boolean') updates.is_single_girl_child = body.is_single_girl_child;
@@ -89,13 +90,20 @@ export async function POST(request: Request) {
     let persistentProfile = null;
     if (supabase) {
       try {
+        const { gender, ...dbFields } = updates;
+        const currentPrefs = (dbFields.notification_preferences as Record<string, unknown>) || {};
+        if (gender) {
+          currentPrefs.gender = gender;
+        }
+
         const { data: dbProfile, error: dbError } = await supabase
           .from('user_profiles')
           .upsert(
             {
               id: userId,
               email: userEmail,
-              ...updates,
+              ...dbFields,
+              notification_preferences: currentPrefs,
               updated_at: new Date().toISOString(),
             },
             { onConflict: 'id' }
@@ -105,8 +113,11 @@ export async function POST(request: Request) {
 
         if (dbError) {
           console.error('Supabase user_profiles upsert error:', dbError.message);
-        } else {
-          persistentProfile = dbProfile;
+        } else if (dbProfile) {
+          persistentProfile = {
+            ...dbProfile,
+            gender: dbProfile.gender || (dbProfile.notification_preferences as any)?.gender || updates.gender || 'Male',
+          };
         }
       } catch (err) {
         console.warn('Supabase DB error:', err);

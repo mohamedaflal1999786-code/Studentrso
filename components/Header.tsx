@@ -374,6 +374,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                 <img
                   src={profile.avatar_url}
                   alt={displayName}
+                  style={{ width: '32px', height: '32px', objectFit: 'cover' }}
                   className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border-2 border-[#8c2f39] shadow-xs shrink-0"
                 />
               ) : (
@@ -529,6 +530,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                     <img
                       src={profile.avatar_url}
                       alt={displayName}
+                      style={{ width: '28px', height: '28px', objectFit: 'cover' }}
                       className="w-7 h-7 rounded-full object-cover border border-[#8c2f39] shrink-0"
                     />
                   ) : (
