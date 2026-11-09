@@ -72,6 +72,11 @@ export function middleware(request: NextRequest) {
     response.headers.set('Cache-Control', 'public, max-age=60, s-maxage=300, stale-while-revalidate=600');
   }
 
+  // Prevent search engine indexation of internal API JSON endpoints without blocking crawler page rendering
+  if (pathname.startsWith('/api/')) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+
   return response;
 }
 

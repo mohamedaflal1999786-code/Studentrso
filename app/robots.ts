@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/auth/callback'],
+      disallow: ['/auth/callback'],
     },
     sitemap: 'https://studentrso.in/sitemap.xml',
   };

@@ -100,7 +100,6 @@ Student RSO includes full Google Search Console indexing files:
   ```txt
   User-agent: *
   Allow: /
-  Disallow: /api/
   Disallow: /auth/callback
 
   Sitemap: https://studentrso.in/sitemap.xml
