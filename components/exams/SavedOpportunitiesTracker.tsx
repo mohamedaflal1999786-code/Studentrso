@@ -137,7 +137,7 @@ export function SavedOpportunitiesTracker() {
               <label className="block text-[11px] font-bold text-[#7a6a5a] uppercase mb-1">Title / Institution</label>
               <input
                 type="text"
-                placeholder="e.g. PSG Tech CSE / TNPSC Group 4"
+                placeholder="Enter target program or competitive exam"
                 value={newItemTitle}
                 onChange={(e) => setNewItemTitle(e.target.value)}
                 className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"

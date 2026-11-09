@@ -208,7 +208,7 @@ export function SmartEligibilityChecker({
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. B.Tech / M.Sc / History"
+                  placeholder="Enter course or field of study"
                   value={profile.courseName}
                   onChange={(e) => handleFieldChange('courseName', e.target.value)}
                   className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
@@ -317,7 +317,7 @@ export function SmartEligibilityChecker({
                 min="0"
                 max="100"
                 step="0.1"
-                placeholder="e.g. 78.5"
+                placeholder="Enter percentage (%)"
                 value={profile.academicPercentage !== null ? profile.academicPercentage : ''}
                 onChange={(e) => {
                   const val = e.target.value ? parseFloat(e.target.value) : null;

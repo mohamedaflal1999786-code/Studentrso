@@ -199,7 +199,7 @@ export function AdmissionTrackerSection() {
                 required
                 value={processName}
                 onChange={(e) => setProcessName(e.target.value)}
-                placeholder="e.g. TNEA Engineering 2026, TNGASA Arts"
+                placeholder="Enter counseling process or application title"
                 className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
               />
             </div>
@@ -211,7 +211,7 @@ export function AdmissionTrackerSection() {
                 required
                 value={courseApplied}
                 onChange={(e) => setCourseApplied(e.target.value)}
-                placeholder="e.g. B.E. CSE, B.Com General"
+                placeholder="Enter course or branch"
                 className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
               />
             </div>
@@ -222,7 +222,7 @@ export function AdmissionTrackerSection() {
                 type="text"
                 value={authority}
                 onChange={(e) => setAuthority(e.target.value)}
-                placeholder="e.g. Anna University, DCE"
+                placeholder="Enter college, university, or counseling authority"
                 className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
               />
             </div>
@@ -233,7 +233,7 @@ export function AdmissionTrackerSection() {
                 type="text"
                 value={referenceNumber}
                 onChange={(e) => setReferenceNumber(e.target.value)}
-                placeholder="e.g. TNEA-2026-102938"
+                placeholder="Enter application reference number"
                 className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
               />
             </div>

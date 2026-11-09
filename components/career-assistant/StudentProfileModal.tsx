@@ -149,7 +149,7 @@ export function StudentProfileModal({
               </label>
               <input
                 type="text"
-                placeholder="e.g. B.Tech, B.Com, Class 12, Diploma"
+                placeholder="Enter degree or standard"
                 value={formData.currentCourse || ''}
                 onChange={(e) => setFormData({ ...formData, currentCourse: e.target.value })}
                 className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
@@ -162,7 +162,7 @@ export function StudentProfileModal({
               </label>
               <input
                 type="text"
-                placeholder="e.g. PCM, Computer Science, Finance"
+                placeholder="Enter stream or core subjects"
                 value={formData.streamOrSubject || ''}
                 onChange={(e) => setFormData({ ...formData, streamOrSubject: e.target.value })}
                 className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
@@ -228,7 +228,7 @@ export function StudentProfileModal({
             </label>
             <input
               type="text"
-              placeholder="e.g. TNPSC Group 1, Software Engineer at Zoho, MS abroad, PhD in Physics"
+              placeholder="Enter primary career or education goal"
               value={formData.educationGoals || ''}
               onChange={(e) => setFormData({ ...formData, educationGoals: e.target.value })}
               className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"

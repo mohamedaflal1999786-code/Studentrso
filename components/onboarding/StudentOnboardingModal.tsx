@@ -387,7 +387,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="e.g. Ananya Ramanathan"
+                  placeholder="Enter your full name"
                   className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
                 />
               </div>
@@ -421,7 +421,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+91 98765 43210"
+                  placeholder="Enter 10-digit mobile number"
                   className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
                 />
               </div>
@@ -556,12 +556,12 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                     onChange={(e) => setInstitutionName(e.target.value)}
                     placeholder={
                       isSchool
-                        ? 'e.g. Govt Girls Higher Secondary School, Ashok Nagar, Chennai'
+                        ? 'Enter school name'
                         : isDiploma
-                        ? 'e.g. Central Polytechnic College, Taramani'
+                        ? 'Enter polytechnic or ITI institution name'
                         : isGraduated
-                        ? 'e.g. Anna University CEG Campus, Chennai'
-                        : 'e.g. Kalaignar Karunanidhi Institute of Technology, Coimbatore'
+                        ? 'Enter college or university graduated from'
+                        : 'Enter college or institution name'
                     }
                     className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
                   />
@@ -599,10 +599,10 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                       onChange={(e) => setCourse(e.target.value)}
                       placeholder={
                         isDiploma
-                          ? 'e.g. Diploma in Mechanical Engineering'
+                          ? 'Enter diploma course or ITI trade'
                           : isGraduated
-                          ? 'e.g. B.E. Computer Science / B.Sc Physics'
-                          : 'e.g. B.Tech Artificial Intelligence and Data Science'
+                          ? 'Enter degree completed'
+                          : 'Enter course or degree program'
                       }
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
                     />
@@ -662,7 +662,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                       type="text"
                       value={specialization}
                       onChange={(e) => setSpecialization(e.target.value)}
-                      placeholder="e.g. Artificial Intelligence & Data Systems"
+                      placeholder="Enter department or specialization"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
                     />
                   )}
@@ -727,7 +727,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                       const clean = e.target.value.replace(/\D/g, '');
                       setGraduationYear(clean ? parseInt(clean, 10) : '');
                     }}
-                    placeholder="e.g. 2026"
+                    placeholder="YYYY"
                     className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
                   />
                   <span className="block text-[10px] text-[#7a6a5a] mt-0.5">
@@ -748,11 +748,11 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                       max="100"
                       value={academicPercentage}
                       onChange={(e) => setAcademicPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                      placeholder="e.g. 88.5"
+                      placeholder="Percentage (%)"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
                     />
                     <span className="block text-[10px] text-[#7a6a5a] mt-0.5">
-                      Enter your overall percentage out of 100% (e.g. 85.5)
+                      Enter your overall percentage out of 100%
                     </span>
                   </div>
                 ) : (
@@ -766,7 +766,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                         max="10"
                         value={cgpa}
                         onChange={(e) => setCgpa(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                        placeholder="e.g. 8.5"
+                        placeholder="CGPA (out of 10.0)"
                         className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
                       />
                     </div>
@@ -780,7 +780,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                         max="100"
                         value={academicPercentage}
                         onChange={(e) => setAcademicPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                        placeholder="e.g. 85.0"
+                        placeholder="Percentage (%)"
                         className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118]"
                       />
                     </div>

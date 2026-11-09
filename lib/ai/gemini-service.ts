@@ -16,8 +16,9 @@ const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes cache
 
 // Model candidate hierarchy with automatic multi-model fallback across quota pools
 export const MODEL_CANDIDATES = [
-  'gemini-3.5-flash-lite',
   'gemini-flash-lite-latest',
+  'gemini-flash-latest',
+  'gemini-3.5-flash-lite',
   'gemini-3.1-flash-lite',
   'gemini-3.5-flash',
 ];
@@ -302,9 +303,14 @@ export async function streamGeminiChatResponse(
       lastError = apiError;
       const status = mapGeminiErrorToStatus(apiError);
 
-      // If Quota Exceeded (429 / RESOURCE_EXHAUSTED), continue to next model candidate
-      if (status.status === 'QUOTA_EXCEEDED') {
-        console.warn(`Gemini model ${model} hit rate limit / quota, trying next candidate...`);
+      // If Quota Exceeded (429 / RESOURCE_EXHAUSTED) or model not found (404), continue to next candidate
+      if (
+        status.status === 'QUOTA_EXCEEDED' ||
+        apiError?.status === 404 ||
+        apiError?.message?.includes('not found') ||
+        apiError?.message?.includes('no longer')
+      ) {
+        console.warn(`Gemini model ${model} unavailable or hit rate limit, trying next candidate...`);
         continue;
       }
 
