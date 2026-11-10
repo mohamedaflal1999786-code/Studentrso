@@ -202,6 +202,9 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             alt="Student RSO Emblem"
             className="h-9 sm:h-11 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform"
             src="/images/student-rso-emblem.png"
+            width={56}
+            height={44}
+            fetchPriority="high"
           />
           <div className="h-7 sm:h-8 w-px bg-[#d8c7ad] hidden xs:block shrink-0" />
           <div className="flex flex-col text-left min-w-0">

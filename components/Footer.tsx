@@ -27,6 +27,9 @@ export function Footer({ onNavigate }: FooterProps) {
                 alt="Student RSO Emblem"
                 className="h-10 sm:h-12 w-auto object-contain"
                 src="/images/student-rso-emblem.png"
+                width={61}
+                height={48}
+                loading="lazy"
               />
               <div className="h-8 w-px bg-[#d8c7ad] hidden xs:block shrink-0" />
               <div className="flex flex-col">

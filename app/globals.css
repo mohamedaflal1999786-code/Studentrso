@@ -57,5 +57,11 @@
     direction: ltr;
     font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    vertical-align: middle;
+    font-display: block;
+    user-select: none;
   }
 }
