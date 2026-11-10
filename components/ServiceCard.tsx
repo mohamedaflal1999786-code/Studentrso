@@ -27,20 +27,20 @@ export function ServiceCard({ service, onClick }: ServiceCardProps) {
           <div className="w-9 h-9 rounded-lg bg-white border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shadow-xs">
             <span className="material-symbols-outlined text-[19px]">{service.icon}</span>
           </div>
-          <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#e0a526]">
+          <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#92400e]">
             MODULE {service.number}
           </span>
         </div>
         <h3 className="font-serif text-[15px] sm:text-[16px] leading-[22px] font-semibold text-[#2b2118] group-hover:text-[#8c2f39] transition-colors line-clamp-2">
           {service.title}
         </h3>
-        <p className="font-sans text-[12px] leading-[18px] text-[#7a6a5a] mt-1 line-clamp-3">
+        <p className="font-sans text-[12px] leading-[18px] text-[#524336] mt-1 line-clamp-3">
           {service.description}
         </p>
       </div>
       <div className="mt-3 pt-2.5 flex items-center text-[#8c2f39] font-sans text-[12px] font-semibold border-t border-[#efe3cc]">
         <span>Open Module</span>
-        <span className="material-symbols-outlined text-[14px] ml-1 text-[#e0a526] group-hover:translate-x-1 transition-transform">
+        <span className="material-symbols-outlined text-[14px] ml-1 text-[#92400e] group-hover:translate-x-1 transition-transform">
           arrow_forward
         </span>
       </div>

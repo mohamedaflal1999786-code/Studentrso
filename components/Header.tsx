@@ -208,7 +208,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             <span className="font-serif text-[18px] sm:text-[23px] font-bold tracking-tight text-[#8c2f39] italic truncate leading-tight">
               Student RSO
             </span>
-            <span className="font-mono text-[8px] sm:text-[9.5px] uppercase tracking-widest text-[#7a6a5a] font-semibold hidden xs:block">
+            <span className="font-mono text-[8px] sm:text-[9.5px] uppercase tracking-widest text-[#524336] font-semibold hidden xs:block">
               RIGHTS • SERVICES • OPPORTUNITIES
             </span>
           </div>
@@ -259,7 +259,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             >
               <div className="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] shadow-[0_12px_32px_rgba(43,33,24,0.12)] p-6 flex flex-col gap-4">
                 <div className="flex items-center justify-between pb-3.5 border-b border-[#efe3cc]">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#e0a526] font-bold">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#92400e] font-bold">
                     STUDENT RSO PLATFORM • 10 CORE MODULES
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-semibold uppercase tracking-wider">
@@ -289,7 +289,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                                 </span>
                               )}
                             </div>
-                            <span className="font-sans text-[11px] text-[#7a6a5a] leading-tight line-clamp-1 mt-0.5">
+                            <span className="font-sans text-[11px] text-[#524336] leading-tight line-clamp-1 mt-0.5">
                               {m.description}
                             </span>
                           </div>
@@ -310,7 +310,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                           <div className="flex items-center gap-1.5">
                             <span className="font-sans text-[13px] font-bold text-[#2b2118] truncate">{m.title}</span>
                           </div>
-                          <span className="font-sans text-[11px] text-[#7a6a5a] leading-tight line-clamp-1 mt-0.5">
+                          <span className="font-sans text-[11px] text-[#524336] leading-tight line-clamp-1 mt-0.5">
                             {m.description}
                           </span>
                         </div>

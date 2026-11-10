@@ -35,10 +35,10 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
               <span className="material-symbols-outlined text-[22px]">{module.icon}</span>
             </div>
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#e0a526] block">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#92400e] block">
                 MODULE {module.number}
               </span>
-              <span className="font-sans text-[11px] font-semibold text-[#7a6a5a]">
+              <span className="font-sans text-[11px] font-semibold text-[#524336]">
                 {module.category}
               </span>
             </div>
@@ -48,7 +48,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
               LIVE
             </span>
           ) : (
-            <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-semibold text-[#7a6a5a]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-semibold text-[#524336]">
               OFFICIAL
             </span>
           )}
@@ -65,16 +65,16 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
         )}
 
         {/* Golden accent divider */}
-        <div className="w-12 h-0.5 bg-[#cfa052] rounded-full mb-3" />
+        <div className="w-12 h-0.5 bg-[#92400e] rounded-full mb-3" />
 
         {/* Short Description */}
-        <p className="font-sans text-[14px] text-[#7a6a5a] leading-[22px] mb-4 flex-1">
+        <p className="font-sans text-[14px] text-[#524336] leading-[22px] mb-4 flex-1">
           {module.description}
         </p>
 
         {/* Official Source Badge (if applicable) */}
         {module.officialSource && (
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#7a6a5a] font-mono text-[11px] mb-4 self-start">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#524336] font-mono text-[11px] mb-4 self-start">
             <span className="material-symbols-outlined text-[15px] text-[#5e8b7e]">verified</span>
             <span className="text-[#2b2118] font-medium truncate max-w-[240px]">
               {module.officialSource}

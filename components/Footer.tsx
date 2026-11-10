@@ -31,7 +31,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <div className="h-8 w-px bg-[#d8c7ad] hidden xs:block shrink-0" />
               <div className="flex flex-col">
                 <span className="font-serif text-[22px] sm:text-[24px] font-bold text-[#8c2f39] italic leading-tight">Student RSO</span>
-                <span className="font-mono text-[9.5px] uppercase tracking-widest text-[#7a6a5a] font-semibold">STUDENT RIGHTS · SERVICES · OPPORTUNITIES</span>
+                <span className="font-mono text-[9.5px] uppercase tracking-widest text-[#524336] font-semibold">STUDENT RIGHTS · SERVICES · OPPORTUNITIES</span>
               </div>
             </div>
             <p className="font-sans text-[13px] leading-[22px] text-[#5c4a3b] max-w-sm">
@@ -137,15 +137,15 @@ export function Footer({ onNavigate }: FooterProps) {
 
         {/* Bottom Disclaimer & Copyright */}
         <div className="pt-6 border-t border-[#efe3cc] flex flex-col gap-3">
-          <p className="font-sans text-[12px] sm:text-[13px] leading-relaxed text-[#7a6a5a]">
+          <p className="font-sans text-[12px] sm:text-[13px] leading-relaxed text-[#524336]">
             Platform Disclaimer: Student RSO is an independent student information and navigation platform. It does not
             replace government departments, educational institutions, examination authorities, statutory bodies or
             official service providers. Applications, decisions, certificates and official processes remain subject to
             the respective authority&apos;s rules and procedures.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-            <p className="text-xs text-[#7a6a5a]">© 2026 Student RSO. All rights reserved.</p>
-            <div className="flex items-center gap-5 text-xs text-[#7a6a5a]">
+            <p className="text-xs text-[#524336]">© 2026 Student RSO. All rights reserved.</p>
+            <div className="flex items-center gap-5 text-xs text-[#524336]">
               <button
                 type="button"
                 onClick={() => handleFooterNav('about')}

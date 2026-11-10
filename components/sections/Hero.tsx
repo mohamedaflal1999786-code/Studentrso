@@ -55,7 +55,7 @@ export function Hero({ onNavigate }: HeroProps) {
             }}
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#fdfbf6] hover:bg-[#f6ede0] border border-[#d8c7ad] text-[#2b2118] font-sans text-[15px] font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-[0.98]"
           >
-            <span className="material-symbols-outlined text-[19px] text-[#e0a526]">account_tree</span>
+            <span className="material-symbols-outlined text-[19px] text-[#92400e]">account_tree</span>
             <span>How It Works</span>
           </a>
         </div>

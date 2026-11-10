@@ -33,15 +33,15 @@ export function AboutSection() {
       <div id="student-journey" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2">
-            <span className="font-mono text-[12px] text-[#e0a526] font-bold tracking-wider uppercase">
+            <span className="font-mono text-[12px] text-[#92400e] font-bold tracking-wider uppercase">
               ABOUT STUDENT RSO
             </span>
-            <div className="w-8 h-0.5 bg-[#e0a526]" />
+            <div className="w-8 h-0.5 bg-[#92400e]" />
           </div>
           <h2 className="font-serif text-[30px] sm:text-[40px] leading-[36px] sm:leading-[48px] text-[#2b2118] mt-2 mb-4 font-bold">
             Built to empower students with <span className="italic text-[#8c2f39]">clarity and confidence.</span>
           </h2>
-          <p className="font-sans text-[16px] sm:text-[18px] text-[#7a6a5a] leading-relaxed">
+          <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
             Student RSO (Rights, Services &amp; Opportunities) is a student-first digital platform designed to help learners across Tamil Nadu and India navigate government schemes, academic continuity, statutory safety mechanisms, and verified opportunities without confusion or commercial barriers.
           </p>
         </div>
@@ -57,10 +57,10 @@ export function AboutSection() {
                   <span className="material-symbols-outlined text-[22px]">{p.icon}</span>
                 </div>
                 <h3 className="font-serif text-[19px] text-[#2b2118] font-bold mb-3">{p.title}</h3>
-                <p className="font-sans text-[14px] text-[#7a6a5a] leading-relaxed">{p.description}</p>
+                <p className="font-sans text-[14px] text-[#524336] leading-relaxed">{p.description}</p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#efe3cc] flex items-center gap-2 font-mono text-[11px] text-[#8c2f39] font-semibold uppercase tracking-wider">
-                <span className="material-symbols-outlined text-[15px] text-[#e0a526]">check_circle</span>
+                <span className="material-symbols-outlined text-[15px] text-[#92400e]">check_circle</span>
                 <span>Verified Standard</span>
               </div>
             </div>
