@@ -90,22 +90,32 @@ export async function POST(request: Request) {
       // Ensure profile exists in live database only for real auth.users UUIDs
       let profile: Record<string, unknown> | null = null;
       if (supabaseUserId) {
-        const { data: upsertedProfile } = await supabase
+        const { data: existingByEmail } = await supabase
           .from('user_profiles')
-          .upsert(
-            {
-              id: supabaseUserId,
-              email,
-              full_name: fullName,
-              state: 'Tamil Nadu',
-              onboarding_completed: false,
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: 'id' }
-          )
-          .select()
+          .select('*')
+          .eq('email', email)
           .maybeSingle();
-        profile = upsertedProfile;
+
+        if (existingByEmail) {
+          profile = existingByEmail;
+        } else {
+          const { data: upsertedProfile } = await supabase
+            .from('user_profiles')
+            .upsert(
+              {
+                id: supabaseUserId,
+                email,
+                full_name: fullName,
+                state: 'Tamil Nadu',
+                onboarding_completed: false,
+                updated_at: new Date().toISOString(),
+              },
+              { onConflict: 'id' }
+            )
+            .select()
+            .maybeSingle();
+          profile = upsertedProfile;
+        }
       }
 
       // Generate 6-digit OTP and store SHA-256 hash in persistent auth_otps table

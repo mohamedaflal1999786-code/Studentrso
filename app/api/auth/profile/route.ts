@@ -68,9 +68,15 @@ export async function POST(request: Request) {
     if (typeof body.specialization === 'string') updates.specialization = body.specialization.trim();
     if (typeof body.academic_year === 'string') updates.academic_year = body.academic_year;
     if (typeof body.institution_name === 'string') updates.institution_name = body.institution_name.trim();
-    if (typeof body.graduation_year === 'number') updates.graduation_year = body.graduation_year;
-    if (typeof body.academic_percentage === 'number') updates.academic_percentage = body.academic_percentage;
-    if (typeof body.cgpa === 'number') updates.cgpa = body.cgpa;
+    if (Number.isInteger(body.graduation_year) && body.graduation_year! >= 1950 && body.graduation_year! <= 2100) {
+      updates.graduation_year = body.graduation_year;
+    }
+    if (typeof body.academic_percentage === 'number' && Number.isFinite(body.academic_percentage) && body.academic_percentage >= 0 && body.academic_percentage <= 100) {
+      updates.academic_percentage = body.academic_percentage;
+    }
+    if (typeof body.cgpa === 'number' && Number.isFinite(body.cgpa) && body.cgpa >= 0 && body.cgpa <= 10) {
+      updates.cgpa = body.cgpa;
+    }
     if (typeof body.annual_family_income === 'string') updates.annual_family_income = body.annual_family_income;
     if (typeof body.community_category === 'string') updates.community_category = body.community_category;
     if (typeof body.gender === 'string') updates.gender = body.gender as 'Male' | 'Female' | 'Transgender' | 'Other';
@@ -107,7 +113,8 @@ export async function POST(request: Request) {
             .eq('id', targetUserId)
             .maybeSingle();
           existingRow = data;
-        } else if (userEmail) {
+        }
+        if (!existingRow && userEmail) {
           const { data } = await supabase
             .from('user_profiles')
             .select('id, email, notification_preferences')

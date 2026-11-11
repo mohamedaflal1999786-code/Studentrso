@@ -104,15 +104,26 @@ export async function POST(request: Request) {
         }
 
         const persistentUuid =
-          (isUuid(verifiedUserId) && verifiedUserId) ||
           (isUuid(userProfile?.id) && userProfile.id) ||
+          (isUuid(verifiedUserId) && verifiedUserId) ||
           null;
         const userId = persistentUuid || `usr-${Date.now()}`;
         const fullName = userProfile?.full_name || verifiedFullName;
 
-        // Only upsert user_profiles when backed by a real auth.users UUID
+        // Only update/upsert user_profiles when backed by a real auth.users UUID
         let finalProfile = userProfile;
-        if (persistentUuid) {
+        if (userProfile?.id && isUuid(userProfile.id)) {
+          const { data: updatedProfile } = await supabase
+            .from('user_profiles')
+            .update({
+              ...(userProfile.full_name ? {} : { full_name: fullName }),
+              updated_at: new Date().toISOString(),
+            })
+            .eq('id', userProfile.id)
+            .select()
+            .maybeSingle();
+          if (updatedProfile) finalProfile = updatedProfile;
+        } else if (persistentUuid) {
           const { data: upsertedProfile } = await supabase
             .from('user_profiles')
             .upsert(

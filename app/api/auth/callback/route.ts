@@ -76,22 +76,64 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3. Upsert user profile into Supabase only for valid auth.users UUIDs
+    // 3. Look up or create user profile in Supabase only for valid auth.users UUIDs
     if (isUuid(userId) && userEmail && supabase) {
-      const { data: profile } = await supabase
+      let profile: Record<string, unknown> | null = null;
+
+      const { data: byId } = await supabase
         .from('user_profiles')
-        .upsert(
-          {
-            id: userId,
-            email: userEmail,
-            full_name: fullName,
-            state: 'Tamil Nadu',
-            updated_at: new Date().toISOString(),
-          },
-          { onConflict: 'id' }
-        )
-        .select()
+        .select('*')
+        .eq('id', userId)
         .maybeSingle();
+
+      if (byId) {
+        const { data: updatedById } = await supabase
+          .from('user_profiles')
+          .update({
+            ...(byId.full_name ? {} : { full_name: fullName }),
+            updated_at: new Date().toISOString(),
+          })
+          .eq('id', byId.id)
+          .select()
+          .maybeSingle();
+        profile = updatedById || byId;
+      } else {
+        const { data: byEmail } = await supabase
+          .from('user_profiles')
+          .select('*')
+          .eq('email', userEmail)
+          .maybeSingle();
+
+        if (byEmail) {
+          const { data: updatedByEmail } = await supabase
+            .from('user_profiles')
+            .update({
+              ...(byEmail.full_name ? {} : { full_name: fullName }),
+              updated_at: new Date().toISOString(),
+            })
+            .eq('id', byEmail.id)
+            .select()
+            .maybeSingle();
+          profile = updatedByEmail || byEmail;
+          userId = byEmail.id;
+        } else {
+          const { data: inserted } = await supabase
+            .from('user_profiles')
+            .upsert(
+              {
+                id: userId,
+                email: userEmail,
+                full_name: fullName,
+                state: 'Tamil Nadu',
+                updated_at: new Date().toISOString(),
+              },
+              { onConflict: 'id' }
+            )
+            .select()
+            .maybeSingle();
+          profile = inserted;
+        }
+      }
 
       const needsPassword = Boolean(isSignup || !profile?.has_password);
       const isNewUser = Boolean(isSignup || !profile?.onboarding_completed);
