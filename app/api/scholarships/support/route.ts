@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAuthenticatedUser } from '@/lib/scholarship-auth';
+import { isUuid } from '@/lib/supabase';
 
 export async function GET(request: Request) {
   try {
@@ -87,10 +88,11 @@ export async function PUT(request: Request) {
     }
 
     const body = await request.json();
-    const { ticketId, status, adminResponse } = body;
+    const ticketId = typeof body.ticketId === 'string' ? body.ticketId.trim() : '';
+    const { status, adminResponse } = body;
 
-    if (!ticketId) {
-      return NextResponse.json({ error: 'Ticket ID is required.' }, { status: 400 });
+    if (!ticketId || !isUuid(ticketId)) {
+      return NextResponse.json({ error: 'Valid Ticket ID is required.' }, { status: 400 });
     }
 
     const { client, user } = auth;

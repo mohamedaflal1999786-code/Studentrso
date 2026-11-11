@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAuthenticatedUser } from '@/lib/scholarship-auth';
+import { isUuid } from '@/lib/supabase';
 
 export async function GET(request: Request) {
   try {
@@ -75,7 +76,7 @@ export async function POST(request: Request) {
       updated_at: new Date().toISOString(),
     };
 
-    if (id) {
+    if (id && isUuid(id)) {
       const { data, error } = await client
         .from('student_certificate_trackers')
         .update(recordPayload)
@@ -117,10 +118,13 @@ export async function DELETE(request: Request) {
     }
 
     const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
+    const id = (searchParams.get('id') || '').trim();
 
     if (!id) {
       return NextResponse.json({ error: 'Tracker ID required' }, { status: 400 });
+    }
+    if (!isUuid(id)) {
+      return NextResponse.json({ success: true, message: 'Local record removed' });
     }
 
     const { client, user } = auth;

@@ -122,19 +122,44 @@ export async function POST(request: Request) {
           console.error('Supabase password update error:', updateError.message);
         }
 
-        // 2. Upsert profile with has_password flag when email is known
+        // 2. Update existing profile or insert when no matching email exists
         if (userEmail) {
-          await supabase
+          let { data: existingProfile } = await supabase
             .from('user_profiles')
-            .upsert(
-              {
-                id: userId,
-                email: userEmail,
+            .select('id')
+            .eq('id', userId)
+            .maybeSingle();
+
+          if (!existingProfile?.id) {
+            const byEmail = await supabase
+              .from('user_profiles')
+              .select('id')
+              .eq('email', userEmail)
+              .maybeSingle();
+            existingProfile = byEmail.data;
+          }
+
+          if (existingProfile?.id) {
+            await supabase
+              .from('user_profiles')
+              .update({
                 has_password: true,
                 updated_at: new Date().toISOString(),
-              },
-              { onConflict: 'id' }
-            );
+              })
+              .eq('id', existingProfile.id);
+          } else {
+            await supabase
+              .from('user_profiles')
+              .upsert(
+                {
+                  id: userId,
+                  email: userEmail,
+                  has_password: true,
+                  updated_at: new Date().toISOString(),
+                },
+                { onConflict: 'id' }
+              );
+          }
         } else {
           await supabase
             .from('user_profiles')

@@ -109,7 +109,7 @@ export async function POST(request: Request) {
         if (targetUserId) {
           const { data } = await supabase
             .from('user_profiles')
-            .select('id, email, notification_preferences')
+            .select('*')
             .eq('id', targetUserId)
             .maybeSingle();
           existingRow = data;
@@ -117,7 +117,7 @@ export async function POST(request: Request) {
         if (!existingRow && userEmail) {
           const { data } = await supabase
             .from('user_profiles')
-            .select('id, email, notification_preferences')
+            .select('*')
             .eq('email', userEmail)
             .maybeSingle();
           existingRow = data;

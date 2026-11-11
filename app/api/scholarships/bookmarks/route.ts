@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 import { getAuthenticatedUser } from '@/lib/scholarship-auth';
 
+function normalizeBookmarkRow(row: Record<string, unknown>) {
+  return {
+    scholarship_id: (row.scholarship_id ?? row.program_id ?? null) as string | null,
+    notes: (row.notes ?? null) as string | null,
+    created_at: (row.created_at ?? null) as string | null,
+  };
+}
+
 export async function GET(request: Request) {
   try {
     const auth = await getAuthenticatedUser(request);
@@ -11,13 +19,17 @@ export async function GET(request: Request) {
     const { client, user } = auth;
     const { data, error } = await client
       .from('scholarship_bookmarks')
-      .select('scholarship_id, notes, created_at')
+      .select('*')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false });
 
     if (error) throw error;
 
-    return NextResponse.json({ bookmarks: data || [] });
+    const bookmarks = (data || [])
+      .map((row) => normalizeBookmarkRow(row as Record<string, unknown>))
+      .filter((row) => Boolean(row.scholarship_id));
+
+    return NextResponse.json({ bookmarks });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to fetch bookmarks.' },
@@ -34,24 +46,32 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const scholarshipId = body.scholarshipId;
+    const scholarshipId = typeof body.scholarshipId === 'string' ? body.scholarshipId.trim() : '';
     if (!scholarshipId) {
       return NextResponse.json({ error: 'Scholarship ID is required.' }, { status: 400 });
     }
 
     const { client, user } = auth;
+    const payload: Record<string, unknown> = {
+      user_id: user.id,
+      scholarship_id: scholarshipId,
+    };
+    if (typeof body.notes === 'string' && body.notes.trim()) {
+      payload.notes = body.notes.trim();
+    }
+
     const { data, error } = await client
       .from('scholarship_bookmarks')
-      .upsert(
-        { user_id: user.id, scholarship_id: scholarshipId, notes: body.notes || null },
-        { onConflict: 'user_id,scholarship_id' }
-      )
+      .upsert(payload, { onConflict: 'user_id,scholarship_id' })
       .select()
       .maybeSingle();
 
     if (error) throw error;
 
-    return NextResponse.json({ success: true, bookmark: data });
+    return NextResponse.json({
+      success: true,
+      bookmark: data ? normalizeBookmarkRow(data as Record<string, unknown>) : null,
+    });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to add bookmark.' },

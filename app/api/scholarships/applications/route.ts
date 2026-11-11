@@ -1,5 +1,24 @@
 import { NextResponse } from 'next/server';
 import { getAuthenticatedUser } from '@/lib/scholarship-auth';
+import { isUuid } from '@/lib/supabase';
+
+function normalizeApplicationRow(row: Record<string, unknown>) {
+  return {
+    id: row.id,
+    scholarship_id: row.scholarship_id ?? row.program_id ?? null,
+    external_application_reference: row.external_application_reference ?? null,
+    application_submission_date: row.application_submission_date ?? null,
+    academic_year: row.academic_year ?? '2026-2027',
+    status: row.status ?? 'Preparing Documents',
+    is_self_reported: row.is_self_reported ?? true,
+    institution_verified_self_report: Boolean(row.institution_verified_self_report ?? false),
+    payment_status_note: row.payment_status_note ?? null,
+    disbursed_amount: row.disbursed_amount ?? null,
+    student_notes: row.student_notes ?? row.notes ?? null,
+    created_at: row.created_at ?? null,
+    updated_at: row.updated_at ?? null,
+  };
+}
 
 export async function GET(request: Request) {
   try {
@@ -11,27 +30,15 @@ export async function GET(request: Request) {
     const { client, user } = auth;
     const { data: apps, error } = await client
       .from('scholarship_applications')
-      .select(`
-        id,
-        scholarship_id,
-        external_application_reference,
-        application_submission_date,
-        academic_year,
-        status,
-        is_self_reported,
-        institution_verified_self_report,
-        payment_status_note,
-        disbursed_amount,
-        student_notes,
-        created_at,
-        updated_at
-      `)
+      .select('*')
       .eq('user_id', user.id)
       .order('updated_at', { ascending: false });
 
     if (error) throw error;
 
-    return NextResponse.json({ applications: apps || [] });
+    return NextResponse.json({
+      applications: (apps || []).map((row) => normalizeApplicationRow(row as Record<string, unknown>)),
+    });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to fetch application records.' },
@@ -48,7 +55,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const scholarshipId = body.scholarshipId;
+    const scholarshipId = typeof body.scholarshipId === 'string' ? body.scholarshipId.trim() : '';
     if (!scholarshipId) {
       return NextResponse.json({ error: 'Scholarship ID is required.' }, { status: 400 });
     }
@@ -57,7 +64,7 @@ export async function POST(request: Request) {
     const status = body.status || 'Preparing Documents';
     const academicYear = body.academicYear || '2026-2027';
 
-    const insertData = {
+    const insertData: Record<string, unknown> = {
       user_id: user.id,
       scholarship_id: scholarshipId,
       external_application_reference: body.externalReference ? String(body.externalReference).trim() : null,
@@ -65,12 +72,21 @@ export async function POST(request: Request) {
       academic_year: academicYear,
       status,
       is_self_reported: true,
-      institution_verified_self_report: Boolean(body.institutionVerifiedSelfReport),
-      payment_status_note: body.paymentStatusNote ? String(body.paymentStatusNote).trim() : null,
-      disbursed_amount: typeof body.disbursedAmount === 'number' ? body.disbursedAmount : null,
-      student_notes: body.notes ? String(body.notes).trim() : null,
       updated_at: new Date().toISOString(),
     };
+
+    if (body.institutionVerifiedSelfReport === true) {
+      insertData.institution_verified_self_report = true;
+    }
+    if (typeof body.paymentStatusNote === 'string' && body.paymentStatusNote.trim()) {
+      insertData.payment_status_note = body.paymentStatusNote.trim();
+    }
+    if (typeof body.disbursedAmount === 'number' && Number.isFinite(body.disbursedAmount)) {
+      insertData.disbursed_amount = body.disbursedAmount;
+    }
+    if (typeof body.notes === 'string' && body.notes.trim()) {
+      insertData.student_notes = body.notes.trim();
+    }
 
     const { data, error } = await client
       .from('scholarship_applications')
@@ -91,7 +107,13 @@ export async function POST(request: Request) {
       });
     }
 
-    return NextResponse.json({ success: true, application: data }, { status: 201 });
+    return NextResponse.json(
+      {
+        success: true,
+        application: data ? normalizeApplicationRow(data as Record<string, unknown>) : null,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to save application.' },
@@ -108,9 +130,12 @@ export async function PUT(request: Request) {
     }
 
     const body = await request.json();
-    const id = body.id;
+    const id = typeof body.id === 'string' ? body.id.trim() : '';
     if (!id) {
       return NextResponse.json({ error: 'Application record ID is required.' }, { status: 400 });
+    }
+    if (!isUuid(id)) {
+      return NextResponse.json({ error: 'Application record not persisted in database.' }, { status: 404 });
     }
 
     const { client, user } = auth;
@@ -159,7 +184,10 @@ export async function PUT(request: Request) {
       });
     }
 
-    return NextResponse.json({ success: true, application: data });
+    return NextResponse.json({
+      success: true,
+      application: normalizeApplicationRow(data as Record<string, unknown>),
+    });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to update application.' },
@@ -176,9 +204,12 @@ export async function DELETE(request: Request) {
     }
 
     const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
+    const id = (searchParams.get('id') || '').trim();
     if (!id) {
       return NextResponse.json({ error: 'Application ID is required.' }, { status: 400 });
+    }
+    if (!isUuid(id)) {
+      return NextResponse.json({ success: true, message: 'Local application tracker record removed.' });
     }
 
     const { client, user } = auth;

@@ -42,7 +42,13 @@ export async function PUT(request: Request) {
       current_course: body.currentCourse ? String(body.currentCourse).trim().slice(0, 100) : null,
       current_year: body.currentYear ? String(body.currentYear).trim().slice(0, 50) : null,
       institution_type: body.institutionType || null,
-      academic_percentage: typeof body.academicPercentage === 'number' ? body.academicPercentage : null,
+      academic_percentage:
+        typeof body.academicPercentage === 'number' &&
+        Number.isFinite(body.academicPercentage) &&
+        body.academicPercentage >= 0 &&
+        body.academicPercentage <= 100
+          ? body.academicPercentage
+          : null,
       annual_income_range: body.annualIncomeRange || null,
       state: body.state || 'Tamil Nadu',
       district: body.district ? String(body.district).trim().slice(0, 100) : null,
