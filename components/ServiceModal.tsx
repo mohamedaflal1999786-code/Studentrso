@@ -2,6 +2,7 @@
 
 import * as Dialog from '@radix-ui/react-dialog';
 import { ServiceData, ServiceLink } from '@/lib/data';
+import { AppIcon } from '@/components/AppIcon';
 
 interface ServiceModalProps {
   service: ServiceData | null;
@@ -30,13 +31,13 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-[#2b2118]/55 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0" />
         <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-2xl max-h-[90vh] overflow-y-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-8 shadow-2xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0">
-          <Dialog.Close className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition-colors hover:bg-[#f6ede0] hover:text-[#8c2f39] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20">
-            <span className="material-symbols-outlined text-[20px]">close</span>
+          <Dialog.Close className="absolute right-4 top-4 rounded-full p-2 text-[#524336] transition-colors hover:bg-[#f6ede0] hover:text-[#8c2f39] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20">
+            <AppIcon name="close" className="text-[20px]" />
             <span className="sr-only">Close</span>
           </Dialog.Close>
 
           <div className="flex items-center gap-3 mb-4">
-            <span className="font-mono text-[12px] font-bold uppercase text-[#e0a526]">
+            <span className="font-mono text-[12px] font-bold uppercase text-[#92400e]">
               SERVICE {service.number}
             </span>
             <span className="px-3 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[11px] text-[#8c2f39] font-semibold">
@@ -49,12 +50,12 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
           </Dialog.Title>
           <p className="font-serif text-[20px] italic text-[#8c2f39] mb-4">{service.subtitle}</p>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#7a6a5a] font-mono text-[12px] mb-5">
-            <span className="material-symbols-outlined text-[16px] text-[#5e8b7e]">verified</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#524336] font-mono text-[12px] mb-5">
+            <AppIcon name="verified" className="text-[16px] text-[#2f665a]" />
             <span className="text-[#2b2118] font-medium">{service.officialSource}</span>
           </div>
 
-          <p className="font-sans text-[18px] leading-[28px] text-[#7a6a5a] mb-6">{service.description}</p>
+          <p className="font-sans text-[18px] leading-[28px] text-[#524336] mb-6">{service.description}</p>
 
           {service.features.length > 0 && (
             <div className="mb-6">
@@ -92,7 +93,7 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
                 className="px-5 py-2.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[14px] font-semibold transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
               >
                 <span>Open Full Scholarship Hub</span>
-                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                <AppIcon name="arrow_forward" className="text-[16px]" />
               </a>
             )}
             {service.id === 'safety-and-grievance' && (
@@ -101,7 +102,7 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
                 className="px-5 py-2.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[14px] font-semibold transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
               >
                 <span>Open Full Safety & Grievance Hub</span>
-                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                <AppIcon name="arrow_forward" className="text-[16px]" />
               </a>
             )}
             {service.id === 'certificate-service' && (
@@ -111,14 +112,14 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
                   className="px-5 py-2.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[14px] font-semibold transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
                 >
                   <span>Open Document Service</span>
-                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  <AppIcon name="arrow_forward" className="text-[16px]" />
                 </a>
                 <a
                   href="/certificates?tab=finder"
                   className="px-5 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-[#8c2f39] font-sans text-[14px] font-semibold transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <span>Find My Certificate</span>
-                  <span className="material-symbols-outlined text-[16px] text-[#e0a526]">search</span>
+                  <AppIcon name="search" className="text-[16px] text-[#92400e]" />
                 </a>
               </>
             )}
@@ -128,7 +129,7 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
                 className="px-5 py-2.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[14px] font-semibold transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
               >
                 <span>Open {service.title}</span>
-                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                <AppIcon name="arrow_forward" className="text-[16px]" />
               </a>
             )}
             {isAI ? (
@@ -138,7 +139,7 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
                   className="flex-1 px-5 py-2.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer text-center"
                 >
                   <span>Launch AI Assistant Hub</span>
-                  <span className="material-symbols-outlined text-[16px]">psychology</span>
+                  <AppIcon name="psychology" className="text-[16px]" />
                 </a>
                 <button
                   onClick={() => {
@@ -152,7 +153,7 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
                   className="flex-1 px-5 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-[#8c2f39] font-sans text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer text-center"
                 >
                   <span>Quick Chat Modal</span>
-                  <span className="material-symbols-outlined text-[16px]">chat</span>
+                  <AppIcon name="chat" className="text-[16px]" />
                 </button>
               </div>
             ) : (
@@ -169,7 +170,7 @@ export function ServiceModal({ service, open, onOpenChange, onOpenAIChat }: Serv
                     )}`}
                   >
                     <span>{link.label}</span>
-                    <span className="material-symbols-outlined text-[16px]">{link.icon}</span>
+                    <AppIcon name={link.icon} className="text-[16px]" />
                   </a>
                 );
               })

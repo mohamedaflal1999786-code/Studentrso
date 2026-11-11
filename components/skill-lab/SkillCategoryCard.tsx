@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowRight, BookOpen, CheckCircle2, Clock, Sparkles } from 'lucide-react';
 import { SkillCategory } from '@/lib/skill-lab-data';
+import { AppIcon } from '@/components/AppIcon';
 
 interface SkillCategoryCardProps {
   category: SkillCategory;
@@ -43,7 +44,7 @@ export function SkillCategoryCard({
       {/* Title & Subtitle */}
       <div className="flex items-start gap-3 mt-1">
         <div className="w-10 h-10 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 shadow-2xs">
-          <span className="material-symbols-outlined text-[22px]">{category.icon}</span>
+          <AppIcon name={category.icon} className="text-[22px]" />
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="font-serif text-[18px] sm:text-[20px] font-bold leading-snug text-[#2b2118]">

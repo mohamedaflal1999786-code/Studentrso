@@ -1,5 +1,7 @@
 'use client';
 
+import { AppIcon } from '@/components/AppIcon';
+
 export function AboutSection() {
   const pillars = [
     {
@@ -54,13 +56,13 @@ export function AboutSection() {
             >
               <div>
                 <div className="w-11 h-11 rounded-xl bg-[#fbf5e9] border border-[#d8c7ad] text-[#8c2f39] flex items-center justify-center mb-5">
-                  <span className="material-symbols-outlined text-[22px]">{p.icon}</span>
+                  <AppIcon name={p.icon} className="text-[22px]" />
                 </div>
                 <h3 className="font-serif text-[19px] text-[#2b2118] font-bold mb-3">{p.title}</h3>
                 <p className="font-sans text-[14px] text-[#524336] leading-relaxed">{p.description}</p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#efe3cc] flex items-center gap-2 font-mono text-[11px] text-[#8c2f39] font-semibold uppercase tracking-wider">
-                <span className="material-symbols-outlined text-[15px] text-[#92400e]">check_circle</span>
+                <AppIcon name="check_circle" className="text-[15px] text-[#92400e]" />
                 <span>Verified Standard</span>
               </div>
             </div>

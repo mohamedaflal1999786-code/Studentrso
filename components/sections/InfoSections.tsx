@@ -1,5 +1,7 @@
 'use client';
 
+import { AppIcon } from '@/components/AppIcon';
+
 import { coreValues, problemCards, howItWorksSteps } from '@/lib/data';
 
 export function ProblemSection() {
@@ -32,7 +34,7 @@ export function ProblemSection() {
                 <p className="font-sans text-[15px] text-[#524336] leading-[24px]">{card.description}</p>
               </div>
               <div className="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-[#8c2f39]">
-                <span className="material-symbols-outlined text-[20px] text-[#8c2f39]">{card.icon}</span>
+                <AppIcon name={card.icon} className="text-[20px] text-[#8c2f39]" />
                 <span className="font-mono text-[12px] text-[#524336]">{card.footer}</span>
               </div>
             </div>
@@ -51,7 +53,7 @@ export function CoreValuesStrip() {
           {coreValues.map((v) => (
             <div key={v.label} className="flex flex-col gap-2">
               <div className="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#8c2f39] flex items-center justify-center shadow-xs">
-                <span className="material-symbols-outlined text-[18px]">{v.icon}</span>
+                <AppIcon name={v.icon} className="text-[18px]" />
               </div>
               <span className="font-mono text-[12px] text-[#92400e] font-bold tracking-wider uppercase">{v.label}</span>
               <p className="font-sans text-[13px] text-[#2b2118] leading-snug">{v.description}</p>
@@ -113,7 +115,7 @@ export function HowItWorksSection() {
                 <div className="flex items-center justify-between mb-5">
                   <span className="font-serif text-[40px] text-[#92400e] font-bold leading-none">{step.number}</span>
                   <div className="w-12 h-12 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex items-center justify-center text-[#8c2f39] group-hover:scale-105 transition-transform">
-                    <span className="material-symbols-outlined text-[26px]">{step.icon}</span>
+                    <AppIcon name={step.icon} className="text-[26px]" />
                   </div>
                 </div>
                 <h3 className="font-serif text-[22px] text-[#2b2118] font-bold mb-2">{step.title}</h3>

@@ -228,8 +228,10 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
         <div className="flex items-start justify-between border-b border-[#efe3cc] pb-4 mb-5">
           <div className="flex items-center gap-3">
             <img
-              src="/images/student-rso-emblem.png"
+              src="/images/student-rso-emblem.jpg"
               alt="Student RSO Emblem"
+              width={51}
+              height={40}
               className="h-10 w-auto object-contain shrink-0"
             />
             <div>

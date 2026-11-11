@@ -1,0 +1,155 @@
+import React from 'react';
+import {
+  AlertTriangle,
+  ArrowDown,
+  ArrowRight,
+  Award,
+  Baby,
+  BadgeCheck,
+  BookOpen,
+  Brain,
+  Briefcase,
+  Calendar,
+  CalendarCheck,
+  CheckCircle2,
+  CheckSquare,
+  ChevronDown,
+  CircleDot,
+  ClipboardList,
+  Clock,
+  Compass,
+  ExternalLink,
+  EyeOff,
+  FileCheck,
+  FileText,
+  Frown,
+  Gavel,
+  GitBranch,
+  GitCommitHorizontal,
+  GraduationCap,
+  HeartHandshake,
+  HelpCircle,
+  Home,
+  Info,
+  Landmark,
+  LayoutDashboard,
+  LayoutGrid,
+  Lightbulb,
+  Lock,
+  LogIn,
+  LogOut,
+  Megaphone,
+  MessageSquare,
+  MessagesSquare,
+  Mic,
+  Network,
+  Phone,
+  Presentation,
+  RefreshCw,
+  Ruler,
+  Scale,
+  Search,
+  Shield,
+  ShieldAlert,
+  ShieldCheck,
+  Smartphone,
+  Building2,
+  UserCheck,
+  Users,
+  Wallet,
+  X,
+  type LucideIcon,
+} from 'lucide-react';
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  account_balance: Landmark,
+  account_balance_wallet: Wallet,
+  account_tree: Network,
+  arrow_downward: ArrowDown,
+  arrow_forward: ArrowRight,
+  assignment: ClipboardList,
+  assignment_late: AlertTriangle,
+  badge: Award,
+  balance: Scale,
+  calendar_month: Calendar,
+  call: Phone,
+  campaign: Megaphone,
+  category: LayoutGrid,
+  chat: MessageSquare,
+  check_circle: CheckCircle2,
+  child_care: Baby,
+  close: X,
+  co_present: Presentation,
+  corporate_fare: Building2,
+  dashboard: LayoutDashboard,
+  description: FileText,
+  devices: Smartphone,
+  event_available: CalendarCheck,
+  expand_more: ChevronDown,
+  explore: Compass,
+  explore_off: Compass,
+  fact_check: FileCheck,
+  forum: MessagesSquare,
+  gavel: Gavel,
+  groups: Users,
+  gshield: ShieldCheck,
+  home_work: Home,
+  how_to_reg: UserCheck,
+  info: Info,
+  lightbulb: Lightbulb,
+  lock: Lock,
+  login: LogIn,
+  logout: LogOut,
+  looks_3: CircleDot,
+  looks_4: CircleDot,
+  looks_one: CircleDot,
+  looks_two: CircleDot,
+  menu_book: BookOpen,
+  open_in_new: ExternalLink,
+  psychology: Brain,
+  quiz: HelpCircle,
+  record_voice_over: Mic,
+  rule: Ruler,
+  schedule: Clock,
+  school: GraduationCap,
+  search: Search,
+  security: Shield,
+  sentiment_very_dissatisfied: Frown,
+  shield: Shield,
+  shield_alert: ShieldAlert,
+  sync_alt: RefreshCw,
+  task_alt: CheckSquare,
+  timeline: GitCommitHorizontal,
+  verified: BadgeCheck,
+  verified_user: ShieldCheck,
+  visibility_off: EyeOff,
+  volunteer_activism: HeartHandshake,
+  warning: AlertTriangle,
+  work: Briefcase,
+  work_outline: Briefcase,
+  git_branch: GitBranch,
+};
+
+interface AppIconProps {
+  name: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+/**
+ * Renders crisp, zero-CLS vector SVG icons in place of external icon font ligatures.
+ * Uses 1em sizing so existing Tailwind text-[XXpx] classes control dimensions identically.
+ */
+export function AppIcon({ name, className = '', style }: AppIconProps) {
+  const IconComponent = ICON_MAP[name] || Compass;
+  return (
+    <IconComponent
+      aria-hidden="true"
+      width="1em"
+      height="1em"
+      strokeWidth={2}
+      className={`inline-block shrink-0 ${className}`.trim()}
+      style={style}
+    />
+  );
+}

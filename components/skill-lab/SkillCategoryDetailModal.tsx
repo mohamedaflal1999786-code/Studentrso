@@ -102,8 +102,8 @@ export function SkillCategoryDetailModal({
             Study Time: ~{category.estimatedMinutes} Minutes
           </div>
           <div className="text-[#efe3cc]">|</div>
-          <div className="flex items-center gap-1.5 text-[#7a6a5a] text-[12px] truncate max-w-sm">
-            <span className="material-symbols-outlined text-[15px] text-[#e0a526]">verified</span>
+          <div className="flex items-center gap-1.5 text-[#524336] text-[12px] truncate max-w-sm">
+            <ShieldCheck size={15} className="text-[#92400e] shrink-0" aria-hidden="true" />
             <span>{category.officialSourceLabel}</span>
           </div>
         </div>
@@ -211,7 +211,7 @@ export function SkillCategoryDetailModal({
             {currentTopic.exercises.length > 0 && (
               <div className="rounded-xl border border-[#efe3cc] bg-[#fdfbf6] p-5">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="material-symbols-outlined text-[18px] text-[#e0a526]">quiz</span>
+                  <HelpCircle size={18} className="text-[#92400e] shrink-0" aria-hidden="true" />
                   <span className="font-mono text-[11px] font-bold uppercase text-[#2b2118] tracking-wider">
                     INTERACTIVE SELF-ASSESSMENT EXERCISE
                   </span>

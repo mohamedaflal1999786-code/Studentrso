@@ -1,5 +1,7 @@
 'use client';
 
+import { AppIcon } from '@/components/AppIcon';
+
 import React from 'react';
 import Link from 'next/link';
 import { ServiceData } from '@/lib/data';
@@ -32,7 +34,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-              <span className="material-symbols-outlined text-[22px]">{module.icon}</span>
+              <AppIcon name={module.icon} className="text-[22px]" />
             </div>
             <div>
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#92400e] block">
@@ -75,7 +77,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
         {/* Official Source Badge (if applicable) */}
         {module.officialSource && (
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#524336] font-mono text-[11px] mb-4 self-start">
-            <span className="material-symbols-outlined text-[15px] text-[#5e8b7e]">verified</span>
+            <AppIcon name="verified" className="text-[15px] text-[#2f665a]" />
             <span className="text-[#2b2118] font-medium truncate max-w-[240px]">
               {module.officialSource}
             </span>

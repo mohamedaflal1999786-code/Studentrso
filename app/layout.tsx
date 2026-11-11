@@ -12,9 +12,50 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: 'Student RSO — Rights, Services & Opportunities',
+  metadataBase: new URL('https://www.studentrso.in'),
+  title: {
+    default: 'Student RSO — Rights, Services & Opportunities',
+    template: '%s | Student RSO',
+  },
   description:
     'A pathway hub helping Indian students discover scholarships, government exams, anti-ragging resources, and AI-guided career planning.',
+  alternates: {
+    canonical: 'https://www.studentrso.in/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://www.studentrso.in/',
+    siteName: 'Student RSO',
+    title: 'Student RSO — Rights, Services & Opportunities',
+    description:
+      'Discover verified scholarships, student safety resources, e-Sevai certificates, competitive exams, internships, and AI career guidance.',
+    images: [
+      {
+        url: '/images/student-rso-logo.png',
+        width: 1024,
+        height: 809,
+        alt: 'Student RSO Emblem',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Student RSO — Rights, Services & Opportunities',
+    description:
+      'Official pathway hub for scholarships, student safety, certificates, competitive exams, internships, and AI career guidance.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.png', type: 'image/png' },
@@ -27,24 +68,48 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.studentrso.in/#website',
+      url: 'https://www.studentrso.in',
+      name: 'Student RSO',
+      description:
+        'Student-centered digital ecosystem offering verified scholarships, safety reporting, certificate verification, exam alerts, AI career guidance, admissions, and skill development.',
+      inLanguage: 'en-IN',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.studentrso.in/#organization',
+      name: 'Student RSO',
+      url: 'https://www.studentrso.in',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.studentrso.in/favicon.png',
+      },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" as="image" href="/images/student-rso-emblem.png" fetchPriority="high" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
+          }}
+        />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381210415508925"
           crossOrigin="anonymous"
-        />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="shortcut icon" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
         />
       </head>
       <body className={`${inter.variable} ${newsreader.variable}`} style={{ fontFamily: 'var(--font-sans)' }}>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Brain, Loader2, Send, X, Sparkles, GraduationCap, Briefcase, Award, FileText } from 'lucide-react';
+import { Brain, Loader2, Send, X, Sparkles, GraduationCap, Briefcase, Award, FileText, ExternalLink } from 'lucide-react';
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string; isError?: boolean };
 
@@ -105,7 +105,7 @@ export function AIChatModal({ open, onOpenChange }: AIChatModalProps) {
               title="Open full conversational AI assistant workspace"
             >
               <span>Full Workspace</span>
-              <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+              <ExternalLink size={13} aria-hidden="true" />
             </a>
             <button
               onClick={() => onOpenChange(false)}

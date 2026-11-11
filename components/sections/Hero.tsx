@@ -1,5 +1,7 @@
 'use client';
 
+import { AppIcon } from '@/components/AppIcon';
+
 interface HeroProps {
   onNavigate: (id: string) => void;
   onServiceClick?: (s: any) => void;
@@ -43,9 +45,7 @@ export function Hero({ onNavigate }: HeroProps) {
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[15px] font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer group active:scale-[0.98]"
           >
             <span>Explore Modules</span>
-            <span className="material-symbols-outlined text-[19px] group-hover:translate-x-1 transition-transform">
-              arrow_forward
-            </span>
+            <AppIcon name="arrow_forward" className="text-[19px] group-hover:translate-x-1 transition-transform" />
           </a>
           <a
             href="#how-it-works"
@@ -55,7 +55,7 @@ export function Hero({ onNavigate }: HeroProps) {
             }}
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#fdfbf6] hover:bg-[#f6ede0] border border-[#d8c7ad] text-[#2b2118] font-sans text-[15px] font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-[0.98]"
           >
-            <span className="material-symbols-outlined text-[19px] text-[#92400e]">account_tree</span>
+            <AppIcon name="account_tree" className="text-[19px] text-[#92400e]" />
             <span>How It Works</span>
           </a>
         </div>

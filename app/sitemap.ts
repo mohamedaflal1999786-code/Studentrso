@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://studentrso.in';
-  const lastModified = new Date();
+  const baseUrl = 'https://www.studentrso.in';
+  const lastModified = new Date('2026-11-11T00:00:00.000Z');
 
   return [
     {
@@ -10,12 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'daily',
       priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/dashboard`,
-      lastModified,
-      changeFrequency: 'daily',
-      priority: 0.9,
     },
     {
       url: `${baseUrl}/scholarships`,
@@ -27,13 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/safety`,
       lastModified,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/certificates`,
       lastModified,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/exams`,
@@ -66,22 +60,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/community`,
-      lastModified,
-      changeFrequency: 'daily',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/admin-support`,
+      url: `${baseUrl}/skill-lab`,
       lastModified,
       changeFrequency: 'weekly',
-      priority: 0.85,
+      priority: 0.9,
     },
     {
-      url: `${baseUrl}/auth`,
+      url: `${baseUrl}/digital-safety`,
       lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
   ];
 }

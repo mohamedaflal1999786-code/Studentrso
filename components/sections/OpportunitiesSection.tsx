@@ -1,6 +1,7 @@
 'use client';
 
 import { opportunities } from '@/lib/data';
+import { AppIcon } from '@/components/AppIcon';
 
 export function OpportunitiesSection() {
   return (
@@ -8,13 +9,13 @@ export function OpportunitiesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-8 sm:mb-16">
           <div className="inline-flex items-center gap-2">
-            <span className="font-mono text-[12px] text-[#e0a526] font-bold tracking-wider uppercase">OPPORTUNITIES</span>
-            <div className="w-8 h-0.5 bg-[#e0a526]" />
+            <span className="font-mono text-[12px] text-[#92400e] font-bold tracking-wider uppercase">OPPORTUNITIES</span>
+            <div className="w-8 h-0.5 bg-[#92400e]" />
           </div>
           <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#2b2118] mt-2 mb-4 font-bold">
             Exam &amp; Opportunity Hub
           </h2>
-          <p className="font-sans text-[16px] sm:text-[18px] text-[#7a6a5a] leading-relaxed">
+          <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
             Direct access to official examination and opportunity portals. Discover eligibility, syllabus, and
             application routes from recognised statutory authorities.
           </p>
@@ -41,14 +42,14 @@ export function OpportunitiesSection() {
                 <span className="font-sans text-[16px] font-bold text-[#2b2118] block group-hover:text-[#8c2f39]">
                   {opp.name}
                 </span>
-                <span className="font-sans text-[12px] text-[#7a6a5a]">{opp.fullName}</span>
+                <span className="font-sans text-[12px] text-[#524336]">{opp.fullName}</span>
               </div>
-              <span className="material-symbols-outlined text-[#e0a526] text-[20px]">open_in_new</span>
+              <AppIcon name="open_in_new" className="text-[#92400e] text-[20px]" />
             </a>
           ))}
         </div>
 
-        <p className="font-sans text-[13px] text-[#7a6a5a] italic border-t border-[#efe3cc] pt-4 mt-6">
+        <p className="font-sans text-[13px] text-[#524336] italic border-t border-[#efe3cc] pt-4 mt-6">
           Governance Note: Student RSO curates verified pathways; examination conduct, syllabus governance and
           admissions remain strictly with respective statutory authorities.
         </p>

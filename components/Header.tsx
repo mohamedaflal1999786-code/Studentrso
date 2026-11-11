@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, LogOut, UserCircle } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
+import { AppIcon } from '@/components/AppIcon';
 
 interface HeaderProps {
   onSignIn: () => void;
@@ -201,7 +202,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
           <img
             alt="Student RSO Emblem"
             className="h-9 sm:h-11 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform"
-            src="/images/student-rso-emblem.png"
+            src="/images/student-rso-emblem.jpg"
             width={56}
             height={44}
             fetchPriority="high"
@@ -246,13 +247,12 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
               aria-expanded={desktopModulesOpen}
             >
               <span>Modules</span>
-              <span
-                className={`material-symbols-outlined text-[16px] text-[#7a6a5a] transition-transform ${
+              <AppIcon
+                name="expand_more"
+                className={`text-[16px] text-[#524336] transition-transform ${
                   desktopModulesOpen ? 'rotate-180' : 'group-hover:rotate-180'
                 }`}
-              >
-                expand_more
-              </span>
+              />
             </button>
 
             <div
@@ -281,7 +281,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                           className="flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all text-left cursor-pointer group/item"
                         >
                           <div className="w-8 h-8 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 group-hover/item:scale-105 transition-transform">
-                            <span className="material-symbols-outlined text-[17px]">{m.icon}</span>
+                            <AppIcon name={m.icon} className="text-[17px]" />
                           </div>
                           <div className="flex flex-col min-w-0">
                             <div className="flex items-center gap-1.5">
@@ -307,7 +307,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                         className="flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all text-left cursor-pointer group/item w-full"
                       >
                         <div className="w-8 h-8 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 group-hover/item:scale-105 transition-transform">
-                          <span className="material-symbols-outlined text-[17px]">{m.icon}</span>
+                          <AppIcon name={m.icon} className="text-[17px]" />
                         </div>
                         <div className="flex flex-col min-w-0">
                           <div className="flex items-center gap-1.5">
@@ -431,12 +431,11 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
               aria-expanded={servicesOpen}
             >
               <span>Modules</span>
-              <span
-                className="material-symbols-outlined text-[16px] text-[#7a6a5a] transition-transform"
+              <AppIcon
+                name="expand_more"
+                className="text-[16px] text-[#524336] transition-transform"
                 style={{ transform: servicesOpen ? 'rotate(180deg)' : 'none' }}
-              >
-                expand_more
-              </span>
+              />
             </button>
             {servicesOpen && (
               <div className="pl-3 space-y-1 pb-2 border-l-2 border-[#efe3cc] ml-3 my-1">
@@ -453,7 +452,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                         }}
                         className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg font-sans text-[13px] text-[#2b2118] hover:bg-[#f6ede0] cursor-pointer min-h-[40px] text-left"
                       >
-                        <span className="material-symbols-outlined text-[17px] text-[#8c2f39] shrink-0">{m.icon}</span>
+                        <AppIcon name={m.icon} className="text-[17px] text-[#8c2f39]" />
                         <span className="flex-1 font-medium truncate">{m.title}</span>
                         {m.live && (
                           <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold shrink-0">
@@ -470,7 +469,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                       onClick={() => handleModuleSelect(m)}
                       className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg font-sans text-[13px] text-[#2b2118] hover:bg-[#f6ede0] cursor-pointer min-h-[40px] text-left"
                     >
-                      <span className="material-symbols-outlined text-[17px] text-[#8c2f39] shrink-0">{m.icon}</span>
+                      <AppIcon name={m.icon} className="text-[17px] text-[#8c2f39]" />
                       <span className="flex-1 font-medium truncate">{m.title}</span>
                     </button>
                   );

@@ -49,9 +49,9 @@ const config: Config = {
         'space-xl': '2.5rem',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Newsreader', 'Georgia', 'serif'],
-        mono: ['Inter', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Inter', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Newsreader', 'Georgia', 'serif'],
+        mono: ['var(--font-sans)', 'Inter', 'sans-serif'],
       },
       fontSize: {
         'label-mono': ['12px', { lineHeight: '16px', letterSpacing: '0.06em', fontWeight: '600' }],

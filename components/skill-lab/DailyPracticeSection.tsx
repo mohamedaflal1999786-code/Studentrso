@@ -420,7 +420,7 @@ export function DailyPracticeSection() {
       {activeTab === 'tip' && (
         <div className="mt-5 rounded-xl bg-white p-5 sm:p-6 border border-[#efe3cc] space-y-3">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[20px] text-[#e0a526]">lightbulb</span>
+            <Lightbulb size={20} className="text-[#92400e] shrink-0" aria-hidden="true" />
             <h3 className="font-serif text-[22px] font-bold text-[#2b2118]">
               {dailyItem.proCommunicationTip.title}
             </h3>

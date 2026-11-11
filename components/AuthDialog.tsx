@@ -289,7 +289,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
 
         {/* Brand Header */}
         <div className="flex items-center gap-2.5 mb-6">
-          <img src="/images/student-rso-emblem.png" alt="Student RSO" className="h-8 w-auto object-contain" width={41} height={32} />
+          <img src="/images/student-rso-emblem.jpg" alt="Student RSO" className="h-8 w-auto object-contain" width={41} height={32} />
           <div className="h-6 w-px bg-[#d8c7ad]" />
           <span className="font-serif text-lg font-bold text-[#8c2f39] italic">Student RSO</span>
         </div>

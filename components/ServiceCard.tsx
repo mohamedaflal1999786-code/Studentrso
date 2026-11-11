@@ -1,5 +1,7 @@
 'use client';
 
+import { AppIcon } from '@/components/AppIcon';
+
 import { ServiceData } from '@/lib/data';
 
 interface ServiceCardProps {
@@ -25,7 +27,7 @@ export function ServiceCard({ service, onClick }: ServiceCardProps) {
       <div>
         <div className="flex items-center justify-between mb-2.5">
           <div className="w-9 h-9 rounded-lg bg-white border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shadow-xs">
-            <span className="material-symbols-outlined text-[19px]">{service.icon}</span>
+            <AppIcon name={service.icon} className="text-[19px]" />
           </div>
           <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#92400e]">
             MODULE {service.number}
@@ -40,9 +42,7 @@ export function ServiceCard({ service, onClick }: ServiceCardProps) {
       </div>
       <div className="mt-3 pt-2.5 flex items-center text-[#8c2f39] font-sans text-[12px] font-semibold border-t border-[#efe3cc]">
         <span>Open Module</span>
-        <span className="material-symbols-outlined text-[14px] ml-1 text-[#92400e] group-hover:translate-x-1 transition-transform">
-          arrow_forward
-        </span>
+        <AppIcon name="arrow_forward" className="text-[14px] ml-1 text-[#92400e] group-hover:translate-x-1 transition-transform" />
       </div>
     </button>
   );

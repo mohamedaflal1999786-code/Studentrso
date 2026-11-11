@@ -1,5 +1,7 @@
 'use client';
 
+import { AppIcon } from '@/components/AppIcon';
+
 import Link from 'next/link';
 import { useAuth } from '@/lib/auth-context';
 
@@ -46,9 +48,7 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
             className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 rounded-xl bg-white hover:bg-[#f6ede0] text-[#8c2f39] font-sans text-[14px] sm:text-[15px] font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer group active:scale-[0.98]"
           >
             <span>Explore the Platform</span>
-            <span className="material-symbols-outlined text-[19px] text-[#8c2f39] group-hover:rotate-45 transition-transform">
-              explore
-            </span>
+            <AppIcon name="explore" className="text-[19px] text-[#8c2f39] group-hover:rotate-45 transition-transform" />
           </a>
 
           {/* Conditional Action Buttons based on Auth State */}
@@ -59,7 +59,7 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
                 href="/dashboard"
                 className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 rounded-xl bg-[#6d1824] hover:bg-[#58131d] border border-[#f5cf7b]/60 hover:border-[#f5cf7b] text-white font-sans text-[14px] sm:text-[15px] font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
               >
-                <span className="material-symbols-outlined text-[19px] text-[#f5cf7b]">dashboard</span>
+                <AppIcon name="dashboard" className="text-[19px] text-[#f5cf7b]" />
                 <span>Go to Dashboard</span>
               </Link>
 
@@ -69,7 +69,7 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
                 onClick={handleSignOut}
                 className="w-full sm:w-auto min-h-[48px] px-6 py-3.5 sm:py-4 rounded-xl bg-transparent hover:bg-black/20 border border-white/30 hover:border-white text-[#f6ede0] hover:text-white font-sans text-[14px] sm:text-[15px] font-medium transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
               >
-                <span className="material-symbols-outlined text-[19px]">logout</span>
+                <AppIcon name="logout" className="text-[19px]" />
                 <span>Sign Out</span>
               </button>
             </>
@@ -79,7 +79,7 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
               onClick={onSignIn}
               className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 rounded-xl bg-[#6d1824] hover:bg-[#58131d] border border-white/30 hover:border-white text-white font-sans text-[14px] sm:text-[15px] font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
             >
-              <span className="material-symbols-outlined text-[19px]">login</span>
+              <AppIcon name="login" className="text-[19px]" />
               <span>Sign In</span>
             </button>
           ) : (
@@ -87,7 +87,7 @@ export function EducationJourneySection({ onNavigate, onSignIn }: EducationJourn
               href="/auth"
               className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 rounded-xl bg-[#6d1824] hover:bg-[#58131d] border border-white/30 hover:border-white text-white font-sans text-[14px] sm:text-[15px] font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
             >
-              <span className="material-symbols-outlined text-[19px]">login</span>
+              <AppIcon name="login" className="text-[19px]" />
               <span>Sign In</span>
             </Link>
           )}

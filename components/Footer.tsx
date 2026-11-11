@@ -26,7 +26,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <img
                 alt="Student RSO Emblem"
                 className="h-10 sm:h-12 w-auto object-contain"
-                src="/images/student-rso-emblem.png"
+                src="/images/student-rso-emblem.jpg"
                 width={61}
                 height={48}
                 loading="lazy"

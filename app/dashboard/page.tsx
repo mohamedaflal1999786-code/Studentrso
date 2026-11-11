@@ -37,6 +37,7 @@ import { StudentOnboardingModal } from '@/components/onboarding/StudentOnboardin
 import { ProfileDialog } from '@/components/ProfileDialog';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { AppIcon } from '@/components/AppIcon';
 import { OpportunityRecommendation } from '@/lib/recommendation-engine';
 import { SavedOpportunityRecord } from '@/lib/auth-service';
 
@@ -366,8 +367,10 @@ export default function StudentDashboardPage() {
           {/* Subtle watermark logo pattern */}
           <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-8 translate-y-8">
             <img
-              src="/images/student-rso-emblem.png"
+              src="/images/student-rso-emblem.jpg"
               alt=""
+              width={256}
+              height={202}
               className="w-64 h-64 object-contain filter invert"
             />
           </div>
@@ -976,7 +979,7 @@ export default function StudentDashboardPage() {
                       <span className="font-mono text-xs font-bold bg-[#8c2f39]/10 px-2 py-0.5 rounded">
                         Module {m.num}
                       </span>
-                      <span className="material-symbols-outlined text-[22px]">{m.icon}</span>
+                      <AppIcon name={m.icon} className="text-[22px]" />
                     </div>
                     <h3 className="font-serif font-bold text-sm text-[#2b2118] group-hover:text-[#8c2f39] transition">
                       {m.title}

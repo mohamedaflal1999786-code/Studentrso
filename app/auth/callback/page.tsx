@@ -156,8 +156,10 @@ function AuthCallbackContent() {
         {/* Student RSO Branding */}
         <div className="flex items-center justify-center gap-3 mb-6">
           <img
-            src="/images/student-rso-emblem.png"
+            src="/images/student-rso-emblem.jpg"
             alt="Student RSO Emblem"
+            width={51}
+            height={40}
             className="h-10 w-auto object-contain"
           />
           <div className="h-7 w-px bg-[#d8c7ad]" />
