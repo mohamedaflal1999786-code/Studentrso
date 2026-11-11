@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
+import crypto from 'crypto';
 import { verifyEmailOtp, getAccountByEmail, createSessionToken } from '@/lib/auth-service';
 import { sendWelcomeEmail } from '@/lib/email-service';
-import { getSupabaseServerClient } from '@/lib/supabase';
+import { getSupabaseServerClient, isUuid } from '@/lib/supabase';
 
 export async function POST(request: Request) {
   try {
@@ -31,8 +32,10 @@ export async function POST(request: Request) {
 
     if (supabase) {
       let verified = false;
+      let hasPendingOtp = false;
       let verifiedUserId: string | null = null;
       let verifiedFullName = 'Student';
+      const otpHash = crypto.createHash('sha256').update(code).digest('hex');
 
       // 1. Check persistent auth_otps table
       try {
@@ -45,9 +48,14 @@ export async function POST(request: Request) {
           .limit(1);
 
         if (otpRecords && otpRecords.length > 0) {
+          hasPendingOtp = true;
           const record = otpRecords[0];
           const isExpired = new Date(record.expires_at).getTime() < Date.now();
-          if (!isExpired && (record.code === code || record.code_hash === code)) {
+          const codeMatches =
+            record.code_hash === otpHash ||
+            record.code_hash === code ||
+            (record.code && record.code !== 'hashed' && record.code === code);
+          if (!isExpired && codeMatches) {
             verified = true;
             await supabase.from('auth_otps').update({ used: true }).eq('id', record.id);
           }
@@ -56,8 +64,8 @@ export async function POST(request: Request) {
         // Fall through
       }
 
-      // 2. If not verified via auth_otps, try Supabase auth verifyOtp
-      if (!verified) {
+      // 2. If no custom OTP record exists, try Supabase Auth OTP verification
+      if (!verified && !hasPendingOtp) {
         try {
           const { data, error } = await supabase.auth.verifyOtp({
             email,
@@ -77,7 +85,7 @@ export async function POST(request: Request) {
       // If verified via either method
       if (verified) {
         let userProfile = null;
-        if (verifiedUserId) {
+        if (verifiedUserId && isUuid(verifiedUserId)) {
           const { data: prof } = await supabase
             .from('user_profiles')
             .select('*')
@@ -95,24 +103,32 @@ export async function POST(request: Request) {
           userProfile = profByEmail;
         }
 
-        const userId = verifiedUserId || userProfile?.id || `usr-${Date.now()}`;
+        const persistentUuid =
+          (isUuid(verifiedUserId) && verifiedUserId) ||
+          (isUuid(userProfile?.id) && userProfile.id) ||
+          null;
+        const userId = persistentUuid || `usr-${Date.now()}`;
         const fullName = userProfile?.full_name || verifiedFullName;
 
-        // Upsert user profile
-        const { data: finalProfile } = await supabase
-          .from('user_profiles')
-          .upsert(
-            {
-              id: userId,
-              email,
-              full_name: fullName,
-              state: 'Tamil Nadu',
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: 'id' }
-          )
-          .select()
-          .maybeSingle();
+        // Only upsert user_profiles when backed by a real auth.users UUID
+        let finalProfile = userProfile;
+        if (persistentUuid) {
+          const { data: upsertedProfile } = await supabase
+            .from('user_profiles')
+            .upsert(
+              {
+                id: persistentUuid,
+                email,
+                full_name: fullName,
+                state: 'Tamil Nadu',
+                updated_at: new Date().toISOString(),
+              },
+              { onConflict: 'id' }
+            )
+            .select()
+            .maybeSingle();
+          if (upsertedProfile) finalProfile = upsertedProfile;
+        }
 
         if (purpose === 'signup') {
           sendWelcomeEmail(email, fullName).catch(() => {});

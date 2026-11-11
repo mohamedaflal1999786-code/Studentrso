@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { verifySessionToken, createSessionToken, hashPassword, getAccountByEmail } from '@/lib/auth-service';
-import { getSupabaseServerClient } from '@/lib/supabase';
+import { getSupabaseServerClient, isUuid } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 
@@ -53,8 +53,8 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseServerClient();
 
-    // If userId not found from cookie, resolve via email in Supabase
-    if (!userId && userEmail && supabase) {
+    // Resolve real Supabase UUID when missing or non-UUID
+    if (!isUuid(userId) && userEmail && supabase) {
       try {
         const { data: profile } = await supabase
           .from('user_profiles')
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
           .eq('email', userEmail)
           .maybeSingle();
 
-        if (profile?.id) {
+        if (profile?.id && isUuid(profile.id)) {
           userId = profile.id;
         } else {
           // Check Supabase Auth users list
@@ -70,12 +70,28 @@ export async function POST(request: Request) {
           const authUser = usersData?.users?.find(
             (u) => u.email?.toLowerCase() === userEmail
           );
-          if (authUser?.id) {
+          if (authUser?.id && isUuid(authUser.id)) {
             userId = authUser.id;
           }
         }
       } catch (err) {
         console.warn('Could not resolve user by email:', err);
+      }
+    }
+
+    // If still no real Supabase UUID exists, create one in Supabase Auth when configured
+    if (!isUuid(userId) && userEmail && supabase) {
+      try {
+        const { data: newUser, error: createError } = await supabase.auth.admin.createUser({
+          email: userEmail,
+          password,
+          email_confirm: true,
+        });
+        if (!createError && newUser?.user?.id && isUuid(newUser.user.id)) {
+          userId = newUser.user.id;
+        }
+      } catch (err) {
+        console.warn('Could not create new user via admin:', err);
       }
     }
 
@@ -87,22 +103,6 @@ export async function POST(request: Request) {
       }
     }
 
-    // If still no user exists, create one in Supabase Auth
-    if (!userId && userEmail && supabase) {
-      try {
-        const { data: newUser, error: createError } = await supabase.auth.admin.createUser({
-          email: userEmail,
-          password,
-          email_confirm: true,
-        });
-        if (!createError && newUser?.user?.id) {
-          userId = newUser.user.id;
-        }
-      } catch (err) {
-        console.warn('Could not create new user via admin:', err);
-      }
-    }
-
     if (!userId) {
       return NextResponse.json(
         { error: 'Please enter your registered Google email address or sign in first.' },
@@ -110,8 +110,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // 1. Update password in Supabase Auth
-    if (supabase) {
+    // 1. Update password in Supabase Auth & profile only for real auth.users UUIDs
+    if (supabase && isUuid(userId)) {
       try {
         const { error: updateError } = await supabase.auth.admin.updateUserById(userId, {
           password,
@@ -122,18 +122,28 @@ export async function POST(request: Request) {
           console.error('Supabase password update error:', updateError.message);
         }
 
-        // 2. Upsert profile with has_password flag
-        await supabase
-          .from('user_profiles')
-          .upsert(
-            {
-              id: userId,
-              email: userEmail,
+        // 2. Upsert profile with has_password flag when email is known
+        if (userEmail) {
+          await supabase
+            .from('user_profiles')
+            .upsert(
+              {
+                id: userId,
+                email: userEmail,
+                has_password: true,
+                updated_at: new Date().toISOString(),
+              },
+              { onConflict: 'id' }
+            );
+        } else {
+          await supabase
+            .from('user_profiles')
+            .update({
               has_password: true,
               updated_at: new Date().toISOString(),
-            },
-            { onConflict: 'id' }
-          );
+            })
+            .eq('id', userId);
+        }
       } catch (err) {
         console.warn('Supabase DB update warning:', err);
       }

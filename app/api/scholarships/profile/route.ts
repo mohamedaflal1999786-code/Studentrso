@@ -58,7 +58,7 @@ export async function PUT(request: Request) {
       .from('student_scholarship_profiles')
       .upsert(profileData, { onConflict: 'user_id' })
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
 

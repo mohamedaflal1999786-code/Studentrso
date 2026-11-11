@@ -103,7 +103,7 @@ function AuthCallbackContent() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            code: code || undefined,
+            code: accessToken ? undefined : code || undefined,
             access_token: accessToken || undefined,
             refresh_token: refreshToken || undefined,
             expires_in: expiresIn ? parseInt(expiresIn, 10) : 3600,

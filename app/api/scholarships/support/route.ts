@@ -63,7 +63,7 @@ export async function POST(request: Request) {
       .from('scholarship_support_tickets')
       .insert(ticketRow)
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
 
@@ -109,9 +109,12 @@ export async function PUT(request: Request) {
       .update(updatePayload)
       .eq('id', ticketId)
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
+    if (!data) {
+      return NextResponse.json({ error: 'Support ticket not found.' }, { status: 404 });
+    }
 
     await client.from('scholarship_admin_audit_logs').insert({
       admin_id: user.id,

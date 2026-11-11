@@ -76,18 +76,20 @@ export async function POST(request: Request) {
       .from('scholarship_applications')
       .upsert(insertData, { onConflict: 'user_id,scholarship_id,academic_year' })
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
 
     // Log event in scholarship_application_events
-    await client.from('scholarship_application_events').insert({
-      application_id: data.id,
-      user_id: user.id,
-      previous_status: null,
-      new_status: status,
-      note: 'Application entry created in tracker',
-    });
+    if (data?.id) {
+      await client.from('scholarship_application_events').insert({
+        application_id: data.id,
+        user_id: user.id,
+        previous_status: null,
+        new_status: status,
+        note: 'Application entry created in tracker',
+      });
+    }
 
     return NextResponse.json({ success: true, application: data }, { status: 201 });
   } catch (error) {
@@ -140,9 +142,12 @@ export async function PUT(request: Request) {
       .eq('id', id)
       .eq('user_id', user.id)
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
+    if (!data) {
+      return NextResponse.json({ error: 'Application record not found.' }, { status: 404 });
+    }
 
     if (body.status && body.status !== previous?.status) {
       await client.from('scholarship_application_events').insert({

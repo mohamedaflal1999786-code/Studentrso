@@ -72,3 +72,38 @@ export function getSupabaseServerClient(): SupabaseClient | null {
     },
   });
 }
+
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** Returns true when value is a valid RFC-4122 UUID accepted by Postgres uuid columns. */
+export function isUuid(value: unknown): value is string {
+  return typeof value === 'string' && UUID_REGEX.test(value.trim());
+}
+
+/**
+ * Validates JWT structure and expiration locally before calling supabase.auth.getUser(),
+ * preventing unnecessary HTTP 401/403 Auth warnings on non-Supabase or expired tokens.
+ */
+export function isValidUnexpiredSupabaseJwt(token: unknown): token is string {
+  if (typeof token !== 'string') return false;
+  const trimmed = token.trim();
+  const parts = trimmed.split('.');
+  if (parts.length !== 3 || !parts[1]) return false;
+
+  try {
+    const base64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+    const padded = base64.padEnd(base64.length + ((4 - (base64.length % 4)) % 4), '=');
+    const json =
+      typeof atob === 'function'
+        ? atob(padded)
+        : Buffer.from(padded, 'base64').toString('utf8');
+    const payload = JSON.parse(json) as { sub?: unknown; exp?: unknown };
+    if (!isUuid(payload.sub)) return false;
+    if (typeof payload.exp === 'number' && payload.exp * 1000 <= Date.now() + 5000) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}

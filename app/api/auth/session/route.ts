@@ -5,7 +5,7 @@ import {
   getAccountById,
   getAccountByEmail,
 } from '@/lib/auth-service';
-import { getSupabaseServerClient } from '@/lib/supabase';
+import { getSupabaseServerClient, isUuid, isValidUnexpiredSupabaseJwt } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -28,28 +28,30 @@ export async function GET(request: Request) {
       if (decoded && decoded.userId) {
         // Query live Supabase database for persistent profile
         if (supabase) {
-          const { data: profile } = await supabase
-            .from('user_profiles')
-            .select('*')
-            .eq('id', decoded.userId)
-            .maybeSingle();
+          if (isUuid(decoded.userId)) {
+            const { data: profile } = await supabase
+              .from('user_profiles')
+              .select('*')
+              .eq('id', decoded.userId)
+              .maybeSingle();
 
-          if (profile) {
-            const formatted = {
-              ...profile,
-              gender: profile.gender || (profile.notification_preferences as any)?.gender || 'Male',
-            };
-            return NextResponse.json(
-              {
-                user: { id: profile.id, email: profile.email || decoded.email },
-                profile: formatted,
-              },
-              {
-                headers: {
-                  'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            if (profile) {
+              const formatted = {
+                ...profile,
+                gender: profile.gender || (profile.notification_preferences as any)?.gender || 'Male',
+              };
+              return NextResponse.json(
+                {
+                  user: { id: profile.id, email: profile.email || decoded.email },
+                  profile: formatted,
                 },
-              }
-            );
+                {
+                  headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                  },
+                }
+              );
+            }
           }
 
           // Fallback by email lookup
@@ -119,11 +121,12 @@ export async function GET(request: Request) {
     }
 
     // 2. Check Supabase access token directly
-    if (accessToken && supabase) {
+    const cleanAccessToken = accessToken ? decodeURIComponent(accessToken) : '';
+    if (isValidUnexpiredSupabaseJwt(cleanAccessToken) && supabase) {
       const {
         data: { user },
         error,
-      } = await supabase.auth.getUser(accessToken);
+      } = await supabase.auth.getUser(cleanAccessToken);
       if (!error && user) {
         const { data: profile } = await supabase
           .from('user_profiles')

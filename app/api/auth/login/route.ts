@@ -24,12 +24,13 @@ export async function POST(request: Request) {
     // Support Username / Email ID: resolve handle to email if no '@' provided
     if (!email.includes('@')) {
       let resolvedEmail = '';
-      if (supabase) {
+      const safeHandle = email.replace(/[^a-z0-9._+\- ]/gi, '').trim();
+      if (supabase && safeHandle) {
         try {
           const { data: matchedProfile } = await supabase
             .from('user_profiles')
             .select('email')
-            .or(`email.ilike.${email}@%,full_name.ilike.%${email}%`)
+            .or(`email.ilike."${safeHandle}@%",full_name.ilike."%${safeHandle}%"`)
             .limit(1)
             .maybeSingle();
 
@@ -129,11 +130,11 @@ export async function POST(request: Request) {
         maxAge: 7 * 24 * 60 * 60,
         path: '/',
       });
-      response.cookies.set('student_rso_access_token', token, {
+      response.cookies.set('student_rso_access_token', '', {
         httpOnly: true,
         sameSite: 'lax',
         secure: process.env.NODE_ENV === 'production',
-        maxAge: 7 * 24 * 60 * 60,
+        maxAge: 0,
         path: '/',
       });
 

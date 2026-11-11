@@ -3,7 +3,7 @@ import {
   createSessionToken,
   authenticateOrRegisterGoogleUser,
 } from '@/lib/auth-service';
-import { getSupabaseServerClient } from '@/lib/supabase';
+import { getSupabaseServerClient, isUuid, isValidUnexpiredSupabaseJwt } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     const supabase = getSupabaseServerClient();
 
     // 1. Check with Supabase Access Token
-    if (accessToken && supabase) {
+    if (isValidUnexpiredSupabaseJwt(accessToken) && supabase) {
       try {
         const {
           data: { user },
@@ -76,8 +76,8 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3. Upsert user profile into Supabase
-    if (userId && supabase) {
+    // 3. Upsert user profile into Supabase only for valid auth.users UUIDs
+    if (isUuid(userId) && userEmail && supabase) {
       const { data: profile } = await supabase
         .from('user_profiles')
         .upsert(
@@ -157,11 +157,11 @@ export async function POST(request: Request) {
       maxAge: 7 * 24 * 60 * 60,
       path: '/',
     });
-    response.cookies.set('student_rso_access_token', sessionToken, {
+    response.cookies.set('student_rso_access_token', '', {
       httpOnly: true,
       sameSite: 'lax',
       secure: process.env.NODE_ENV === 'production',
-      maxAge: 7 * 24 * 60 * 60,
+      maxAge: 0,
       path: '/',
     });
 

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { isValidUnexpiredSupabaseJwt } from '@/lib/supabase';
 
 function getClient(accessToken: string) {
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -15,6 +16,7 @@ async function getUser(request: Request) {
   const raw = request.headers.get('cookie')?.match(/student_rso_access_token=([^;]+)/)?.[1];
   if (!raw) return null;
   const token = decodeURIComponent(raw);
+  if (!isValidUnexpiredSupabaseJwt(token)) return null;
   const client = getClient(token);
   const { data, error } = await client.auth.getUser(token);
   if (error || !data.user) return null;

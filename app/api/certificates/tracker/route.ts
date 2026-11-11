@@ -82,10 +82,13 @@ export async function POST(request: Request) {
         .eq('id', id)
         .eq('user_id', user.id)
         .select()
-        .single();
+        .maybeSingle();
 
       if (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
+      }
+      if (!data) {
+        return NextResponse.json({ error: 'Tracker record not found' }, { status: 404 });
       }
       return NextResponse.json({ success: true, record: data });
     } else {
@@ -93,7 +96,7 @@ export async function POST(request: Request) {
         .from('student_certificate_trackers')
         .insert([recordPayload])
         .select()
-        .single();
+        .maybeSingle();
 
       if (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });

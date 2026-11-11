@@ -6,7 +6,7 @@ import {
   getAccountByEmail,
   UserProfileData,
 } from '@/lib/auth-service';
-import { getSupabaseServerClient } from '@/lib/supabase';
+import { getSupabaseServerClient, isUuid, isValidUnexpiredSupabaseJwt } from '@/lib/supabase';
 import { generatePersonalizedRecommendations } from '@/lib/recommendation-engine';
 
 export const dynamic = 'force-dynamic';
@@ -30,15 +30,17 @@ export async function GET(request: Request) {
       const decoded = verifySessionToken(sessionToken);
       if (decoded && decoded.userId && supabase) {
         try {
-          const { data: dbProfile } = await supabase
-            .from('user_profiles')
-            .select('*')
-            .eq('id', decoded.userId)
-            .maybeSingle();
+          if (isUuid(decoded.userId)) {
+            const { data: dbProfile } = await supabase
+              .from('user_profiles')
+              .select('*')
+              .eq('id', decoded.userId)
+              .maybeSingle();
 
-          if (dbProfile) {
-            profile = dbProfile as UserProfileData;
-          } else if (decoded.email) {
+            if (dbProfile) profile = dbProfile as UserProfileData;
+          }
+
+          if (!profile && decoded.email) {
             const { data: profileByEmail } = await supabase
               .from('user_profiles')
               .select('*')
@@ -62,9 +64,10 @@ export async function GET(request: Request) {
       }
     }
 
-    if (!profile && accessToken && supabase) {
+    const cleanAccessToken = accessToken ? decodeURIComponent(accessToken) : '';
+    if (!profile && isValidUnexpiredSupabaseJwt(cleanAccessToken) && supabase) {
       try {
-        const { data: { user } } = await supabase.auth.getUser(accessToken);
+        const { data: { user } } = await supabase.auth.getUser(cleanAccessToken);
         if (user) {
           const { data: dbProfile } = await supabase
             .from('user_profiles')

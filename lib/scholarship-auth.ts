@@ -1,4 +1,5 @@
 import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
+import { isValidUnexpiredSupabaseJwt } from '@/lib/supabase';
 
 export interface AuthSessionData {
   client: SupabaseClient;
@@ -34,6 +35,7 @@ export async function getAuthenticatedUser(request: Request): Promise<AuthSessio
   const raw = request.headers.get('cookie')?.match(/student_rso_access_token=([^;]+)/)?.[1];
   if (!raw) return null;
   const accessToken = decodeURIComponent(raw);
+  if (!isValidUnexpiredSupabaseJwt(accessToken)) return null;
 
   try {
     const client = getClientWithUser(accessToken);

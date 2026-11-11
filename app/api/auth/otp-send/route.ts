@@ -30,6 +30,7 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseServerClient();
     const otpCode = crypto.randomInt(100000, 1000000).toString();
+    const otpHash = crypto.createHash('sha256').update(otpCode).digest('hex');
     const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
 
     if (supabase) {
@@ -37,7 +38,8 @@ export async function POST(request: Request) {
         await supabase.from('auth_otps').insert({
           target: email,
           channel: 'email',
-          code: otpCode,
+          code: 'hashed',
+          code_hash: otpHash,
           purpose,
           expires_at: expiresAt,
           used: false,

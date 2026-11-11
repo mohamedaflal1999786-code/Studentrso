@@ -5,7 +5,7 @@ import {
   updateUserProfile,
   UserProfileData,
 } from '@/lib/auth-service';
-import { getSupabaseServerClient } from '@/lib/supabase';
+import { getSupabaseServerClient, isUuid, isValidUnexpiredSupabaseJwt } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -33,9 +33,10 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseServerClient();
 
-    if (!userId && accessToken && supabase) {
+    const cleanAccessToken = accessToken ? decodeURIComponent(accessToken) : '';
+    if (!userId && isValidUnexpiredSupabaseJwt(cleanAccessToken) && supabase) {
       try {
-        const { data: { user } } = await supabase.auth.getUser(accessToken);
+        const { data: { user } } = await supabase.auth.getUser(cleanAccessToken);
         if (user) {
           userId = user.id;
           userEmail = user.email || null;
@@ -55,7 +56,10 @@ export async function POST(request: Request) {
     const updates: Partial<UserProfileData> = {};
     if (typeof body.full_name === 'string') updates.full_name = body.full_name.trim();
     if (typeof body.phone === 'string') updates.phone = body.phone.trim();
-    if (typeof body.date_of_birth === 'string') updates.date_of_birth = body.date_of_birth;
+    if (typeof body.date_of_birth === 'string') {
+      const dob = body.date_of_birth.trim();
+      updates.date_of_birth = dob || undefined;
+    }
     if (typeof body.state === 'string') updates.state = body.state.trim();
     if (typeof body.district === 'string') updates.district = body.district.trim();
     if (typeof body.city === 'string') updates.city = body.city.trim();
@@ -92,23 +96,32 @@ export async function POST(request: Request) {
     let persistentProfile = null;
     if (supabase) {
       try {
-        // Query existing profile to safely merge notification preferences and preserve gender
-        let existingGender = updated?.gender || 'Male';
+        let targetUserId = isUuid(userId) ? userId : '';
         let existingNotificationPrefs: Record<string, unknown> = {};
+        let existingRow: { id: string; email?: string | null; notification_preferences?: unknown } | null = null;
 
-        const { data: existingRow } = await supabase
-          .from('user_profiles')
-          .select('gender, notification_preferences')
-          .eq('id', userId)
-          .maybeSingle();
+        if (targetUserId) {
+          const { data } = await supabase
+            .from('user_profiles')
+            .select('id, email, notification_preferences')
+            .eq('id', targetUserId)
+            .maybeSingle();
+          existingRow = data;
+        } else if (userEmail) {
+          const { data } = await supabase
+            .from('user_profiles')
+            .select('id, email, notification_preferences')
+            .eq('email', userEmail)
+            .maybeSingle();
+          existingRow = data;
+          if (data?.id && isUuid(data.id)) targetUserId = data.id;
+        }
 
-        if (existingRow) {
-          if (existingRow.gender) existingGender = existingRow.gender;
-          if (existingRow.notification_preferences && typeof existingRow.notification_preferences === 'object') {
-            existingNotificationPrefs = existingRow.notification_preferences as Record<string, unknown>;
-            if (existingNotificationPrefs.gender && typeof existingNotificationPrefs.gender === 'string') {
-              existingGender = existingNotificationPrefs.gender as any;
-            }
+        let existingGender = updated?.gender || 'Male';
+        if (existingRow?.notification_preferences && typeof existingRow.notification_preferences === 'object') {
+          existingNotificationPrefs = existingRow.notification_preferences as Record<string, unknown>;
+          if (existingNotificationPrefs.gender && typeof existingNotificationPrefs.gender === 'string') {
+            existingGender = existingNotificationPrefs.gender as any;
           }
         }
 
@@ -120,32 +133,54 @@ export async function POST(request: Request) {
           gender: safeGender,
         };
 
-        const { gender, ...dbFields } = updates;
-        const dbPayload: Record<string, unknown> = {
-          id: userId,
-          email: userEmail,
-          ...dbFields,
-          notification_preferences: mergedNotificationPrefs,
-          updated_at: new Date().toISOString(),
-        };
-
-        if (updates.avatar_url === null) {
-          dbPayload.avatar_url = null;
-        }
-
-        const { data: dbProfile, error: dbError } = await supabase
-          .from('user_profiles')
-          .upsert(dbPayload, { onConflict: 'id' })
-          .select()
-          .maybeSingle();
-
-        if (dbError) {
-          console.error('Supabase user_profiles upsert error:', dbError.message);
-        } else if (dbProfile) {
-          persistentProfile = {
-            ...dbProfile,
-            gender: dbProfile.gender || (dbProfile.notification_preferences as any)?.gender || safeGender,
+        if (isUuid(targetUserId)) {
+          const { gender, ...dbFields } = updates;
+          const resolvedEmail = existingRow?.email || userEmail;
+          const dbPayload: Record<string, unknown> = {
+            ...dbFields,
+            notification_preferences: mergedNotificationPrefs,
+            updated_at: new Date().toISOString(),
           };
+          if (typeof body.date_of_birth === 'string' && !body.date_of_birth.trim()) {
+            dbPayload.date_of_birth = null;
+          }
+          if (updates.avatar_url === null) {
+            dbPayload.avatar_url = null;
+          }
+
+          let dbProfile: any = null;
+          let dbError: any = null;
+
+          if (existingRow) {
+            const res = await supabase
+              .from('user_profiles')
+              .update(dbPayload)
+              .eq('id', targetUserId)
+              .select()
+              .maybeSingle();
+            dbProfile = res.data;
+            dbError = res.error;
+          } else if (resolvedEmail) {
+            const res = await supabase
+              .from('user_profiles')
+              .upsert(
+                { id: targetUserId, email: resolvedEmail, ...dbPayload },
+                { onConflict: 'id' }
+              )
+              .select()
+              .maybeSingle();
+            dbProfile = res.data;
+            dbError = res.error;
+          }
+
+          if (dbError) {
+            console.error('Supabase user_profiles sync error:', dbError.message);
+          } else if (dbProfile) {
+            persistentProfile = {
+              ...dbProfile,
+              gender: dbProfile.gender || (dbProfile.notification_preferences as any)?.gender || safeGender,
+            };
+          }
         }
       } catch (err) {
         console.warn('Supabase DB error:', err);

@@ -47,7 +47,7 @@ export async function POST(request: Request) {
         { onConflict: 'user_id,scholarship_id' }
       )
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
 

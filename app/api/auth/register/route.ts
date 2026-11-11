@@ -7,7 +7,7 @@ import {
 } from '@/lib/auth-service';
 import { sendRegistrationOtpEmail } from '@/lib/email-service';
 import { checkRateLimit } from '@/lib/security-shield';
-import { getSupabaseServerClient } from '@/lib/supabase';
+import { getSupabaseServerClient, isUuid } from '@/lib/supabase';
 
 function getRequestOrigin(request: Request): string {
   const origin = request.headers.get('origin');
@@ -77,34 +77,48 @@ export async function POST(request: Request) {
         );
       }
 
-      const userId = data.user?.id || `usr-${Date.now()}`;
+      if (data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
+        return NextResponse.json(
+          { error: 'An account with this email already exists. Please sign in instead.' },
+          { status: 400 }
+        );
+      }
 
-      // Ensure profile exists in live database
-      const { data: profile } = await supabase
-        .from('user_profiles')
-        .upsert(
-          {
-            id: userId,
-            email,
-            full_name: fullName,
-            state: 'Tamil Nadu',
-            onboarding_completed: false,
-            updated_at: new Date().toISOString(),
-          },
-          { onConflict: 'id' }
-        )
-        .select()
-        .maybeSingle();
+      const supabaseUserId = data.user?.id && isUuid(data.user.id) ? data.user.id : null;
+      const userId = supabaseUserId || `usr-${Date.now()}`;
 
-      // Generate 6-digit OTP and store in persistent auth_otps table
+      // Ensure profile exists in live database only for real auth.users UUIDs
+      let profile: Record<string, unknown> | null = null;
+      if (supabaseUserId) {
+        const { data: upsertedProfile } = await supabase
+          .from('user_profiles')
+          .upsert(
+            {
+              id: supabaseUserId,
+              email,
+              full_name: fullName,
+              state: 'Tamil Nadu',
+              onboarding_completed: false,
+              updated_at: new Date().toISOString(),
+            },
+            { onConflict: 'id' }
+          )
+          .select()
+          .maybeSingle();
+        profile = upsertedProfile;
+      }
+
+      // Generate 6-digit OTP and store SHA-256 hash in persistent auth_otps table
       const otpCode = crypto.randomInt(100000, 1000000).toString();
+      const otpHash = crypto.createHash('sha256').update(otpCode).digest('hex');
       const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
 
       try {
         await supabase.from('auth_otps').insert({
           target: email,
           channel: 'email',
-          code: otpCode,
+          code: 'hashed',
+          code_hash: otpHash,
           purpose: 'signup',
           expires_at: expiresAt,
           used: false,
@@ -192,11 +206,11 @@ export async function POST(request: Request) {
       maxAge: 7 * 24 * 60 * 60,
       path: '/',
     });
-    response.cookies.set('student_rso_access_token', sessionToken, {
+    response.cookies.set('student_rso_access_token', '', {
       httpOnly: true,
       sameSite: 'lax',
       secure: process.env.NODE_ENV === 'production',
-      maxAge: 7 * 24 * 60 * 60,
+      maxAge: 0,
       path: '/',
     });
 
