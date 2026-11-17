@@ -1,13 +1,18 @@
 // app/api/platform-guide/route.ts
-// API route for Universal Student RSO Brain Guide Chatbot with Tamil & English support
+// API route for Universal Student RSO Brain Guide Chatbot with Tamil & English support and Auto-Translate
 import { NextResponse } from 'next/server';
 import { GoogleGenAI } from '@google/genai';
 import { getGeminiApiKey, MODEL_CANDIDATES } from '@/lib/ai/gemini-service';
-import { generatePlatformGuideAnswer, isTamilQuery } from '@/lib/platform-guide-engine';
+import {
+  generatePlatformGuideAnswer,
+  isTamilQuery,
+  sanitizeHumanText,
+  translatePlatformText,
+} from '@/lib/platform-guide-engine';
 
 export const dynamic = 'force-dynamic';
 
-const SYSTEM_INSTRUCTION = `You are the official Student RSO Brain Guide (மாணவர் RSO வழிகாட்டி) — an intelligent, friendly AI assistant embedded across all 11 pages of the Student RSO portal (Rights, Services & Opportunities).
+const SYSTEM_INSTRUCTION = `You are the official Student RSO Brain Guide (மாணவர் RSO வழிகாட்டி) — an intelligent, friendly human assistant embedded across all 11 pages of the Student RSO portal (Rights, Services & Opportunities).
 
 Student RSO provides 10 key modules for students:
 • Module 01: Scholarship Hub (/scholarships) - TN & Central NSP scholarships, eligibility checks, application tracking & renewals.
@@ -22,15 +27,78 @@ Student RSO provides 10 key modules for students:
 • Module 10: Digital Safety & Cyber-Wellness Shield (/digital-safety) - Online safety, cyberbullying defense, scam helpline 1930, device security.
 • Student Dashboard (/dashboard) - Personalized opportunity tracker, bookmarks, 6-step profile ("Save & Complete Profile").
 
-LANGUAGE RULES:
-1. If the user asks in Tamil (Tamil script or Tanglish like 'eppadi apply pandrathu', 'vanakkam', 'enna irukku'), reply in warm, simple, encouraging Tamil (தமிழ்).
-2. If the user asks in English, reply in concise, clear, student-friendly English.
-3. Keep responses compact and direct (2 to 4 bullet points or short paragraphs) because it displays in a small mobile-friendly chatbot window and will be read aloud by the inbuilt Voice Assistant.
-4. Mention the relevant module name and path (e.g. Module 01: Scholarships at /scholarships) so the student knows where to go.`;
+STRICT FORMATTING AND HUMAN TONE RULES:
+1. NEVER use the asterisk character (*) anywhere in your output. Do not use bold (**) or italic (*) markdown.
+2. NEVER output markdown link syntax like [Label](url). Mention module names cleanly in plain text.
+3. Use clean paragraph breaks and standard bullet points (•) only.
+4. If the user asks in Tamil (Tamil script or Tanglish like 'eppadi apply pandrathu', 'vanakkam', 'enna irukku'), reply in warm, simple, encouraging Tamil (தமிழ்).
+5. If the user asks in English, reply in concise, clear, student-friendly international English.
+6. Keep responses compact and direct (2 to 4 bullet points or short paragraphs) because it displays in a small mobile-friendly chatbot window and will be read aloud by the inbuilt Voice Assistant.`;
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+
+    // -------------------------------------------------------------------------
+    // A. AUTO-TRANSLATE ACTION (Switch text & voice between Tamil & English)
+    // -------------------------------------------------------------------------
+    if (body.action === 'translate') {
+      const textToTranslate = typeof body.text === 'string' ? body.text.trim() : '';
+      const targetLang: 'en' | 'ta' = body.targetLanguage === 'ta' ? 'ta' : 'en';
+
+      if (!textToTranslate) {
+        return NextResponse.json({ error: 'Text to translate cannot be empty.' }, { status: 400 });
+      }
+
+      const apiKey = getGeminiApiKey();
+      if (apiKey) {
+        try {
+          const ai = new GoogleGenAI({ apiKey });
+          const prompt = `Translate the following student guidance text into natural, fluent ${
+            targetLang === 'ta' ? 'Tamil (தமிழ்)' : 'English'
+          }.
+STRICT RULES:
+- NEVER use asterisks (*) or markdown bold (**).
+- NEVER output markdown links [title](url).
+- Output ONLY the clean translated human text.
+
+Text:
+${textToTranslate}`;
+
+          const response = await ai.models.generateContent({
+            model: MODEL_CANDIDATES[0] || 'gemini-flash-lite-latest',
+            contents: prompt,
+            config: {
+              temperature: 0.2,
+              maxOutputTokens: 500,
+            },
+          });
+
+          const translated = response.text || response.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (translated && translated.trim()) {
+            return NextResponse.json({
+              success: true,
+              reply: sanitizeHumanText(translated),
+              language: targetLang,
+            });
+          }
+        } catch (err) {
+          console.warn('Gemini translation failed, using deterministic engine:', err);
+        }
+      }
+
+      // Fallback translation
+      const fallbackTranslated = translatePlatformText(textToTranslate, targetLang);
+      return NextResponse.json({
+        success: true,
+        reply: sanitizeHumanText(fallbackTranslated),
+        language: targetLang,
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // B. STANDARD CHAT Q&A ACTION
+    // -------------------------------------------------------------------------
     const rawMessage = typeof body.message === 'string' ? body.message.trim() : '';
     const requestedLang = body.language === 'ta' || body.language === 'en' ? body.language : undefined;
 
@@ -53,7 +121,7 @@ export async function POST(request: Request) {
             if (item.content && (item.role === 'user' || item.role === 'assistant')) {
               contents.push({
                 role: item.role === 'assistant' ? 'model' : 'user',
-                parts: [{ text: String(item.content) }],
+                parts: [{ text: sanitizeHumanText(String(item.content)) }],
               });
             }
           }
@@ -64,7 +132,6 @@ export async function POST(request: Request) {
           parts: [{ text: rawMessage }],
         });
 
-        // Try primary model candidate
         const response = await ai.models.generateContent({
           model: MODEL_CANDIDATES[0] || 'gemini-flash-lite-latest',
           contents: contents as any,
@@ -80,7 +147,7 @@ export async function POST(request: Request) {
           const finalLang = isTamilQuery(replyText) || detectedLang === 'ta' ? 'ta' : 'en';
           const deterministic = generatePlatformGuideAnswer(rawMessage, finalLang);
           return NextResponse.json({
-            reply: replyText.trim(),
+            reply: sanitizeHumanText(replyText.trim()),
             language: finalLang,
             suggestedRoutes: deterministic.suggestedRoutes,
           });
@@ -92,7 +159,11 @@ export async function POST(request: Request) {
 
     // 2. Fallback to resilient deterministic platform guide engine
     const answer = generatePlatformGuideAnswer(rawMessage, detectedLang);
-    return NextResponse.json(answer);
+    return NextResponse.json({
+      reply: sanitizeHumanText(answer.reply),
+      language: answer.language,
+      suggestedRoutes: answer.suggestedRoutes,
+    });
   } catch (error: any) {
     console.error('Platform guide error:', error);
     return NextResponse.json(

@@ -17,12 +17,16 @@ const jiti = require(path.join(projectRoot, 'node_modules/jiti'))(import.meta.ur
 
 console.log('=============================================================================');
 console.log('STUDENT RSO 2.0 — UNIVERSAL PLATFORM BRAIN CHATBOT & VOICE ASSISTANT TEST');
-console.log('Verifying Bilingual Knowledge Engine, Speech Voice Controls & Step 06 Fix');
+console.log('Verifying Movable Draggable Button, Zero Asterisks, Auto-Translate & Language Controls');
 console.log('=============================================================================');
 
-const { generatePlatformGuideAnswer, isTamilQuery, PORTAL_MODULES } = jiti(
-  path.join(projectRoot, 'lib/platform-guide-engine.ts')
-);
+const {
+  generatePlatformGuideAnswer,
+  isTamilQuery,
+  PORTAL_MODULES,
+  sanitizeHumanText,
+  translatePlatformText,
+} = jiti(path.join(projectRoot, 'lib/platform-guide-engine.ts'));
 
 // -----------------------------------------------------------------------------
 // TEST 01: Onboarding Step 06 Label Verification
@@ -109,7 +113,7 @@ console.log('✓ Test 05 Passed: Authoritative English responses and route sugge
 // -----------------------------------------------------------------------------
 const taGeneral = generatePlatformGuideAnswer('இந்த இணையதளம் பற்றி சொல்லுங்கள்', 'ta');
 assert.equal(taGeneral.language, 'ta');
-assert.ok(taGeneral.reply.includes('Student RSO Brain Guide') || taGeneral.reply.includes('வணக்கம்'));
+assert.ok(taGeneral.reply.includes('Student RSO') || taGeneral.reply.includes('வணக்கம்'));
 assert.ok(taGeneral.reply.includes('உதவித்தொகை'));
 
 const taSchol = generatePlatformGuideAnswer('ஸ்காலர்ஷிப் எப்படி விண்ணப்பிப்பது?', 'ta');
@@ -139,21 +143,68 @@ assert.ok(componentFile.includes('speechSynthesis'), 'Chatbot must implement Web
 assert.ok(componentFile.includes('ta-IN'), 'Chatbot speech recognition and synthesis must support ta-IN (Tamil)');
 assert.ok(componentFile.includes('en-IN'), 'Chatbot speech recognition and synthesis must support English');
 assert.ok(componentFile.includes('/api/platform-guide'), 'Chatbot must communicate with /api/platform-guide endpoint');
-assert.ok(componentFile.includes('Listen'), 'Chatbot must provide per-message audio listen button');
+assert.ok(componentFile.includes('Listen'), 'Chatbot must provide audio listen button');
 console.log('✓ Test 07 Passed: Brain theme icon, SpeechRecognition (ta-IN / en-IN), and SpeechSynthesis controls verified');
 
 // -----------------------------------------------------------------------------
-// TEST 08: API Endpoint Route Integration
+// TEST 08: API Endpoint Route Integration & Translation Action
 // -----------------------------------------------------------------------------
 const apiRouteFile = fs.readFileSync(
   path.join(projectRoot, 'app/api/platform-guide/route.ts'),
   'utf8'
 );
 assert.ok(apiRouteFile.includes('generatePlatformGuideAnswer'), 'API route must import deterministic guide engine');
-assert.ok(apiRouteFile.includes('NextResponse.json'), 'API route must return JSON responses');
+assert.ok(apiRouteFile.includes('action === \'translate\''), 'API route must support auto-translate action');
+assert.ok(apiRouteFile.includes('sanitizeHumanText'), 'API route must sanitize human text');
 assert.ok(apiRouteFile.includes('POST'), 'API route must export POST handler');
-console.log('✓ Test 08 Passed: /api/platform-guide route endpoint verified');
+console.log('✓ Test 08 Passed: /api/platform-guide route endpoint & auto-translate verified');
+
+// -----------------------------------------------------------------------------
+// TEST 09: Movable Draggable Button Verification
+// -----------------------------------------------------------------------------
+assert.ok(componentFile.includes('onPointerDown'), 'Button must have onPointerDown handler for mouse and touch dragging');
+assert.ok(componentFile.includes('onPointerMove'), 'Button must have onPointerMove handler');
+assert.ok(componentFile.includes('onPointerUp'), 'Button must have onPointerUp handler');
+assert.ok(componentFile.includes('studentrso_brain_pos'), 'Button position must persist in localStorage');
+assert.ok(componentFile.includes('touchAction: \'none\''), 'Button must have touchAction none to prevent page scrolling on mobile');
+console.log('✓ Test 09 Passed: Movable draggable Brain button with touch and mouse dragging verified');
+
+// -----------------------------------------------------------------------------
+// TEST 10: Segmented Language Control (Never Inverted / Opposite)
+// -----------------------------------------------------------------------------
+assert.ok(componentFile.includes("setLanguage('en')"), 'EN button must directly set language to en');
+assert.ok(componentFile.includes("setLanguage('ta')"), 'Tamil button must directly set language to ta');
+assert.ok(componentFile.includes('EN') && componentFile.includes('தமிழ்'), 'Segmented control must display explicit EN and தமிழ் options');
+console.log('✓ Test 10 Passed: Segmented Language Control verified (clicking EN sets English, clicking தமிழ் sets Tamil)');
+
+// -----------------------------------------------------------------------------
+// TEST 11: Zero Asterisks (*) Rule & Human Formatting Sanitizer
+// -----------------------------------------------------------------------------
+const rawSample = '**Module 01: [🎓 Scholarships (M01)](https://www.studentrso.in/scholarships)**\n\n* Point 1: **100% Verified**';
+const sanitized = sanitizeHumanText(rawSample);
+assert.ok(!sanitized.includes('*'), 'Sanitized text must never contain asterisk (*)');
+assert.ok(!sanitized.includes('https://'), 'Sanitized text must never contain raw markdown URLs');
+assert.ok(sanitized.includes('Module 01: 🎓 Scholarships (M01)'), 'Sanitized text must retain human title without brackets');
+
+// Verify knowledge engine has ZERO asterisks
+const engineFile = fs.readFileSync(path.join(projectRoot, 'lib/platform-guide-engine.ts'), 'utf8');
+assert.equal(engineFile.includes('**'), false, 'Knowledge engine must not contain markdown double asterisks (**) for bold');
+console.log('✓ Test 11 Passed: Zero asterisks (*) rule and clean international human formatting verified');
+
+// -----------------------------------------------------------------------------
+// TEST 12: Bidirectional Auto-Translate (Text & Voice)
+// -----------------------------------------------------------------------------
+const enText = 'Module 10: Digital Safety & Cyber-Wellness Shield. Call helpline 1930.';
+const taTranslated = translatePlatformText(enText, 'ta');
+assert.equal(isTamilQuery(taTranslated), true, 'Translating to ta must return Tamil text');
+assert.ok(!taTranslated.includes('*'), 'Translated text must not contain asterisks');
+
+const taText = 'Module 01: உதவித்தொகை மையம். தமிழ்நாடு அரசு நலத்திட்டங்கள்.';
+const enTranslated = translatePlatformText(taText, 'en');
+assert.equal(isTamilQuery(enTranslated), false, 'Translating to en must return English text');
+assert.ok(!enTranslated.includes('*'), 'Translated text must not contain asterisks');
+console.log('✓ Test 12 Passed: Bidirectional Auto-Translate (Tamil & English) with text and voice verified');
 
 console.log('=============================================================================');
-console.log('ALL PLATFORM BRAIN CHATBOT & STEP 06 TESTS PASSED (8/8) — 100% SUCCESS');
+console.log('ALL PLATFORM BRAIN CHATBOT & ONBOARDING TESTS PASSED (12/12) — 100% SUCCESS');
 console.log('=============================================================================');

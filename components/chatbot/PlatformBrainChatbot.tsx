@@ -5,23 +5,20 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import {
   Brain,
-  MessageSquare,
   X,
   Minus,
   Send,
   Mic,
-  MicOff,
   Volume2,
   VolumeX,
   RotateCcw,
   Sparkles,
-  ExternalLink,
   Loader2,
-  Check,
   ChevronRight,
-  Info,
+  Languages,
+  GripHorizontal,
 } from 'lucide-react';
-import { isTamilQuery } from '@/lib/platform-guide-engine';
+import { isTamilQuery, sanitizeHumanText } from '@/lib/platform-guide-engine';
 
 interface ChatMessage {
   id: string;
@@ -30,24 +27,31 @@ interface ChatMessage {
   language: 'en' | 'ta';
   timestamp: string;
   suggestedRoutes?: Array<{ label: string; url: string }>;
+  isTranslating?: boolean;
 }
 
 const STARTER_CHIPS_EN = [
-  { label: '💡 How this website works', query: 'Explain how Student RSO website works and what features are available' },
-  { label: '🎓 Scholarships (M01)', query: 'What scholarships are available in Module 01 and how to apply?' },
-  { label: '🚨 Safety & 112 (M02)', query: 'How does the Safety & Anti-Ragging grievance system work?' },
-  { label: '📜 e-Sevai Certificates (M03)', query: 'How to apply for Community and First Graduate certificates?' },
-  { label: '📝 Exams & Admissions (M04/06)', query: 'Tell me about TNPSC, NEET, JEE and college admissions guidance' },
-  { label: '💼 Internships (M08)', query: 'How to find verified internships and employment exchange?' },
+  { label: 'Platform Overview', query: 'Explain how Student RSO website works and what services are offered' },
+  { label: 'Scholarship Hub (M01)', query: 'What scholarships are available in Module 01 and how do I apply?' },
+  { label: 'Safety & 112 (M02)', query: 'How does the Safety and Anti-Ragging grievance system work?' },
+  { label: 'e-Sevai Certificates (M03)', query: 'How to apply for Community and First Graduate certificates?' },
+  { label: 'Exams Hub (M04)', query: 'Tell me about TNPSC, NEET, JEE and central competitive exams' },
+  { label: 'AI Career Mentor (M05)', query: 'How does AI Career Assistant evaluate Class 10 to PhD students?' },
+  { label: 'Admissions Centre (M06)', query: 'Explain TNEA counselling, college transfers, and break of study rules' },
+  { label: 'Internships & Jobs (M08)', query: 'How to find verified government internships and statutory apprenticeships?' },
+  { label: 'Digital Safety (M10)', query: 'What is Module 10 Digital Safety and the 1930 cyber fraud helpline?' },
 ];
 
 const STARTER_CHIPS_TA = [
-  { label: '💡 இந்த தளம் பற்றி', query: 'இந்த Student RSO இணையதளம் என்னென்ன வசதிகளை வழங்குகிறது?' },
-  { label: '🎓 உதவித்தொகை (M01)', query: 'தமிழ்நாடு அரசு மற்றும் NSP உதவித்தொகை எப்படி விண்ணப்பிப்பது?' },
-  { label: '🚨 ராகிங் & 112 (M02)', query: 'ராகிங் மற்றும் மாணவர் அவசர உதவி எண்கள் என்னென்ன?' },
-  { label: '📜 சான்றிதழ்கள் (M03)', query: 'சாதி மற்றும் முதல் பட்டதாரி சான்றிதழ் இ-சேவை மூலம் பெறுவது எப்படி?' },
-  { label: '📝 தேர்வுகள் & சேர்க்கை', query: 'TNPSC, NEET தேர்வுகள் மற்றும் கல்லூரி சேர்க்கை வழிகாட்டல்' },
-  { label: '💼 வேலை & பயிற்சி (M08)', query: 'இன்டர்ன்ஷிப் மற்றும் வேலைவாய்ப்பு அலுவலக பதிவு முறை' },
+  { label: 'தளம் பற்றி', query: 'Student RSO தளம் என்னென்ன 10 சேவைகளை வழங்குகிறது?' },
+  { label: 'உதவித்தொகை (M01)', query: 'தமிழ்நாடு அரசு மற்றும் NSP உதவித்தொகை பெறுவது எப்படி?' },
+  { label: 'பாதுகாப்பு & 112 (M02)', query: 'ராகிங் மற்றும் மாணவர் அவசர உதவி எண்கள் என்னென்ன?' },
+  { label: 'சான்றிதழ்கள் (M03)', query: 'சாதி மற்றும் முதல் பட்டதாரி சான்றிதழ் இ-சேவை மூலம் பெறுவது எப்படி?' },
+  { label: 'தேர்வுகள் (M04)', query: 'TNPSC, NEET தேர்வுகள் மற்றும் போட்டித் தேர்வுகள் விவரம்' },
+  { label: 'AI தொழில் வழிகாட்டி (M05)', query: '10-ஆம் வகுப்பு முதல் PhD வரை AI வழிகாட்டல் முறை எப்படி செயல்படுகிறது?' },
+  { label: 'சேர்க்கை மையம் (M06)', query: 'TNEA கலந்தாய்வு மற்றும் கல்லூரி இடமாற்ற விதிகள் என்ன?' },
+  { label: 'பயிற்சி & வேலை (M08)', query: 'இன்டர்ன்ஷிப் மற்றும் வேலைவாய்ப்பு அலுவலக பதிவு முறை' },
+  { label: 'டிஜிட்டல் பாதுகாப்பு (M10)', query: 'சைபர் மோசடி தடுப்பு மற்றும் 1930 உதவி எண் பற்றி கூறுக' },
 ];
 
 export function PlatformBrainChatbot() {
@@ -62,18 +66,113 @@ export function PlatformBrainChatbot() {
   const [voiceNotice, setVoiceNotice] = useState<string | null>(null);
   const [activeSpeakingId, setActiveSpeakingId] = useState<string | null>(null);
 
+  // Movable button coordinate state
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragRef = useRef<{ startX: number; startY: number; posX: number; posY: number; moved: boolean } | null>(null);
+
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const recognitionRef = useRef<any>(null);
   const synthRef = useRef<SpeechSynthesis | null>(null);
 
-  // Initialize Speech Synthesis and Speech Recognition client-side
+  // ---------------------------------------------------------------------------
+  // 1. POSITION INITIALIZATION & PERSISTENCE (Movable across all 11 pages)
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const initPos = () => {
+      try {
+        const saved = localStorage.getItem('studentrso_brain_pos');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (typeof parsed.x === 'number' && typeof parsed.y === 'number') {
+            const clampedX = Math.max(12, Math.min(window.innerWidth - 68, parsed.x));
+            const clampedY = Math.max(12, Math.min(window.innerHeight - 68, parsed.y));
+            setPosition({ x: clampedX, y: clampedY });
+            return;
+          }
+        }
+      } catch {}
+      // Default to comfortable bottom right
+      setPosition({ x: window.innerWidth - 76, y: window.innerHeight - 84 });
+    };
+
+    initPos();
+    window.addEventListener('resize', initPos);
+    return () => window.removeEventListener('resize', initPos);
+  }, []);
+
+  // Pointer drag handlers for desktop and mobile touch
+  const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.button !== 0) return; // Only primary mouse button or touch
+    try {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    } catch {}
+
+    const currX = position?.x ?? (window.innerWidth - 76);
+    const currY = position?.y ?? (window.innerHeight - 84);
+
+    dragRef.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      posX: currX,
+      posY: currY,
+      moved: false,
+    };
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (!dragRef.current) return;
+    const deltaX = e.clientX - dragRef.current.startX;
+    const deltaY = e.clientY - dragRef.current.startY;
+    const distance = Math.hypot(deltaX, deltaY);
+
+    if (distance > 5) {
+      dragRef.current.moved = true;
+      setIsDragging(true);
+
+      const nextX = Math.max(10, Math.min(window.innerWidth - 68, dragRef.current.posX + deltaX));
+      const nextY = Math.max(10, Math.min(window.innerHeight - 68, dragRef.current.posY + deltaY));
+      setPosition({ x: nextX, y: nextY });
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (!dragRef.current) return;
+    const wasMoved = dragRef.current.moved;
+
+    try {
+      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+    } catch {}
+
+    dragRef.current = null;
+    setTimeout(() => setIsDragging(false), 60);
+
+    if (wasMoved && position) {
+      try {
+        localStorage.setItem('studentrso_brain_pos', JSON.stringify(position));
+      } catch {}
+    } else if (!wasMoved) {
+      // Clean tap or click: toggle open/close
+      if (isOpen) {
+        stopSpeaking();
+        setIsOpen(false);
+      } else {
+        setIsOpen(true);
+      }
+    }
+  };
+
+  // ---------------------------------------------------------------------------
+  // 2. SPEECH RECOGNITION & SYNTHESIS SETUP
+  // ---------------------------------------------------------------------------
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if ('speechSynthesis' in window) {
         synthRef.current = window.speechSynthesis;
       }
 
-      // Check SpeechRecognition support
       const SpeechRecognition =
         (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
       if (SpeechRecognition) {
@@ -96,7 +195,6 @@ export function PlatformBrainChatbot() {
           if (transcript) {
             setInputValue(transcript);
             setVoiceNotice(null);
-            // Detect language from transcript
             if (isTamilQuery(transcript)) {
               setLanguage('ta');
             }
@@ -104,7 +202,6 @@ export function PlatformBrainChatbot() {
         };
 
         recognition.onerror = (event: any) => {
-          console.warn('Speech recognition error:', event.error);
           setIsListening(false);
           if (event.error === 'not-allowed') {
             setVoiceNotice(
@@ -126,92 +223,120 @@ export function PlatformBrainChatbot() {
     }
   }, [language]);
 
-  // Initial welcome message on first open
+  // Initial welcome message (clean human format, zero asterisks)
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      const welcomeEn: ChatMessage = {
-        id: 'msg-welcome-en',
+      const welcomeMsg: ChatMessage = {
+        id: 'msg-welcome',
         role: 'assistant',
-        language: 'en',
+        language: language,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        content: `Welcome to **Student RSO Brain Guide**! 🧠\n\nI am your unified AI voice & chat assistant for all 10 modules and the entire portal. I can explain any service, guide you through scholarships, anti-ragging help, e-Sevai certificates, exams, and admissions.\n\n✨ **Voice Assistant:** Tap the microphone to talk to me in **English** or **தமிழ் (Tamil)**!`,
+        content:
+          language === 'ta'
+            ? sanitizeHumanText(`வணக்கம்! நான் உங்கள் Student RSO வழிகாட்டி.
+
+இந்த இணையதளம் மாணவர்களுக்கான 10 முக்கிய சேவைகளை ஒரே இடத்தில் வழங்குகிறது:
+• உதவித்தொகை (Scholarships) மற்றும் விண்ணப்ப கண்காணிப்பு
+• பாதுகாப்பு, ராகிங் எதிர்ப்பு மற்றும் 112 அவசர உதவி எண்கள்
+• இ-சேவை சான்றிதழ்கள் (சாதி, வருமானம், முதல் பட்டதாரி)
+• 56+ அரசு மற்றும் போட்டித் தேர்வுகள் (TNPSC, NEET, JEE)
+• 10-ஆம் வகுப்பு முதல் PhD வரை AI தொழில் மற்றும் கல்வி வழிகாட்டி
+• மாணவர் சேர்க்கை, கல்லூரி இடமாற்றம் மற்றும் கல்வி தொடர்ச்சி
+• SWAYAM மற்றும் NCERT இலவச கல்விப் பாடங்கள்
+• அரசு இன்டர்ன்ஷிப் மற்றும் வேலைவாய்ப்பு அலுவலக பதிவு
+• ஆங்கில பேச்சுத்திறன் மற்றும் நேர்முகத் தேர்வு பயிற்சி
+• டிஜிட்டல் பாதுகாப்பு மற்றும் 1930 சைபர் மோசடி உதவி
+
+நீங்கள் எதைப்பற்றி தெரிந்து கொள்ள விரும்புகிறீர்கள்? தமிழில் பேச மைக் பட்டனை அழுத்தலாம் அல்லது கீழே தட்டச்சு செய்யலாம்!`)
+            : sanitizeHumanText(`Welcome to Student RSO Brain Guide!
+
+I am your unified human-format guide across all 10 platform modules:
+• Module 01: Scholarship Hub, eligibility matching and renewal alerts
+• Module 02: Safety & Anti-Ragging reporting, with 24/7 emergency helplines
+• Module 03: e-Sevai revenue certificates (Community, Income, First Graduate)
+• Module 04: Exams & Opportunity Hub (TNPSC, NEET, JEE, UPSC, 56+ exams)
+• Module 05: Autonomous Career Assistant evaluating Class 10 to PhD
+• Module 06: Admissions, transfers, and break of study re-entry
+• Module 07: Academic Support with SWAYAM, NPTEL, and NCERT materials
+• Module 08: Verified government internships, NATS, and TN Velaivaaippu
+• Module 09: Language and Soft-Skills Lab for interview prep
+• Module 10: Digital Safety Shield and 1930 cyber fraud helpline
+
+Tap the microphone to speak with me or type your question below!`),
         suggestedRoutes: [
-          { label: '🎓 Scholarships (M01)', url: '/scholarships' },
-          { label: '🚨 Safety & 112 (M02)', url: '/safety' },
-          { label: '📜 e-Sevai Certificates (M03)', url: '/certificates' },
-          { label: '📝 Exams Hub (M04)', url: '/exams' },
+          { label: language === 'ta' ? 'உதவித்தொகை (M01)' : 'Scholarships (M01)', url: '/scholarships' },
+          { label: language === 'ta' ? 'பாதுகாப்பு & 112 (M02)' : 'Safety & 112 (M02)', url: '/safety' },
+          { label: language === 'ta' ? 'சான்றிதழ்கள் (M03)' : 'Certificates (M03)', url: '/certificates' },
+          { label: language === 'ta' ? 'தேர்வுகள் (M04)' : 'Exams Hub (M04)', url: '/exams' },
         ],
       };
-      setMessages([welcomeEn]);
+      setMessages([welcomeMsg]);
     }
-  }, [isOpen, messages.length]);
+  }, [isOpen, messages.length, language]);
 
-  // Scroll to bottom on new messages
+  // Scroll to bottom on updates
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading, voiceNotice]);
 
-  // Text-To-Speech (Speech Synthesis) for Tamil and English
-  const speakText = useCallback(
-    (text: string, msgLang: 'en' | 'ta', messageId?: string) => {
-      if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-      const synth = window.speechSynthesis;
-      synth.cancel(); // Stop any active speech
+  // ---------------------------------------------------------------------------
+  // 3. TEXT-TO-SPEECH (SPEECH SYNTHESIS)
+  // ---------------------------------------------------------------------------
+  const speakText = useCallback((text: string, msgLang: 'en' | 'ta', messageId?: string) => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    const synth = window.speechSynthesis;
+    synth.cancel();
 
-      // Clean markdown characters for pleasant listening
-      const cleanText = text
-        .replace(/[*_#`[\]()]/g, '')
-        .replace(/https?:\/\/\S+/g, '')
-        .replace(/•/g, ', ')
-        .trim();
+    // Clean all special characters for natural voice reading
+    const clean = sanitizeHumanText(text)
+      .replace(/[•–—]/g, ', ')
+      .replace(/https?:\/\/\S+/g, '')
+      .trim();
 
-      if (!cleanText) return;
+    if (!clean) return;
 
-      const utterance = new SpeechSynthesisUtterance(cleanText);
-      const isTa = msgLang === 'ta' || isTamilQuery(cleanText);
-      utterance.lang = isTa ? 'ta-IN' : 'en-IN';
-      utterance.rate = isTa ? 0.95 : 1.0;
-      utterance.pitch = 1.0;
+    const utterance = new SpeechSynthesisUtterance(clean);
+    const isTa = msgLang === 'ta' || isTamilQuery(clean);
+    utterance.lang = isTa ? 'ta-IN' : 'en-IN';
+    utterance.rate = isTa ? 0.95 : 1.0;
+    utterance.pitch = 1.0;
 
-      // Select voice if available
-      const voices = synth.getVoices();
-      if (isTa) {
-        const tamilVoice = voices.find(
-          (v) =>
-            v.lang.toLowerCase().includes('ta') ||
-            v.name.toLowerCase().includes('tamil') ||
-            v.name.toLowerCase().includes('india')
-        );
-        if (tamilVoice) utterance.voice = tamilVoice;
-      } else {
-        const engVoice = voices.find(
-          (v) =>
-            v.lang.toLowerCase().includes('en-in') ||
-            v.lang.toLowerCase().includes('en_in') ||
-            v.lang.toLowerCase().includes('en-us')
-        );
-        if (engVoice) utterance.voice = engVoice;
-      }
+    const voices = synth.getVoices();
+    if (isTa) {
+      const tamilVoice = voices.find(
+        (v) =>
+          v.lang.toLowerCase().includes('ta') ||
+          v.name.toLowerCase().includes('tamil') ||
+          v.name.toLowerCase().includes('india')
+      );
+      if (tamilVoice) utterance.voice = tamilVoice;
+    } else {
+      const engVoice = voices.find(
+        (v) =>
+          v.lang.toLowerCase().includes('en-in') ||
+          v.lang.toLowerCase().includes('en_in') ||
+          v.lang.toLowerCase().includes('en-us')
+      );
+      if (engVoice) utterance.voice = engVoice;
+    }
 
-      utterance.onstart = () => {
-        setIsSpeaking(true);
-        if (messageId) setActiveSpeakingId(messageId);
-      };
+    utterance.onstart = () => {
+      setIsSpeaking(true);
+      if (messageId) setActiveSpeakingId(messageId);
+    };
 
-      utterance.onend = () => {
-        setIsSpeaking(false);
-        setActiveSpeakingId(null);
-      };
+    utterance.onend = () => {
+      setIsSpeaking(false);
+      setActiveSpeakingId(null);
+    };
 
-      utterance.onerror = () => {
-        setIsSpeaking(false);
-        setActiveSpeakingId(null);
-      };
+    utterance.onerror = () => {
+      setIsSpeaking(false);
+      setActiveSpeakingId(null);
+    };
 
-      synth.speak(utterance);
-    },
-    []
-  );
+    synth.speak(utterance);
+  }, []);
 
   const stopSpeaking = useCallback(() => {
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
@@ -244,16 +369,70 @@ export function PlatformBrainChatbot() {
     }
   };
 
-  // Send message handler
+  // ---------------------------------------------------------------------------
+  // 4. PER-MESSAGE AUTO TRANSLATE (TEXT & VOICE IN BOTH DIRECTIONS)
+  // ---------------------------------------------------------------------------
+  const handleTranslateMessage = async (msgId: string) => {
+    const targetMsg = messages.find((m) => m.id === msgId);
+    if (!targetMsg || targetMsg.isTranslating) return;
+
+    const nextLang: 'en' | 'ta' = targetMsg.language === 'en' ? 'ta' : 'en';
+
+    // Mark as translating
+    setMessages((prev) =>
+      prev.map((m) => (m.id === msgId ? { ...m, isTranslating: true } : m))
+    );
+
+    try {
+      const res = await fetch('/api/platform-guide', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'translate',
+          text: targetMsg.content,
+          targetLanguage: nextLang,
+        }),
+      });
+
+      if (!res.ok) throw new Error('Translation failed');
+
+      const data = await res.json();
+      const cleanReply = sanitizeHumanText(data.reply);
+
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === msgId
+            ? {
+                ...m,
+                content: cleanReply,
+                language: nextLang,
+                isTranslating: false,
+              }
+            : m
+        )
+      );
+
+      // If voice out enabled, read out translated version
+      if (voiceOutEnabled) {
+        speakText(cleanReply, nextLang, msgId);
+      }
+    } catch (err) {
+      console.error('Translation error:', err);
+      setMessages((prev) =>
+        prev.map((m) => (m.id === msgId ? { ...m, isTranslating: false } : m))
+      );
+    }
+  };
+
+  // ---------------------------------------------------------------------------
+  // 5. SEND MESSAGE HANDLER
+  // ---------------------------------------------------------------------------
   const handleSendMessage = async (textToSend?: string) => {
     const text = (textToSend || inputValue).trim();
     if (!text || isLoading) return;
 
-    // Detect language
+    // Detect language preference from query or active selector
     const queryLang: 'en' | 'ta' = isTamilQuery(text) ? 'ta' : language;
-    if (queryLang !== language) {
-      setLanguage(queryLang);
-    }
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -285,26 +464,26 @@ export function PlatformBrainChatbot() {
         }),
       });
 
-      if (!res.ok) {
-        throw new Error(`Server returned ${res.status}`);
-      }
+      if (!res.ok) throw new Error(`Server returned ${res.status}`);
 
       const data = await res.json();
       const botMessageId = `bot-${Date.now()}`;
+      const cleanContent = sanitizeHumanText(data.reply);
+      const resLang = data.language || queryLang;
+
       const botMessage: ChatMessage = {
         id: botMessageId,
         role: 'assistant',
-        language: data.language || queryLang,
+        language: resLang,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        content: data.reply,
+        content: cleanContent,
         suggestedRoutes: data.suggestedRoutes,
       };
 
       setMessages((prev) => [...prev, botMessage]);
 
-      // Speak response if voice-out is toggled ON
       if (voiceOutEnabled) {
-        speakText(data.reply, data.language || queryLang, botMessageId);
+        speakText(cleanContent, resLang, botMessageId);
       }
     } catch (err) {
       console.error('Chat error:', err);
@@ -315,13 +494,13 @@ export function PlatformBrainChatbot() {
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         content:
           queryLang === 'ta'
-            ? 'மன்னிக்கவும்! பதிலளிப்பதில் சிறிய பிழை ஏற்பட்டுள்ளது. கீழேயுள்ள வழிகளில் உங்கள் தேவையை தேர்வு செய்யலாம்.'
-            : 'Sorry, I encountered a temporary problem. You can explore the direct module links below:',
+            ? sanitizeHumanText(`மன்னிக்கவும்! பதிலளிப்பதில் சிறிய பிழை ஏற்பட்டுள்ளது. கீழேயுள்ள வழிகளில் உங்கள் தேவையை தேர்வு செய்யலாம்:`)
+            : sanitizeHumanText(`Sorry, I encountered a temporary problem. You can explore the direct module links below:`),
         suggestedRoutes: [
-          { label: '🎓 Scholarships (M01)', url: '/scholarships' },
-          { label: '🚨 Safety & 112 (M02)', url: '/safety' },
-          { label: '📜 e-Sevai Certificates (M03)', url: '/certificates' },
-          { label: '📝 Exams Hub (M04)', url: '/exams' },
+          { label: 'Scholarships (M01)', url: '/scholarships' },
+          { label: 'Safety & 112 (M02)', url: '/safety' },
+          { label: 'Certificates (M03)', url: '/certificates' },
+          { label: 'Exams Hub (M04)', url: '/exams' },
         ],
       };
       setMessages((prev) => [...prev, fallbackMessage]);
@@ -336,94 +515,175 @@ export function PlatformBrainChatbot() {
     setInputValue('');
   };
 
+  // Compute smart dialog placement relative to movable button
+  const getDialogStyle = (): React.CSSProperties => {
+    if (typeof window === 'undefined') {
+      return { bottom: '20px', right: '20px' };
+    }
+
+    const isMobile = window.innerWidth < 640;
+    if (isMobile) {
+      return {
+        position: 'fixed',
+        bottom: '12px',
+        left: '12px',
+        right: '12px',
+        zIndex: 9999,
+      };
+    }
+
+    const currX = position?.x ?? (window.innerWidth - 76);
+    const currY = position?.y ?? (window.innerHeight - 84);
+
+    const dialogWidth = 380;
+    const dialogHeight = 540;
+
+    let left = currX > window.innerWidth / 2 ? currX - dialogWidth + 56 : currX;
+    let top = currY > window.innerHeight / 2 ? currY - dialogHeight - 12 : currY + 64;
+
+    left = Math.max(16, Math.min(window.innerWidth - dialogWidth - 16, left));
+    top = Math.max(16, Math.min(window.innerHeight - dialogHeight - 16, top));
+
+    return {
+      position: 'fixed',
+      left: `${left}px`,
+      top: `${top}px`,
+      zIndex: 9999,
+    };
+  };
+
   return (
     <>
       {/* =========================================================================
-          1. FLOATING BRAIN THEME BUTTON (Visible across all 11 pages)
+          1. MOVABLE BRAIN THEME BUTTON (Freely draggable across all pages)
       ========================================================================= */}
-      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
-        {!isOpen && (
-          <div className="mb-2 hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#8c2f39] text-[#fffdf9] text-xs font-semibold shadow-lg border border-[#e09f3e]/40 animate-bounce">
-            <Sparkles size={13} className="text-[#e09f3e]" />
+      <div
+        style={
+          position
+            ? {
+                position: 'fixed',
+                left: `${position.x}px`,
+                top: `${position.y}px`,
+                zIndex: 9998,
+                touchAction: 'none',
+              }
+            : {
+                position: 'fixed',
+                bottom: '24px',
+                right: '24px',
+                zIndex: 9998,
+                touchAction: 'none',
+              }
+        }
+        className="select-none flex flex-col items-center"
+      >
+        {!isOpen && !isDragging && (
+          <div className="mb-2 hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8c2f39] text-[#fffdf9] text-[11px] font-semibold shadow-lg border border-[#e09f3e]/40 pointer-events-none">
+            <Sparkles size={12} className="text-[#e09f3e]" />
             <span>Brain Guide • தமிழ் & English</span>
           </div>
         )}
 
         <button
           type="button"
-          onClick={() => {
-            if (isOpen) {
-              stopSpeaking();
-              setIsOpen(false);
-            } else {
-              setIsOpen(true);
-            }
-          }}
-          className={`group relative flex items-center justify-center rounded-full transition-all duration-300 shadow-xl cursor-pointer ${
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          className={`group relative flex items-center justify-center rounded-full transition-shadow duration-200 shadow-xl select-none ${
+            isDragging ? 'cursor-grabbing scale-105' : 'cursor-grab'
+          } ${
             isOpen
               ? 'w-12 h-12 bg-[#2b2118] text-[#fffdf9] hover:bg-[#8c2f39]'
-              : 'w-14 h-14 bg-gradient-to-br from-[#8c2f39] via-[#6d1824] to-[#4a0e17] text-white hover:scale-105 hover:shadow-2xl ring-4 ring-[#e09f3e]/30'
+              : 'w-14 h-14 bg-gradient-to-br from-[#8c2f39] via-[#6d1824] to-[#4a0e17] text-white hover:scale-105 ring-4 ring-[#e09f3e]/35'
           }`}
-          aria-label={isOpen ? 'Close Student RSO Brain Guide' : 'Open Student RSO Brain Guide'}
-          title="Student RSO Brain Guide (All-Modules Voice & Chat Assistant)"
+          aria-label={isOpen ? 'Close Brain Guide' : 'Open Brain Guide (Drag to Move)'}
+          title="Student RSO Brain Guide — Drag to move, tap to open"
         >
           {isOpen ? (
             <X size={22} />
           ) : (
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center pointer-events-none">
               <Brain size={26} className="text-[#e09f3e] transition-transform group-hover:rotate-6" />
               <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white animate-pulse" />
             </div>
           )}
         </button>
+
+        {!isOpen && (
+          <div className="mt-1 flex items-center gap-0.5 text-[9px] text-[#8c2f39] font-bold bg-[#fffdf9]/90 px-1.5 py-0.5 rounded-full border border-[#d8c7ad] shadow-2xs pointer-events-none">
+            <GripHorizontal size={10} className="text-[#92400e]" />
+            <span>Move</span>
+          </div>
+        )}
       </div>
 
       {/* =========================================================================
-          2. COMPACT FLOATING CHATBOT WINDOW (Small size, responsive)
+          2. COMPACT FLOATING CHATBOT WINDOW (Human-formatted, Zero Asterisks)
       ========================================================================= */}
       {isOpen && (
         <div
           role="dialog"
           aria-label="Student RSO Brain Guide"
-          className="fixed bottom-20 right-3 sm:bottom-24 sm:right-6 z-50 w-[94vw] sm:w-[380px] h-[530px] max-h-[82vh] flex flex-col rounded-2xl shadow-2xl border border-[#d8c7ad] bg-[#fffdf9] overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200"
-          style={{ fontFamily: 'var(--font-sans)' }}
+          style={getDialogStyle()}
+          className="w-[94vw] sm:w-[380px] h-[530px] max-h-[82vh] flex flex-col rounded-2xl shadow-2xl border border-[#d8c7ad] bg-[#fffdf9] overflow-hidden animate-in fade-in zoom-in-95 duration-150"
         >
           {/* Header */}
           <div className="flex items-center justify-between px-3.5 py-3 bg-gradient-to-r from-[#8c2f39] to-[#6d1824] text-white border-b border-[#a63d48]">
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-xl bg-white/15 flex items-center justify-center border border-white/20">
                 <Brain size={18} className="text-[#e09f3e]" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <h3 className="font-serif font-bold text-sm tracking-wide leading-tight">Brain Guide</h3>
-                  <span className="px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-400/30">
+                  <span className="px-1.5 py-0.2 rounded-full bg-emerald-500/25 text-emerald-200 text-[10px] font-bold border border-emerald-400/30">
                     LIVE
                   </span>
                 </div>
                 <p className="text-[10px] text-[#f6ede0] leading-none mt-0.5">
-                  All 11 Modules • தமிழ் & English
+                  Universal Guide • தமிழ் & English
                 </p>
               </div>
             </div>
 
-            {/* Header controls: Language, Voice Output, Clear, Minimize */}
-            <div className="flex items-center gap-1">
-              {/* Language Switcher */}
-              <button
-                type="button"
-                onClick={() => {
-                  const nextLang = language === 'en' ? 'ta' : 'en';
-                  setLanguage(nextLang);
-                  stopSpeaking();
-                }}
-                className="px-2 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-[11px] font-bold text-white transition flex items-center gap-1 cursor-pointer border border-white/15"
-                title="Switch Language / மொழி மாற்றம்"
-              >
-                <span>{language === 'en' ? 'EN' : 'தமிழ்'}</span>
-              </button>
+            {/* Header controls: Distinct 2-button Language Selector, Voice, Clear, Minimize */}
+            <div className="flex items-center gap-1.5">
+              {/* Segmented Language Selector (Completely eliminates inverted/opposite confusion) */}
+              <div className="flex items-center rounded-lg bg-black/25 p-0.5 border border-white/20">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLanguage('en');
+                    stopSpeaking();
+                  }}
+                  className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition cursor-pointer ${
+                    language === 'en'
+                      ? 'bg-[#e09f3e] text-[#2b2118] shadow-xs'
+                      : 'text-white/80 hover:text-white'
+                  }`}
+                  title="Answer in English"
+                >
+                  EN
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLanguage('ta');
+                    stopSpeaking();
+                  }}
+                  className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition cursor-pointer ${
+                    language === 'ta'
+                      ? 'bg-[#e09f3e] text-[#2b2118] shadow-xs'
+                      : 'text-white/80 hover:text-white'
+                  }`}
+                  title="தமிழில் பதிலளிக்க"
+                >
+                  தமிழ்
+                </button>
+              </div>
 
-              {/* Voice Output Read-Aloud Toggle */}
+              {/* Voice Read-Aloud Toggle */}
               <button
                 type="button"
                 onClick={() => {
@@ -491,28 +751,31 @@ export function PlatformBrainChatbot() {
           )}
 
           {/* Chat Messages Body */}
-          <div className="flex-1 overflow-y-auto p-3.5 space-y-3.5 bg-[#fffdf9]">
+          <div className="flex-1 overflow-y-auto p-3.5 space-y-3 bg-[#fffdf9]">
             {messages.map((msg) => (
               <div
                 key={msg.id}
                 className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}
               >
                 <div
-                  className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-xs leading-relaxed shadow-2xs ${
+                  className={`max-w-[90%] rounded-2xl px-3.5 py-2.5 text-xs leading-relaxed shadow-2xs ${
                     msg.role === 'user'
-                      ? 'bg-[#8c2f39] text-white rounded-br-xs'
+                      ? 'bg-[#8c2f39] text-white rounded-br-xs font-medium'
                       : 'bg-white text-[#2b2118] border border-[#efe3cc] rounded-bl-xs'
                   }`}
                 >
-                  {/* Assistant Icon header */}
+                  {/* Assistant Header with Language & Controls */}
                   {msg.role === 'assistant' && (
-                    <div className="flex items-center justify-between gap-2 mb-1.5 pb-1 border-b border-[#efe3cc]">
-                      <div className="flex items-center gap-1 text-[11px] font-bold text-[#8c2f39]">
+                    <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-[#efe3cc]">
+                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#8c2f39]">
                         <Brain size={13} className="text-[#8c2f39]" />
                         <span>Student RSO Guide</span>
+                        <span className="text-[9.5px] px-1.5 py-0.2 rounded bg-[#f6ede0] text-[#92400e] font-mono">
+                          {msg.language === 'ta' ? 'தமிழ்' : 'English'}
+                        </span>
                       </div>
 
-                      {/* Listen / Speak Button */}
+                      {/* Top Right Action: Listen */}
                       <button
                         type="button"
                         onClick={() => {
@@ -522,50 +785,81 @@ export function PlatformBrainChatbot() {
                             speakText(msg.content, msg.language, msg.id);
                           }
                         }}
-                        className="flex items-center gap-1 text-[10px] text-[#7a6a5a] hover:text-[#8c2f39] font-semibold transition cursor-pointer"
-                        title="Listen to this reply (கேளுங்கள்)"
+                        className="flex items-center gap-1 text-[10.5px] text-[#7a6a5a] hover:text-[#8c2f39] font-semibold transition cursor-pointer"
+                        title={msg.language === 'ta' ? 'கேளுங்கள்' : 'Listen'}
                       >
                         <Volume2
                           size={12}
                           className={activeSpeakingId === msg.id && isSpeaking ? 'text-[#8c2f39] animate-pulse' : ''}
                         />
-                        <span>{activeSpeakingId === msg.id && isSpeaking ? 'Stop' : 'Listen'}</span>
+                        <span>{activeSpeakingId === msg.id && isSpeaking ? 'Stop' : msg.language === 'ta' ? 'கேள்' : 'Listen'}</span>
                       </button>
                     </div>
                   )}
 
-                  {/* Message Content */}
-                  <div className="whitespace-pre-wrap space-y-1">
-                    {msg.content.split('\n\n').map((para, idx) => (
-                      <p key={idx} className="leading-relaxed">
-                        {para}
-                      </p>
-                    ))}
+                  {/* Clean Human-Formatted Content (Zero Asterisks Guaranteed) */}
+                  <div className="space-y-1.5 text-[12px] leading-relaxed text-[#2b2118]">
+                    {sanitizeHumanText(msg.content)
+                      .split('\n\n')
+                      .map((para, idx) => (
+                        <p key={idx} className="whitespace-pre-wrap">
+                          {para}
+                        </p>
+                      ))}
                   </div>
 
-                  {/* Clickable Suggested Module Routes */}
+                  {/* Bottom Action Bar: Instant Auto-Translate Button */}
+                  {msg.role === 'assistant' && (
+                    <div className="mt-2.5 pt-2 border-t border-[#efe3cc] flex items-center justify-between gap-2">
+                      <button
+                        type="button"
+                        onClick={() => handleTranslateMessage(msg.id)}
+                        disabled={msg.isTranslating}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#f6ede0] hover:bg-[#efe3cc] text-[#8c2f39] text-[10.5px] font-bold border border-[#d8c7ad] transition cursor-pointer"
+                        title="Translate text & voice / மொழிபெயர்"
+                      >
+                        {msg.isTranslating ? (
+                          <Loader2 size={11} className="animate-spin text-[#8c2f39]" />
+                        ) : (
+                          <Languages size={11} className="text-[#8c2f39]" />
+                        )}
+                        <span>
+                          {msg.isTranslating
+                            ? 'Translating...'
+                            : msg.language === 'en'
+                            ? 'Translate to தமிழ்'
+                            : 'Translate to English'}
+                        </span>
+                      </button>
+
+                      <span className="text-[9px] text-[#9a8a7a]">{msg.timestamp}</span>
+                    </div>
+                  )}
+
+                  {/* Clean International Suggested Module Action Pills (Zero raw markdown bracket links) */}
                   {msg.suggestedRoutes && msg.suggestedRoutes.length > 0 && (
-                    <div className="mt-2.5 pt-2 border-t border-[#efe3cc] flex flex-wrap gap-1.5">
+                    <div className="mt-2 pt-2 border-t border-[#efe3cc] flex flex-wrap gap-1.5">
                       {msg.suggestedRoutes.map((rt, rIdx) => (
                         <Link
                           key={rIdx}
                           href={rt.url}
                           onClick={() => {
                             stopSpeaking();
-                            // Keep chatbot window state or minimize on navigation if screen is narrow
                             if (window.innerWidth < 640) setIsOpen(false);
                           }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#8c2f39]/10 text-[#8c2f39] hover:bg-[#8c2f39] hover:text-white transition text-[11px] font-bold border border-[#8c2f39]/20"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#f6ede0] text-[#8c2f39] hover:bg-[#8c2f39] hover:text-white transition text-[10.5px] font-bold border border-[#d8c7ad]"
                         >
                           <span>{rt.label}</span>
-                          <ChevronRight size={12} />
+                          <ChevronRight size={11} />
                         </Link>
                       ))}
                     </div>
                   )}
                 </div>
 
-                <span className="text-[9px] text-[#9a8a7a] mt-0.5 px-1">{msg.timestamp}</span>
+                {msg.role === 'user' && (
+                  <span className="text-[9px] text-[#9a8a7a] mt-0.5 px-1">{msg.timestamp}</span>
+                )}
               </div>
             ))}
 
@@ -598,7 +892,7 @@ export function PlatformBrainChatbot() {
             </div>
           </div>
 
-          {/* Chat Input Bar */}
+          {/* Input Bar */}
           <div className="p-2.5 bg-white border-t border-[#efe3cc]">
             <form
               onSubmit={(e) => {
@@ -607,45 +901,44 @@ export function PlatformBrainChatbot() {
               }}
               className="flex items-center gap-1.5"
             >
-              {/* Inbuilt Voice Input Microphone Button */}
+              {/* Inbuilt Microphone Voice Input Button */}
               <button
                 type="button"
                 onClick={toggleListening}
-                className={`p-2 rounded-xl transition cursor-pointer shrink-0 border ${
+                className={`p-2.5 rounded-xl transition cursor-pointer shrink-0 border ${
                   isListening
-                    ? 'bg-red-600 text-white border-red-700 animate-pulse ring-2 ring-red-400'
+                    ? 'bg-red-600 text-white border-red-700 animate-pulse'
                     : 'bg-[#f6ede0] text-[#8c2f39] hover:bg-[#8c2f39] hover:text-white border-[#d8c7ad]'
                 }`}
                 title={
                   isListening
-                    ? 'Listening... Tap to stop'
+                    ? 'Listening... Click to stop'
                     : language === 'ta'
-                    ? 'தமிழில் பேச மைக் அழுத்தவும் (Tap for Tamil Voice)'
-                    : 'Voice Assistant: Tap to speak in English'
+                    ? 'தமிழில் பேச கிளிக் செய்யவும் (Voice Input in Tamil)'
+                    : 'Click to speak in English (Voice Input)'
                 }
+                aria-label="Voice Input Microphone"
               >
-                {isListening ? <MicOff size={16} /> : <Mic size={16} />}
+                <Mic size={17} />
               </button>
 
-              {/* Text Input */}
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder={
                   language === 'ta'
-                    ? 'Student RSO பற்றி கேட்கவும்...'
-                    : 'Ask anything about Student RSO...'
+                    ? 'Student RSO பற்றி எதையும் கேட்கலாம்...'
+                    : 'Ask about any module, safety, or scholarships...'
                 }
-                className="flex-1 px-3 py-2 rounded-xl border border-[#d8c7ad] bg-[#fffdf9] text-xs text-[#2b2118] placeholder:text-[#9a8a7a] outline-none focus:border-[#8c2f39] focus:ring-1 focus:ring-[#8c2f39]"
+                className="flex-1 bg-[#fffdf9] border border-[#d8c7ad] rounded-xl px-3 py-2 text-xs text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39] transition"
               />
 
-              {/* Send Button */}
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isLoading}
-                className="p-2 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer shrink-0 shadow-xs"
-                title="Send Message"
+                className="p-2.5 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] disabled:opacity-40 disabled:cursor-not-allowed text-white transition cursor-pointer shrink-0"
+                aria-label="Send message"
               >
                 <Send size={15} />
               </button>
