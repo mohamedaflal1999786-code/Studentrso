@@ -1054,7 +1054,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                 className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {busy ? <Loader2 size={16} className="animate-spin" /> : <CheckCircle2 size={16} />}
-                <span>Save & Complete Dashboard</span>
+                <span>Save & Complete Profile</span>
               </button>
             )}
           </div>

@@ -201,7 +201,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
         >
           <img
             alt="Student RSO Emblem"
-            className="h-9 sm:h-11 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform"
+            className="h-9 w-[46px] sm:h-11 sm:w-[56px] object-contain shrink-0 group-hover:scale-105 transition-transform aspect-[122/96]"
             src="/images/student-rso-emblem.jpg"
             width={56}
             height={44}

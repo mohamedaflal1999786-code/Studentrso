@@ -17,11 +17,11 @@ export function Hero({ onNavigate }: HeroProps) {
         </div>
 
         {/* 1. Main Heading */}
-        <h1 className="flex flex-col items-center tracking-tight leading-[1.12]">
-          <span className="font-serif text-[40px] sm:text-[56px] lg:text-[68px] font-bold text-[#2b2118]">
+        <h1 className="flex flex-col items-center tracking-tight leading-[1.12] min-h-[90px] sm:min-h-[130px] lg:min-h-[160px]">
+          <span className="font-serif text-[32px] xs:text-[40px] sm:text-[56px] lg:text-[68px] font-bold text-[#2b2118] text-balance">
             Everything Students Need.
           </span>
-          <span className="font-serif italic text-[#8c2f39] text-[38px] sm:text-[52px] lg:text-[64px] mt-1 sm:mt-2">
+          <span className="font-serif italic text-[#8c2f39] text-[30px] xs:text-[38px] sm:text-[52px] lg:text-[64px] mt-1 sm:mt-2 text-balance">
             One Trusted Place.
           </span>
         </h1>

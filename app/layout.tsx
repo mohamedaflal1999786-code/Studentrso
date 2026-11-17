@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Newsreader } from 'next/font/google';
 import { AuthProvider } from '@/lib/auth-context';
+import { PlatformBrainChatbot } from '@/components/chatbot/PlatformBrainChatbot';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
 const newsreader = Newsreader({
@@ -97,6 +98,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-3381210415508925" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" as="image" href="/images/student-rso-emblem.jpg" fetchPriority="high" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -113,7 +118,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.variable} ${newsreader.variable}`} style={{ fontFamily: 'var(--font-sans)' }}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <PlatformBrainChatbot />
+        </AuthProvider>
       </body>
     </html>
   );

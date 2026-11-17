@@ -60,11 +60,23 @@ export async function POST(request: Request) {
       payload.notes = body.notes.trim();
     }
 
-    const { data, error } = await client
+    let { data, error } = await client
       .from('scholarship_bookmarks')
       .upsert(payload, { onConflict: 'user_id,scholarship_id' })
       .select()
       .maybeSingle();
+
+    // Resilient fallback: if column 'notes' does not exist yet in live database schema (code 42703)
+    if (error && (error.code === '42703' || String(error.message).includes('notes'))) {
+      delete payload.notes;
+      const retryResult = await client
+        .from('scholarship_bookmarks')
+        .upsert(payload, { onConflict: 'user_id,scholarship_id' })
+        .select()
+        .maybeSingle();
+      data = retryResult.data;
+      error = retryResult.error;
+    }
 
     if (error) throw error;
 

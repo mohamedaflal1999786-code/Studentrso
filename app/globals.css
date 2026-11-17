@@ -44,6 +44,13 @@
 }
 
 @layer utilities {
+  /* AdSense layout stabilization to prevent CLS */
+  ins.adsbygoogle {
+    display: block !important;
+    min-height: 50px;
+    overflow: hidden;
+  }
+
   .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
     font-weight: normal;

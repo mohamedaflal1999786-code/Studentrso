@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /api/auth/session
+Allow: /api/
 Disallow: /auth/callback
 Disallow: /dashboard
 

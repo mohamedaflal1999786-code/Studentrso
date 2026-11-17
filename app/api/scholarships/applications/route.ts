@@ -88,11 +88,24 @@ export async function POST(request: Request) {
       insertData.student_notes = body.notes.trim();
     }
 
-    const { data, error } = await client
+    let { data, error } = await client
       .from('scholarship_applications')
       .upsert(insertData, { onConflict: 'user_id,scholarship_id,academic_year' })
       .select()
       .maybeSingle();
+
+    // Resilient fallback: if columns like institution_verified_self_report or student_notes do not exist yet (code 42703)
+    if (error && (error.code === '42703' || String(error.message).includes('does not exist'))) {
+      delete insertData.institution_verified_self_report;
+      delete insertData.student_notes;
+      const retryResult = await client
+        .from('scholarship_applications')
+        .upsert(insertData, { onConflict: 'user_id,scholarship_id,academic_year' })
+        .select()
+        .maybeSingle();
+      data = retryResult.data;
+      error = retryResult.error;
+    }
 
     if (error) throw error;
 
@@ -161,13 +174,28 @@ export async function PUT(request: Request) {
     if (body.disbursedAmount !== undefined) updatePayload.disbursed_amount = body.disbursedAmount;
     if (body.notes !== undefined) updatePayload.student_notes = body.notes;
 
-    const { data, error } = await client
+    let { data, error } = await client
       .from('scholarship_applications')
       .update(updatePayload)
       .eq('id', id)
       .eq('user_id', user.id)
       .select()
       .maybeSingle();
+
+    // Resilient fallback: if columns do not exist yet (code 42703)
+    if (error && (error.code === '42703' || String(error.message).includes('does not exist'))) {
+      delete updatePayload.institution_verified_self_report;
+      delete updatePayload.student_notes;
+      const retryResult = await client
+        .from('scholarship_applications')
+        .update(updatePayload)
+        .eq('id', id)
+        .eq('user_id', user.id)
+        .select()
+        .maybeSingle();
+      data = retryResult.data;
+      error = retryResult.error;
+    }
 
     if (error) throw error;
     if (!data) {
