@@ -17,7 +17,7 @@ const jiti = require(path.join(projectRoot, 'node_modules/jiti'))(import.meta.ur
 
 console.log('=============================================================================');
 console.log('STUDENT RSO 2.0 — UNIVERSAL PLATFORM BRAIN CHATBOT & SEARCH TEST');
-console.log('Verifying Laptop Movable Drag, Pure Icon Clean UI, and Universal Search Bar');
+console.log('Verifying Laptop Movable Drag, Pure Icon Clean UI, and Landing Page Integrity');
 console.log('=============================================================================');
 
 const {
@@ -27,10 +27,6 @@ const {
   sanitizeHumanText,
   translatePlatformText,
 } = jiti(path.join(projectRoot, 'lib/platform-guide-engine.ts'));
-
-const { PLATFORM_SEARCH_INDEX } = jiti(
-  path.join(projectRoot, 'lib/platform-search-index.ts')
-);
 
 // -----------------------------------------------------------------------------
 // TEST 01: Onboarding Step 06 Label Verification
@@ -217,19 +213,12 @@ assert.ok(!enTranslated.includes('*'), 'Translated text must not contain asteris
 console.log('✓ Test 12 Passed: Bidirectional Auto-Translate (Tamil & English) with text and voice verified');
 
 // -----------------------------------------------------------------------------
-// TEST 13: Universal Search Bar Above in Index Page
+// TEST 13: Search Bar Totally Removed from Landing Page
 // -----------------------------------------------------------------------------
-assert.ok(PLATFORM_SEARCH_INDEX.length >= 20, 'Search index must contain all 10 modules and essential shortcuts');
-assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/scholarships'), 'Index must contain Scholarships');
-assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/safety'), 'Index must contain Safety & 112');
-assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/certificates'), 'Index must contain Certificates');
-assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/exams'), 'Index must contain Exams Hub');
-assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/admissions'), 'Index must contain Admissions');
-assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/digital-safety'), 'Index must contain Digital Safety 1930');
-
 const heroFile = fs.readFileSync(path.join(projectRoot, 'components/sections/Hero.tsx'), 'utf8');
-assert.ok(heroFile.includes('UniversalPlatformSearch'), 'Hero section must include UniversalPlatformSearch above on index page');
-console.log('✓ Test 13 Passed: Universal Search Bar indexes all modules & shortcuts and is integrated above on index page');
+assert.ok(!heroFile.includes('UniversalPlatformSearch'), 'Hero section must not include UniversalPlatformSearch (totally removed per user request)');
+assert.ok(!heroFile.includes('<input'), 'Hero section must not include any search bar input');
+console.log('✓ Test 13 Passed: Search bar totally removed from index page / landing page verified');
 
 // -----------------------------------------------------------------------------
 // TEST 14: Google AdSense CSP & Robots.txt Verification

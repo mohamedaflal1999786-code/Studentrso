@@ -1,7 +1,6 @@
 'use client';
 
 import { AppIcon } from '@/components/AppIcon';
-import { UniversalPlatformSearch } from '@/components/search/UniversalPlatformSearch';
 
 interface HeroProps {
   onNavigate: (id: string) => void;
@@ -31,14 +30,9 @@ export function Hero({ onNavigate }: HeroProps) {
         <div className="w-24 sm:w-32 h-1 bg-[#e0a526] rounded-full mx-auto mt-5 sm:mt-6 mb-8 sm:mb-10" />
 
         {/* Supporting description */}
-        <p className="font-sans text-[16px] sm:text-[19px] lg:text-[20px] text-[#5c4a3b] max-w-2xl leading-relaxed mb-8">
+        <p className="font-sans text-[16px] sm:text-[19px] lg:text-[20px] text-[#5c4a3b] max-w-2xl leading-relaxed mb-10">
           A student-first digital public platform connecting learners with trusted services, educational support, official resources, and verified opportunities throughout their academic journey.
         </p>
-
-        {/* Unique & Minimal Search Bar (All Details & Shortcuts) */}
-        <div className="w-full mb-10 z-20">
-          <UniversalPlatformSearch />
-        </div>
 
         {/* Two Primary Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
