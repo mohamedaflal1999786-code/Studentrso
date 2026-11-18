@@ -5,4 +5,11 @@ Allow: /api/
 Disallow: /auth/callback
 Disallow: /dashboard
 
+# Google AdSense Ad Review & Crawler Access
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Google-Display-Ads-Bot
+Allow: /
+
 Sitemap: https://www.studentrso.in/sitemap.xml

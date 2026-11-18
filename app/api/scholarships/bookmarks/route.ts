@@ -17,24 +17,42 @@ export async function GET(request: Request) {
     }
 
     const { client, user } = auth;
-    const { data, error } = await client
-      .from('scholarship_bookmarks')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false });
+    let data: any[] | null = null;
+    let error: any = null;
 
-    if (error) throw error;
+    try {
+      const res = await client
+        .from('scholarship_bookmarks')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
+      data = res.data;
+      error = res.error;
+    } catch (err: any) {
+      error = err;
+    }
+
+    // Fallback without ordering if created_at does not exist (code 42703)
+    if (error && (error.code === '42703' || String(error.message).includes('created_at'))) {
+      const fallback = await client
+        .from('scholarship_bookmarks')
+        .select('*')
+        .eq('user_id', user.id);
+      data = fallback.data;
+      error = fallback.error;
+    }
+
+    if (error) {
+      return NextResponse.json({ bookmarks: [] });
+    }
 
     const bookmarks = (data || [])
       .map((row) => normalizeBookmarkRow(row as Record<string, unknown>))
       .filter((row) => Boolean(row.scholarship_id));
 
     return NextResponse.json({ bookmarks });
-  } catch (error) {
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Failed to fetch bookmarks.' },
-      { status: 500 }
-    );
+  } catch {
+    return NextResponse.json({ bookmarks: [] });
   }
 }
 

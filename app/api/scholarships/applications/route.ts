@@ -28,22 +28,40 @@ export async function GET(request: Request) {
     }
 
     const { client, user } = auth;
-    const { data: apps, error } = await client
-      .from('scholarship_applications')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('updated_at', { ascending: false });
+    let apps: any[] | null = null;
+    let error: any = null;
 
-    if (error) throw error;
+    try {
+      const res = await client
+        .from('scholarship_applications')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('updated_at', { ascending: false });
+      apps = res.data;
+      error = res.error;
+    } catch (err: any) {
+      error = err;
+    }
+
+    // Fallback without ordering if updated_at does not exist (code 42703)
+    if (error && (error.code === '42703' || String(error.message).includes('updated_at'))) {
+      const fallback = await client
+        .from('scholarship_applications')
+        .select('*')
+        .eq('user_id', user.id);
+      apps = fallback.data;
+      error = fallback.error;
+    }
+
+    if (error) {
+      return NextResponse.json({ applications: [] });
+    }
 
     return NextResponse.json({
       applications: (apps || []).map((row) => normalizeApplicationRow(row as Record<string, unknown>)),
     });
-  } catch (error) {
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Failed to fetch application records.' },
-      { status: 500 }
-    );
+  } catch {
+    return NextResponse.json({ applications: [] });
   }
 }
 

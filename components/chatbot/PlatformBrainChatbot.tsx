@@ -16,7 +16,6 @@ import {
   Loader2,
   ChevronRight,
   Languages,
-  GripHorizontal,
 } from 'lucide-react';
 import { isTamilQuery, sanitizeHumanText } from '@/lib/platform-guide-engine';
 
@@ -69,7 +68,7 @@ export function PlatformBrainChatbot() {
   // Movable button coordinate state
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const dragRef = useRef<{ startX: number; startY: number; posX: number; posY: number; moved: boolean } | null>(null);
+  const dragJustEndedRef = useRef(false);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const recognitionRef = useRef<any>(null);
@@ -103,65 +102,68 @@ export function PlatformBrainChatbot() {
     return () => window.removeEventListener('resize', initPos);
   }, []);
 
-  // Pointer drag handlers for desktop and mobile touch
+  // Universal Pointer Drag Handler (Optimized for laptops, touchpads, mice, and mobile touchscreens)
   const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
-    if (e.button !== 0) return; // Only primary mouse button or touch
-    try {
-      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-    } catch {}
+    if (e.button !== 0) return; // Only primary mouse button / touch
 
-    const currX = position?.x ?? (window.innerWidth - 76);
-    const currY = position?.y ?? (window.innerHeight - 84);
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const initX = position?.x ?? (window.innerWidth - 76);
+    const initY = position?.y ?? (window.innerHeight - 84);
+    let hasMoved = false;
 
-    dragRef.current = {
-      startX: e.clientX,
-      startY: e.clientY,
-      posX: currX,
-      posY: currY,
-      moved: false,
-    };
-  };
+    const onMove = (moveEv: PointerEvent) => {
+      const deltaX = moveEv.clientX - startX;
+      const deltaY = moveEv.clientY - startY;
+      const distance = Math.hypot(deltaX, deltaY);
 
-  const handlePointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
-    if (!dragRef.current) return;
-    const deltaX = e.clientX - dragRef.current.startX;
-    const deltaY = e.clientY - dragRef.current.startY;
-    const distance = Math.hypot(deltaX, deltaY);
-
-    if (distance > 5) {
-      dragRef.current.moved = true;
-      setIsDragging(true);
-
-      const nextX = Math.max(10, Math.min(window.innerWidth - 68, dragRef.current.posX + deltaX));
-      const nextY = Math.max(10, Math.min(window.innerHeight - 68, dragRef.current.posY + deltaY));
-      setPosition({ x: nextX, y: nextY });
-    }
-  };
-
-  const handlePointerUp = (e: React.PointerEvent<HTMLButtonElement>) => {
-    if (!dragRef.current) return;
-    const wasMoved = dragRef.current.moved;
-
-    try {
-      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
-    } catch {}
-
-    dragRef.current = null;
-    setTimeout(() => setIsDragging(false), 60);
-
-    if (wasMoved && position) {
-      try {
-        localStorage.setItem('studentrso_brain_pos', JSON.stringify(position));
-      } catch {}
-    } else if (!wasMoved) {
-      // Clean tap or click: toggle open/close
-      if (isOpen) {
-        stopSpeaking();
-        setIsOpen(false);
-      } else {
-        setIsOpen(true);
+      // 12px threshold ensures laptop trackpad clicks are NEVER mistaken for a drag
+      if (!hasMoved && distance > 12) {
+        hasMoved = true;
+        setIsDragging(true);
       }
-    }
+
+      if (hasMoved) {
+        const nextX = Math.max(12, Math.min(window.innerWidth - 68, initX + deltaX));
+        const nextY = Math.max(12, Math.min(window.innerHeight - 68, initY + deltaY));
+        setPosition({ x: nextX, y: nextY });
+      }
+    };
+
+    const onUp = (upEv: PointerEvent) => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
+
+      setIsDragging(false);
+
+      if (hasMoved) {
+        dragJustEndedRef.current = true;
+        setTimeout(() => {
+          dragJustEndedRef.current = false;
+        }, 120);
+
+        const deltaX = upEv.clientX - startX;
+        const deltaY = upEv.clientY - startY;
+        const finalX = Math.max(12, Math.min(window.innerWidth - 68, initX + deltaX));
+        const finalY = Math.max(12, Math.min(window.innerHeight - 68, initY + deltaY));
+        try {
+          localStorage.setItem('studentrso_brain_pos', JSON.stringify({ x: finalX, y: finalY }));
+        } catch {}
+      } else {
+        // Clean tap/click on laptop or mobile: toggle open/close
+        if (isOpen) {
+          stopSpeaking();
+          setIsOpen(false);
+        } else {
+          setIsOpen(true);
+        }
+      }
+    };
+
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
   };
 
   // ---------------------------------------------------------------------------
@@ -555,7 +557,7 @@ Tap the microphone to speak with me or type your question below!`),
   return (
     <>
       {/* =========================================================================
-          1. MOVABLE BRAIN THEME BUTTON (Freely draggable across all pages)
+          1. MOVABLE BRAIN THEME BUTTON (Freely draggable across all pages, clean icon)
       ========================================================================= */}
       <div
         style={
@@ -575,30 +577,29 @@ Tap the microphone to speak with me or type your question below!`),
                 touchAction: 'none',
               }
         }
-        className="select-none flex flex-col items-center"
+        className="select-none flex items-center justify-center"
       >
-        {!isOpen && !isDragging && (
-          <div className="mb-2 hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8c2f39] text-[#fffdf9] text-[11px] font-semibold shadow-lg border border-[#e09f3e]/40 pointer-events-none">
-            <Sparkles size={12} className="text-[#e09f3e]" />
-            <span>Brain Guide • தமிழ் & English</span>
-          </div>
-        )}
-
         <button
           type="button"
           onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-          className={`group relative flex items-center justify-center rounded-full transition-shadow duration-200 shadow-xl select-none ${
-            isDragging ? 'cursor-grabbing scale-105' : 'cursor-grab'
+          onClick={() => {
+            if (dragJustEndedRef.current) return;
+            if (isOpen) {
+              stopSpeaking();
+              setIsOpen(false);
+            } else {
+              setIsOpen(true);
+            }
+          }}
+          className={`group relative flex items-center justify-center rounded-full transition-all duration-200 shadow-xl select-none cursor-pointer ${
+            isDragging ? 'cursor-grabbing scale-105 shadow-2xl' : 'cursor-grab hover:scale-105'
           } ${
             isOpen
               ? 'w-12 h-12 bg-[#2b2118] text-[#fffdf9] hover:bg-[#8c2f39]'
-              : 'w-14 h-14 bg-gradient-to-br from-[#8c2f39] via-[#6d1824] to-[#4a0e17] text-white hover:scale-105 ring-4 ring-[#e09f3e]/35'
+              : 'w-14 h-14 bg-gradient-to-br from-[#8c2f39] via-[#6d1824] to-[#4a0e17] text-white ring-4 ring-[#e09f3e]/35 hover:ring-[#e09f3e]/60'
           }`}
-          aria-label={isOpen ? 'Close Brain Guide' : 'Open Brain Guide (Drag to Move)'}
-          title="Student RSO Brain Guide — Drag to move, tap to open"
+          aria-label={isOpen ? 'Close Brain Guide' : 'Open Brain Guide'}
+          title="Student RSO Brain Guide — Click to open, drag to reposition"
         >
           {isOpen ? (
             <X size={22} />
@@ -609,13 +610,6 @@ Tap the microphone to speak with me or type your question below!`),
             </div>
           )}
         </button>
-
-        {!isOpen && (
-          <div className="mt-1 flex items-center gap-0.5 text-[9px] text-[#8c2f39] font-bold bg-[#fffdf9]/90 px-1.5 py-0.5 rounded-full border border-[#d8c7ad] shadow-2xs pointer-events-none">
-            <GripHorizontal size={10} className="text-[#92400e]" />
-            <span>Move</span>
-          </div>
-        )}
       </div>
 
       {/* =========================================================================

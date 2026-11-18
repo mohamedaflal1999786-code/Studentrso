@@ -16,8 +16,8 @@ const jiti = require(path.join(projectRoot, 'node_modules/jiti'))(import.meta.ur
 });
 
 console.log('=============================================================================');
-console.log('STUDENT RSO 2.0 — UNIVERSAL PLATFORM BRAIN CHATBOT & VOICE ASSISTANT TEST');
-console.log('Verifying Movable Draggable Button, Zero Asterisks, Auto-Translate & Language Controls');
+console.log('STUDENT RSO 2.0 — UNIVERSAL PLATFORM BRAIN CHATBOT & SEARCH TEST');
+console.log('Verifying Laptop Movable Drag, Pure Icon Clean UI, and Universal Search Bar');
 console.log('=============================================================================');
 
 const {
@@ -27,6 +27,10 @@ const {
   sanitizeHumanText,
   translatePlatformText,
 } = jiti(path.join(projectRoot, 'lib/platform-guide-engine.ts'));
+
+const { PLATFORM_SEARCH_INDEX } = jiti(
+  path.join(projectRoot, 'lib/platform-search-index.ts')
+);
 
 // -----------------------------------------------------------------------------
 // TEST 01: Onboarding Step 06 Label Verification
@@ -160,14 +164,21 @@ assert.ok(apiRouteFile.includes('POST'), 'API route must export POST handler');
 console.log('✓ Test 08 Passed: /api/platform-guide route endpoint & auto-translate verified');
 
 // -----------------------------------------------------------------------------
-// TEST 09: Movable Draggable Button Verification
+// TEST 09: Laptop Movable Drag & Pure Icon Clean UI (No Move Text, No Above Bubble)
 // -----------------------------------------------------------------------------
-assert.ok(componentFile.includes('onPointerDown'), 'Button must have onPointerDown handler for mouse and touch dragging');
-assert.ok(componentFile.includes('onPointerMove'), 'Button must have onPointerMove handler');
-assert.ok(componentFile.includes('onPointerUp'), 'Button must have onPointerUp handler');
+assert.ok(componentFile.includes('handlePointerDown'), 'Button must have handlePointerDown handler');
+assert.ok(componentFile.includes('pointermove'), 'Must attach window pointermove listener for smooth laptop dragging');
+assert.ok(componentFile.includes('pointerup'), 'Must attach window pointerup listener');
 assert.ok(componentFile.includes('studentrso_brain_pos'), 'Button position must persist in localStorage');
 assert.ok(componentFile.includes('touchAction: \'none\''), 'Button must have touchAction none to prevent page scrolling on mobile');
-console.log('✓ Test 09 Passed: Movable draggable Brain button with touch and mouse dragging verified');
+
+// Verify Move badge is removed
+assert.ok(!componentFile.includes('<span>Move</span>'), 'Must remove "Move" text badge');
+assert.ok(!componentFile.includes('GripHorizontal'), 'Must remove Move grip icon');
+
+// Verify above text bubble is removed
+assert.ok(!componentFile.includes('Brain Guide • தமிழ் & English'), 'Must remove above "Brain Guide • தமிழ் & English" text bubble');
+console.log('✓ Test 09 Passed: Laptop drag support verified and clean pure icon UI confirmed (no move text, no top bubble)');
 
 // -----------------------------------------------------------------------------
 // TEST 10: Segmented Language Control (Never Inverted / Opposite)
@@ -186,7 +197,7 @@ assert.ok(!sanitized.includes('*'), 'Sanitized text must never contain asterisk 
 assert.ok(!sanitized.includes('https://'), 'Sanitized text must never contain raw markdown URLs');
 assert.ok(sanitized.includes('Module 01: 🎓 Scholarships (M01)'), 'Sanitized text must retain human title without brackets');
 
-// Verify knowledge engine has ZERO asterisks
+// Verify knowledge engine has ZERO double asterisks
 const engineFile = fs.readFileSync(path.join(projectRoot, 'lib/platform-guide-engine.ts'), 'utf8');
 assert.equal(engineFile.includes('**'), false, 'Knowledge engine must not contain markdown double asterisks (**) for bold');
 console.log('✓ Test 11 Passed: Zero asterisks (*) rule and clean international human formatting verified');
@@ -205,6 +216,48 @@ assert.equal(isTamilQuery(enTranslated), false, 'Translating to en must return E
 assert.ok(!enTranslated.includes('*'), 'Translated text must not contain asterisks');
 console.log('✓ Test 12 Passed: Bidirectional Auto-Translate (Tamil & English) with text and voice verified');
 
+// -----------------------------------------------------------------------------
+// TEST 13: Universal Search Bar Above in Index Page
+// -----------------------------------------------------------------------------
+assert.ok(PLATFORM_SEARCH_INDEX.length >= 20, 'Search index must contain all 10 modules and essential shortcuts');
+assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/scholarships'), 'Index must contain Scholarships');
+assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/safety'), 'Index must contain Safety & 112');
+assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/certificates'), 'Index must contain Certificates');
+assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/exams'), 'Index must contain Exams Hub');
+assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/admissions'), 'Index must contain Admissions');
+assert.ok(PLATFORM_SEARCH_INDEX.some(item => item.url === '/digital-safety'), 'Index must contain Digital Safety 1930');
+
+const heroFile = fs.readFileSync(path.join(projectRoot, 'components/sections/Hero.tsx'), 'utf8');
+assert.ok(heroFile.includes('UniversalPlatformSearch'), 'Hero section must include UniversalPlatformSearch above on index page');
+console.log('✓ Test 13 Passed: Universal Search Bar indexes all modules & shortcuts and is integrated above on index page');
+
+// -----------------------------------------------------------------------------
+// TEST 14: Google AdSense CSP & Robots.txt Verification
+// -----------------------------------------------------------------------------
+const middlewareFile = fs.readFileSync(path.join(projectRoot, 'middleware.ts'), 'utf8');
+const nextConfigFile = fs.readFileSync(path.join(projectRoot, 'next.config.js'), 'utf8');
+const robotsFile = fs.readFileSync(path.join(projectRoot, 'public/robots.txt'), 'utf8');
+
+assert.ok(middlewareFile.includes('ep1.adtrafficquality.google'), 'Middleware CSP must include ep1.adtrafficquality.google');
+assert.ok(middlewareFile.includes('fundingchoicesmessages.google.com'), 'Middleware CSP must include fundingchoicesmessages.google.com');
+assert.ok(nextConfigFile.includes('ep1.adtrafficquality.google'), 'Next config CSP must include ep1.adtrafficquality.google');
+assert.ok(robotsFile.includes('Mediapartners-Google'), 'robots.txt must allow Mediapartners-Google for AdSense crawlers');
+console.log('✓ Test 14 Passed: Google AdSense CSP & Crawlers (ep1.adtrafficquality.google & Mediapartners-Google) verified');
+
+// -----------------------------------------------------------------------------
+// TEST 15: Supabase Security Advisor & Column Integrity Fixes
+// -----------------------------------------------------------------------------
+const sqlFile = fs.readFileSync(path.join(projectRoot, 'supabase/RUN_IN_SUPABASE_SQL_EDITOR.sql'), 'utf8');
+
+assert.ok(sqlFile.includes('auth_failed_logins'), 'SQL script must configure auth_failed_logins');
+assert.ok(sqlFile.includes('student_document_readiness'), 'SQL script must configure student_document_readiness');
+assert.ok(sqlFile.includes('student_document_reminders'), 'SQL script must configure student_document_reminders');
+assert.ok(sqlFile.includes('NOT c.relrowsecurity'), 'SQL script must dynamically enable RLS for all public tables');
+assert.ok(sqlFile.includes('scholarship_bookmarks ADD COLUMN IF NOT EXISTS notes'), 'SQL script must add scholarship_bookmarks.notes');
+assert.ok(sqlFile.includes('scholarship_applications ADD COLUMN IF NOT EXISTS institution_verified_self_report'), 'SQL script must add scholarship_applications.institution_verified_self_report');
+assert.ok(sqlFile.includes("NOTIFY pgrst, 'reload schema'"), 'SQL script must reload PostgREST schema cache');
+console.log('✓ Test 15 Passed: Supabase Security Advisor & Missing Columns SQL fix script verified');
+
 console.log('=============================================================================');
-console.log('ALL PLATFORM BRAIN CHATBOT & ONBOARDING TESTS PASSED (12/12) — 100% SUCCESS');
+console.log('ALL PLATFORM BRAIN CHATBOT, SEARCH & INTEGRITY TESTS PASSED (15/15) — 100% SUCCESS');
 console.log('=============================================================================');
