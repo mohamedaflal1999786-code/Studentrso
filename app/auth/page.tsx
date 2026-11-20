@@ -20,7 +20,7 @@ function AuthPageContent() {
     return (
       <div className="min-h-screen bg-[#fbf5e9] flex flex-col items-center justify-center p-4 font-sans">
         <div className="w-full max-w-md bg-[#fdfbf6] rounded-3xl border border-[#efe3cc] p-8 shadow-xl text-center space-y-5">
-          <div className="w-16 h-16 rounded-full bg-[#f6ede0] border border-[#d8c7ad] text-[#8c2f39] flex items-center justify-center mx-auto shadow-xs">
+          <div className="w-16 h-16 rounded-full bg-[#f6ede0] border border-[#d8c7ad] text-[#0d3e2e] flex items-center justify-center mx-auto shadow-xs">
             <CheckCircle2 size={36} />
           </div>
           <div>
@@ -34,7 +34,7 @@ function AuthPageContent() {
           <div className="pt-2 flex flex-col gap-2.5">
             <Link
               href="/dashboard"
-              className="w-full py-3 rounded-xl bg-[#8c2f39] text-white font-sans text-sm font-bold hover:bg-[#6d1824] transition text-center shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3 rounded-xl bg-[#0d3e2e] text-white font-sans text-sm font-bold hover:bg-[#08261c] transition text-center shadow-md flex items-center justify-center gap-2"
             >
               <LayoutDashboard size={18} />
               <span>Go to My Student Dashboard</span>
@@ -71,7 +71,7 @@ export default function AuthPage() {
     <Suspense
       fallback={
         <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9]">
-          <Loader2 size={36} className="animate-spin text-[#8c2f39]" />
+          <Loader2 size={36} className="animate-spin text-[#0d3e2e]" />
         </div>
       }
     >

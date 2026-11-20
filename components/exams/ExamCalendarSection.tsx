@@ -78,10 +78,10 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
     <div className="space-y-8 font-sans">
       {/* Header Banner */}
       <div className="rounded-3xl bg-gradient-to-r from-[#fbf5e9] to-[#efe3cc]/60 border border-[#efe3cc] p-6 sm:p-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 mb-3">
           <Calendar className="w-4 h-4" /> Verified Statutory Schedule
         </div>
-        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#8c2f39]">
+        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#0d3e2e]">
           Examination Calendar & Key Deadlines
         </h2>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed">
@@ -98,7 +98,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search exam, month, or date..."
-              className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             />
           </div>
 
@@ -106,7 +106,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
             <select
               value={selectedQuarter}
               onChange={(e) => setSelectedQuarter(e.target.value)}
-              className="px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               {quarters.map((q) => (
                 <option key={q.value} value={q.value}>
@@ -120,7 +120,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
               onClick={() => setFilterType('all')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg border transition ${
                 filterType === 'all'
-                  ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                  ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                   : 'bg-white text-stone-800 border-[#efe3cc] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -131,7 +131,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
               onClick={() => setFilterType('active')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg border transition ${
                 filterType === 'active'
-                  ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                  ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                   : 'bg-white text-stone-800 border-[#efe3cc] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -142,7 +142,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
               onClick={() => setFilterType('upcoming')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg border transition ${
                 filterType === 'upcoming'
-                  ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                  ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                   : 'bg-white text-stone-800 border-[#efe3cc] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -172,13 +172,13 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
                 <tr key={exam.id} className="hover:bg-stone-50/70 transition">
                   <td className="py-4 px-4">
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-xs px-2 py-0.5 rounded bg-[#fbf5e9] text-[#8c2f39] border border-[#efe3cc] shrink-0">
+                      <span className="font-bold text-xs px-2 py-0.5 rounded bg-[#fbf5e9] text-[#0d3e2e] border border-[#efe3cc] shrink-0">
                         {exam.shortCode}
                       </span>
                       <div>
                         <span
                           onClick={() => onSelectExam(exam)}
-                          className="font-semibold text-stone-900 hover:text-[#8c2f39] cursor-pointer block leading-snug"
+                          className="font-semibold text-stone-900 hover:text-[#0d3e2e] cursor-pointer block leading-snug"
                         >
                           {exam.title}
                         </span>
@@ -205,7 +205,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
                     {dates.admitCardRelease}
                   </td>
                   <td className="py-4 px-4 whitespace-nowrap">
-                    <strong className="text-[#8c2f39] font-bold">
+                    <strong className="text-[#0d3e2e] font-bold">
                       {dates.examinationDate}
                     </strong>
                   </td>
@@ -217,7 +217,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
                       <button
                         type="button"
                         onClick={() => onSelectExam(exam)}
-                        className="px-2.5 py-1 text-xs font-bold rounded bg-[#8c2f39] text-white hover:bg-[#72262e] transition"
+                        className="px-2.5 py-1 text-xs font-bold rounded bg-[#0d3e2e] text-white hover:bg-[#061d15] transition"
                       >
                         Details
                       </button>
@@ -225,7 +225,7 @@ export function ExamCalendarSection({ onSelectExam }: ExamCalendarSectionProps) 
                         href={exam.officialApplicationPortalUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1 text-stone-600 hover:text-[#8c2f39] transition"
+                        className="p-1 text-stone-600 hover:text-[#0d3e2e] transition"
                         title="Official Application Portal"
                       >
                         <ExternalLink className="w-4 h-4" />

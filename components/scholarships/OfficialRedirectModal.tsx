@@ -29,7 +29,7 @@ export function OfficialRedirectModal({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39]"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e]"
           aria-label="Close dialog"
         >
           <X size={20} />
@@ -75,7 +75,7 @@ export function OfficialRedirectModal({
           </div>
           <div className="flex items-center justify-between">
             <span className="font-medium text-[#7a6a5a]">Academic Cycle:</span>
-            <span className="font-semibold text-[#8c2f39]">
+            <span className="font-semibold text-[#0d3e2e]">
               {currentVersion?.academicYear || '2026-2027'} ({currentVersion?.lifecycleStatus || 'Open'})
             </span>
           </div>
@@ -88,7 +88,7 @@ export function OfficialRedirectModal({
               href={program.officialGuidelinesUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[12px] font-semibold text-[#8c2f39] hover:underline inline-flex items-center gap-1"
+              className="text-[12px] font-semibold text-[#0d3e2e] hover:underline inline-flex items-center gap-1"
             >
               <span>View Official Guidelines Bulletin</span>
               <ExternalLink size={12} />
@@ -109,7 +109,7 @@ export function OfficialRedirectModal({
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-5 py-2.5 font-sans text-[14px] font-bold text-white transition hover:bg-[#6d1824] shadow-sm"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-5 py-2.5 font-sans text-[14px] font-bold text-white transition hover:bg-[#08261c] shadow-sm"
           >
             <span>Apply on Official Website</span>
             <ExternalLink size={16} />

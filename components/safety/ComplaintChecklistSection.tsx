@@ -66,7 +66,7 @@ export function ComplaintChecklistSection() {
           <div className="flex items-center gap-2">
             <button
               onClick={resetChecklist}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-sans text-[12px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0] transition"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-sans text-[12px] font-semibold text-[#0d3e2e] hover:bg-[#f6ede0] transition"
             >
               <RefreshCw size={13} />
               <span>Reset Checklist</span>
@@ -80,11 +80,11 @@ export function ComplaintChecklistSection() {
             <span className="text-[#2b2118]">
               Readiness Progress: {checkedIds.length} of {COMPLAINT_CHECKLIST.length} completed
             </span>
-            <span className="text-[#8c2f39]">{progressPercent}%</span>
+            <span className="text-[#0d3e2e]">{progressPercent}%</span>
           </div>
           <div className="h-2 w-full rounded-full bg-[#efe3cc] overflow-hidden">
             <div
-              className="h-full bg-[#8c2f39] transition-all duration-300"
+              className="h-full bg-[#0d3e2e] transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -110,7 +110,7 @@ export function ComplaintChecklistSection() {
               className={`w-full text-left rounded-2xl p-5 border transition-all flex items-start gap-4 cursor-pointer ${
                 isDone
                   ? 'bg-emerald-50/50 border-emerald-200'
-                  : 'bg-white border-[#efe3cc] hover:border-[#8c2f39]/30 shadow-xs'
+                  : 'bg-white border-[#efe3cc] hover:border-[#0d3e2e]/30 shadow-xs'
               }`}
             >
               <div className="mt-0.5 shrink-0">

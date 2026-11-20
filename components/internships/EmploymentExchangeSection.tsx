@@ -52,7 +52,7 @@ export function EmploymentExchangeSection() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Layers size={14} /> STATE SENIORITY REGISTRATION &amp; ASSISTANCE
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -73,36 +73,36 @@ export function EmploymentExchangeSection() {
             href="https://tnvelaivaaippu.gov.in/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 hover:border-[#8c2f39] transition group flex items-start justify-between"
+            className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 hover:border-[#0d3e2e] transition group flex items-start justify-between"
           >
             <div className="space-y-1">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">OFFICIAL STATE PORTAL</span>
-              <h3 className="font-serif text-base font-bold text-[#2b2118] group-hover:text-[#8c2f39]">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">OFFICIAL STATE PORTAL</span>
+              <h3 className="font-serif text-base font-bold text-[#2b2118] group-hover:text-[#0d3e2e]">
                 tnvelaivaaippu.gov.in
               </h3>
               <p className="text-xs text-[#7a6a5a]">
                 New user registration, renewal every 3 years, qualification upgrades, and Unemployment Assistance.
               </p>
             </div>
-            <ExternalLink size={16} className="text-[#8c2f39] shrink-0 mt-1" />
+            <ExternalLink size={16} className="text-[#0d3e2e] shrink-0 mt-1" />
           </a>
 
           <a
             href="https://www.ncs.gov.in/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 hover:border-[#8c2f39] transition group flex items-start justify-between"
+            className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 hover:border-[#0d3e2e] transition group flex items-start justify-between"
           >
             <div className="space-y-1">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">NATIONAL CAREER SERVICE</span>
-              <h3 className="font-serif text-base font-bold text-[#2b2118] group-hover:text-[#8c2f39]">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">NATIONAL CAREER SERVICE</span>
+              <h3 className="font-serif text-base font-bold text-[#2b2118] group-hover:text-[#0d3e2e]">
                 ncs.gov.in
               </h3>
               <p className="text-xs text-[#7a6a5a]">
                 Ministry of Labour &amp; Employment national jobseeker card, verified employer directory and career fairs.
               </p>
             </div>
-            <ExternalLink size={16} className="text-[#8c2f39] shrink-0 mt-1" />
+            <ExternalLink size={16} className="text-[#0d3e2e] shrink-0 mt-1" />
           </a>
         </div>
       </div>
@@ -126,7 +126,7 @@ export function EmploymentExchangeSection() {
               onClick={() => setSelectedCohort(tab.id)}
               className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                 selectedCohort === tab.id
-                  ? 'bg-[#8c2f39] text-white shadow-2xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-2xs'
                   : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
               }`}
             >
@@ -136,7 +136,7 @@ export function EmploymentExchangeSection() {
         </div>
 
         <div className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 space-y-3">
-          <h4 className="font-serif text-base font-bold text-[#8c2f39]">
+          <h4 className="font-serif text-base font-bold text-[#0d3e2e]">
             {cohortGuidance[selectedCohort].title}
           </h4>
           <p className="text-xs sm:text-sm text-[#2b2118] leading-relaxed">
@@ -178,7 +178,7 @@ export function EmploymentExchangeSection() {
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <span className="w-7 h-7 rounded-lg bg-[#8c2f39] text-white font-bold font-mono text-xs flex items-center justify-center">
+                  <span className="w-7 h-7 rounded-lg bg-[#0d3e2e] text-white font-bold font-mono text-xs flex items-center justify-center">
                     0{step.stepNumber}
                   </span>
                   <span className="text-[10px] font-mono text-[#7a6a5a]">Step {step.stepNumber} of 6</span>
@@ -195,7 +195,7 @@ export function EmploymentExchangeSection() {
                 <ul className="space-y-1 text-xs text-[#2b2118] pt-1 border-t border-[#efe3cc]">
                   {step.details.slice(0, 3).map((detail, dIdx) => (
                     <li key={dIdx} className="flex items-start gap-1.5">
-                      <span className="text-[#8c2f39] font-bold">•</span>
+                      <span className="text-[#0d3e2e] font-bold">•</span>
                       <span className="line-clamp-2">{detail}</span>
                     </li>
                   ))}
@@ -207,7 +207,7 @@ export function EmploymentExchangeSection() {
                   href={step.officialPortalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] transition-colors hover:bg-[#f6ede0] cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] transition-colors hover:bg-[#f6ede0] cursor-pointer"
                 >
                   <span>Open on TN Velaivaaippu</span>
                   <ExternalLink size={13} />

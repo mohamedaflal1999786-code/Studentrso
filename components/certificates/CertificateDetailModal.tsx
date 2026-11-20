@@ -58,7 +58,7 @@ export function CertificateDetailModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
           aria-label="Close dialog"
         >
           <X size={20} />
@@ -66,7 +66,7 @@ export function CertificateDetailModal({
 
         {/* Category, Validity & Verification Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-2">
-          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             {document.category}
           </span>
           {document.code && (
@@ -97,7 +97,7 @@ export function CertificateDetailModal({
         {/* Metadata Banner Strip */}
         <div className="mt-4 flex flex-wrap items-center gap-4 rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-3 font-sans text-[13px] text-[#554a3f]">
           <div className="flex items-center gap-1.5 font-semibold text-[#2b2118]">
-            <Clock size={15} className="text-[#8c2f39]" />
+            <Clock size={15} className="text-[#0d3e2e]" />
             Turnaround: {document.turnaroundTime}
           </div>
           <div>
@@ -151,7 +151,7 @@ export function CertificateDetailModal({
         {/* Eligibility & Target Applicants Grid */}
         <div className="mt-6 rounded-xl border border-[#efe3cc] bg-white p-5 space-y-4">
           <h3 className="font-serif text-[18px] font-bold text-[#2b2118] flex items-center gap-2">
-            <CheckCircle2 size={18} className="text-[#8c2f39]" />
+            <CheckCircle2 size={18} className="text-[#0d3e2e]" />
             Eligibility &amp; Target Applicants
           </h3>
 
@@ -206,7 +206,7 @@ export function CertificateDetailModal({
                   {document.commonPurposes.map((p, i) => (
                     <span
                       key={i}
-                      className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] text-[#8c2f39] font-sans text-[12px] font-medium border border-[#d8c7ad]"
+                      className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] text-[#0d3e2e] font-sans text-[12px] font-medium border border-[#d8c7ad]"
                     >
                       {p}
                     </span>
@@ -221,7 +221,7 @@ export function CertificateDetailModal({
         <div className="mt-6">
           <div className="flex items-center justify-between mb-2">
             <h3 className="font-serif text-[18px] font-bold text-[#2b2118] flex items-center gap-2">
-              <FileText size={18} className="text-[#8c2f39]" />
+              <FileText size={18} className="text-[#0d3e2e]" />
               Mandatory Enclosures &amp; Supporting Documents
             </h3>
           </div>
@@ -231,7 +231,7 @@ export function CertificateDetailModal({
                 key={i}
                 className="inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1.5 font-sans text-[12px] text-[#2b2118]"
               >
-                <FileCheck size={14} className="text-[#8c2f39]" />
+                <FileCheck size={14} className="text-[#0d3e2e]" />
                 {doc}
               </span>
             ))}
@@ -261,13 +261,13 @@ export function CertificateDetailModal({
         {document.applicationProcedure && document.applicationProcedure.length > 0 && (
           <div className="mt-6 rounded-xl border border-[#efe3cc] bg-white p-5 space-y-3">
             <h3 className="font-serif text-[18px] font-bold text-[#2b2118] flex items-center gap-2">
-              <Building size={18} className="text-[#8c2f39]" />
+              <Building size={18} className="text-[#0d3e2e]" />
               Official Step-by-Step Procedure
             </h3>
             <ol className="space-y-2.5 font-sans text-[13px] text-[#554a3f]">
               {document.applicationProcedure.map((step, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="w-5 h-5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e] font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
                   <span className="leading-relaxed flex-1">{step}</span>
@@ -305,7 +305,7 @@ export function CertificateDetailModal({
               href={document.applicationPortalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8c2f39] underline font-medium"
+              className="text-[#0d3e2e] underline font-medium"
             >
               {safeHostname(document.applicationPortalUrl)}
             </a>
@@ -321,7 +321,7 @@ export function CertificateDetailModal({
               href={document.applicationPortalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#8c2f39] px-4 py-2.5 font-sans text-[14px] font-semibold text-white transition hover:bg-[#6d1824] shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#0d3e2e] px-4 py-2.5 font-sans text-[14px] font-semibold text-white transition hover:bg-[#08261c] shadow-xs cursor-pointer"
             >
               <span>Apply on {document.applicationPortalName || 'Official Website'}</span>
               <ExternalLink size={15} />
@@ -334,7 +334,7 @@ export function CertificateDetailModal({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg border border-[#d8c7ad] bg-white px-4 py-2.5 font-sans text-[14px] font-semibold text-[#2b2118] transition hover:bg-[#f6ede0] cursor-pointer"
               >
-                <ShieldCheck size={15} className="text-[#8c2f39]" />
+                <ShieldCheck size={15} className="text-[#0d3e2e]" />
                 <span>Verify Certificate</span>
                 <ExternalLink size={15} />
               </a>
@@ -364,7 +364,7 @@ export function CertificateDetailModal({
                   window.location.href = '/certificates?tab=checklist';
                 }
               }}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2.5 font-sans text-[13px] font-semibold text-[#8c2f39] transition hover:bg-[#f6ede0] cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2.5 font-sans text-[13px] font-semibold text-[#0d3e2e] transition hover:bg-[#f6ede0] cursor-pointer"
             >
               <FileText size={16} />
               Checklist
@@ -379,7 +379,7 @@ export function CertificateDetailModal({
                   window.location.href = '/certificates?tab=readiness';
                 }
               }}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39] bg-[#8c2f39]/10 px-3.5 py-2.5 font-sans text-[13px] font-bold text-[#8c2f39] transition hover:bg-[#8c2f39] hover:text-white cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#0d3e2e] bg-[#0d3e2e]/10 px-3.5 py-2.5 font-sans text-[13px] font-bold text-[#0d3e2e] transition hover:bg-[#0d3e2e] hover:text-white cursor-pointer"
             >
               <CheckCircle2 size={16} />
               Check Readiness

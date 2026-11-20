@@ -66,7 +66,7 @@ export function DigiLockerCentre() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <FolderLock size={12} /> DIGITAL INDIA INITIATIVE
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -125,7 +125,7 @@ export function DigiLockerCentre() {
             href="https://www.digilocker.gov.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition self-start shadow-2xs"
+            className="px-4 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition self-start shadow-2xs"
           >
             Open DigiLocker Portal <ExternalLink size={13} />
           </a>
@@ -137,7 +137,7 @@ export function DigiLockerCentre() {
               key={item.step}
               className="p-4 rounded-xl border border-[#efe3cc] bg-white shadow-2xs flex items-start gap-4"
             >
-              <div className="w-8 h-8 rounded-full bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 flex items-center justify-center font-bold font-mono text-[12px] shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 flex items-center justify-center font-bold font-mono text-[12px] shrink-0">
                 {item.step}
               </div>
               <div className="space-y-0.5">

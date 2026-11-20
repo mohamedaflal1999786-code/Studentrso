@@ -54,7 +54,7 @@ export function TransferAndReentryCentre() {
               onClick={() => setActiveSubTab(tab.id as any)}
               className={`px-4 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
                 activeSubTab === tab.id
-                  ? 'bg-[#8c2f39] text-white shadow-xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-xs'
                   : 'bg-white border border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -84,14 +84,14 @@ export function TransferAndReentryCentre() {
               <div key={reg.id} className="p-6 rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-4">
                 <div className="space-y-1">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-bold text-[#8c2f39]">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-bold text-[#0d3e2e]">
                       {reg.scope}
                     </span>
                     <span className="text-xs font-medium text-[#7a6a5a]">{reg.governingNorm}</span>
                   </div>
                   <h3 className="font-serif text-lg font-bold text-[#2b2118]">{reg.title}</h3>
                   <div className="flex items-center gap-1.5 text-xs text-[#7a6a5a]">
-                    <Building className="w-3.5 h-3.5 text-[#8c2f39]" />
+                    <Building className="w-3.5 h-3.5 text-[#0d3e2e]" />
                     <span>{reg.authority}</span>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export function TransferAndReentryCentre() {
       {activeSubTab === 'branch-change' && (
         <div className="p-6 rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-5 text-xs sm:text-sm text-[#2b2118]">
           <div className="space-y-2">
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#8c2f39]">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0d3e2e]">
               Engineering Branch Sliding &amp; Academic Course Change Guidelines
             </h3>
             <p className="text-xs text-[#7a6a5a] leading-relaxed">
@@ -220,7 +220,7 @@ export function TransferAndReentryCentre() {
             {REENTRY_PROTOCOLS.map((proto) => (
               <div key={proto.id} className="p-6 rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-4">
                 <div className="space-y-1">
-                  <h3 className="font-serif text-lg font-bold text-[#8c2f39]">{proto.title}</h3>
+                  <h3 className="font-serif text-lg font-bold text-[#0d3e2e]">{proto.title}</h3>
                   <p className="text-xs text-[#7a6a5a]">{proto.situation}</p>
                 </div>
 
@@ -269,7 +269,7 @@ export function TransferAndReentryCentre() {
       {activeSubTab === 'dropout-recovery' && (
         <div className="p-6 rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-6 text-xs sm:text-sm text-[#2b2118]">
           <div className="space-y-2">
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#8c2f39]">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0d3e2e]">
               Dropout Prevention &amp; Education Recovery Options
             </h3>
             <p className="text-xs text-[#7a6a5a]">
@@ -279,7 +279,7 @@ export function TransferAndReentryCentre() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2 text-xs">
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block">
                 1. FINANCIAL DIFFICULTIES
               </span>
               <p className="text-[#2b2118] leading-relaxed">
@@ -288,7 +288,7 @@ export function TransferAndReentryCentre() {
             </div>
 
             <div className="p-4 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2 text-xs">
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block">
                 2. ACADEMIC ARREARS
               </span>
               <p className="text-[#2b2118] leading-relaxed">
@@ -297,7 +297,7 @@ export function TransferAndReentryCentre() {
             </div>
 
             <div className="p-4 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2 text-xs">
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block">
                 3. DISTANCE / OPEN RE-ENTRY
               </span>
               <p className="text-[#2b2118] leading-relaxed">
@@ -309,7 +309,7 @@ export function TransferAndReentryCentre() {
           {/* Tele-MANAS Hotline */}
           <div className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] flex items-center justify-between gap-4 text-xs">
             <div className="flex items-center gap-3">
-              <HelpCircle className="w-5 h-5 text-[#8c2f39] shrink-0" />
+              <HelpCircle className="w-5 h-5 text-[#0d3e2e] shrink-0" />
               <div>
                 <strong className="text-[#2b2118] font-bold block">Need confidential guidance or mental health support?</strong>
                 <span className="text-[#7a6a5a]">Free National Tele-MANAS Helpline: <strong>14416</strong> (Available 24x7 in English and Tamil).</span>

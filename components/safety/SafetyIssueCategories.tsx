@@ -53,7 +53,7 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
               Showing {filteredCategories.length} verified statutory categories covering school, college, university, and digital conduct.
             </p>
           </div>
-          <span className="font-mono text-[11px] font-semibold text-[#8c2f39] bg-[#f6ede0] border border-[#d8c7ad] px-3 py-1 rounded-full">
+          <span className="font-mono text-[11px] font-semibold text-[#0d3e2e] bg-[#f6ede0] border border-[#d8c7ad] px-3 py-1 rounded-full">
             10 Official Categories Verified
           </span>
         </div>
@@ -66,7 +66,7 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
               placeholder="Search by concern, e.g., ragging, sexual harassment, caste bias, certificate withholding, fake profile..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2.5 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2.5 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -77,7 +77,7 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
                 onClick={() => setSelectedFilter(flt)}
                 className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition ${
                   selectedFilter === flt
-                    ? 'bg-[#8c2f39] text-white shadow-2xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-2xs'
                     : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
                 }`}
               >
@@ -113,7 +113,7 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
                     <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#e0a526] bg-[#f6ede0] border border-[#d8c7ad] px-2.5 py-0.5 rounded-full">
                       CATEGORY {cat.number}
                     </span>
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
                       {cat.badge}
                     </span>
                   </div>
@@ -124,10 +124,10 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
 
                 {/* Title & Subtitle */}
                 <div>
-                  <h4 className="font-serif text-[20px] sm:text-[22px] font-bold text-[#2b2118] group-hover:text-[#8c2f39] transition-colors">
+                  <h4 className="font-serif text-[20px] sm:text-[22px] font-bold text-[#2b2118] group-hover:text-[#0d3e2e] transition-colors">
                     {cat.title}
                   </h4>
-                  <p className="font-serif text-[14px] italic text-[#8c2f39] mt-0.5">
+                  <p className="font-serif text-[14px] italic text-[#0d3e2e] mt-0.5">
                     {cat.subtitle}
                   </p>
                 </div>
@@ -145,7 +145,7 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
                   <div className="space-y-1">
                     {cat.scopeItems.slice(0, 3).map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-[12px] text-[#554a3f]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#8c2f39] mt-1.5 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0d3e2e] mt-1.5 shrink-0" />
                         <span className="line-clamp-1">{item}</span>
                       </div>
                     ))}
@@ -164,12 +164,12 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
                   </div>
                   {cat.helplines.length > 0 && (
                     <div className="flex items-center justify-between gap-2 pt-1 border-t border-[#efe3cc]">
-                      <span className="font-mono text-[10px] font-bold uppercase text-[#8c2f39]">
+                      <span className="font-mono text-[10px] font-bold uppercase text-[#0d3e2e]">
                         Helpline:
                       </span>
                       <a
                         href={cat.helplines[0].telUrl}
-                        className="font-mono font-bold text-[#8c2f39] hover:underline inline-flex items-center gap-1"
+                        className="font-mono font-bold text-[#0d3e2e] hover:underline inline-flex items-center gap-1"
                       >
                         <PhoneCall size={11} />
                         <span>{cat.helplines[0].number}</span>
@@ -183,7 +183,7 @@ export function SafetyIssueCategories({ onSelectCategory }: SafetyIssueCategorie
               <div className="pt-4 mt-4 border-t border-[#efe3cc]">
                 <button
                   onClick={() => onSelectCategory(cat)}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white py-2.5 font-sans text-[13px] font-bold shadow-2xs transition cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white py-2.5 font-sans text-[13px] font-bold shadow-2xs transition cursor-pointer"
                 >
                   <span>View Reporting Guidelines &amp; Authorities</span>
                   <ArrowRight size={15} />

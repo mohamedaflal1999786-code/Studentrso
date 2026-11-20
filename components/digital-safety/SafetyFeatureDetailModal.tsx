@@ -58,7 +58,7 @@ export function SafetyFeatureDetailModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
           aria-label="Close dialog"
         >
           <X size={20} />
@@ -66,7 +66,7 @@ export function SafetyFeatureDetailModal({
 
         {/* Top Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-2 pr-8">
-          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             {feature.badge}
           </span>
           <span className="rounded-full bg-[#fbf5e9] border border-[#d8c7ad] px-2.5 py-0.5 font-mono text-[11px] font-semibold text-[#554a3f]">
@@ -90,14 +90,14 @@ export function SafetyFeatureDetailModal({
           <h2 className="font-serif text-[24px] sm:text-[28px] font-bold text-[#2b2118] leading-tight">
             {feature.title}
           </h2>
-          <p className="font-serif text-[15px] sm:text-[16px] italic text-[#8c2f39] mt-1">
+          <p className="font-serif text-[15px] sm:text-[16px] italic text-[#0d3e2e] mt-1">
             {feature.subtitle}
           </p>
         </div>
 
         {/* Official Authority & Verification Bar */}
         <div className="mt-4 flex flex-wrap items-center gap-2 rounded-xl bg-[#fbf5e9] p-3 border border-[#efe3cc]">
-          <ShieldCheck size={18} className="text-[#8c2f39] shrink-0" />
+          <ShieldCheck size={18} className="text-[#0d3e2e] shrink-0" />
           <span className="font-mono text-[11px] font-bold text-[#2b2118]">Official Guidance Authority:</span>
           <span className="font-sans text-[12px] text-[#554a3f]">{feature.authority}</span>
         </div>
@@ -116,7 +116,7 @@ export function SafetyFeatureDetailModal({
         <div className="mt-6">
           <div className="flex items-center justify-between mb-3">
             <h3 className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a] flex items-center gap-1.5">
-              <ShieldAlert size={14} className="text-[#8c2f39]" />
+              <ShieldAlert size={14} className="text-[#0d3e2e]" />
               <span>STEP-BY-STEP ACTION PROTOCOL ({feature.actionSteps.length} MANDATORY STEPS)</span>
             </h3>
           </div>
@@ -127,11 +127,11 @@ export function SafetyFeatureDetailModal({
               return (
                 <div
                   key={step.stepNumber}
-                  className="rounded-xl border border-[#efe3cc] bg-white p-4 transition hover:border-[#8c2f39]/40 shadow-xs"
+                  className="rounded-xl border border-[#efe3cc] bg-white p-4 transition hover:border-[#0d3e2e]/40 shadow-xs"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#8c2f39] text-white font-mono text-[11px] font-bold">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0d3e2e] text-white font-mono text-[11px] font-bold">
                         {step.stepNumber}
                       </span>
                       <h4 className="font-sans text-[14px] font-bold text-[#2b2118]">
@@ -147,7 +147,7 @@ export function SafetyFeatureDetailModal({
                           `Step ${step.stepNumber}: ${step.title} - ${step.instruction}`
                         )
                       }
-                      className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-mono text-[10px] text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#8c2f39] transition cursor-pointer"
+                      className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-mono text-[10px] text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#0d3e2e] transition cursor-pointer"
                       title="Copy action step to clipboard"
                     >
                       {isCopied ? (
@@ -201,13 +201,13 @@ export function SafetyFeatureDetailModal({
         {/* Statutory Legal Remedies */}
         <div className="mt-6">
           <h3 className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a] mb-2 flex items-center gap-1.5">
-            <Scale size={14} className="text-[#8c2f39]" />
+            <Scale size={14} className="text-[#0d3e2e]" />
             <span>STATUTORY LEGAL PROVISIONS &amp; STUDENT RIGHTS</span>
           </h3>
           <div className="space-y-2 rounded-xl bg-[#fbf5e9] p-3.5 border border-[#efe3cc]">
             {feature.statutoryRemedies.map((remedy, idx) => (
               <div key={idx} className="flex items-start gap-2 font-sans text-[12.5px] text-[#2b2118]">
-                <CheckCircle2 size={15} className="text-[#8c2f39] shrink-0 mt-0.5" />
+                <CheckCircle2 size={15} className="text-[#0d3e2e] shrink-0 mt-0.5" />
                 <span>{remedy}</span>
               </div>
             ))}
@@ -251,7 +251,7 @@ export function SafetyFeatureDetailModal({
                 href={feature.officialPortalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[#8c2f39] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824] transition shadow-sm"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#0d3e2e] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#08261c] transition shadow-sm"
               >
                 <span>{feature.officialPortalLabel || 'Open Official Portal'}</span>
                 <ExternalLink size={14} />

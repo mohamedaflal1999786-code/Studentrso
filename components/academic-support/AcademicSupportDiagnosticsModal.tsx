@@ -49,7 +49,7 @@ export function AcademicSupportDiagnosticsModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
         >
           <X size={20} />
         </button>
@@ -74,7 +74,7 @@ export function AcademicSupportDiagnosticsModal({
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc]">
               <span className="font-mono text-[10px] text-[#7a6a5a] uppercase block">Difficulty Hubs</span>
-              <span className="font-serif text-[18px] font-bold text-[#8c2f39] mt-0.5 block">
+              <span className="font-serif text-[18px] font-bold text-[#0d3e2e] mt-0.5 block">
                 {ACADEMIC_DIFFICULTIES.length} Categories
               </span>
             </div>
@@ -86,7 +86,7 @@ export function AcademicSupportDiagnosticsModal({
             </div>
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc]">
               <span className="font-mono text-[10px] text-[#7a6a5a] uppercase block">Free Repositories</span>
-              <span className="font-serif text-[18px] font-bold text-[#8c2f39] mt-0.5 block">
+              <span className="font-serif text-[18px] font-bold text-[#0d3e2e] mt-0.5 block">
                 NPTEL / SWAYAM
               </span>
             </div>
@@ -99,7 +99,7 @@ export function AcademicSupportDiagnosticsModal({
           </div>
 
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2">
-            <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block flex items-center gap-1.5">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block flex items-center gap-1.5">
               <Layers size={14} /> Academic Support Tracks
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -127,7 +127,7 @@ export function AcademicSupportDiagnosticsModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg bg-[#8c2f39] px-4 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+            className="rounded-lg bg-[#0d3e2e] px-4 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
           >
             Close Diagnostics
           </button>

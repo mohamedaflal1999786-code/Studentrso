@@ -100,7 +100,7 @@ export function SavedOpportunitiesTracker() {
       <div className="rounded-2xl border border-[#efe3cc] bg-white p-5 sm:p-6 shadow-2xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 font-mono text-[11px] font-bold mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 font-mono text-[11px] font-bold mb-2">
               <Bookmark size={13} /> CONFIDENTIAL LOCAL TRACKER
             </div>
             <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#2b2118]">
@@ -113,7 +113,7 @@ export function SavedOpportunitiesTracker() {
 
           <button
             onClick={() => setIsAdding(!isAdding)}
-            className="px-4 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold shadow-xs transition inline-flex items-center gap-1.5 self-start sm:self-auto cursor-pointer"
+            className="px-4 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold shadow-xs transition inline-flex items-center gap-1.5 self-start sm:self-auto cursor-pointer"
           >
             <Plus size={14} /> {isAdding ? 'Close Form' : '+ Track New Opportunity'}
           </button>
@@ -140,7 +140,7 @@ export function SavedOpportunitiesTracker() {
                 placeholder="Enter target program or competitive exam"
                 value={newItemTitle}
                 onChange={(e) => setNewItemTitle(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
                 required
               />
             </div>
@@ -149,7 +149,7 @@ export function SavedOpportunitiesTracker() {
               <select
                 value={newItemType}
                 onChange={(e) => setNewItemType(e.target.value as TrackedItem['type'])}
-                className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               >
                 <option value="College">College / University</option>
                 <option value="Entrance Exam">Entrance Examination</option>
@@ -164,7 +164,7 @@ export function SavedOpportunitiesTracker() {
                 placeholder="https://..."
                 value={newItemPortal}
                 onChange={(e) => setNewItemPortal(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               />
             </div>
           </div>
@@ -175,7 +175,7 @@ export function SavedOpportunitiesTracker() {
               placeholder="e.g. Cutoff goal, required documents, deadline reminder..."
               value={newItemNotes}
               onChange={(e) => setNewItemNotes(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] text-[12px] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+              className="w-full px-3 py-2 rounded-xl bg-white border border-[#efe3cc] text-[12px] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
             />
           </div>
           <div className="flex justify-end gap-2">
@@ -188,7 +188,7 @@ export function SavedOpportunitiesTracker() {
             </button>
             <button
               type="submit"
-              className="px-4 py-1.5 rounded-xl bg-[#8c2f39] text-white text-[12px] font-sans font-bold hover:bg-[#6d1824]"
+              className="px-4 py-1.5 rounded-xl bg-[#0d3e2e] text-white text-[12px] font-sans font-bold hover:bg-[#08261c]"
             >
               Save to Tracker
             </button>
@@ -210,7 +210,7 @@ export function SavedOpportunitiesTracker() {
             >
               <div className="space-y-1.5 max-w-xl">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[9px] font-bold px-2 py-0.5 rounded bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 uppercase">
+                  <span className="font-mono text-[9px] font-bold px-2 py-0.5 rounded bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 uppercase">
                     {item.type}
                   </span>
                   <span className="text-[11px] text-[#7a6a5a]">
@@ -236,7 +236,7 @@ export function SavedOpportunitiesTracker() {
                   <select
                     value={item.status}
                     onChange={(e) => handleStatusChange(item.id, e.target.value as TrackedItem['status'])}
-                    className="px-2.5 py-1 rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-[11px] font-bold text-[#8c2f39] focus:outline-none"
+                    className="px-2.5 py-1 rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-[11px] font-bold text-[#0d3e2e] focus:outline-none"
                   >
                     <option value="Interested">Interested</option>
                     <option value="Checking Eligibility">Checking Eligibility</option>
@@ -252,7 +252,7 @@ export function SavedOpportunitiesTracker() {
                   href={item.portalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 rounded-lg text-[#7a6a5a] hover:text-[#8c2f39] hover:bg-[#fbf5e9] transition"
+                  className="p-1.5 rounded-lg text-[#7a6a5a] hover:text-[#0d3e2e] hover:bg-[#fbf5e9] transition"
                   title="Open Portal"
                 >
                   <ExternalLink size={15} />

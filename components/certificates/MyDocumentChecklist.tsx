@@ -153,7 +153,7 @@ export function MyDocumentChecklist() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <FileCheck size={12} /> STUDENT VAULT &amp; PERSONAL PORTFOLIO
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -182,7 +182,7 @@ export function MyDocumentChecklist() {
                 onClick={() => loadTemplate(tmpl.id)}
                 className={`px-3 py-1.5 rounded-xl font-sans text-[12px] font-semibold transition ${
                   stageTemplate === tmpl.id
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-white border border-[#efe3cc] text-[#5c4a3a] hover:bg-[#fbf5e9]'
                 }`}
               >
@@ -196,11 +196,11 @@ export function MyDocumentChecklist() {
         <div className="w-full md:w-64 space-y-1.5">
           <div className="flex items-center justify-between font-sans text-[12px] text-[#2b2118] font-semibold">
             <span>Collected: {collectedCount} / {totalCount}</span>
-            <span className="font-mono text-[#8c2f39]">{progressPercent}%</span>
+            <span className="font-mono text-[#0d3e2e]">{progressPercent}%</span>
           </div>
           <div className="w-full h-2.5 bg-[#efe3cc] rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#8c2f39] transition-all duration-300"
+              className="h-full bg-[#0d3e2e] transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -214,11 +214,11 @@ export function MyDocumentChecklist() {
           placeholder="Add custom document or certificate (e.g., Sports Quota Certificate)..."
           value={customDocName}
           onChange={(e) => setCustomDocName(e.target.value)}
-          className="flex-1 px-4 py-2 bg-white border border-[#efe3cc] rounded-xl font-sans text-[12px] text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-1 focus:ring-[#8c2f39] focus:border-[#8c2f39]"
+          className="flex-1 px-4 py-2 bg-white border border-[#efe3cc] rounded-xl font-sans text-[12px] text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-1 focus:ring-[#0d3e2e] focus:border-[#0d3e2e]"
         />
         <button
           type="submit"
-          className="px-4 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shrink-0 shadow-xs"
+          className="px-4 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shrink-0 shadow-xs"
         >
           <Plus size={15} /> Add Item
         </button>
@@ -241,7 +241,7 @@ export function MyDocumentChecklist() {
                 className={`w-5 h-5 rounded-md flex items-center justify-center border transition ${
                   item.isCollected
                     ? 'bg-emerald-600 border-emerald-600 text-white'
-                    : 'border-[#efe3cc] bg-white hover:border-[#8c2f39]'
+                    : 'border-[#efe3cc] bg-white hover:border-[#0d3e2e]'
                 }`}
                 aria-label={`Toggle ${item.name}`}
               >

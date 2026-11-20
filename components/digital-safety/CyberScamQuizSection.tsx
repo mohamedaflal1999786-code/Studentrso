@@ -76,7 +76,7 @@ export function CyberScamQuizSection() {
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#efe3cc] pb-5">
         <div>
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             <Sparkles size={13} /> INTERACTIVE SIMULATOR
           </div>
           <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#2b2118] mt-1.5">
@@ -93,14 +93,14 @@ export function CyberScamQuizSection() {
               <span className="font-mono text-[11px] font-bold text-[#7a6a5a] block uppercase">
                 Score
               </span>
-              <span className="font-mono text-[18px] font-bold text-[#8c2f39]">
+              <span className="font-mono text-[18px] font-bold text-[#0d3e2e]">
                 {userScore} / {totalQuestions}
               </span>
             </div>
             <button
               type="button"
               onClick={handleRestartQuiz}
-              className="rounded-lg border border-[#efe3cc] bg-white p-2 text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#8c2f39] transition cursor-pointer"
+              className="rounded-lg border border-[#efe3cc] bg-white p-2 text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#0d3e2e] transition cursor-pointer"
               title="Restart Quiz"
             >
               <RotateCcw size={16} />
@@ -120,7 +120,7 @@ export function CyberScamQuizSection() {
           </div>
           <div className="h-2 w-full overflow-hidden rounded-full bg-[#efe3cc]">
             <div
-              className="h-full bg-[#8c2f39] transition-all duration-300"
+              className="h-full bg-[#0d3e2e] transition-all duration-300"
               style={{ width: `${progressPercentage}%` }}
             />
           </div>
@@ -132,7 +132,7 @@ export function CyberScamQuizSection() {
         <div className="mt-6 space-y-6">
           {/* Scenario Prompt */}
           <div className="rounded-xl border border-[#efe3cc] bg-white p-5 shadow-xs">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39] block mb-2">
+            <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e] block mb-2">
               REAL-WORLD STUDENT SCENARIO:
             </span>
             <p className="font-serif text-[16px] sm:text-[18px] font-medium leading-relaxed text-[#2b2118]">
@@ -151,8 +151,8 @@ export function CyberScamQuizSection() {
 
               if (!isAnswerSubmitted) {
                 btnClasses += isSelected
-                  ? 'border-[#8c2f39] bg-[#8c2f39]/5 text-[#8c2f39] font-medium shadow-xs'
-                  : 'border-[#efe3cc] bg-white text-[#2b2118] hover:border-[#8c2f39]/50 hover:bg-[#fdfbf6]';
+                  ? 'border-[#0d3e2e] bg-[#0d3e2e]/5 text-[#0d3e2e] font-medium shadow-xs'
+                  : 'border-[#efe3cc] bg-white text-[#2b2118] hover:border-[#0d3e2e]/50 hover:bg-[#fdfbf6]';
               } else {
                 if (isCorrectOption) {
                   btnClasses += 'border-emerald-500 bg-emerald-50 text-emerald-950 font-medium';
@@ -178,7 +178,7 @@ export function CyberScamQuizSection() {
                         : isAnswerSubmitted && isSelected && !isCorrectOption
                         ? 'bg-rose-700 text-white'
                         : isSelected
-                        ? 'bg-[#8c2f39] text-white'
+                        ? 'bg-[#0d3e2e] text-white'
                         : 'bg-[#fbf5e9] border border-[#efe3cc] text-[#7a6a5a]'
                     }`}
                   >
@@ -231,7 +231,7 @@ export function CyberScamQuizSection() {
                 type="button"
                 disabled={selectedOption === null}
                 onClick={handleSubmitAnswer}
-                className="rounded-xl bg-[#8c2f39] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#6d1824] disabled:opacity-50 disabled:cursor-not-allowed shadow-xs cursor-pointer"
+                className="rounded-xl bg-[#0d3e2e] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#08261c] disabled:opacity-50 disabled:cursor-not-allowed shadow-xs cursor-pointer"
               >
                 Submit Answer
               </button>
@@ -239,7 +239,7 @@ export function CyberScamQuizSection() {
               <button
                 type="button"
                 onClick={handleNextQuestion}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#6d1824] shadow-xs cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#08261c] shadow-xs cursor-pointer"
               >
                 <span>
                   {currentQuestionIndex + 1 === totalQuestions
@@ -254,7 +254,7 @@ export function CyberScamQuizSection() {
       ) : (
         /* Quiz Finished View */
         <div className="mt-8 text-center space-y-6 py-6">
-          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] shadow-inner">
+          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e] shadow-inner">
             <Award size={36} />
           </div>
 
@@ -262,7 +262,7 @@ export function CyberScamQuizSection() {
             <h3 className="font-serif text-[26px] sm:text-[30px] font-bold text-[#2b2118]">
               Quiz Completed!
             </h3>
-            <p className="font-serif text-[16px] italic text-[#8c2f39] mt-1">
+            <p className="font-serif text-[16px] italic text-[#0d3e2e] mt-1">
               {userScore >= 9
                 ? 'Cyber Shield Master — You possess elite scam detection instincts!'
                 : userScore >= 7
@@ -275,7 +275,7 @@ export function CyberScamQuizSection() {
             <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-[#7a6a5a] block">
               FINAL SCORE
             </span>
-            <span className="font-serif text-[42px] font-bold text-[#8c2f39] leading-tight">
+            <span className="font-serif text-[42px] font-bold text-[#0d3e2e] leading-tight">
               {userScore}
             </span>
             <span className="font-serif text-[22px] text-[#7a6a5a]"> / {totalQuestions}</span>
@@ -287,7 +287,7 @@ export function CyberScamQuizSection() {
           {/* Golden Rules Summary */}
           <div className="mx-auto max-w-xl text-left rounded-xl bg-[#fbf5e9] p-5 border border-[#efe3cc]">
             <h4 className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#2b2118] mb-2 flex items-center gap-1.5">
-              <ShieldCheck size={14} className="text-[#8c2f39]" />
+              <ShieldCheck size={14} className="text-[#0d3e2e]" />
               <span>KEY CYBER DEFENSE PRINCIPLES TO REMEMBER</span>
             </h4>
             <ul className="space-y-1.5 font-sans text-[12.5px] text-[#554a3f]">
@@ -302,7 +302,7 @@ export function CyberScamQuizSection() {
             <button
               type="button"
               onClick={handleRestartQuiz}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#6d1824] shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#08261c] shadow-xs cursor-pointer"
             >
               <RotateCcw size={15} />
               <span>Retake Quiz</span>

@@ -108,7 +108,7 @@ export function DocumentReadinessChecker({
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <FileCheck size={12} /> HIGH-PRIORITY READINESS ENGINE
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -134,7 +134,7 @@ export function DocumentReadinessChecker({
             <select
               value={educationLevel}
               onChange={(e) => setEducationLevel(e.target.value as EducationStage)}
-              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[13px] text-[#2b2118] focus:outline-none focus:ring-1 focus:ring-[#8c2f39] focus:border-[#8c2f39]"
+              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[13px] text-[#2b2118] focus:outline-none focus:ring-1 focus:ring-[#0d3e2e] focus:border-[#0d3e2e]"
             >
               <option value="Class 10">Class 10 (SSLC)</option>
               <option value="Class 11">Class 11 (+1)</option>
@@ -157,7 +157,7 @@ export function DocumentReadinessChecker({
             <select
               value={purpose}
               onChange={(e) => setPurpose(e.target.value as ReadinessInputs['purpose'])}
-              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[13px] text-[#2b2118] focus:outline-none focus:ring-1 focus:ring-[#8c2f39] focus:border-[#8c2f39]"
+              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[13px] text-[#2b2118] focus:outline-none focus:ring-1 focus:ring-[#0d3e2e] focus:border-[#0d3e2e]"
             >
               <option value="College admission">College Admission &amp; Counseling</option>
               <option value="Undergraduate admission">Undergraduate (UG) Degree Admission</option>
@@ -182,7 +182,7 @@ export function DocumentReadinessChecker({
               type="checkbox"
               checked={hasReservationClaim}
               onChange={(e) => setHasReservationClaim(e.target.checked)}
-              className="rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+              className="rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
             />
             <span>BC / MBC / SC / ST Reservation</span>
           </label>
@@ -192,7 +192,7 @@ export function DocumentReadinessChecker({
               type="checkbox"
               checked={requiresIncomeCert}
               onChange={(e) => setRequiresIncomeCert(e.target.checked)}
-              className="rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+              className="rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
             />
             <span>Income Certificate (Fee Concession / Scholarship)</span>
           </label>
@@ -202,7 +202,7 @@ export function DocumentReadinessChecker({
               type="checkbox"
               checked={requiresNativityCert}
               onChange={(e) => setRequiresNativityCert(e.target.checked)}
-              className="rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+              className="rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
             />
             <span>Nativity Proof (Tamil Nadu Domicile)</span>
           </label>
@@ -212,7 +212,7 @@ export function DocumentReadinessChecker({
               type="checkbox"
               checked={isFirstGraduateClaim}
               onChange={(e) => setIsFirstGraduateClaim(e.target.checked)}
-              className="rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+              className="rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
             />
             <span>First Graduate in Family</span>
           </label>
@@ -222,7 +222,7 @@ export function DocumentReadinessChecker({
               type="checkbox"
               checked={hasDisabilityBenefit}
               onChange={(e) => setHasDisabilityBenefit(e.target.checked)}
-              className="rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+              className="rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
             />
             <span>Benchmark Disability (UDID)</span>
           </label>
@@ -233,7 +233,7 @@ export function DocumentReadinessChecker({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-1 text-center md:text-left">
           <div className="flex items-center gap-2 justify-center md:justify-start">
-            <span className="font-mono text-[10px] font-bold text-[#8c2f39] uppercase tracking-wider">
+            <span className="font-mono text-[10px] font-bold text-[#0d3e2e] uppercase tracking-wider">
               EVALUATED READINESS SCORE
             </span>
             <span
@@ -258,9 +258,9 @@ export function DocumentReadinessChecker({
 
         {/* Circular / Bar meter */}
         <div className="flex items-center gap-4">
-          <div className="w-20 h-20 rounded-full border-4 border-[#8c2f39] flex items-center justify-center bg-white shadow-2xs">
+          <div className="w-20 h-20 rounded-full border-4 border-[#0d3e2e] flex items-center justify-center bg-white shadow-2xs">
             <div className="text-center">
-              <span className="font-serif text-[22px] font-bold text-[#8c2f39]">{scorePercentage}%</span>
+              <span className="font-serif text-[22px] font-bold text-[#0d3e2e]">{scorePercentage}%</span>
               <span className="block font-mono text-[9px] text-[#7a6a5a] uppercase font-bold">Ready</span>
             </div>
           </div>
@@ -321,7 +321,7 @@ export function DocumentReadinessChecker({
                     className={`mt-1 w-5 h-5 rounded-md flex items-center justify-center transition border ${
                       isCollected
                         ? 'bg-emerald-600 border-emerald-600 text-white'
-                        : 'border-[#efe3cc] bg-white hover:border-[#8c2f39]'
+                        : 'border-[#efe3cc] bg-white hover:border-[#0d3e2e]'
                     }`}
                     aria-label={`Toggle collected for ${req.documentName}`}
                   >
@@ -368,7 +368,7 @@ export function DocumentReadinessChecker({
                     href={req.applicationUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center gap-1 transition shadow-2xs"
+                    className="px-3.5 py-1.5 rounded-lg bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center gap-1 transition shadow-2xs"
                   >
                     Apply / Obtain <ExternalLink size={12} />
                   </a>

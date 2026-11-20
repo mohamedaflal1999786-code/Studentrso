@@ -43,7 +43,7 @@ export function OfficialServiceDirectory() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <Globe size={12} /> DIRECT STATUTORY AUTHORITIES DIRECTORY
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -63,7 +63,7 @@ export function OfficialServiceDirectory() {
             placeholder="Search portal name, authority, or purpose..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-white border border-[#efe3cc] rounded-xl font-sans text-[12px] text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-1 focus:ring-[#8c2f39] focus:border-[#8c2f39]"
+            className="w-full pl-9 pr-4 py-2 bg-white border border-[#efe3cc] rounded-xl font-sans text-[12px] text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-1 focus:ring-[#0d3e2e] focus:border-[#0d3e2e]"
           />
         </div>
 
@@ -74,7 +74,7 @@ export function OfficialServiceDirectory() {
               onClick={() => setSelectedTier(t.id)}
               className={`px-3 py-1.5 rounded-lg font-sans text-[12px] font-semibold transition ${
                 selectedTier === t.id
-                  ? 'bg-[#8c2f39] text-white shadow-xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-xs'
                   : 'bg-white border border-[#efe3cc] text-[#5c4a3a] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -89,11 +89,11 @@ export function OfficialServiceDirectory() {
         {filtered.map((item) => (
           <div
             key={item.id}
-            className="rounded-2xl border border-[#efe3cc] bg-white p-5 shadow-2xs hover:border-[#8c2f39]/30 transition-all duration-200 flex flex-col justify-between"
+            className="rounded-2xl border border-[#efe3cc] bg-white p-5 shadow-2xs hover:border-[#0d3e2e]/30 transition-all duration-200 flex flex-col justify-between"
           >
             <div className="space-y-2">
               <div className="flex items-center justify-between gap-2">
-                <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20">
+                <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20">
                   {item.category}
                 </span>
                 <span className="font-mono text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
@@ -109,7 +109,7 @@ export function OfficialServiceDirectory() {
                   <strong>Key Purpose:</strong> {item.purpose}
                 </div>
                 <div className="text-[11px] pt-1">
-                  <strong>Service Mode:</strong> <span className="text-[#8c2f39] font-medium">Direct Citizen Portal</span>
+                  <strong>Service Mode:</strong> <span className="text-[#0d3e2e] font-medium">Direct Citizen Portal</span>
                 </div>
               </div>
             </div>
@@ -132,7 +132,7 @@ export function OfficialServiceDirectory() {
                 href={item.applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shadow-2xs"
+                className="px-3.5 py-1.5 rounded-lg bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shadow-2xs"
               >
                 Open Official Portal <ExternalLink size={12} />
               </a>

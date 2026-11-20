@@ -160,7 +160,7 @@ export function FindMyCertificateFinder({
       {/* Search & Header Bar */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
             <Compass size={12} /> 5-STEP SMART DECISION ENGINE
           </div>
           <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -191,7 +191,7 @@ export function FindMyCertificateFinder({
             </div>
             <div className="w-full h-2 bg-[#efe3cc] rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#8c2f39] transition-all duration-300"
+                className="h-full bg-[#0d3e2e] transition-all duration-300"
                 style={{ width: `${currentStep * 20}%` }}
               />
             </div>
@@ -224,7 +224,7 @@ export function FindMyCertificateFinder({
                     onClick={() => setStage(item.id as EducationStage)}
                     className={`p-3.5 rounded-xl border text-left font-sans text-[12px] font-semibold transition ${
                       stage === item.id
-                        ? 'bg-[#8c2f39]/10 border-[#8c2f39] text-[#8c2f39] shadow-2xs'
+                        ? 'bg-[#0d3e2e]/10 border-[#0d3e2e] text-[#0d3e2e] shadow-2xs'
                         : 'bg-white border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9]'
                     }`}
                   >
@@ -261,7 +261,7 @@ export function FindMyCertificateFinder({
                     onClick={() => setPurpose(item.id)}
                     className={`p-3.5 rounded-xl border text-left font-sans text-[12px] font-semibold transition ${
                       purpose === item.id
-                        ? 'bg-[#8c2f39]/10 border-[#8c2f39] text-[#8c2f39] shadow-2xs'
+                        ? 'bg-[#0d3e2e]/10 border-[#0d3e2e] text-[#0d3e2e] shadow-2xs'
                         : 'bg-white border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9]'
                     }`}
                   >
@@ -295,12 +295,12 @@ export function FindMyCertificateFinder({
                     onClick={() => setCategory(item.id)}
                     className={`w-full p-3.5 rounded-xl border text-left font-sans text-[12px] font-semibold transition flex items-center justify-between ${
                       category === item.id
-                        ? 'bg-[#8c2f39]/10 border-[#8c2f39] text-[#8c2f39] shadow-2xs'
+                        ? 'bg-[#0d3e2e]/10 border-[#0d3e2e] text-[#0d3e2e] shadow-2xs'
                         : 'bg-white border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9]'
                     }`}
                   >
                     <span>{item.label}</span>
-                    {category === item.id && <CheckCircle2 size={16} className="text-[#8c2f39]" />}
+                    {category === item.id && <CheckCircle2 size={16} className="text-[#0d3e2e]" />}
                   </button>
                 ))}
               </div>
@@ -325,7 +325,7 @@ export function FindMyCertificateFinder({
                     onChange={(e) =>
                       setSpecialCriteria({ ...specialCriteria, firstGraduate: e.target.checked })
                     }
-                    className="w-4 h-4 rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+                    className="w-4 h-4 rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
                   />
                   <div className="font-sans text-[12px]">
                     <strong className="text-[#2b2118] block font-semibold">First Graduate in Family</strong>
@@ -340,7 +340,7 @@ export function FindMyCertificateFinder({
                     onChange={(e) =>
                       setSpecialCriteria({ ...specialCriteria, lowIncome: e.target.checked })
                     }
-                    className="w-4 h-4 rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+                    className="w-4 h-4 rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
                   />
                   <div className="font-sans text-[12px]">
                     <strong className="text-[#2b2118] block font-semibold">Annual Family Income ≤ ₹2.5 Lakhs (or ≤ ₹8 Lakhs for OBC-NCL)</strong>
@@ -355,7 +355,7 @@ export function FindMyCertificateFinder({
                     onChange={(e) =>
                       setSpecialCriteria({ ...specialCriteria, disability: e.target.checked })
                     }
-                    className="w-4 h-4 rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+                    className="w-4 h-4 rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
                   />
                   <div className="font-sans text-[12px]">
                     <strong className="text-[#2b2118] block font-semibold">Person with Benchmark Disability (PwD)</strong>
@@ -399,7 +399,7 @@ export function FindMyCertificateFinder({
                     onClick={() => setDomicile(item.id)}
                     className={`w-full p-3.5 rounded-xl border text-left font-sans text-[12px] transition flex flex-col gap-1 ${
                       domicile === item.id
-                        ? 'bg-[#8c2f39]/10 border-[#8c2f39] text-[#2b2118] shadow-2xs'
+                        ? 'bg-[#0d3e2e]/10 border-[#0d3e2e] text-[#2b2118] shadow-2xs'
                         : 'bg-white border-[#efe3cc] text-[#5c4a3a] hover:bg-[#fbf5e9]'
                     }`}
                   >
@@ -424,7 +424,7 @@ export function FindMyCertificateFinder({
 
             <button
               onClick={handleNext}
-              className="px-5 py-2.5 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[13px] font-bold shadow-xs transition flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[13px] font-bold shadow-xs transition flex items-center gap-1.5"
             >
               {currentStep === 5 ? (
                 <>
@@ -444,7 +444,7 @@ export function FindMyCertificateFinder({
           {/* Summary Banner */}
           <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span className="font-mono text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+              <span className="font-mono text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                 PERSONALIZED MATCHED REPORT
               </span>
               <h3 className="font-serif text-[22px] font-bold text-[#2b2118] mt-1">
@@ -458,7 +458,7 @@ export function FindMyCertificateFinder({
             <div className="flex items-center gap-3">
               <button
                 onClick={() => onNavigateTab('readiness')}
-                className="px-4 py-2.5 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans font-bold text-[13px] transition shadow-xs"
+                className="px-4 py-2.5 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans font-bold text-[13px] transition shadow-xs"
               >
                 Launch Document Readiness Checker
               </button>

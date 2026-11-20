@@ -75,7 +75,7 @@ export function DigitalSafetyDiagnosticsModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
           aria-label="Close dialog"
         >
           <X size={18} />
@@ -102,7 +102,7 @@ export function DigitalSafetyDiagnosticsModal({
             <span className="font-mono text-[10px] font-bold text-[#7a6a5a] block uppercase">
               Safety Features
             </span>
-            <span className="font-mono text-[18px] font-bold text-[#8c2f39]">
+            <span className="font-mono text-[18px] font-bold text-[#0d3e2e]">
               {diagnosticsData.primaryFeaturesCount} / 6
             </span>
           </div>
@@ -111,7 +111,7 @@ export function DigitalSafetyDiagnosticsModal({
             <span className="font-mono text-[10px] font-bold text-[#7a6a5a] block uppercase">
               Guidance Pillars
             </span>
-            <span className="font-mono text-[18px] font-bold text-[#8c2f39]">
+            <span className="font-mono text-[18px] font-bold text-[#0d3e2e]">
               {diagnosticsData.guidancePillarsCount} / 5
             </span>
           </div>
@@ -120,7 +120,7 @@ export function DigitalSafetyDiagnosticsModal({
             <span className="font-mono text-[10px] font-bold text-[#7a6a5a] block uppercase">
               Govt Portals
             </span>
-            <span className="font-mono text-[18px] font-bold text-[#8c2f39]">
+            <span className="font-mono text-[18px] font-bold text-[#0d3e2e]">
               {diagnosticsData.officialPortalsCount} / 8
             </span>
           </div>
@@ -129,7 +129,7 @@ export function DigitalSafetyDiagnosticsModal({
             <span className="font-mono text-[10px] font-bold text-[#7a6a5a] block uppercase">
               Quiz Scenarios
             </span>
-            <span className="font-mono text-[18px] font-bold text-[#8c2f39]">
+            <span className="font-mono text-[18px] font-bold text-[#0d3e2e]">
               {diagnosticsData.quizQuestionsCount} / 10
             </span>
           </div>
@@ -138,7 +138,7 @@ export function DigitalSafetyDiagnosticsModal({
             <span className="font-mono text-[10px] font-bold text-[#7a6a5a] block uppercase">
               Safety Checklist
             </span>
-            <span className="font-mono text-[18px] font-bold text-[#8c2f39]">
+            <span className="font-mono text-[18px] font-bold text-[#0d3e2e]">
               {diagnosticsData.checklistItemsCount} / 10
             </span>
           </div>
@@ -191,7 +191,7 @@ export function DigitalSafetyDiagnosticsModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl bg-[#8c2f39] px-4 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+            className="rounded-xl bg-[#0d3e2e] px-4 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
           >
             Close
           </button>

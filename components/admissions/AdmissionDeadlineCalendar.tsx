@@ -59,7 +59,7 @@ export function AdmissionDeadlineCalendar() {
               onClick={() => setFilterStatus(st)}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
                 filterStatus === st
-                  ? 'bg-[#8c2f39] text-white shadow-xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-xs'
                   : 'bg-white border border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -93,7 +93,7 @@ export function AdmissionDeadlineCalendar() {
               <h3 className="font-serif text-base font-bold text-[#2b2118] leading-snug">{item.title}</h3>
 
               <div className="flex items-center gap-1.5 text-xs text-[#7a6a5a]">
-                <Building className="w-3.5 h-3.5 text-[#8c2f39] shrink-0" />
+                <Building className="w-3.5 h-3.5 text-[#0d3e2e] shrink-0" />
                 <span className="truncate">{item.authority}</span>
               </div>
 
@@ -104,7 +104,7 @@ export function AdmissionDeadlineCalendar() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#7a6a5a]">Closing Date:</span>
-                  <span className="font-bold text-[#8c2f39]">{item.closingDate}</span>
+                  <span className="font-bold text-[#0d3e2e]">{item.closingDate}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#7a6a5a]">Counselling:</span>
@@ -121,7 +121,7 @@ export function AdmissionDeadlineCalendar() {
                 href={item.portalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-[#8c2f39] hover:underline flex items-center gap-1"
+                className="text-xs font-bold text-[#0d3e2e] hover:underline flex items-center gap-1"
               >
                 <span>Official Portal</span>
                 <ExternalLink className="w-3 h-3" />

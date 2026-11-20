@@ -39,7 +39,7 @@ export function SafetyIssueDetailsModal({
         <Dialog.Overlay className="fixed inset-0 z-50 bg-[#2b2118]/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0" />
         <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-3xl max-h-[92vh] overflow-y-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-8 shadow-2xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0">
           {/* Close button */}
-          <Dialog.Close className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition-colors hover:bg-[#f6ede0] hover:text-[#8c2f39] focus:outline-none">
+          <Dialog.Close className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition-colors hover:bg-[#f6ede0] hover:text-[#0d3e2e] focus:outline-none">
             <X size={20} />
             <span className="sr-only">Close</span>
           </Dialog.Close>
@@ -50,7 +50,7 @@ export function SafetyIssueDetailsModal({
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#e0a526] bg-[#f6ede0] border border-[#d8c7ad] px-2.5 py-0.5 rounded-full">
                 CATEGORY {category.number}
               </span>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-white border border-[#efe3cc] px-2.5 py-0.5 rounded-full">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-white border border-[#efe3cc] px-2.5 py-0.5 rounded-full">
                 {category.badge}
               </span>
               <span className="font-mono text-[10px] text-[#5e8b7e] font-semibold flex items-center gap-1 bg-[#fbf5e9] px-2.5 py-0.5 rounded-full border border-[#efe3cc]">
@@ -61,7 +61,7 @@ export function SafetyIssueDetailsModal({
             <Dialog.Title className="font-serif text-[24px] sm:text-[28px] font-bold text-[#2b2118] leading-tight">
               {category.title}
             </Dialog.Title>
-            <p className="font-serif text-[16px] italic text-[#8c2f39]">
+            <p className="font-serif text-[16px] italic text-[#0d3e2e]">
               {category.subtitle}
             </p>
             <p className="font-sans text-[14px] text-[#7a6a5a] leading-relaxed">
@@ -73,13 +73,13 @@ export function SafetyIssueDetailsModal({
             {/* 1. Examples of situations covered */}
             <div className="rounded-xl border border-[#efe3cc] bg-white p-5 space-y-3">
               <h4 className="font-serif text-[17px] font-bold text-[#2b2118] flex items-center gap-2">
-                <Info size={17} className="text-[#8c2f39]" />
+                <Info size={17} className="text-[#0d3e2e]" />
                 Examples of Situations Covered Under This Category
               </h4>
               <ul className="space-y-2">
                 {category.scopeItems.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 font-sans text-[13px] text-[#554a3f]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8c2f39] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0d3e2e] mt-2 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -89,7 +89,7 @@ export function SafetyIssueDetailsModal({
             {/* 2. Official Authorities & Complaint Portals */}
             <div className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-5 space-y-4">
               <h4 className="font-serif text-[17px] font-bold text-[#2b2118] flex items-center gap-2">
-                <Scale size={17} className="text-[#8c2f39]" />
+                <Scale size={17} className="text-[#0d3e2e]" />
                 Authorized Government Reporting Authorities &amp; Portals
               </h4>
 
@@ -116,15 +116,15 @@ export function SafetyIssueDetailsModal({
                       href={p.complaintUrl || p.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between gap-2 p-3 rounded-xl bg-white border border-[#d8c7ad] hover:border-[#8c2f39] hover:bg-[#fdfbf6] transition group shadow-2xs"
+                      className="flex items-center justify-between gap-2 p-3 rounded-xl bg-white border border-[#d8c7ad] hover:border-[#0d3e2e] hover:bg-[#fdfbf6] transition group shadow-2xs"
                     >
                       <div className="min-w-0">
-                        <span className="font-sans text-[13px] font-bold text-[#8c2f39] block truncate group-hover:underline">
+                        <span className="font-sans text-[13px] font-bold text-[#0d3e2e] block truncate group-hover:underline">
                           {p.name}
                         </span>
                         <span className="text-[11px] text-emerald-800 font-medium">Official Government Portal</span>
                       </div>
-                      <ExternalLink size={15} className="text-[#7a6a5a] group-hover:text-[#8c2f39] shrink-0" />
+                      <ExternalLink size={15} className="text-[#7a6a5a] group-hover:text-[#0d3e2e] shrink-0" />
                     </a>
                   ))}
                 </div>
@@ -141,7 +141,7 @@ export function SafetyIssueDetailsModal({
                       <a
                         key={idx}
                         href={hl.telUrl}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-white border border-[#efe3cc] px-3 py-1.5 font-mono text-[12px] font-bold text-[#8c2f39] hover:bg-[#f6ede0] transition"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-white border border-[#efe3cc] px-3 py-1.5 font-mono text-[12px] font-bold text-[#0d3e2e] hover:bg-[#f6ede0] transition"
                       >
                         <PhoneCall size={13} />
                         <span>{hl.name}: {hl.number}</span>
@@ -155,7 +155,7 @@ export function SafetyIssueDetailsModal({
             {/* 3. Step-by-Step Reporting Guidance */}
             <div className="rounded-xl border border-[#efe3cc] bg-white p-5 space-y-3">
               <h4 className="font-serif text-[17px] font-bold text-[#2b2118] flex items-center gap-2">
-                <FileCheck size={17} className="text-[#8c2f39]" />
+                <FileCheck size={17} className="text-[#0d3e2e]" />
                 Step-by-Step Official Reporting Guidance
               </h4>
               <div className="space-y-2.5">
@@ -175,7 +175,7 @@ export function SafetyIssueDetailsModal({
             {/* 4. Requested Information & Acknowledgement to Save */}
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-[#efe3cc] bg-white p-4 space-y-2">
-                <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block">
+                <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block">
                   Commonly Requested Information:
                 </span>
                 <ul className="space-y-1.5">
@@ -189,14 +189,14 @@ export function SafetyIssueDetailsModal({
               </div>
 
               <div className="rounded-xl border border-[#efe3cc] bg-white p-4 space-y-2">
-                <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block">
+                <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block">
                   Official Acknowledgement to Save:
                 </span>
                 <p className="font-sans text-[12px] text-[#554a3f] leading-relaxed">
                   {category.acknowledgementToSave}
                 </p>
 
-                <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block pt-2">
+                <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block pt-2">
                   How to Follow Up:
                 </span>
                 <p className="font-sans text-[12px] text-[#554a3f] leading-relaxed">

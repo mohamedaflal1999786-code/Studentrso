@@ -19,7 +19,7 @@ export function DownloadVerificationSection() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <ShieldCheck size={12} /> AUTHENTICITY &amp; ANTI-FRAUD CENTER
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -47,14 +47,14 @@ export function DownloadVerificationSection() {
             placeholder="Enter Certificate Number (e.g., TN-7202610123456)..."
             value={certNumber}
             onChange={(e) => setCertNumber(e.target.value)}
-            className="w-full px-4 py-2.5 bg-white border border-[#efe3cc] rounded-xl font-sans text-[12px] text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-1 focus:ring-[#8c2f39] focus:border-[#8c2f39]"
+            className="w-full px-4 py-2.5 bg-white border border-[#efe3cc] rounded-xl font-sans text-[12px] text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-1 focus:ring-[#0d3e2e] focus:border-[#0d3e2e]"
           />
 
           <a
             href="https://edistricts.tn.gov.in/revenue/verifyCertificate.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center justify-center gap-2 transition shrink-0 shadow-xs"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center justify-center gap-2 transition shrink-0 shadow-xs"
           >
             Verify on e-District Portal <ExternalLink size={13} />
           </a>
@@ -70,7 +70,7 @@ export function DownloadVerificationSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* QR Code Verification */}
         <div className="rounded-2xl border border-[#efe3cc] bg-white p-5 shadow-2xs space-y-2.5">
-          <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 flex items-center justify-center font-bold">
+          <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 flex items-center justify-center font-bold">
             <QrCode size={20} />
           </div>
           <h4 className="font-serif text-[16px] font-bold text-[#2b2118]">1. Instant QR Code Scan</h4>
@@ -81,23 +81,23 @@ export function DownloadVerificationSection() {
 
         {/* e-Sanad Apostille */}
         <div className="rounded-2xl border border-[#efe3cc] bg-white p-5 shadow-2xs space-y-2.5">
-          <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 flex items-center justify-center font-bold">
+          <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 flex items-center justify-center font-bold">
             <Globe size={20} />
           </div>
           <h4 className="font-serif text-[16px] font-bold text-[#2b2118]">2. e-Sanad Online Apostille</h4>
           <p className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed">
-            Planning higher education abroad? Ministry of External Affairs (MEA) provides contactless online verification and apostille attestation for Indian academic degrees at <a href="https://esanad.nic.in" target="_blank" rel="noopener noreferrer" className="text-[#8c2f39] underline font-semibold">esanad.nic.in</a>.
+            Planning higher education abroad? Ministry of External Affairs (MEA) provides contactless online verification and apostille attestation for Indian academic degrees at <a href="https://esanad.nic.in" target="_blank" rel="noopener noreferrer" className="text-[#0d3e2e] underline font-semibold">esanad.nic.in</a>.
           </p>
         </div>
 
         {/* Download Approved PDF */}
         <div className="rounded-2xl border border-[#efe3cc] bg-white p-5 shadow-2xs space-y-2.5">
-          <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 flex items-center justify-center font-bold">
+          <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 flex items-center justify-center font-bold">
             <Download size={20} />
           </div>
           <h4 className="font-serif text-[16px] font-bold text-[#2b2118]">3. Download Approved PDF</h4>
           <p className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed">
-            Once approved via SMS notification, log into <a href="https://www.tnesevai.tn.gov.in/Citizen/" target="_blank" rel="noopener noreferrer" className="text-[#8c2f39] underline font-semibold">tnesevai.tn.gov.in/Citizen/</a>, open "Check Status / Download", and print your digitally signed certificate on A4 paper.
+            Once approved via SMS notification, log into <a href="https://www.tnesevai.tn.gov.in/Citizen/" target="_blank" rel="noopener noreferrer" className="text-[#0d3e2e] underline font-semibold">tnesevai.tn.gov.in/Citizen/</a>, open "Check Status / Download", and print your digitally signed certificate on A4 paper.
           </p>
         </div>
       </div>

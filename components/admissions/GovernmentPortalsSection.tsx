@@ -73,7 +73,7 @@ export function GovernmentPortalsSection() {
                 onClick={() => setTierFilter(tier)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
                   tierFilter === tier
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-white border border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9]'
                 }`}
               >
@@ -89,7 +89,7 @@ export function GovernmentPortalsSection() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search portal name or domain..."
-              className="pl-9 pr-3 py-1.5 rounded-xl bg-white border border-[#efe3cc] text-xs text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+              className="pl-9 pr-3 py-1.5 rounded-xl bg-white border border-[#efe3cc] text-xs text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
             />
           </div>
         </div>
@@ -104,7 +104,7 @@ export function GovernmentPortalsSection() {
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between gap-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-bold text-[#8c2f39]">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-bold text-[#0d3e2e]">
                   {portal.code}
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 font-mono text-[10px] font-bold text-emerald-800 flex items-center gap-1">
@@ -116,7 +116,7 @@ export function GovernmentPortalsSection() {
               <div>
                 <h3 className="font-serif text-lg font-bold text-[#2b2118] leading-snug">{portal.name}</h3>
                 <div className="flex items-center gap-1.5 text-xs text-[#7a6a5a] mt-1">
-                  <Building className="w-3.5 h-3.5 text-[#8c2f39] shrink-0" />
+                  <Building className="w-3.5 h-3.5 text-[#0d3e2e] shrink-0" />
                   <span>{portal.governingBody}</span>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export function GovernmentPortalsSection() {
                 </div>
                 <div>
                   <span className="font-bold text-[#2b2118]">Annual Cycle: </span>
-                  <span className="text-[#8c2f39] font-medium">{portal.typicalCycle}</span>
+                  <span className="text-[#0d3e2e] font-medium">{portal.typicalCycle}</span>
                 </div>
                 <div>
                   <span className="font-bold text-[#2b2118]">Statutory Status: </span>
@@ -156,11 +156,11 @@ export function GovernmentPortalsSection() {
               {/* Helpline Information */}
               <div className="pt-2 border-t border-[#efe3cc] flex flex-wrap items-center gap-3 text-xs text-[#7a6a5a]">
                 <div className="flex items-center gap-1">
-                  <Phone className="w-3 h-3 text-[#8c2f39]" />
+                  <Phone className="w-3 h-3 text-[#0d3e2e]" />
                   <span>{portal.helplinePhone}</span>
                 </div>
                 <div className="flex items-center gap-1 truncate max-w-[200px]">
-                  <Mail className="w-3 h-3 text-[#8c2f39]" />
+                  <Mail className="w-3 h-3 text-[#0d3e2e]" />
                   <span className="truncate">{portal.helplineEmail}</span>
                 </div>
               </div>
@@ -172,7 +172,7 @@ export function GovernmentPortalsSection() {
                 href={portal.guidelinesPdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-2 px-3 rounded-xl border border-[#d8c7ad] bg-[#fbf5e9] hover:bg-[#f6ede0] text-[#8c2f39] text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer text-center"
+                className="flex-1 py-2 px-3 rounded-xl border border-[#d8c7ad] bg-[#fbf5e9] hover:bg-[#f6ede0] text-[#0d3e2e] text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer text-center"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Guidelines PDF</span>
@@ -181,7 +181,7 @@ export function GovernmentPortalsSection() {
                 href={portal.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-2 px-3 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer text-center"
+                className="flex-1 py-2 px-3 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer text-center"
               >
                 <span>Visit Official Portal</span>
                 <ExternalLink className="w-3.5 h-3.5" />

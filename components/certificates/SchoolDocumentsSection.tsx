@@ -26,7 +26,7 @@ export function SchoolDocumentsSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <GraduationCap size={14} /> DIRECTORATE OF GOVERNMENT EXAMINATIONS (DGE TN)
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -44,7 +44,7 @@ export function SchoolDocumentsSection({
 
       {/* DGE / DigiLocker Information Note */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fbf5e9] p-4 flex items-start gap-3 text-[#2b2118]">
-        <ShieldCheck size={18} className="text-[#8c2f39] shrink-0 mt-0.5" />
+        <ShieldCheck size={18} className="text-[#0d3e2e] shrink-0 mt-0.5" />
         <div className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed">
           <strong className="text-[#2b2118] font-bold block mb-0.5">Digital Marksheet Availability:</strong>
           Tamil Nadu State Board Class 10 (SSLC) and Class 12 (HSC) marksheets from 2016 onwards are available on <strong>DigiLocker</strong>. Under Rule 9A of the IT Rules 2016, DigiLocker digital marksheets are legally equivalent to the original paper marksheet for college counseling and admissions.

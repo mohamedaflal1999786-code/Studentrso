@@ -23,7 +23,7 @@ export function SkillCategoryCard({
       {/* Top Header: Badge, Stage, Completed check */}
       <div className="flex items-start justify-between gap-2 mb-3">
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="rounded-full bg-[#8c2f39]/10 border border-[#8c2f39]/20 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <span className="rounded-full bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             {category.badge}
           </span>
           <span className="rounded-full bg-[#fbf5e9] border border-[#d8c7ad] px-2 py-0.5 font-mono text-[10px] font-semibold text-[#554a3f]">
@@ -43,14 +43,14 @@ export function SkillCategoryCard({
 
       {/* Title & Subtitle */}
       <div className="flex items-start gap-3 mt-1">
-        <div className="w-10 h-10 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 shadow-2xs">
+        <div className="w-10 h-10 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e] flex items-center justify-center shrink-0 shadow-2xs">
           <AppIcon name={category.icon} className="text-[22px]" />
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="font-serif text-[18px] sm:text-[20px] font-bold leading-snug text-[#2b2118]">
             {category.title}
           </h3>
-          <p className="font-serif text-[13px] italic text-[#8c2f39] line-clamp-1 mt-0.5">
+          <p className="font-serif text-[13px] italic text-[#0d3e2e] line-clamp-1 mt-0.5">
             {category.subtitle}
           </p>
         </div>
@@ -79,7 +79,7 @@ export function SkillCategoryCard({
         <button
           type="button"
           onClick={() => onViewDetails(category)}
-          className="flex-1 rounded-lg bg-[#8c2f39] px-3.5 py-2 font-sans text-[13px] font-bold text-white transition-colors hover:bg-[#6d1824] shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
+          className="flex-1 rounded-lg bg-[#0d3e2e] px-3.5 py-2 font-sans text-[13px] font-bold text-white transition-colors hover:bg-[#08261c] shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
         >
           <BookOpen size={14} />
           <span>View Details</span>
@@ -88,7 +88,7 @@ export function SkillCategoryCard({
         <button
           type="button"
           onClick={() => onStartLearning(category)}
-          className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] transition-colors hover:bg-[#f6ede0] cursor-pointer flex items-center justify-center gap-1"
+          className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] transition-colors hover:bg-[#f6ede0] cursor-pointer flex items-center justify-center gap-1"
           title="Open interactive exercises directly"
         >
           <span>Practice</span>

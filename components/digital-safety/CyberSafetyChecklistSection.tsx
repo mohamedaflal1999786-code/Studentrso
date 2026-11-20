@@ -81,7 +81,7 @@ export function CyberSafetyChecklistSection() {
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#efe3cc] pb-5">
         <div>
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             <Shield size={13} /> STUDENT ACTION CHECKLIST
           </div>
           <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#2b2118] mt-1.5">
@@ -97,14 +97,14 @@ export function CyberSafetyChecklistSection() {
           <button
             type="button"
             onClick={handleSelectAll}
-            className="rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-sans text-[12px] font-semibold text-[#8c2f39] hover:bg-[#fbf5e9] transition cursor-pointer"
+            className="rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-sans text-[12px] font-semibold text-[#0d3e2e] hover:bg-[#fbf5e9] transition cursor-pointer"
           >
             Mark All Done
           </button>
           <button
             type="button"
             onClick={handleReset}
-            className="rounded-lg border border-[#efe3cc] bg-white p-2 text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#8c2f39] transition cursor-pointer"
+            className="rounded-lg border border-[#efe3cc] bg-white p-2 text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#0d3e2e] transition cursor-pointer"
             title="Reset Checklist"
           >
             <RotateCcw size={15} />
@@ -119,7 +119,7 @@ export function CyberSafetyChecklistSection() {
             <span className="font-mono text-[12px] font-bold text-[#2b2118]">
               Protection Readiness:
             </span>
-            <span className="font-mono text-[13px] font-bold text-[#8c2f39]">
+            <span className="font-mono text-[13px] font-bold text-[#0d3e2e]">
               {completedCount} of {totalItems} habits enabled
             </span>
           </div>
@@ -130,7 +130,7 @@ export function CyberSafetyChecklistSection() {
 
         <div className="h-2.5 w-full overflow-hidden rounded-full bg-[#efe3cc]">
           <div
-            className="h-full bg-[#8c2f39] transition-all duration-300"
+            className="h-full bg-[#0d3e2e] transition-all duration-300"
             style={{ width: `${completionPercentage}%` }}
           />
         </div>
@@ -145,7 +145,7 @@ export function CyberSafetyChecklistSection() {
             onClick={() => setSelectedCategory(cat)}
             className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-medium transition cursor-pointer shrink-0 ${
               selectedCategory === cat
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'bg-white border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#fbf5e9]'
             }`}
           >
@@ -166,7 +166,7 @@ export function CyberSafetyChecklistSection() {
               className={`flex items-start gap-3.5 rounded-xl border p-4 transition cursor-pointer select-none ${
                 isChecked
                   ? 'border-emerald-300 bg-emerald-50/50'
-                  : 'border-[#efe3cc] bg-white hover:border-[#8c2f39]/40 hover:bg-[#fdfbf6]'
+                  : 'border-[#efe3cc] bg-white hover:border-[#0d3e2e]/40 hover:bg-[#fdfbf6]'
               }`}
             >
               <div className="mt-0.5 shrink-0">

@@ -67,7 +67,7 @@ export function SkillCategoryDetailModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
           aria-label="Close dialog"
         >
           <X size={20} />
@@ -75,7 +75,7 @@ export function SkillCategoryDetailModal({
 
         {/* Top Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-2 pr-8">
-          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             {category.badge}
           </span>
           <span className="rounded-full bg-stone-100 border border-stone-200 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-stone-700">
@@ -91,14 +91,14 @@ export function SkillCategoryDetailModal({
         <h2 className="font-serif text-[24px] sm:text-[28px] font-bold leading-tight text-[#2b2118] pr-8">
           {category.title}
         </h2>
-        <p className="mt-1 font-serif text-[15px] italic text-[#8c2f39]">
+        <p className="mt-1 font-serif text-[15px] italic text-[#0d3e2e]">
           {category.subtitle}
         </p>
 
         {/* Meta Banner */}
         <div className="mt-4 flex flex-wrap items-center gap-4 rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-3 font-sans text-[13px] text-[#554a3f]">
           <div className="flex items-center gap-1.5 font-semibold text-[#2b2118]">
-            <Clock size={15} className="text-[#8c2f39]" />
+            <Clock size={15} className="text-[#0d3e2e]" />
             Study Time: ~{category.estimatedMinutes} Minutes
           </div>
           <div className="text-[#efe3cc]">|</div>
@@ -142,7 +142,7 @@ export function SkillCategoryDetailModal({
                   onClick={() => setActiveTopicIndex(index)}
                   className={`px-3 py-1.5 rounded-lg font-sans text-[13px] font-semibold transition cursor-pointer flex items-center gap-1.5 ${
                     activeTopicIndex === index
-                      ? 'bg-[#8c2f39] text-white shadow-xs'
+                      ? 'bg-[#0d3e2e] text-white shadow-xs'
                       : 'bg-[#fbf5e9] border border-[#efe3cc] text-[#2b2118] hover:bg-[#f6ede0]'
                   }`}
                 >
@@ -165,13 +165,13 @@ export function SkillCategoryDetailModal({
                 {currentTopic.summary}
               </p>
 
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] tracking-wider block mb-2">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] tracking-wider block mb-2">
                 KEY CONCEPTS &amp; RULES:
               </span>
               <ul className="space-y-2 font-sans text-[13px] text-[#2b2118]">
                 {currentTopic.keyPoints.map((point, i) => (
                   <li key={i} className="flex items-start gap-2 leading-relaxed">
-                    <span className="text-[#8c2f39] font-bold shrink-0">•</span>
+                    <span className="text-[#0d3e2e] font-bold shrink-0">•</span>
                     <span>{point}</span>
                   </li>
                 ))}
@@ -191,13 +191,13 @@ export function SkillCategoryDetailModal({
             {/* Step-by-Step Guide */}
             {currentTopic.stepByStepGuide.length > 0 && (
               <div className="rounded-xl border border-[#efe3cc] bg-white p-5">
-                <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] tracking-wider block mb-3">
+                <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] tracking-wider block mb-3">
                   STEP-BY-STEP IMPLEMENTATION METHOD
                 </span>
                 <div className="space-y-2.5">
                   {currentTopic.stepByStepGuide.map((step, i) => (
                     <div key={i} className="flex items-start gap-3 text-[13px] font-sans text-[#2b2118]">
-                      <span className="w-5 h-5 rounded-full bg-[#f6ede0] text-[#8c2f39] font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-[#f6ede0] text-[#0d3e2e] font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {i + 1}
                       </span>
                       <span className="leading-relaxed">{step}</span>
@@ -237,7 +237,7 @@ export function SkillCategoryDetailModal({
                               onClick={() => handleSelectOption(ex.id, opt)}
                               className={`w-full text-left p-3 rounded-lg border font-sans text-[13px] transition cursor-pointer flex items-start gap-2.5 ${
                                 selected === opt
-                                  ? 'border-[#8c2f39] bg-[#8c2f39]/5 text-[#8c2f39] font-semibold'
+                                  ? 'border-[#0d3e2e] bg-[#0d3e2e]/5 text-[#0d3e2e] font-semibold'
                                   : 'border-[#efe3cc] bg-white text-[#554a3f] hover:bg-[#fbf5e9]'
                               }`}
                             >
@@ -255,7 +255,7 @@ export function SkillCategoryDetailModal({
                         <button
                           type="button"
                           onClick={() => handleToggleReveal(ex.id)}
-                          className="px-3 py-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] text-[#8c2f39] font-sans text-[12px] font-semibold hover:bg-[#f6ede0] transition cursor-pointer flex items-center gap-1.5"
+                          className="px-3 py-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] text-[#0d3e2e] font-sans text-[12px] font-semibold hover:bg-[#f6ede0] transition cursor-pointer flex items-center gap-1.5"
                         >
                           <HelpCircle size={14} />
                           <span>{revealed ? 'Hide Explanation' : 'Check Explanation'}</span>
@@ -295,7 +295,7 @@ export function SkillCategoryDetailModal({
               href={category.officialSourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39] bg-[#8c2f39]/10 px-4 py-2.5 font-sans text-[13px] font-bold text-[#8c2f39] hover:bg-[#8c2f39] hover:text-white transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#0d3e2e] bg-[#0d3e2e]/10 px-4 py-2.5 font-sans text-[13px] font-bold text-[#0d3e2e] hover:bg-[#0d3e2e] hover:text-white transition cursor-pointer"
             >
               <span>Open Official Learning Portal</span>
               <ExternalLink size={14} />
@@ -309,7 +309,7 @@ export function SkillCategoryDetailModal({
               className={`inline-flex items-center gap-1.5 rounded-lg px-4 py-2.5 font-sans text-[13px] font-bold transition cursor-pointer ${
                 isCompleted
                   ? 'bg-emerald-700 text-white hover:bg-emerald-800'
-                  : 'bg-[#8c2f39] text-white hover:bg-[#6d1824]'
+                  : 'bg-[#0d3e2e] text-white hover:bg-[#08261c]'
               }`}
             >
               <CheckCircle2 size={16} />

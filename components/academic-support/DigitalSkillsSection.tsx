@@ -18,7 +18,7 @@ export function DigitalSkillsSection() {
     <div className="space-y-6 sm:space-y-8 font-sans">
       {/* Header Banner */}
       <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold uppercase">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold uppercase">
           APPLIED COMPUTING &amp; DIGITAL LITERACY
         </div>
         <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2b2118]">
@@ -50,7 +50,7 @@ export function DigitalSkillsSection() {
 
               {/* Modules */}
               <div className="space-y-1.5 pt-2 border-t border-[#efe3cc]/60">
-                <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   Curriculum Modules
                 </span>
                 <ul className="space-y-1">
@@ -64,7 +64,7 @@ export function DigitalSkillsSection() {
 
               {/* Practical Exercises */}
               <div className="p-3 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] space-y-1.5">
-                <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   Hands-on Exercises
                 </span>
                 {track.practicalExercises.map((ex, eIdx) => (
@@ -86,7 +86,7 @@ export function DigitalSkillsSection() {
                   href={fc.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition flex items-center justify-between text-xs font-bold"
+                  className="p-2.5 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition flex items-center justify-between text-xs font-bold"
                 >
                   <span className="truncate">{fc.title}</span>
                   <ExternalLink className="w-3.5 h-3.5 shrink-0" />

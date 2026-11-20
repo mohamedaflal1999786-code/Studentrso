@@ -123,25 +123,25 @@ interface QuickActionsBarProps {
 export function QuickActionsBar({ onSelectPrompt }: QuickActionsBarProps) {
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'BookOpen': return <BookOpen className="w-4 h-4 text-[#8c2f39]" />;
-      case 'Compass': return <Compass className="w-4 h-4 text-[#8c2f39]" />;
-      case 'Layers': return <Layers className="w-4 h-4 text-[#8c2f39]" />;
-      case 'Award': return <Award className="w-4 h-4 text-[#8c2f39]" />;
-      case 'GraduationCap': return <GraduationCap className="w-4 h-4 text-[#8c2f39]" />;
-      case 'Calendar': return <Calendar className="w-4 h-4 text-[#8c2f39]" />;
-      case 'FileText': return <FileText className="w-4 h-4 text-[#8c2f39]" />;
-      case 'Briefcase': return <Briefcase className="w-4 h-4 text-[#8c2f39]" />;
-      case 'Landmark': return <Landmark className="w-4 h-4 text-[#8c2f39]" />;
-      case 'FileSearch': return <FileSearch className="w-4 h-4 text-[#8c2f39]" />;
-      case 'Sparkles': return <Sparkles className="w-4 h-4 text-[#8c2f39]" />;
-      default: return <HelpCircle className="w-4 h-4 text-[#8c2f39]" />;
+      case 'BookOpen': return <BookOpen className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'Compass': return <Compass className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'Layers': return <Layers className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'Award': return <Award className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'GraduationCap': return <GraduationCap className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'Calendar': return <Calendar className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'FileText': return <FileText className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'Briefcase': return <Briefcase className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'Landmark': return <Landmark className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'FileSearch': return <FileSearch className="w-4 h-4 text-[#0d3e2e]" />;
+      case 'Sparkles': return <Sparkles className="w-4 h-4 text-[#0d3e2e]" />;
+      default: return <HelpCircle className="w-4 h-4 text-[#0d3e2e]" />;
     }
   };
 
   return (
     <div className="w-full">
       <div className="text-xs font-bold uppercase tracking-wider text-[#7a6a5a] mb-2.5 flex items-center gap-1.5">
-        <Sparkles className="w-3.5 h-3.5 text-[#8c2f39]" /> Suggested Quick Inquiries
+        <Sparkles className="w-3.5 h-3.5 text-[#0d3e2e]" /> Suggested Quick Inquiries
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
@@ -150,13 +150,13 @@ export function QuickActionsBar({ onSelectPrompt }: QuickActionsBarProps) {
             key={action.id}
             type="button"
             onClick={() => onSelectPrompt(action.prompt)}
-            className="p-3 rounded-xl bg-white border border-[#efe3cc] hover:border-[#8c2f39]/40 hover:bg-[#fbf5e9] text-left transition shadow-xs flex flex-col justify-between group cursor-pointer"
+            className="p-3 rounded-xl bg-white border border-[#efe3cc] hover:border-[#0d3e2e]/40 hover:bg-[#fbf5e9] text-left transition shadow-xs flex flex-col justify-between group cursor-pointer"
           >
             <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-7 h-7 rounded-lg bg-[#8c2f39]/10 flex items-center justify-center shrink-0">
+              <div className="w-7 h-7 rounded-lg bg-[#0d3e2e]/10 flex items-center justify-center shrink-0">
                 {getIcon(action.iconName)}
               </div>
-              <span className="text-xs font-bold text-[#2b2118] group-hover:text-[#8c2f39] transition-colors truncate">
+              <span className="text-xs font-bold text-[#2b2118] group-hover:text-[#0d3e2e] transition-colors truncate">
                 {action.title}
               </span>
             </div>

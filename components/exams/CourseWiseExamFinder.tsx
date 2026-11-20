@@ -98,10 +98,10 @@ export function CourseWiseExamFinder({
     <div className="space-y-8 font-sans">
       {/* Header Banner */}
       <div className="rounded-3xl bg-gradient-to-r from-[#fbf5e9] to-[#efe3cc]/60 border border-[#efe3cc] p-6 sm:p-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 mb-3">
           <GraduationCap className="w-4 h-4" /> 26 Academic & Professional Disciplines
         </div>
-        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#8c2f39]">
+        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#0d3e2e]">
           Course-Wise Entrance Examination Finder
         </h2>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed">
@@ -118,7 +118,7 @@ export function CourseWiseExamFinder({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search exams within discipline (e.g. TNEA, NEET, B.E., MBBS)..."
-              className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             />
           </div>
 
@@ -126,7 +126,7 @@ export function CourseWiseExamFinder({
             <select
               value={filterGovt}
               onChange={(e) => setFilterGovt(e.target.value as any)}
-              className="px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="all">All Examinations</option>
               <option value="govt">Government Only</option>
@@ -138,7 +138,7 @@ export function CourseWiseExamFinder({
               onClick={() => setFilterFreeOnly(!filterFreeOnly)}
               className={`px-3 py-2 text-xs font-semibold rounded-lg border transition ${
                 filterFreeOnly
-                  ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                  ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                   : 'bg-white text-stone-800 border-[#efe3cc] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -150,7 +150,7 @@ export function CourseWiseExamFinder({
               onClick={() => setFilterConcessionOnly(!filterConcessionOnly)}
               className={`px-3 py-2 text-xs font-semibold rounded-lg border transition ${
                 filterConcessionOnly
-                  ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                  ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                   : 'bg-white text-stone-800 border-[#efe3cc] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -164,7 +164,7 @@ export function CourseWiseExamFinder({
       <div className="space-y-3">
         <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-stone-600">
           <span>Choose Target Discipline ({COURSE_DISCIPLINES_LIST.length})</span>
-          <span className="text-[#8c2f39]">Selected: {selectedDiscipline}</span>
+          <span className="text-[#0d3e2e]">Selected: {selectedDiscipline}</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 max-h-60 overflow-y-auto p-1 border border-[#efe3cc] rounded-2xl bg-[#fdfbf6]">
@@ -178,8 +178,8 @@ export function CourseWiseExamFinder({
                 onClick={() => setSelectedDiscipline(disc.id)}
                 className={`p-2.5 rounded-xl text-left border transition flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-[#8c2f39] text-white border-[#8c2f39] shadow-sm'
-                    : 'bg-white text-stone-800 border-[#efe3cc] hover:border-[#8c2f39]/40 hover:bg-[#fbf5e9]'
+                    ? 'bg-[#0d3e2e] text-white border-[#0d3e2e] shadow-sm'
+                    : 'bg-white text-stone-800 border-[#efe3cc] hover:border-[#0d3e2e]/40 hover:bg-[#fbf5e9]'
                 }`}
               >
                 <div className="text-xs font-semibold line-clamp-1">{disc.id}</div>
@@ -196,7 +196,7 @@ export function CourseWiseExamFinder({
       {/* Selected Discipline Info Banner */}
       <div className="rounded-2xl bg-white border border-[#efe3cc] p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
         <div>
-          <div className="text-xs font-bold uppercase tracking-wider text-[#8c2f39]">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#0d3e2e]">
             Discipline Overview
           </div>
           <h3 className="text-xl font-serif font-bold text-stone-900 mt-0.5">
@@ -207,7 +207,7 @@ export function CourseWiseExamFinder({
           </p>
         </div>
         <div className="text-right">
-          <span className="text-3xl font-serif font-bold text-[#8c2f39]">
+          <span className="text-3xl font-serif font-bold text-[#0d3e2e]">
             {matchedExams.length}
           </span>
           <span className="text-xs text-stone-500 block">Available Examinations</span>
@@ -258,7 +258,7 @@ export function CourseWiseExamFinder({
                       onClick={() => onTrackExam(exam)}
                       className={`p-1.5 rounded-lg border transition shrink-0 ${
                         isSaved
-                          ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                          ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                           : 'bg-[#fdfbf6] text-stone-600 border-[#efe3cc] hover:bg-[#fbf5e9]'
                       }`}
                       title={isSaved ? 'In your tracker' : 'Add to tracker'}
@@ -270,7 +270,7 @@ export function CourseWiseExamFinder({
                   {/* Title & Authority */}
                   <h3
                     onClick={() => onSelectExam(exam)}
-                    className="text-lg font-serif font-bold text-[#8c2f39] hover:underline cursor-pointer leading-snug"
+                    className="text-lg font-serif font-bold text-[#0d3e2e] hover:underline cursor-pointer leading-snug"
                   >
                     {exam.title}
                   </h3>
@@ -280,7 +280,7 @@ export function CourseWiseExamFinder({
 
                   {/* Unlocks Opportunity Box */}
                   <div className="mt-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] p-3.5">
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#8c2f39] mb-1">
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e] mb-1">
                       <Award className="w-3.5 h-3.5" /> What Opportunity Does This Examination Provide?
                     </div>
                     <div className="text-xs font-semibold text-stone-900 mb-1">
@@ -289,7 +289,7 @@ export function CourseWiseExamFinder({
                     <ul className="text-xs text-stone-700 space-y-1">
                       {exam.linkedOpportunities.targetProgrammesOrPosts.map((p, idx) => (
                         <li key={idx} className="flex items-start gap-1.5">
-                          <span className="text-[#8c2f39] font-bold">•</span>
+                          <span className="text-[#0d3e2e] font-bold">•</span>
                           <span>{p}</span>
                         </li>
                       ))}
@@ -312,7 +312,7 @@ export function CourseWiseExamFinder({
                   <button
                     type="button"
                     onClick={() => onSelectExam(exam)}
-                    className="flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-[#8c2f39] text-white hover:bg-[#72262e] transition text-center shadow-sm"
+                    className="flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-[#0d3e2e] text-white hover:bg-[#061d15] transition text-center shadow-sm"
                   >
                     View Opportunities & Syllabus
                   </button>

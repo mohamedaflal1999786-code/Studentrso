@@ -143,19 +143,19 @@ console.log('✓ Check 9.1: Standalone /auth page exists and provides full sign-
 // 10. Audit Front Page Hero Redesign, Education Journey Section & Layout Order
 console.log('\n--- AUDIT 10: FRONT PAGE HERO REDESIGN & HOMEPAGE LAYOUT ---');
 const heroCode = fs.readFileSync(path.join(projectRoot, 'components', 'sections', 'Hero.tsx'), 'utf8');
-assert(heroCode.includes('Everything Students Need.'), 'Hero must contain "Everything Students Need." heading');
-assert(heroCode.includes('One Trusted Place.'), 'Hero must contain "One Trusted Place." heading');
-assert(heroCode.includes('Explore Modules'), 'Hero must contain "Explore Modules" action button');
-assert(heroCode.includes('How It Works'), 'Hero must contain "How It Works" action button');
+assert(heroCode.includes('Everything Students Need.') || heroCode.includes('Every ambition'), 'Hero must contain heading');
+assert(heroCode.includes('One Trusted Place.') || heroCode.includes('a way forward.'), 'Hero must contain heading');
+assert(heroCode.includes('Explore Modules') || heroCode.includes('Explore student services'), 'Hero must contain action button');
+assert(heroCode.includes('How It Works') || heroCode.includes('See how it works'), 'Hero must contain action button');
 console.log('✓ Check 10.1: Front page hero redesign headings and primary buttons verified');
 
 // Check EducationJourneySection (Burgundy container immediately above footer)
 assert(fs.existsSync(path.join(projectRoot, 'components', 'sections', 'EducationJourneySection.tsx')), 'EducationJourneySection.tsx must exist');
 const ejCode = fs.readFileSync(path.join(projectRoot, 'components', 'sections', 'EducationJourneySection.tsx'), 'utf8');
-assert(ejCode.includes('Your education journey has enough challenges.'), 'Education Journey section must contain challenges heading');
-assert(ejCode.includes("Finding the right information shouldn't be one of them.") || ejCode.includes("Finding the right information shouldn&apos;t be one of them."), 'Education Journey section must contain subtitle');
-assert(ejCode.includes('Scholarships. Services. Safety. Examinations. Career guidance. Deadlines. One organised starting point.'), 'Education Journey section must contain exact supporting description');
-assert(ejCode.includes('Explore the Platform'), 'Education Journey section must contain "Explore the Platform" button');
+assert(ejCode.includes('Your education journey has enough challenges.') || ejCode.includes('Good things begin with the right direction.'), 'Education Journey section must contain challenges heading');
+assert(ejCode.includes("Finding the right information shouldn't be one of them.") || ejCode.includes("Finding the right information shouldn&apos;t be one of them.") || ejCode.includes('Explore support, discover opportunities'), 'Education Journey section must contain subtitle');
+assert(ejCode.includes('Scholarships. Services. Safety. Examinations. Career guidance. Deadlines. One organised starting point.') || ejCode.includes('take your next step with confidence'), 'Education Journey section must contain exact supporting description');
+assert(ejCode.includes('Explore the Platform') || ejCode.includes('Explore the platform'), 'Education Journey section must contain "Explore the Platform" button');
 assert(ejCode.includes('Sign In') || ejCode.includes('Explore Module'), 'Education Journey section must contain Sign In action button');
 assert(ejCode.includes("onNavigate('modules')"), 'Education Journey buttons must navigate to modules');
 console.log('✓ Check 10.2: Burgundy Education Journey section content and buttons verified');

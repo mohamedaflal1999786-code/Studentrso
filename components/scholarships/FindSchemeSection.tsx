@@ -50,7 +50,7 @@ export function FindSchemeSection({ onCheckLocalEligibility }: FindSchemeSection
     <section className="my-8 rounded-2xl border-2 border-[#cfa052]/40 bg-gradient-to-br from-[#fdfbf6] via-[#fbf5e9] to-[#f4ebe1] p-6 sm:p-8 shadow-sm">
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6 border-b border-[#efe3cc]">
         <div className="space-y-2 max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#8c2f39]/20 bg-[#8c2f39]/10 px-3.5 py-1 text-[11px] font-bold text-[#8c2f39]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#0d3e2e]/20 bg-[#0d3e2e]/10 px-3.5 py-1 text-[11px] font-bold text-[#0d3e2e]">
             <Sparkles size={14} className="text-[#cfa052]" />
             NATIONAL SINGLE-WINDOW DISCOVERY ENGINE
           </div>
@@ -70,7 +70,7 @@ export function FindSchemeSection({ onCheckLocalEligibility }: FindSchemeSection
             href="https://www.myscheme.gov.in/find-scheme"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#8c2f39] text-white font-sans text-[13px] font-bold hover:bg-[#72262e] transition shadow-md group"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#0d3e2e] text-white font-sans text-[13px] font-bold hover:bg-[#061d15] transition shadow-md group"
           >
             <span>Open Official Scheme Finder</span>
             <ExternalLink size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -82,7 +82,7 @@ export function FindSchemeSection({ onCheckLocalEligibility }: FindSchemeSection
               onClick={onCheckLocalEligibility}
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] font-sans text-[13px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
             >
-              <Compass size={16} className="text-[#8c2f39]" />
+              <Compass size={16} className="text-[#0d3e2e]" />
               <span>TN Smart Checker</span>
             </button>
           )}
@@ -96,10 +96,10 @@ export function FindSchemeSection({ onCheckLocalEligibility }: FindSchemeSection
           return (
             <div
               key={idx}
-              className="p-4 rounded-xl bg-white/80 border border-[#efe3cc] hover:border-[#8c2f39]/40 hover:bg-white transition space-y-2 flex flex-col justify-between"
+              className="p-4 rounded-xl bg-white/80 border border-[#efe3cc] hover:border-[#0d3e2e]/40 hover:bg-white transition space-y-2 flex flex-col justify-between"
             >
               <div className="space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-[#8c2f39]/10 text-[#8c2f39] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-[#0d3e2e]/10 text-[#0d3e2e] flex items-center justify-center">
                   <Icon size={18} />
                 </div>
                 <h3 className="font-serif text-[15px] font-bold text-[#2b2118] leading-snug">
@@ -129,7 +129,7 @@ export function FindSchemeSection({ onCheckLocalEligibility }: FindSchemeSection
           href="https://www.myscheme.gov.in/find-scheme"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#8c2f39] font-bold hover:underline inline-flex items-center gap-1"
+          className="text-[#0d3e2e] font-bold hover:underline inline-flex items-center gap-1"
         >
           <span>Find by Age, Category & Qualification</span>
           <ArrowRight size={13} />

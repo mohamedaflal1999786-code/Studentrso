@@ -83,7 +83,7 @@ export function SystemDiagnosticsModal({ isOpen, onClose }: SystemDiagnosticsMod
         </button>
 
         <div className="flex items-center gap-2">
-          <Activity size={20} className="text-[#8c2f39]" />
+          <Activity size={20} className="text-[#0d3e2e]" />
           <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
             Automated Discovery & Connector Telemetry
           </h2>
@@ -109,7 +109,7 @@ export function SystemDiagnosticsModal({ isOpen, onClose }: SystemDiagnosticsMod
           <button
             onClick={runDiscoveryNow}
             disabled={triggeringJob}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-[#8c2f39] px-3 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824]"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#0d3e2e] px-3 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c]"
           >
             <RefreshCw size={13} className={triggeringJob ? 'animate-spin' : ''} />
             <span>{triggeringJob ? 'Executing Connectors...' : 'Run Discovery Ping Now'}</span>
@@ -124,11 +124,11 @@ export function SystemDiagnosticsModal({ isOpen, onClose }: SystemDiagnosticsMod
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-sans text-[12px]">
               <div className="rounded-lg border border-[#efe3cc] bg-white p-2.5">
-                <span className="font-serif text-lg font-bold text-[#8c2f39]">{telemetry.breakdown.totalSchemes}</span>
+                <span className="font-serif text-lg font-bold text-[#0d3e2e]">{telemetry.breakdown.totalSchemes}</span>
                 <span className="block text-[10px] text-[#7a6a5a] uppercase">Total Verified</span>
               </div>
               <div className="rounded-lg border border-[#efe3cc] bg-white p-2.5">
-                <span className="font-serif text-lg font-bold text-[#8c2f39]">{telemetry.breakdown.tamilNaduGovt}</span>
+                <span className="font-serif text-lg font-bold text-[#0d3e2e]">{telemetry.breakdown.tamilNaduGovt}</span>
                 <span className="block text-[10px] text-[#7a6a5a] uppercase">Tamil Nadu Govt</span>
               </div>
               <div className="rounded-lg border border-[#efe3cc] bg-white p-2.5">
@@ -179,7 +179,7 @@ export function SystemDiagnosticsModal({ isOpen, onClose }: SystemDiagnosticsMod
                     href={src.portalUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#8c2f39] hover:underline"
+                    className="text-[#0d3e2e] hover:underline"
                   >
                     <ExternalLink size={13} />
                   </a>

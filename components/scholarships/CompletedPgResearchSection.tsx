@@ -101,7 +101,7 @@ export function CompletedPgResearchSection({
             placeholder="Search research fellowship, discipline (e.g. Visvesvaraya, PMRF, JRF, MeitY, ICAR)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-[#d8c7ad] bg-white py-2 pl-9 pr-3 text-[13px] outline-none focus:border-[#8c2f39]"
+            className="w-full rounded-lg border border-[#d8c7ad] bg-white py-2 pl-9 pr-3 text-[13px] outline-none focus:border-[#0d3e2e]"
           />
         </div>
 
@@ -179,7 +179,7 @@ export function CompletedPgResearchSection({
               <div className="mt-5 pt-3 border-t border-purple-100 flex items-center justify-between">
                 <button
                   onClick={() => onViewDetails(item)}
-                  className="font-sans text-[12px] font-bold text-[#8c2f39] hover:underline"
+                  className="font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline"
                 >
                   Full Guidelines →
                 </button>
@@ -187,7 +187,7 @@ export function CompletedPgResearchSection({
                   href={item.officialApplicationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 rounded-lg bg-[#8c2f39] px-3 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824]"
+                  className="inline-flex items-center gap-1 rounded-lg bg-[#0d3e2e] px-3 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c]"
                 >
                   <span>Apply on Portal</span>
                   <ExternalLink size={12} />

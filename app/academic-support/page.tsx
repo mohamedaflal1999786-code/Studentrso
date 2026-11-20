@@ -114,7 +114,7 @@ function AcademicSupportContent() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#8c2f39] hover:underline"
+              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:underline"
             >
               <ArrowLeft size={16} />
               <span>Back to Student RSO</span>
@@ -139,7 +139,7 @@ function AcademicSupportContent() {
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
-                <User size={14} className="text-[#8c2f39]" />
+                <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
@@ -149,7 +149,7 @@ function AcademicSupportContent() {
                   setAuthMode('login');
                   setAuthOpen(true);
                 }}
-                className="rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+                className="rounded-lg bg-[#0d3e2e] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
               >
                 Sign In
               </button>
@@ -159,7 +159,7 @@ function AcademicSupportContent() {
       </header>
 
       {/* Hero Banner Strip */}
-      <section className="border-b border-[#efe3cc] bg-[#8c2f39] text-white">
+      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -178,7 +178,7 @@ function AcademicSupportContent() {
               <button
                 type="button"
                 onClick={() => handleTabChange('free-resources')}
-                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#8c2f39] hover:bg-[#f6ede0] shadow-sm flex items-center gap-1.5 cursor-pointer"
+                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#0d3e2e] hover:bg-[#f6ede0] shadow-sm flex items-center gap-1.5 cursor-pointer"
               >
                 <BookOpen size={16} /> Find Learning Resources
               </button>
@@ -208,11 +208,11 @@ function AcademicSupportContent() {
                 onClick={() => handleTabChange(tab.id)}
                 className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl font-sans text-[13px] font-bold whitespace-nowrap transition cursor-pointer ${
                   isActive
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-white border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#2b2118]'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#8c2f39]'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#0d3e2e]'}`} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -297,8 +297,8 @@ export default function AcademicSupportPage() {
       fallback={
         <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center p-8">
           <div className="text-center space-y-3">
-            <div className="w-10 h-10 border-4 border-[#8c2f39] border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="font-serif text-lg font-bold text-[#8c2f39]">Loading Academic Support Centre...</p>
+            <div className="w-10 h-10 border-4 border-[#0d3e2e] border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="font-serif text-lg font-bold text-[#0d3e2e]">Loading Academic Support Centre...</p>
           </div>
         </div>
       }

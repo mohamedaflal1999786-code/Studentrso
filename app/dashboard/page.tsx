@@ -48,7 +48,7 @@ const ALL_10_MODULES = [
     desc: 'Financial assistance & Tamil Nadu welfare schemes',
     route: '/scholarships',
     icon: 'school',
-    accent: '#8c2f39',
+    accent: '#0d3e2e',
   },
   {
     num: '02',
@@ -337,13 +337,13 @@ export default function StudentDashboardPage() {
   if (authLoading || !user) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9]">
-        <Loader2 size={36} className="animate-spin text-[#8c2f39]" />
+        <Loader2 size={36} className="animate-spin text-[#0d3e2e]" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#fbf5e9] text-[#2b2118] flex flex-col font-sans selection:bg-[#8c2f39] selection:text-[#fbf5e9]">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#fbf5e9] text-[#2b2118] flex flex-col font-sans selection:bg-[#0d3e2e] selection:text-[#fbf5e9]">
       <Header
         onSignIn={() => router.push('/auth')}
         onNavigate={(id) => {
@@ -363,7 +363,7 @@ export default function StudentDashboardPage() {
         {/* ========================================================
             1. WELCOME HERO BANNER & STUDENT CREDENTIAL STATUS
         ======================================================== */}
-        <section className="bg-gradient-to-r from-[#6d1824] via-[#8c2f39] to-[#5a1b23] text-[#fbf5e9] rounded-3xl p-5 sm:p-8 shadow-xl relative overflow-hidden border border-[#a23d48]">
+        <section className="bg-gradient-to-r from-[#08261c] via-[#0d3e2e] to-[#5a1b23] text-[#fbf5e9] rounded-3xl p-5 sm:p-8 shadow-xl relative overflow-hidden border border-[#16533e]">
           {/* Subtle watermark logo pattern */}
           <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-8 translate-y-8">
             <img
@@ -386,7 +386,7 @@ export default function StudentDashboardPage() {
                     className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl object-cover shadow-lg border-2 border-[#e0a526]"
                   />
                 ) : (
-                  <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#fdfbf6] text-[#8c2f39] font-serif font-bold text-xl sm:text-3xl flex items-center justify-center shadow-lg border-2 border-[#e0a526]">
+                  <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#fdfbf6] text-[#0d3e2e] font-serif font-bold text-xl sm:text-3xl flex items-center justify-center shadow-lg border-2 border-[#e0a526]">
                     {studentInitials}
                   </div>
                 )}
@@ -394,7 +394,7 @@ export default function StudentDashboardPage() {
                   type="button"
                   onClick={() => setProfileDialogOpen(true)}
                   title="Upload / Change profile picture (Max 2MB)"
-                  className="absolute -bottom-1 -right-1 p-1 sm:p-1.5 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer"
+                  className="absolute -bottom-1 -right-1 p-1 sm:p-1.5 rounded-full bg-[#0d3e2e] text-white hover:bg-[#08261c] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer"
                 >
                   <Camera size={12} />
                 </button>
@@ -521,11 +521,11 @@ export default function StudentDashboardPage() {
               setActiveTab('recommendations');
               setCategoryFilter('Scholarship');
             }}
-            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#8c2f39] hover:shadow-md transition text-left cursor-pointer group"
+            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#0d3e2e] hover:shadow-md transition text-left cursor-pointer group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-[#7a6a5a]">Scholarships</span>
-              <div className="w-8 h-8 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] flex items-center justify-center group-hover:bg-[#8c2f39] group-hover:text-white transition">
+              <div className="w-8 h-8 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] flex items-center justify-center group-hover:bg-[#0d3e2e] group-hover:text-white transition">
                 <Award size={18} />
               </div>
             </div>
@@ -540,7 +540,7 @@ export default function StudentDashboardPage() {
               setActiveTab('recommendations');
               setCategoryFilter('Examination');
             }}
-            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#8c2f39] hover:shadow-md transition text-left cursor-pointer group"
+            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#0d3e2e] hover:shadow-md transition text-left cursor-pointer group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-[#7a6a5a]">Target Exams</span>
@@ -559,7 +559,7 @@ export default function StudentDashboardPage() {
               setActiveTab('recommendations');
               setCategoryFilter('Admission');
             }}
-            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#8c2f39] hover:shadow-md transition text-left cursor-pointer group"
+            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#0d3e2e] hover:shadow-md transition text-left cursor-pointer group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-[#7a6a5a]">Admissions</span>
@@ -578,7 +578,7 @@ export default function StudentDashboardPage() {
               setActiveTab('recommendations');
               setCategoryFilter('Internship');
             }}
-            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#8c2f39] hover:shadow-md transition text-left cursor-pointer group"
+            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#0d3e2e] hover:shadow-md transition text-left cursor-pointer group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-[#7a6a5a]">Internships</span>
@@ -594,11 +594,11 @@ export default function StudentDashboardPage() {
           <button
             type="button"
             onClick={() => setActiveTab('tracker')}
-            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#8c2f39] hover:shadow-md transition text-left cursor-pointer group"
+            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#0d3e2e] hover:shadow-md transition text-left cursor-pointer group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-[#7a6a5a]">Saved Items</span>
-              <div className="w-8 h-8 rounded-xl bg-[#cfa052]/20 text-[#8c2f39] flex items-center justify-center group-hover:bg-[#cfa052] group-hover:text-white transition">
+              <div className="w-8 h-8 rounded-xl bg-[#cfa052]/20 text-[#0d3e2e] flex items-center justify-center group-hover:bg-[#cfa052] group-hover:text-white transition">
                 <Bookmark size={18} />
               </div>
             </div>
@@ -613,7 +613,7 @@ export default function StudentDashboardPage() {
               setActiveTab('tracker');
               setStatusFilter('Preparing Documents');
             }}
-            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#8c2f39] hover:shadow-md transition text-left cursor-pointer group"
+            className="bg-[#fdfbf6] rounded-2xl p-4 border border-[#efe3cc] shadow-xs flex flex-col justify-between hover:border-[#0d3e2e] hover:shadow-md transition text-left cursor-pointer group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-[#7a6a5a]">In Progress</span>
@@ -635,7 +635,7 @@ export default function StudentDashboardPage() {
             onClick={() => setActiveTab('recommendations')}
             className={`px-4 py-2.5 rounded-xl font-sans text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'recommendations'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'text-[#7a6a5a] hover:text-[#2b2118] hover:bg-[#f6ede0]'
             }`}
           >
@@ -648,7 +648,7 @@ export default function StudentDashboardPage() {
             onClick={() => setActiveTab('tracker')}
             className={`px-4 py-2.5 rounded-xl font-sans text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'tracker'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'text-[#7a6a5a] hover:text-[#2b2118] hover:bg-[#f6ede0]'
             }`}
           >
@@ -661,7 +661,7 @@ export default function StudentDashboardPage() {
             onClick={() => setActiveTab('modules')}
             className={`px-4 py-2.5 rounded-xl font-sans text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'modules'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'text-[#7a6a5a] hover:text-[#2b2118] hover:bg-[#f6ede0]'
             }`}
           >
@@ -674,7 +674,7 @@ export default function StudentDashboardPage() {
             onClick={() => setActiveTab('notifications')}
             className={`px-4 py-2.5 rounded-xl font-sans text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'notifications'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'text-[#7a6a5a] hover:text-[#2b2118] hover:bg-[#f6ede0]'
             }`}
           >
@@ -704,7 +704,7 @@ export default function StudentDashboardPage() {
                       onClick={() => setCategoryFilter(cat)}
                       className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1.5 ${
                         categoryFilter === cat
-                          ? 'bg-[#8c2f39] text-white shadow-xs'
+                          ? 'bg-[#0d3e2e] text-white shadow-xs'
                           : 'bg-[#f6ede0] text-[#7a6a5a] hover:text-[#2b2118]'
                       }`}
                     >
@@ -724,7 +724,7 @@ export default function StudentDashboardPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search opportunities..."
-                  className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#d8c7ad] bg-white text-xs text-[#2b2118] focus:outline-hidden focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#d8c7ad] bg-white text-xs text-[#2b2118] focus:outline-hidden focus:ring-2 focus:ring-[#0d3e2e]"
                 />
                 <Search size={14} className="absolute left-3 top-3 text-[#a09080]" />
               </div>
@@ -733,7 +733,7 @@ export default function StudentDashboardPage() {
             {/* Recommendations Grid */}
             {loadingData ? (
               <div className="py-20 text-center text-[#7a6a5a] space-y-3 bg-[#fdfbf6] rounded-3xl border border-[#efe3cc]">
-                <Loader2 size={28} className="animate-spin mx-auto text-[#8c2f39]" />
+                <Loader2 size={28} className="animate-spin mx-auto text-[#0d3e2e]" />
                 <p className="text-sm font-serif font-bold text-[#2b2118]">Evaluating Statutory Opportunities...</p>
                 <p className="text-xs text-[#7a6a5a]">Matching eligibility rules to your student profile</p>
               </div>
@@ -754,12 +754,12 @@ export default function StudentDashboardPage() {
                   return (
                     <div
                       key={opp.id}
-                      className="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] p-5 shadow-xs hover:shadow-md hover:border-[#8c2f39]/50 transition-all flex flex-col justify-between"
+                      className="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] p-5 shadow-xs hover:shadow-md hover:border-[#0d3e2e]/50 transition-all flex flex-col justify-between"
                     >
                       <div>
                         {/* Badges */}
                         <div className="flex items-center justify-between gap-2 mb-2.5">
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 px-2 py-0.5 rounded">
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 px-2 py-0.5 rounded">
                             {opp.category}
                           </span>
                           <span
@@ -787,7 +787,7 @@ export default function StudentDashboardPage() {
 
                         {/* Match Rationale */}
                         <div className="mt-3 p-3 rounded-xl bg-[#f6ede0] border border-[#efe3cc] text-[11px] text-[#2b2118]">
-                          <span className="font-bold text-[#8c2f39]">Why this matches: </span>
+                          <span className="font-bold text-[#0d3e2e]">Why this matches: </span>
                           <span>{opp.matchReason}</span>
                         </div>
 
@@ -805,7 +805,7 @@ export default function StudentDashboardPage() {
                       <div className="mt-5 pt-3 border-t border-[#efe3cc] flex items-center justify-between gap-2">
                         <Link
                           href={opp.moduleRoute}
-                          className="text-xs font-semibold text-[#8c2f39] hover:underline flex items-center gap-1"
+                          className="text-xs font-semibold text-[#0d3e2e] hover:underline flex items-center gap-1"
                         >
                           <span>Module {opp.moduleNumber}</span>
                           <ArrowRight size={12} />
@@ -819,7 +819,7 @@ export default function StudentDashboardPage() {
                             className={`p-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
                               isSaved
                                 ? 'bg-emerald-100 text-emerald-800 cursor-default'
-                                : 'bg-[#f6ede0] text-[#2b2118] hover:bg-[#8c2f39] hover:text-white'
+                                : 'bg-[#f6ede0] text-[#2b2118] hover:bg-[#0d3e2e] hover:text-white'
                             }`}
                             title={isSaved ? 'Saved in Tracker' : 'Save to Personal Tracker'}
                           >
@@ -830,7 +830,7 @@ export default function StudentDashboardPage() {
                             href={opp.officialUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-3.5 py-2 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] transition flex items-center gap-1 shadow-xs"
+                            className="px-3.5 py-2 rounded-xl bg-[#0d3e2e] text-white text-xs font-bold hover:bg-[#08261c] transition flex items-center gap-1 shadow-xs"
                           >
                             <span>Apply</span>
                             <ExternalLink size={12} />
@@ -889,7 +889,7 @@ export default function StudentDashboardPage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('recommendations')}
-                  className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] transition cursor-pointer shadow-xs"
+                  className="px-5 py-2.5 rounded-xl bg-[#0d3e2e] text-white text-xs font-bold hover:bg-[#08261c] transition cursor-pointer shadow-xs"
                 >
                   Browse Recommendations →
                 </button>
@@ -903,7 +903,7 @@ export default function StudentDashboardPage() {
                   >
                     <div className="space-y-1 max-w-xl">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-mono uppercase bg-[#cfa052]/20 text-[#8c2f39] px-2 py-0.5 rounded font-bold">
+                        <span className="text-[10px] font-mono uppercase bg-[#cfa052]/20 text-[#0d3e2e] px-2 py-0.5 rounded font-bold">
                           {item.category}
                         </span>
                         {item.deadline && (
@@ -923,7 +923,7 @@ export default function StudentDashboardPage() {
                           onChange={(e) =>
                             handleUpdateStatus(item.opportunity_id, e.target.value as SavedOpportunityRecord['status'])
                           }
-                          className="px-3 py-1.5 rounded-xl border border-[#d8c7ad] bg-white text-xs font-semibold text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                          className="px-3 py-1.5 rounded-xl border border-[#d8c7ad] bg-white text-xs font-semibold text-[#2b2118] focus:ring-2 focus:ring-[#0d3e2e]"
                         >
                           <option value="Interested">Interested</option>
                           <option value="Saved">Saved</option>
@@ -941,7 +941,7 @@ export default function StudentDashboardPage() {
                           href={item.official_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2.5 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition shadow-xs"
+                          className="p-2.5 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition shadow-xs"
                           title="Open official authority portal"
                         >
                           <ExternalLink size={16} />
@@ -972,22 +972,22 @@ export default function StudentDashboardPage() {
                 <Link
                   key={m.num}
                   href={m.route}
-                  className="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] p-4 shadow-xs hover:border-[#8c2f39] hover:shadow-md transition flex flex-col justify-between group"
+                  className="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] p-4 shadow-xs hover:border-[#0d3e2e] hover:shadow-md transition flex flex-col justify-between group"
                 >
                   <div>
-                    <div className="flex items-center justify-between text-[#8c2f39] mb-2">
-                      <span className="font-mono text-xs font-bold bg-[#8c2f39]/10 px-2 py-0.5 rounded">
+                    <div className="flex items-center justify-between text-[#0d3e2e] mb-2">
+                      <span className="font-mono text-xs font-bold bg-[#0d3e2e]/10 px-2 py-0.5 rounded">
                         Module {m.num}
                       </span>
                       <AppIcon name={m.icon} className="text-[22px]" />
                     </div>
-                    <h3 className="font-serif font-bold text-sm text-[#2b2118] group-hover:text-[#8c2f39] transition">
+                    <h3 className="font-serif font-bold text-sm text-[#2b2118] group-hover:text-[#0d3e2e] transition">
                       {m.title}
                     </h3>
                     <p className="text-[11px] text-[#7a6a5a] mt-1 line-clamp-2">{m.desc}</p>
                   </div>
                   <div className="mt-4 pt-2 border-t border-[#efe3cc] text-right">
-                    <span className="text-[11px] font-semibold text-[#8c2f39] group-hover:underline flex items-center justify-end gap-1">
+                    <span className="text-[11px] font-semibold text-[#0d3e2e] group-hover:underline flex items-center justify-end gap-1">
                       <span>Explore</span>
                       <ArrowRight size={12} />
                     </span>
@@ -1057,7 +1057,7 @@ export default function StudentDashboardPage() {
                         [item.key]: e.target.checked,
                       }))
                     }
-                    className="w-4 h-4 text-[#8c2f39] rounded accent-[#8c2f39] mt-0.5"
+                    className="w-4 h-4 text-[#0d3e2e] rounded accent-[#0d3e2e] mt-0.5"
                   />
                   <div>
                     <p className="text-xs font-semibold text-[#2b2118]">{item.label}</p>
@@ -1078,7 +1078,7 @@ export default function StudentDashboardPage() {
               type="button"
               disabled={savingPref}
               onClick={handleSaveNotificationPrefs}
-              className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-xs flex items-center gap-2 cursor-pointer disabled:opacity-60"
+              className="px-5 py-2.5 rounded-xl bg-[#0d3e2e] text-white text-xs font-bold hover:bg-[#08261c] shadow-xs flex items-center gap-2 cursor-pointer disabled:opacity-60"
             >
               {savingPref ? <Loader2 size={14} className="animate-spin" /> : <CheckCircle2 size={14} />}
               <span>Save Alert Preferences</span>

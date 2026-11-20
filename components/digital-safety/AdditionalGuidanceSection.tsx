@@ -41,7 +41,7 @@ export function AdditionalGuidanceSection() {
     <section className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-8 shadow-sm space-y-6">
       {/* Header */}
       <div className="border-b border-[#efe3cc] pb-5">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
           <BookOpen size={13} /> CURRICULUM ARCHIVE
         </div>
         <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#2b2118] mt-1.5">
@@ -68,13 +68,13 @@ export function AdditionalGuidanceSection() {
                 className="w-full flex items-center justify-between p-4 sm:p-5 text-left transition hover:bg-[#fdfbf6] cursor-pointer"
               >
                 <div className="flex items-center gap-3.5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e]">
                     {iconMap[section.id] || <Shield size={20} />}
                   </div>
 
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-0.5">
-                      <span className="font-mono text-[10px] font-bold uppercase text-[#8c2f39]">
+                      <span className="font-mono text-[10px] font-bold uppercase text-[#0d3e2e]">
                         {section.badge}
                       </span>
                       <span className="font-mono text-[10px] text-[#7a6a5a]">

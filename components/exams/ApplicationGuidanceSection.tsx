@@ -129,7 +129,7 @@ export function ApplicationGuidanceSection() {
       {/* Overview Card */}
       <div className="rounded-2xl border border-[#efe3cc] bg-white p-5 sm:p-6 shadow-2xs space-y-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 font-mono text-[11px] font-bold mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 font-mono text-[11px] font-bold mb-2">
             STEP-BY-STEP ADMISSION PLAYBOOK
           </div>
           <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#2b2118]">
@@ -146,7 +146,7 @@ export function ApplicationGuidanceSection() {
             onClick={() => setActiveStepTab('tnea')}
             className={`px-3.5 py-2 rounded-xl font-bold transition cursor-pointer ${
               activeStepTab === 'tnea'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'bg-[#fbf5e9] text-[#2b2118] border border-[#efe3cc] hover:bg-[#f6ede0]'
             }`}
           >
@@ -156,7 +156,7 @@ export function ApplicationGuidanceSection() {
             onClick={() => setActiveStepTab('medical')}
             className={`px-3.5 py-2 rounded-xl font-bold transition cursor-pointer ${
               activeStepTab === 'medical'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'bg-[#fbf5e9] text-[#2b2118] border border-[#efe3cc] hover:bg-[#f6ede0]'
             }`}
           >
@@ -166,7 +166,7 @@ export function ApplicationGuidanceSection() {
             onClick={() => setActiveStepTab('tngasa')}
             className={`px-3.5 py-2 rounded-xl font-bold transition cursor-pointer ${
               activeStepTab === 'tngasa'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'bg-[#fbf5e9] text-[#2b2118] border border-[#efe3cc] hover:bg-[#f6ede0]'
             }`}
           >
@@ -176,7 +176,7 @@ export function ApplicationGuidanceSection() {
             onClick={() => setActiveStepTab('polytechnic')}
             className={`px-3.5 py-2 rounded-xl font-bold transition cursor-pointer ${
               activeStepTab === 'polytechnic'
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'bg-[#fbf5e9] text-[#2b2118] border border-[#efe3cc] hover:bg-[#f6ede0]'
             }`}
           >
@@ -201,7 +201,7 @@ export function ApplicationGuidanceSection() {
             href={currentWorkflow.portal}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold shadow-xs transition inline-flex items-center gap-1.5 self-start sm:self-auto"
+            className="px-4 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold shadow-xs transition inline-flex items-center gap-1.5 self-start sm:self-auto"
           >
             <span>Open Official Portal</span>
             <ExternalLink size={13} />
@@ -210,7 +210,7 @@ export function ApplicationGuidanceSection() {
 
         {/* Formula / Cutoff Box */}
         <div className="p-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] space-y-1.5 text-[12px] font-sans">
-          <span className="font-mono text-[11px] font-bold text-[#8c2f39] uppercase block">
+          <span className="font-mono text-[11px] font-bold text-[#0d3e2e] uppercase block">
             Official Cutoff &amp; Merit Formula:
           </span>
           <p className="font-mono font-semibold text-[#2b2118]">{currentWorkflow.formula}</p>
@@ -228,7 +228,7 @@ export function ApplicationGuidanceSection() {
                 key={idx}
                 className="p-4 rounded-xl border border-[#efe3cc] bg-[#fdfbf6] hover:bg-white transition space-y-1 text-[12px] font-sans"
               >
-                <div className="font-serif font-bold text-[14px] text-[#8c2f39]">
+                <div className="font-serif font-bold text-[14px] text-[#0d3e2e]">
                   {st.step}
                 </div>
                 <p className="text-[#2b2118] leading-relaxed">

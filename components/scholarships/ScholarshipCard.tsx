@@ -42,7 +42,7 @@ export function ScholarshipCard({
 
   const categoryColor =
     item.category === 'Tamil Nadu Government'
-      ? 'bg-[#8c2f39]/10 text-[#8c2f39] border-[#8c2f39]/20'
+      ? 'bg-[#0d3e2e]/10 text-[#0d3e2e] border-[#0d3e2e]/20'
       : item.category === 'Central Government'
       ? 'bg-amber-100 text-amber-900 border-amber-300'
       : item.category === 'AICTE' || item.category === 'UGC' || item.category === 'ICAR' || item.category === 'Research Council'
@@ -84,7 +84,7 @@ export function ScholarshipCard({
           onClick={() => onToggleBookmark(item.id)}
           aria-label={isBookmarked ? 'Remove bookmark' : 'Bookmark scholarship'}
           className={`rounded-lg p-2 transition-colors ${
-            isBookmarked ? 'bg-[#8c2f39]/10 text-[#8c2f39]' : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#8c2f39]'
+            isBookmarked ? 'bg-[#0d3e2e]/10 text-[#0d3e2e]' : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#0d3e2e]'
           }`}
         >
           {isBookmarked ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
@@ -148,14 +148,14 @@ export function ScholarshipCard({
           <div className="flex gap-2">
             <button
               onClick={() => onViewDetails(item)}
-              className="flex-1 rounded-lg bg-[#8c2f39] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#6d1824] shadow-xs"
+              className="flex-1 rounded-lg bg-[#0d3e2e] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#08261c] shadow-xs"
             >
               Full Details
             </button>
             <button
               onClick={() => onTrackApplication(item)}
               title="Add to My Application Tracker"
-              className="flex items-center justify-center rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] transition-colors hover:bg-[#f6ede0]"
+              className="flex items-center justify-center rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] transition-colors hover:bg-[#f6ede0]"
             >
               <PlusCircle size={15} className="mr-1 inline" />
               Track
@@ -165,7 +165,7 @@ export function ScholarshipCard({
           {onApplyOfficial && (
             <button
               onClick={() => onApplyOfficial(item)}
-              className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#8c2f39]/30 bg-[#8c2f39]/5 py-1.5 font-sans text-[12px] font-bold text-[#8c2f39] hover:bg-[#8c2f39]/10"
+              className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#0d3e2e]/30 bg-[#0d3e2e]/5 py-1.5 font-sans text-[12px] font-bold text-[#0d3e2e] hover:bg-[#0d3e2e]/10"
             >
               <span>Apply on Official Website</span>
               <ExternalLink size={13} />

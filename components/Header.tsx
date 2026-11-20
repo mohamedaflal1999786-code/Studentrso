@@ -209,10 +209,10 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
           />
           <div className="h-7 sm:h-8 w-px bg-[#d8c7ad] hidden xs:block shrink-0" />
           <div className="flex flex-col text-left min-w-0">
-            <span className="font-serif text-[18px] sm:text-[23px] font-bold tracking-tight text-[#8c2f39] italic truncate leading-tight">
+            <span className="font-serif text-[18px] sm:text-[23px] font-bold tracking-tight text-[#0d3e2e] italic truncate leading-tight">
               Student RSO
             </span>
-            <span className="font-mono text-[8px] sm:text-[9.5px] uppercase tracking-widest text-[#524336] font-semibold hidden xs:block">
+            <span className="font-mono text-[8px] sm:text-[9.5px] uppercase tracking-widest text-[#57534e] font-semibold hidden xs:block">
               RIGHTS • SERVICES • OPPORTUNITIES
             </span>
           </div>
@@ -228,7 +228,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                 handleNav('overview');
               }
             }}
-            className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
+            className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#1c1917] hover:text-[#0d3e2e] hover:bg-[#f6ede0] transition-colors cursor-pointer"
           >
             Home
           </Link>
@@ -239,17 +239,17 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
               id="desktop-modules-button"
               type="button"
               onClick={() => setDesktopModulesOpen(!desktopModulesOpen)}
-              className={`flex items-center gap-1 px-3 py-2 rounded-lg font-sans text-[14px] font-semibold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-sans text-[13.5px] font-semibold transition-colors cursor-pointer ${
                 desktopModulesOpen
-                  ? 'text-[#8c2f39] bg-[#f6ede0]'
-                  : 'text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0]'
+                  ? 'text-[#0d3e2e] bg-[#f6ede0]'
+                  : 'text-[#1c1917] hover:text-[#0d3e2e] hover:bg-[#f6ede0]'
               }`}
               aria-expanded={desktopModulesOpen}
             >
               <span>Modules</span>
               <AppIcon
                 name="expand_more"
-                className={`text-[16px] text-[#524336] transition-transform ${
+                className={`text-[16px] text-[#57534e] transition-transform ${
                   desktopModulesOpen ? 'rotate-180' : 'group-hover:rotate-180'
                 }`}
               />
@@ -260,12 +260,12 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                 desktopModulesOpen ? 'block' : 'hidden group-hover:block'
               }`}
             >
-              <div className="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] shadow-[0_12px_32px_rgba(43,33,24,0.12)] p-6 flex flex-col gap-4">
+              <div className="bg-[#fdfbf6] rounded-2xl border border-[#efe3cc] shadow-[0_12px_32px_rgba(13,62,46,0.12)] p-6 flex flex-col gap-4">
                 <div className="flex items-center justify-between pb-3.5 border-b border-[#efe3cc]">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#92400e] font-bold">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#c59b27] font-bold">
                     STUDENT RSO PLATFORM • 10 CORE MODULES
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-semibold uppercase tracking-wider">
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-semibold uppercase tracking-wider">
                     Public Digital Infrastructure
                   </span>
                 </div>
@@ -280,19 +280,19 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                           onClick={() => setDesktopModulesOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all text-left cursor-pointer group/item"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 group-hover/item:scale-105 transition-transform">
+                          <div className="w-8 h-8 rounded-lg bg-[#0d3e2e] text-white flex items-center justify-center shrink-0 group-hover/item:scale-105 transition-transform shadow-xs">
                             <AppIcon name={m.icon} className="text-[17px]" />
                           </div>
                           <div className="flex flex-col min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className="font-sans text-[13px] font-bold text-[#2b2118] truncate">{m.title}</span>
+                              <span className="font-sans text-[13px] font-bold text-[#1c1917] truncate">{m.title}</span>
                               {m.live && (
                                 <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold shrink-0">
                                   LIVE
                                 </span>
                               )}
                             </div>
-                            <span className="font-sans text-[11px] text-[#524336] leading-tight line-clamp-1 mt-0.5">
+                            <span className="font-sans text-[11px] text-[#57534e] leading-tight line-clamp-1 mt-0.5">
                               {m.description}
                             </span>
                           </div>
@@ -306,14 +306,14 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                         onClick={() => handleModuleSelect(m)}
                         className="flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-[#efe3cc] hover:bg-[#f6ede0] transition-all text-left cursor-pointer group/item w-full"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 group-hover/item:scale-105 transition-transform">
+                        <div className="w-8 h-8 rounded-lg bg-[#0d3e2e] text-white flex items-center justify-center shrink-0 group-hover/item:scale-105 transition-transform shadow-xs">
                           <AppIcon name={m.icon} className="text-[17px]" />
                         </div>
                         <div className="flex flex-col min-w-0">
                           <div className="flex items-center gap-1.5">
-                            <span className="font-sans text-[13px] font-bold text-[#2b2118] truncate">{m.title}</span>
+                            <span className="font-sans text-[13px] font-bold text-[#1c1917] truncate">{m.title}</span>
                           </div>
-                          <span className="font-sans text-[11px] text-[#524336] leading-tight line-clamp-1 mt-0.5">
+                          <span className="font-sans text-[11px] text-[#57534e] leading-tight line-clamp-1 mt-0.5">
                             {m.description}
                           </span>
                         </div>
@@ -335,7 +335,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                 window.location.href = '/';
               }
             }}
-            className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
+            className="px-3 py-1.5 rounded-lg font-sans text-[13.5px] font-semibold text-[#1c1917] hover:text-[#0d3e2e] hover:bg-[#f6ede0] transition-colors cursor-pointer"
           >
             How It Works
           </a>
@@ -349,7 +349,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                 window.location.href = '/';
               }
             }}
-            className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
+            className="px-3 py-1.5 rounded-lg font-sans text-[13.5px] font-semibold text-[#1c1917] hover:text-[#0d3e2e] hover:bg-[#f6ede0] transition-colors cursor-pointer"
           >
             About
           </a>
@@ -357,7 +357,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
           {user && (
             <Link
               href="/dashboard"
-              className="px-3 py-2 rounded-lg font-sans text-[14px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
+              className="px-3 py-1.5 rounded-lg font-sans text-[13.5px] font-semibold text-[#0d3e2e] hover:bg-[#f6ede0] transition-colors cursor-pointer"
             >
               Dashboard
             </Link>
@@ -365,12 +365,12 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
         </nav>
 
         {/* Right side actions */}
-        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           {user ? (
             <button
               type="button"
               onClick={onOpenProfile}
-              className="flex items-center gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg font-sans text-[13px] sm:text-[14px] font-semibold text-[#2b2118] hover:text-[#8c2f39] hover:bg-[#f6ede0] transition-colors cursor-pointer"
+              className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg font-sans text-[13px] sm:text-[13.5px] font-semibold text-[#1c1917] hover:text-[#0d3e2e] hover:bg-[#f6ede0] transition-colors cursor-pointer"
               title="My Profile"
             >
               {profile?.avatar_url ? (
@@ -378,10 +378,10 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                   src={profile.avatar_url}
                   alt={displayName}
                   style={{ width: '32px', height: '32px', objectFit: 'cover' }}
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border-2 border-[#8c2f39] shadow-xs shrink-0"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border-2 border-[#0d3e2e] shadow-xs shrink-0"
                 />
               ) : (
-                <UserCircle size={22} className="text-[#8c2f39] shrink-0" />
+                <UserCircle size={22} className="text-[#0d3e2e] shrink-0" />
               )}
               <span className="hidden sm:inline truncate max-w-[120px]">{displayName}</span>
             </button>
@@ -389,7 +389,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             <button
               type="button"
               onClick={onSignIn}
-              className="px-3 sm:px-4 py-2 rounded-lg font-sans text-[13px] sm:text-[14px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0] border border-[#d8c7ad] transition-colors cursor-pointer whitespace-nowrap"
+              className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg font-sans text-[13px] sm:text-[14px] font-semibold text-[#08261c] hover:bg-[#dfab2a]/20 border border-[#dfab2a] bg-[#fffdfa] shadow-2xs transition-colors cursor-pointer whitespace-nowrap"
             >
               Sign In
             </button>
@@ -452,7 +452,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                         }}
                         className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg font-sans text-[13px] text-[#2b2118] hover:bg-[#f6ede0] cursor-pointer min-h-[40px] text-left"
                       >
-                        <AppIcon name={m.icon} className="text-[17px] text-[#8c2f39]" />
+                        <AppIcon name={m.icon} className="text-[17px] text-[#0d3e2e]" />
                         <span className="flex-1 font-medium truncate">{m.title}</span>
                         {m.live && (
                           <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold shrink-0">
@@ -469,7 +469,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                       onClick={() => handleModuleSelect(m)}
                       className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg font-sans text-[13px] text-[#2b2118] hover:bg-[#f6ede0] cursor-pointer min-h-[40px] text-left"
                     >
-                      <AppIcon name={m.icon} className="text-[17px] text-[#8c2f39]" />
+                      <AppIcon name={m.icon} className="text-[17px] text-[#0d3e2e]" />
                       <span className="flex-1 font-medium truncate">{m.title}</span>
                     </button>
                   );
@@ -513,7 +513,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                   setMobileOpen(false);
                   onSignIn();
                 }}
-                className="w-full text-center px-4 py-3 rounded-lg bg-[#8c2f39] text-white font-sans text-[14px] font-semibold cursor-pointer min-h-[44px] shadow-sm mt-2"
+                className="w-full text-center px-4 py-3 rounded-lg bg-[#0d3e2e] text-white font-sans text-[14px] font-semibold cursor-pointer min-h-[44px] shadow-sm mt-2"
               >
                 Sign In
               </button>
@@ -533,26 +533,26 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
                       src={profile.avatar_url}
                       alt={displayName}
                       style={{ width: '28px', height: '28px', objectFit: 'cover' }}
-                      className="w-7 h-7 rounded-full object-cover border border-[#8c2f39] shrink-0"
+                      className="w-7 h-7 rounded-full object-cover border border-[#0d3e2e] shrink-0"
                     />
                   ) : (
-                    <UserCircle size={20} className="text-[#8c2f39] shrink-0" />
+                    <UserCircle size={20} className="text-[#0d3e2e] shrink-0" />
                   )}
                   <span className="truncate flex-1">
-                    Student: <strong className="text-[#8c2f39]">{displayName}</strong>
+                    Student: <strong className="text-[#0d3e2e]">{displayName}</strong>
                   </span>
                 </button>
                 <Link
                   href="/dashboard"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center px-4 py-2.5 rounded-xl bg-[#8c2f39] text-white font-sans text-[14px] font-bold cursor-pointer shadow-sm"
+                  className="block w-full text-center px-4 py-2.5 rounded-xl bg-[#0d3e2e] text-white font-sans text-[14px] font-bold cursor-pointer shadow-sm"
                 >
                   Go to Student Dashboard →
                 </Link>
                 <button
                   type="button"
                   onClick={handleSignOut}
-                  className="w-full text-center px-4 py-2.5 rounded-xl border border-[#d8c7ad] text-[#8c2f39] font-sans text-[13px] font-semibold cursor-pointer hover:bg-[#f6ede0]"
+                  className="w-full text-center px-4 py-2.5 rounded-xl border border-[#d8c7ad] text-[#0d3e2e] font-sans text-[13px] font-semibold cursor-pointer hover:bg-[#f6ede0]"
                 >
                   Sign Out
                 </button>

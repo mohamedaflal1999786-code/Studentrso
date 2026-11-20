@@ -96,7 +96,7 @@ export function SupportCentreSection({
 
         <button
           onClick={() => setShowTicketForm(!showTicketForm)}
-          className="inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824] shadow-xs"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#08261c] shadow-xs"
         >
           <Plus size={16} />
           <span>{showTicketForm ? 'Cancel' : 'Submit Support Query'}</span>
@@ -127,7 +127,7 @@ export function SupportCentreSection({
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 <option value="Eligibility Doubts">Eligibility Doubts</option>
                 <option value="Application Portal Problems">Application Portal Problems (NSP / UMIS / State)</option>
@@ -145,7 +145,7 @@ export function SupportCentreSection({
               <select
                 value={scholarshipId}
                 onChange={(e) => setScholarshipId(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 <option value="">Select scheme (optional)</option>
                 {programs.map((p) => (
@@ -167,7 +167,7 @@ export function SupportCentreSection({
               placeholder="e.g. Income certificate showing gross vs net salary for BC Post-Matric"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -181,7 +181,7 @@ export function SupportCentreSection({
               placeholder="Describe what occurred, any error messages shown on the government portal, or specific clause you need clarification on."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -196,7 +196,7 @@ export function SupportCentreSection({
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#8c2f39] px-5 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824]"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#0d3e2e] px-5 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#08261c]"
             >
               <Send size={14} />
               <span>{submitting ? 'Submitting...' : 'Submit Query'}</span>
@@ -224,7 +224,7 @@ export function SupportCentreSection({
                 className="rounded-xl border border-[#efe3cc] bg-white p-5 space-y-2 shadow-xs"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#8c2f39]">
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#0d3e2e]">
                     {ticket.category}
                   </span>
                   <span
@@ -264,7 +264,7 @@ export function SupportCentreSection({
       {/* Official Government Helplines */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-7 shadow-xs space-y-4">
         <h3 className="font-serif text-[20px] font-bold text-[#2b2118] flex items-center gap-2">
-          <Phone size={18} className="text-[#8c2f39]" />
+          <Phone size={18} className="text-[#0d3e2e]" />
           Official Government Department Helplines
         </h3>
         <p className="font-sans text-[13px] text-[#7a6a5a]">
@@ -279,7 +279,7 @@ export function SupportCentreSection({
             >
               <h4 className="font-serif font-bold text-[#2b2118]">{line.title}</h4>
               <p className="text-[#554a3f]">
-                <strong>Helpline:</strong> <span className="font-mono text-[#8c2f39]">{line.phone}</span>
+                <strong>Helpline:</strong> <span className="font-mono text-[#0d3e2e]">{line.phone}</span>
               </p>
               <p className="text-[#554a3f]">
                 <strong>Official Email:</strong> {line.email}

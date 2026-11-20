@@ -78,7 +78,7 @@ export function ScholarshipDetailsModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
           aria-label="Close dialog"
         >
           <X size={20} />
@@ -86,7 +86,7 @@ export function ScholarshipDetailsModal({
 
         {/* Category & Verified Badge */}
         <div className="flex flex-wrap items-center gap-2 mb-2">
-          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             {item.category}
           </span>
           {item.schemeType && (
@@ -117,12 +117,12 @@ export function ScholarshipDetailsModal({
         {/* Academic Year Banner */}
         <div className="mt-4 flex flex-wrap items-center gap-4 rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-3 font-sans text-[13px] text-[#554a3f]">
           <div className="flex items-center gap-1.5 font-semibold text-[#2b2118]">
-            <Calendar size={15} className="text-[#8c2f39]" />
+            <Calendar size={15} className="text-[#0d3e2e]" />
             Academic Cycle: {academicYear}
           </div>
           <div>
             Lifecycle Status:{' '}
-            <span className="font-semibold text-[#8c2f39]">{lifecycleStatus}</span>
+            <span className="font-semibold text-[#0d3e2e]">{lifecycleStatus}</span>
           </div>
           <div>
             Application Deadline:{' '}
@@ -159,7 +159,7 @@ export function ScholarshipDetailsModal({
         {/* Eligibility Details Grid */}
         <div className="mt-6 rounded-xl border border-[#efe3cc] bg-white p-5 space-y-4">
           <h3 className="font-serif text-[18px] font-bold text-[#2b2118] flex items-center gap-2">
-            <CheckCircle2 size={18} className="text-[#8c2f39]" />
+            <CheckCircle2 size={18} className="text-[#0d3e2e]" />
             Eligibility Criteria
           </h3>
 
@@ -236,7 +236,7 @@ export function ScholarshipDetailsModal({
                 <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a] block mb-1">
                   Gender Eligibility
                 </span>
-                <span className="font-medium text-[#8c2f39]">{rules.genderEligibility}</span>
+                <span className="font-medium text-[#0d3e2e]">{rules.genderEligibility}</span>
               </div>
             )}
 
@@ -257,7 +257,7 @@ export function ScholarshipDetailsModal({
         <div className="mt-6">
           <div className="flex items-center justify-between mb-2">
             <h3 className="font-serif text-[18px] font-bold text-[#2b2118] flex items-center gap-2">
-              <FileText size={18} className="text-[#8c2f39]" />
+              <FileText size={18} className="text-[#0d3e2e]" />
               Required Documents
             </h3>
             {onOpenChecklistForProgram && (
@@ -266,7 +266,7 @@ export function ScholarshipDetailsModal({
                   onClose();
                   onOpenChecklistForProgram(item);
                 }}
-                className="font-sans text-[12px] font-semibold text-[#8c2f39] hover:underline"
+                className="font-sans text-[12px] font-semibold text-[#0d3e2e] hover:underline"
               >
                 Open in Document Checklist →
               </button>
@@ -278,7 +278,7 @@ export function ScholarshipDetailsModal({
                 key={i}
                 className="inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1.5 font-sans text-[12px] text-[#2b2118]"
               >
-                <FileCheck size={14} className="text-[#8c2f39]" />
+                <FileCheck size={14} className="text-[#0d3e2e]" />
                 {doc}
               </span>
             ))}
@@ -337,12 +337,12 @@ export function ScholarshipDetailsModal({
                 href={item.officialGuidelinesUrl || item.officialApplicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#8c2f39] underline font-medium"
+                className="text-[#0d3e2e] underline font-medium"
               >
                 {new URL(item.officialGuidelinesUrl || item.officialApplicationUrl).hostname}
               </a>
             ) : (
-              <span className="text-[#8c2f39] font-medium">Official Government / Foundation Source</span>
+              <span className="text-[#0d3e2e] font-medium">Official Government / Foundation Source</span>
             )}
             . Always review the full official gazette or scheme circular before submitting documentation.
           </p>
@@ -375,7 +375,7 @@ export function ScholarshipDetailsModal({
                       window.open(item.officialApplicationUrl, '_blank', 'noopener,noreferrer');
                     }
                   }}
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#8c2f39] px-4 py-2.5 font-sans text-[13.5px] font-bold text-white transition hover:bg-[#6d1824] shadow-xs cursor-pointer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#0d3e2e] px-4 py-2.5 font-sans text-[13.5px] font-bold text-white transition hover:bg-[#08261c] shadow-xs cursor-pointer"
                 >
                   <span>Apply on Official Portal</span>
                   <ExternalLink size={15} />
@@ -430,7 +430,7 @@ export function ScholarshipDetailsModal({
               <button
                 type="button"
                 onClick={() => onToggleBookmark(item.id)}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2.5 font-sans text-[13px] font-semibold text-[#8c2f39] transition hover:bg-[#f6ede0] cursor-pointer"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2.5 font-sans text-[13px] font-semibold text-[#0d3e2e] transition hover:bg-[#f6ede0] cursor-pointer"
               >
                 {isBookmarked ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}
                 {isBookmarked ? 'Saved' : 'Save'}
@@ -441,7 +441,7 @@ export function ScholarshipDetailsModal({
                   onClose();
                   onTrackApplication(item);
                 }}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39] bg-[#8c2f39]/10 px-3.5 py-2.5 font-sans text-[13px] font-bold text-[#8c2f39] transition hover:bg-[#8c2f39] hover:text-white cursor-pointer"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#0d3e2e] bg-[#0d3e2e]/10 px-3.5 py-2.5 font-sans text-[13px] font-bold text-[#0d3e2e] transition hover:bg-[#0d3e2e] hover:text-white cursor-pointer"
               >
                 <PlusCircle size={16} />
                 Track Application

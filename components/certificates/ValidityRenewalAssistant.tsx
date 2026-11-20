@@ -29,7 +29,7 @@ export function ValidityRenewalAssistant() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <Clock size={12} /> PRECISE STATUTORY INTELLIGENCE
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -102,7 +102,7 @@ export function ValidityRenewalAssistant() {
             <select
               value={selectedDocId}
               onChange={(e) => setSelectedDocId(e.target.value)}
-              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] focus:outline-none focus:ring-1 focus:ring-[#8c2f39] focus:border-[#8c2f39]"
+              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] focus:outline-none focus:ring-1 focus:ring-[#0d3e2e] focus:border-[#0d3e2e]"
             >
               {CERTIFICATES_CATALOGUE.map((doc) => (
                 <option key={doc.id} value={doc.id}>
@@ -136,7 +136,7 @@ export function ValidityRenewalAssistant() {
           {/* Reminder Generator */}
           <div className="rounded-xl border border-[#efe3cc] bg-white p-5 shadow-2xs flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-[#8c2f39] mb-1.5">
+              <div className="flex items-center gap-2 text-[#0d3e2e] mb-1.5">
                 <Bell size={16} />
                 <h4 className="font-serif text-[16px] font-bold text-[#2b2118]">
                   Smart Renewal / Fresh Procurement Reminder
@@ -164,7 +164,7 @@ export function ValidityRenewalAssistant() {
 
                 <button
                   type="submit"
-                  className="w-full py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold transition shadow-2xs"
+                  className="w-full py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold transition shadow-2xs"
                 >
                   Activate Renewal Reminder
                 </button>

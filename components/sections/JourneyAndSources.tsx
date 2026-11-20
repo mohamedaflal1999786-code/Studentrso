@@ -13,7 +13,7 @@ export function JourneySection() {
             <div className="w-8 h-0.5 bg-[#92400e]" />
           </div>
           <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#2b2118] mt-2 mb-4 font-bold">
-            Built for every stage of the <span className="italic text-[#8c2f39]">student journey.</span>
+            Built for every stage of the <span className="italic text-[#0d3e2e]">student journey.</span>
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
             Relevant services, opportunities and guidance for every stage of education.
@@ -27,14 +27,14 @@ export function JourneySection() {
               className="bg-[#fdfbf6] p-6 rounded-xl border border-[#efe3cc] flex flex-col justify-between shadow-xs"
             >
               <div>
-                <div className="w-10 h-10 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#8c2f39] flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#0d3e2e] flex items-center justify-center mb-4">
                   <AppIcon name={c.icon} className="text-[20px]" />
                 </div>
                 <span className="font-mono text-[12px] text-[#92400e] uppercase font-bold">{c.level}</span>
                 <h3 className="font-serif text-[21px] text-[#2b2118] font-bold mt-1 mb-3">{c.title}</h3>
                 <p className="font-sans text-[13px] text-[#524336] leading-[20px]">{c.description}</p>
               </div>
-              <div className="mt-6 pt-3 border-t border-[#efe3cc] flex items-center gap-1 text-[#8c2f39] font-mono text-[12px] font-semibold">
+              <div className="mt-6 pt-3 border-t border-[#efe3cc] flex items-center gap-1 text-[#0d3e2e] font-mono text-[12px] font-semibold">
                 <span>{c.label}</span>
               </div>
             </div>
@@ -57,7 +57,7 @@ export function OfficialSourcesSection() {
             <div className="w-8 h-0.5 bg-[#92400e]" />
           </div>
           <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#2b2118] mt-2 mb-4 font-bold">
-            Start with the <span className="italic text-[#8c2f39]">source that matters.</span>
+            Start with the <span className="italic text-[#0d3e2e]">source that matters.</span>
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
             Student RSO helps students discover trusted information and navigate official services. Applications,
@@ -100,7 +100,7 @@ export function VerifiedInfoSection() {
             <div className="w-8 h-0.5 bg-[#92400e]" />
           </div>
           <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#2b2118] mt-2 mb-4 font-bold">
-            Verified Information: <span className="italic text-[#8c2f39]">Know where the information came from.</span>
+            Verified Information: <span className="italic text-[#0d3e2e]">Know where the information came from.</span>
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
             Make important student information easier to evaluate by showing its source, verification status, last
@@ -123,7 +123,7 @@ export function VerifiedInfoSection() {
             </div>
           </div>
           <div className="p-4 rounded-xl bg-[#fdfbf6] border border-[#efe3cc] flex items-center gap-3">
-            <span className="w-3 h-3 rounded-full bg-[#8c2f39]" />
+            <span className="w-3 h-3 rounded-full bg-[#0d3e2e]" />
             <div>
               <span className="font-sans text-[16px] text-[#2b2118] font-bold block">EXPIRED</span>
               <span className="font-sans text-[12px] text-[#524336]">No longer valid or officially superseded</span>
@@ -157,7 +157,7 @@ export function VerifiedInfoSection() {
                       href={row.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#8c2f39] hover:text-[#6d1824] underline font-mono text-[12px] inline-flex items-center gap-1 font-semibold"
+                      className="text-[#0d3e2e] hover:text-[#08261c] underline font-mono text-[12px] inline-flex items-center gap-1 font-semibold"
                     >
                       {row.urlLabel}
                       <AppIcon name="open_in_new" className="text-[14px]" />
@@ -175,7 +175,7 @@ export function VerifiedInfoSection() {
 
 export function CTASection() {
   return (
-    <section className="w-full bg-[#8c2f39] text-[#fbf5e9] py-10 lg:py-24 relative overflow-hidden">
+    <section className="w-full bg-[#0d3e2e] text-[#fbf5e9] py-10 lg:py-24 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 text-center flex flex-col items-center relative z-10">
         <div className="inline-flex items-center gap-2 mb-4">
           <span className="w-6 h-0.5 bg-[#f5cf7b]" />
@@ -196,14 +196,14 @@ export function CTASection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
           <a
             href="#services"
-            className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#fbf5e9] hover:bg-white text-[#8c2f39] font-sans text-[14px] font-bold shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#fbf5e9] hover:bg-white text-[#0d3e2e] font-sans text-[14px] font-bold shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Explore the Platform</span>
             <AppIcon name="explore" className="text-[18px]" />
           </a>
           <a
             href="#services"
-            className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#6d1824] hover:bg-[#57121b] border border-[#a94852] text-white font-sans text-[14px] transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#08261c] hover:bg-[#57121b] border border-[#16533e] text-white font-sans text-[14px] transition-colors flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Explore Services</span>
             <AppIcon name="arrow_downward" className="text-[18px]" />

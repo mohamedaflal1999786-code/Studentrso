@@ -102,7 +102,7 @@ function DigitalSafetyContent() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#8c2f39] hover:underline"
+              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:underline"
             >
               <ArrowLeft size={16} />
               <span>Back to Student RSO</span>
@@ -127,7 +127,7 @@ function DigitalSafetyContent() {
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
-                <User size={14} className="text-[#8c2f39]" />
+                <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
@@ -137,7 +137,7 @@ function DigitalSafetyContent() {
                   setAuthMode('login');
                   setAuthOpen(true);
                 }}
-                className="rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+                className="rounded-lg bg-[#0d3e2e] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
               >
                 Sign In to Sync
               </button>
@@ -147,7 +147,7 @@ function DigitalSafetyContent() {
       </header>
 
       {/* 2. Hero Banner Strip (Identical to Module 01 Maroon Palette) */}
-      <section className="border-b border-[#efe3cc] bg-[#8c2f39] text-white">
+      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -198,7 +198,7 @@ function DigitalSafetyContent() {
                 onClick={() => setActiveTab(tab.id as Module10Tab)}
                 className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2 font-sans text-[12px] sm:text-[13px] font-semibold transition cursor-pointer ${
                   isActive
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#2b2118]'
                 }`}
               >
@@ -221,13 +221,13 @@ function DigitalSafetyContent() {
                   placeholder="Search directives, UPI fraud, impersonation, bullying, malware, deepfakes..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-8 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-white focus:border-[#8c2f39] focus:outline-none"
+                  className="w-full pl-9 pr-8 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-white focus:border-[#0d3e2e] focus:outline-none"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#7a6a5a] hover:text-[#8c2f39] text-xs font-mono"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#7a6a5a] hover:text-[#0d3e2e] text-xs font-mono"
                   >
                     Clear
                   </button>
@@ -241,7 +241,7 @@ function DigitalSafetyContent() {
                 <select
                   value={selectedRiskFilter}
                   onChange={(e) => setSelectedRiskFilter(e.target.value as any)}
-                  className="rounded-lg border border-[#efe3cc] bg-white px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39] focus:outline-none cursor-pointer"
+                  className="rounded-lg border border-[#efe3cc] bg-white px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e] focus:outline-none cursor-pointer"
                 >
                   <option value="all">All Severity Levels</option>
                   <option value="Critical">Critical Risk Only</option>
@@ -274,7 +274,7 @@ function DigitalSafetyContent() {
                     setSearchQuery('');
                     setSelectedRiskFilter('all');
                   }}
-                  className="mt-3 rounded-lg bg-[#8c2f39] px-4 py-2 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+                  className="mt-3 rounded-lg bg-[#0d3e2e] px-4 py-2 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
                 >
                   Reset Filters
                 </button>

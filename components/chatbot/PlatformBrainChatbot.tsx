@@ -595,8 +595,8 @@ Tap the microphone to speak with me or type your question below!`),
             isDragging ? 'cursor-grabbing scale-105 shadow-2xl' : 'cursor-grab hover:scale-105'
           } ${
             isOpen
-              ? 'w-12 h-12 bg-[#2b2118] text-[#fffdf9] hover:bg-[#8c2f39]'
-              : 'w-14 h-14 bg-gradient-to-br from-[#8c2f39] via-[#6d1824] to-[#4a0e17] text-white ring-4 ring-[#e09f3e]/35 hover:ring-[#e09f3e]/60'
+              ? 'w-12 h-12 bg-[#2b2118] text-[#fffdf9] hover:bg-[#0d3e2e]'
+              : 'w-14 h-14 bg-gradient-to-br from-[#0d3e2e] via-[#08261c] to-[#061d15] text-white ring-4 ring-[#dfab2a]/35 hover:ring-[#dfab2a]/60'
           }`}
           aria-label={isOpen ? 'Close Brain Guide' : 'Open Brain Guide'}
           title="Student RSO Brain Guide — Click to open, drag to reposition"
@@ -605,7 +605,7 @@ Tap the microphone to speak with me or type your question below!`),
             <X size={22} />
           ) : (
             <div className="relative flex items-center justify-center pointer-events-none">
-              <Brain size={26} className="text-[#e09f3e] transition-transform group-hover:rotate-6" />
+              <Brain size={26} className="text-[#dfab2a] transition-transform group-hover:rotate-6" />
               <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white animate-pulse" />
             </div>
           )}
@@ -623,10 +623,10 @@ Tap the microphone to speak with me or type your question below!`),
           className="w-[94vw] sm:w-[380px] h-[530px] max-h-[82vh] flex flex-col rounded-2xl shadow-2xl border border-[#d8c7ad] bg-[#fffdf9] overflow-hidden animate-in fade-in zoom-in-95 duration-150"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-3.5 py-3 bg-gradient-to-r from-[#8c2f39] to-[#6d1824] text-white border-b border-[#a63d48]">
+          <div className="flex items-center justify-between px-3.5 py-3 bg-gradient-to-r from-[#0d3e2e] to-[#08261c] text-white border-b border-[#16533e]">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-xl bg-white/15 flex items-center justify-center border border-white/20">
-                <Brain size={18} className="text-[#e09f3e]" />
+                <Brain size={18} className="text-[#dfab2a]" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
@@ -653,7 +653,7 @@ Tap the microphone to speak with me or type your question below!`),
                   }}
                   className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition cursor-pointer ${
                     language === 'en'
-                      ? 'bg-[#e09f3e] text-[#2b2118] shadow-xs'
+                      ? 'bg-[#dfab2a] text-[#2b2118] shadow-xs'
                       : 'text-white/80 hover:text-white'
                   }`}
                   title="Answer in English"
@@ -668,7 +668,7 @@ Tap the microphone to speak with me or type your question below!`),
                   }}
                   className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition cursor-pointer ${
                     language === 'ta'
-                      ? 'bg-[#e09f3e] text-[#2b2118] shadow-xs'
+                      ? 'bg-[#dfab2a] text-[#2b2118] shadow-xs'
                       : 'text-white/80 hover:text-white'
                   }`}
                   title="தமிழில் பதிலளிக்க"
@@ -686,7 +686,7 @@ Tap the microphone to speak with me or type your question below!`),
                 }}
                 className={`p-1.5 rounded-lg transition text-xs cursor-pointer border ${
                   voiceOutEnabled
-                    ? 'bg-[#e09f3e] text-[#2b2118] border-[#e09f3e] font-bold'
+                    ? 'bg-[#dfab2a] text-[#2b2118] border-[#dfab2a] font-bold'
                     : 'bg-white/10 text-white hover:bg-white/20 border-white/15'
                 }`}
                 title={voiceOutEnabled ? 'Voice Output ON (Click to Mute)' : 'Voice Output OFF (Click to Listen)'}
@@ -721,7 +721,7 @@ Tap the microphone to speak with me or type your question below!`),
 
           {/* Voice Listening Active Banner */}
           {voiceNotice && (
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-[#8c2f39]/10 border-b border-[#8c2f39]/20 text-[11px] text-[#8c2f39] font-medium animate-pulse">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-[#0d3e2e]/10 border-b border-[#0d3e2e]/20 text-[11px] text-[#0d3e2e] font-medium animate-pulse">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
               <span>{voiceNotice}</span>
             </div>
@@ -729,15 +729,15 @@ Tap the microphone to speak with me or type your question below!`),
 
           {/* Active Speaking Indicator */}
           {isSpeaking && (
-            <div className="flex items-center justify-between px-3 py-1.5 bg-[#e09f3e]/20 border-b border-[#e09f3e]/30 text-[11px] text-[#2b2118] font-semibold">
+            <div className="flex items-center justify-between px-3 py-1.5 bg-[#dfab2a]/20 border-b border-[#dfab2a]/30 text-[11px] text-[#2b2118] font-semibold">
               <div className="flex items-center gap-1.5">
-                <Volume2 size={13} className="text-[#8c2f39] animate-bounce" />
+                <Volume2 size={13} className="text-[#0d3e2e] animate-bounce" />
                 <span>Speaking response aloud...</span>
               </div>
               <button
                 type="button"
                 onClick={stopSpeaking}
-                className="text-[10px] text-[#8c2f39] font-bold underline cursor-pointer"
+                className="text-[10px] text-[#0d3e2e] font-bold underline cursor-pointer"
               >
                 Stop
               </button>
@@ -754,15 +754,15 @@ Tap the microphone to speak with me or type your question below!`),
                 <div
                   className={`max-w-[90%] rounded-2xl px-3.5 py-2.5 text-xs leading-relaxed shadow-2xs ${
                     msg.role === 'user'
-                      ? 'bg-[#8c2f39] text-white rounded-br-xs font-medium'
+                      ? 'bg-[#0d3e2e] text-white rounded-br-xs font-medium'
                       : 'bg-white text-[#2b2118] border border-[#efe3cc] rounded-bl-xs'
                   }`}
                 >
                   {/* Assistant Header with Language & Controls */}
                   {msg.role === 'assistant' && (
                     <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-[#efe3cc]">
-                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#8c2f39]">
-                        <Brain size={13} className="text-[#8c2f39]" />
+                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#0d3e2e]">
+                        <Brain size={13} className="text-[#0d3e2e]" />
                         <span>Student RSO Guide</span>
                         <span className="text-[9.5px] px-1.5 py-0.2 rounded bg-[#f6ede0] text-[#92400e] font-mono">
                           {msg.language === 'ta' ? 'தமிழ்' : 'English'}
@@ -779,12 +779,12 @@ Tap the microphone to speak with me or type your question below!`),
                             speakText(msg.content, msg.language, msg.id);
                           }
                         }}
-                        className="flex items-center gap-1 text-[10.5px] text-[#7a6a5a] hover:text-[#8c2f39] font-semibold transition cursor-pointer"
+                        className="flex items-center gap-1 text-[10.5px] text-[#7a6a5a] hover:text-[#0d3e2e] font-semibold transition cursor-pointer"
                         title={msg.language === 'ta' ? 'கேளுங்கள்' : 'Listen'}
                       >
                         <Volume2
                           size={12}
-                          className={activeSpeakingId === msg.id && isSpeaking ? 'text-[#8c2f39] animate-pulse' : ''}
+                          className={activeSpeakingId === msg.id && isSpeaking ? 'text-[#0d3e2e] animate-pulse' : ''}
                         />
                         <span>{activeSpeakingId === msg.id && isSpeaking ? 'Stop' : msg.language === 'ta' ? 'கேள்' : 'Listen'}</span>
                       </button>
@@ -809,13 +809,13 @@ Tap the microphone to speak with me or type your question below!`),
                         type="button"
                         onClick={() => handleTranslateMessage(msg.id)}
                         disabled={msg.isTranslating}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#f6ede0] hover:bg-[#efe3cc] text-[#8c2f39] text-[10.5px] font-bold border border-[#d8c7ad] transition cursor-pointer"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#f6ede0] hover:bg-[#efe3cc] text-[#0d3e2e] text-[10.5px] font-bold border border-[#d8c7ad] transition cursor-pointer"
                         title="Translate text & voice / மொழிபெயர்"
                       >
                         {msg.isTranslating ? (
-                          <Loader2 size={11} className="animate-spin text-[#8c2f39]" />
+                          <Loader2 size={11} className="animate-spin text-[#0d3e2e]" />
                         ) : (
-                          <Languages size={11} className="text-[#8c2f39]" />
+                          <Languages size={11} className="text-[#0d3e2e]" />
                         )}
                         <span>
                           {msg.isTranslating
@@ -841,7 +841,7 @@ Tap the microphone to speak with me or type your question below!`),
                             stopSpeaking();
                             if (window.innerWidth < 640) setIsOpen(false);
                           }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#f6ede0] text-[#8c2f39] hover:bg-[#8c2f39] hover:text-white transition text-[10.5px] font-bold border border-[#d8c7ad]"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#f6ede0] text-[#0d3e2e] hover:bg-[#0d3e2e] hover:text-white transition text-[10.5px] font-bold border border-[#d8c7ad]"
                         >
                           <span>{rt.label}</span>
                           <ChevronRight size={11} />
@@ -860,7 +860,7 @@ Tap the microphone to speak with me or type your question below!`),
             {/* Loading Indicator */}
             {isLoading && (
               <div className="flex items-center gap-2 p-3 rounded-2xl bg-white border border-[#efe3cc] w-fit text-xs text-[#7a6a5a]">
-                <Loader2 size={14} className="animate-spin text-[#8c2f39]" />
+                <Loader2 size={14} className="animate-spin text-[#0d3e2e]" />
                 <span className="font-serif italic">
                   {language === 'ta' ? 'பதிலளிக்கிறது...' : 'Thinking...'}
                 </span>
@@ -878,7 +878,7 @@ Tap the microphone to speak with me or type your question below!`),
                   key={idx}
                   type="button"
                   onClick={() => handleSendMessage(chip.query)}
-                  className="px-2.5 py-1 rounded-full bg-white text-[#2b2118] hover:bg-[#8c2f39] hover:text-white border border-[#d8c7ad] text-[10.5px] font-medium transition cursor-pointer shadow-2xs whitespace-nowrap"
+                  className="px-2.5 py-1 rounded-full bg-white text-[#2b2118] hover:bg-[#0d3e2e] hover:text-white border border-[#d8c7ad] text-[10.5px] font-medium transition cursor-pointer shadow-2xs whitespace-nowrap"
                 >
                   {chip.label}
                 </button>
@@ -902,7 +902,7 @@ Tap the microphone to speak with me or type your question below!`),
                 className={`p-2.5 rounded-xl transition cursor-pointer shrink-0 border ${
                   isListening
                     ? 'bg-red-600 text-white border-red-700 animate-pulse'
-                    : 'bg-[#f6ede0] text-[#8c2f39] hover:bg-[#8c2f39] hover:text-white border-[#d8c7ad]'
+                    : 'bg-[#f6ede0] text-[#0d3e2e] hover:bg-[#0d3e2e] hover:text-white border-[#d8c7ad]'
                 }`}
                 title={
                   isListening
@@ -925,13 +925,13 @@ Tap the microphone to speak with me or type your question below!`),
                     ? 'Student RSO பற்றி எதையும் கேட்கலாம்...'
                     : 'Ask about any module, safety, or scholarships...'
                 }
-                className="flex-1 bg-[#fffdf9] border border-[#d8c7ad] rounded-xl px-3 py-2 text-xs text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39] transition"
+                className="flex-1 bg-[#fffdf9] border border-[#d8c7ad] rounded-xl px-3 py-2 text-xs text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e] transition"
               />
 
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isLoading}
-                className="p-2.5 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] disabled:opacity-40 disabled:cursor-not-allowed text-white transition cursor-pointer shrink-0"
+                className="p-2.5 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] disabled:opacity-40 disabled:cursor-not-allowed text-white transition cursor-pointer shrink-0"
                 aria-label="Send message"
               >
                 <Send size={15} />

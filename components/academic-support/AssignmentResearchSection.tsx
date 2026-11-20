@@ -20,7 +20,7 @@ export function AssignmentResearchSection() {
     <div className="space-y-6 sm:space-y-8 font-sans">
       {/* Header Banner */}
       <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold uppercase">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold uppercase">
           PROJECT &amp; THESIS GUIDELINES
         </div>
         <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2b2118]">
@@ -39,7 +39,7 @@ export function AssignmentResearchSection() {
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between gap-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold">
                   {guide.stage}
                 </span>
                 <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
@@ -53,7 +53,7 @@ export function AssignmentResearchSection() {
 
               {/* Step-by-Step Workflow */}
               <div className="space-y-1.5 pt-2 border-t border-[#efe3cc]/60">
-                <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   Step-by-Step Project Workflow
                 </span>
                 <ul className="space-y-1.5">
@@ -68,7 +68,7 @@ export function AssignmentResearchSection() {
 
               {/* Formatting Standards */}
               <div className="p-3 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] space-y-1.5">
-                <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   Official Formatting Standards
                 </span>
                 {guide.formattingStandards.map((fmt, fIdx) => (
@@ -103,7 +103,7 @@ export function AssignmentResearchSection() {
                     href={rm.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white border border-[#efe3cc] text-xs font-bold text-[#8c2f39] hover:bg-[#fbf5e9] transition"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white border border-[#efe3cc] text-xs font-bold text-[#0d3e2e] hover:bg-[#fbf5e9] transition"
                   >
                     <span>{rm.name}</span>
                     <ExternalLink className="w-3 h-3" />

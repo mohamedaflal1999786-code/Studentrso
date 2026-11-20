@@ -17,7 +17,7 @@ export function SkillDevelopmentSection() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Award size={14} /> FREE GOVERNMENT TECHNICAL CERTIFICATIONS
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -44,7 +44,7 @@ export function SkillDevelopmentSection() {
               onClick={() => setSelectedInitiative(item.id)}
               className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                 selectedInitiative === item.id
-                  ? 'bg-[#8c2f39] text-white shadow-2xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-2xs'
                   : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
               }`}
             >
@@ -63,7 +63,7 @@ export function SkillDevelopmentSection() {
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between gap-2">
-                <span className="rounded-full border border-[#8c2f39]/20 bg-[#8c2f39]/10 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+                <span className="rounded-full border border-[#0d3e2e]/20 bg-[#0d3e2e]/10 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
                   {program.initiative}
                 </span>
                 <span className="rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-0.5 font-mono text-[10px] font-bold text-emerald-800">
@@ -92,7 +92,7 @@ export function SkillDevelopmentSection() {
               </div>
 
               <div className="space-y-1 pt-1">
-                <span className="text-xs font-bold text-[#8c2f39]">Key Curriculum Modules:</span>
+                <span className="text-xs font-bold text-[#0d3e2e]">Key Curriculum Modules:</span>
                 <ul className="space-y-1 text-xs text-[#2b2118]">
                   {program.curriculumHighlights.map((hl, i) => (
                     <li key={i} className="flex items-start gap-1.5">
@@ -113,7 +113,7 @@ export function SkillDevelopmentSection() {
                 href={program.officialApplicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#8c2f39] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#6d1824] shadow-xs cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#0d3e2e] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#08261c] shadow-xs cursor-pointer"
               >
                 <span>Enroll on Official Portal ({program.initiative})</span>
                 <ExternalLink size={14} />

@@ -25,7 +25,7 @@ export function CollegeDocumentsSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <GraduationCap size={14} /> UNIVERSITY &amp; AFFILIATED COLLEGES
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -43,7 +43,7 @@ export function CollegeDocumentsSection({
 
       {/* Provisional vs Original Degree Clarification */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fbf5e9] p-4 flex items-start gap-3 text-[#2b2118]">
-        <Award size={18} className="text-[#8c2f39] shrink-0 mt-0.5" />
+        <Award size={18} className="text-[#0d3e2e] shrink-0 mt-0.5" />
         <div className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed">
           <strong className="text-[#2b2118] font-bold block mb-0.5">Provisional vs Convocation Degree:</strong>
           A <strong>Provisional Degree Certificate</strong> is issued immediately upon publication of final semester results and remains valid until the official university convocation ceremony awards the <strong>Original Degree Certificate</strong>. For all recruitment drives, competitive exams, and PG counseling, the Provisional Certificate is legally accepted.

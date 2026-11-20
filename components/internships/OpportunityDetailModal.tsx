@@ -54,7 +54,7 @@ export function OpportunityDetailModal({
         <div className="sticky top-0 z-20 flex items-start justify-between p-5 sm:p-6 bg-[#fbf5e9] border-b border-[#efe3cc]">
           <div className="space-y-1 pr-6">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded-md font-mono text-[11px] font-bold bg-[#8c2f39] text-white">
+              <span className="px-2.5 py-0.5 rounded-md font-mono text-[11px] font-bold bg-[#0d3e2e] text-white">
                 {opportunity.organisationType.toUpperCase()}
               </span>
               <span
@@ -82,10 +82,10 @@ export function OpportunityDetailModal({
               {opportunity.title}
             </h2>
             <div className="flex items-center gap-1.5 text-xs sm:text-sm text-[#7a6a5a] font-medium">
-              <Building size={15} className="text-[#8c2f39]" />
+              <Building size={15} className="text-[#0d3e2e]" />
               <span>{opportunity.organisation}</span>
               <span>•</span>
-              <MapPin size={15} className="text-[#8c2f39]" />
+              <MapPin size={15} className="text-[#0d3e2e]" />
               <span>{opportunity.location}</span>
             </div>
           </div>
@@ -106,19 +106,19 @@ export function OpportunityDetailModal({
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc] space-y-1">
               <span className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a]">
-                <Clock size={13} className="text-[#8c2f39]" /> Work Mode
+                <Clock size={13} className="text-[#0d3e2e]" /> Work Mode
               </span>
               <p className="text-xs sm:text-sm font-bold text-[#2b2118]">{opportunity.workMode}</p>
             </div>
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc] space-y-1">
               <span className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a]">
-                <Clock size={13} className="text-[#8c2f39]" /> Duration
+                <Clock size={13} className="text-[#0d3e2e]" /> Duration
               </span>
               <p className="text-xs sm:text-sm font-bold text-[#2b2118]">{opportunity.duration}</p>
             </div>
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc] space-y-1">
               <span className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a]">
-                <DollarSign size={13} className="text-[#8c2f39]" /> Compensation
+                <DollarSign size={13} className="text-[#0d3e2e]" /> Compensation
               </span>
               <p className="text-xs sm:text-sm font-bold text-emerald-800">
                 {opportunity.isPaid ? 'Paid Opportunity' : 'Unpaid Training'}
@@ -126,9 +126,9 @@ export function OpportunityDetailModal({
             </div>
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc] space-y-1">
               <span className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a]">
-                <Calendar size={13} className="text-[#8c2f39]" /> Deadline
+                <Calendar size={13} className="text-[#0d3e2e]" /> Deadline
               </span>
-              <p className="text-xs sm:text-sm font-bold text-[#8c2f39]">
+              <p className="text-xs sm:text-sm font-bold text-[#0d3e2e]">
                 {opportunity.applicationClosingDate}
               </p>
             </div>
@@ -142,14 +142,14 @@ export function OpportunityDetailModal({
 
           {/* Description */}
           <div className="space-y-2">
-            <h3 className="font-serif text-base font-bold text-[#8c2f39]">About this Opportunity</h3>
+            <h3 className="font-serif text-base font-bold text-[#0d3e2e]">About this Opportunity</h3>
             <p className="text-xs sm:text-sm text-[#2b2118] leading-relaxed">{opportunity.description}</p>
           </div>
 
           {/* Eligibility & Qualifications */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2">
-              <h4 className="font-serif text-sm font-bold text-[#8c2f39]">Eligible Qualifications</h4>
+              <h4 className="font-serif text-sm font-bold text-[#0d3e2e]">Eligible Qualifications</h4>
               <ul className="space-y-1 text-xs text-[#2b2118]">
                 {opportunity.qualification.map((q, idx) => (
                   <li key={idx} className="flex items-start gap-1.5">
@@ -160,7 +160,7 @@ export function OpportunityDetailModal({
               </ul>
             </div>
             <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2">
-              <h4 className="font-serif text-sm font-bold text-[#8c2f39]">Eligible Degrees & Courses</h4>
+              <h4 className="font-serif text-sm font-bold text-[#0d3e2e]">Eligible Degrees & Courses</h4>
               <ul className="space-y-1 text-xs text-[#2b2118]">
                 {opportunity.eligibleCourses.map((c, idx) => (
                   <li key={idx} className="flex items-start gap-1.5">
@@ -175,7 +175,7 @@ export function OpportunityDetailModal({
           {/* Required Skills */}
           {opportunity.requiredSkills && opportunity.requiredSkills.length > 0 && (
             <div className="space-y-2">
-              <h3 className="font-serif text-base font-bold text-[#8c2f39]">Skills & Competencies</h3>
+              <h3 className="font-serif text-base font-bold text-[#0d3e2e]">Skills & Competencies</h3>
               <div className="flex flex-wrap gap-2">
                 {opportunity.requiredSkills.map((skill, sIdx) => (
                   <span
@@ -191,7 +191,7 @@ export function OpportunityDetailModal({
 
           {/* Required Documents Checklist */}
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2.5">
-            <h3 className="font-serif text-base font-bold text-[#8c2f39] flex items-center gap-1.5">
+            <h3 className="font-serif text-base font-bold text-[#0d3e2e] flex items-center gap-1.5">
               <FileText size={16} /> Required Documents Checklist
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -206,7 +206,7 @@ export function OpportunityDetailModal({
 
           {/* Selection Procedure */}
           <div className="space-y-2">
-            <h3 className="font-serif text-base font-bold text-[#8c2f39]">Selection Procedure</h3>
+            <h3 className="font-serif text-base font-bold text-[#0d3e2e]">Selection Procedure</h3>
             <p className="text-xs sm:text-sm text-[#7a6a5a] bg-white p-3.5 rounded-xl border border-[#efe3cc] leading-relaxed">
               {opportunity.selectionProcedure}
             </p>
@@ -214,11 +214,11 @@ export function OpportunityDetailModal({
 
           {/* Step-by-Step How to Apply */}
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2.5">
-            <h3 className="font-serif text-base font-bold text-[#8c2f39]">Step-by-Step Application Guide</h3>
+            <h3 className="font-serif text-base font-bold text-[#0d3e2e]">Step-by-Step Application Guide</h3>
             <ol className="space-y-2 text-xs sm:text-sm text-[#2b2118]">
               {opportunity.applicationInstructions.map((step, sIdx) => (
                 <li key={sIdx} className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="w-5 h-5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e] font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
                     {sIdx + 1}
                   </span>
                   <span className="leading-relaxed">{step}</span>
@@ -229,7 +229,7 @@ export function OpportunityDetailModal({
 
           {/* After Completion & Outcome */}
           <div className="p-3.5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] space-y-1">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               Outcome & Career Impact
             </span>
             <p className="text-xs sm:text-sm text-[#2b2118] leading-relaxed">{opportunity.whatHappensAfter}</p>
@@ -272,7 +272,7 @@ export function OpportunityDetailModal({
             className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-sans text-xs sm:text-sm font-bold text-white shadow-xs transition cursor-pointer ${
               isClosed
                 ? 'bg-stone-500 hover:bg-stone-600'
-                : 'bg-[#8c2f39] hover:bg-[#6d1824]'
+                : 'bg-[#0d3e2e] hover:bg-[#08261c]'
             }`}
           >
             <span>{isClosed ? 'View Official Source (Closed)' : 'Apply on Official Website'}</span>

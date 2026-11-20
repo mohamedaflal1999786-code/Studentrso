@@ -48,7 +48,7 @@ export function GovernmentCertificatesSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Building size={14} /> TAMIL NADU REVENUE DEPARTMENT &amp; E-SEVAI
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -72,7 +72,7 @@ export function GovernmentCertificatesSection({
               placeholder="Search by certificate name or e-Sevai code (e.g. REV-101)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2.5 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2.5 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -81,7 +81,7 @@ export function GovernmentCertificatesSection({
               onClick={() => setSelectedFilter('all')}
               className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                 selectedFilter === 'all'
-                  ? 'bg-[#8c2f39] text-white shadow-2xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-2xs'
                   : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
               }`}
             >
@@ -91,7 +91,7 @@ export function GovernmentCertificatesSection({
               onClick={() => setSelectedFilter('permanent')}
               className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                 selectedFilter === 'permanent'
-                  ? 'bg-[#8c2f39] text-white shadow-2xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-2xs'
                   : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
               }`}
             >
@@ -101,7 +101,7 @@ export function GovernmentCertificatesSection({
               onClick={() => setSelectedFilter('renewal_tied')}
               className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                 selectedFilter === 'renewal_tied'
-                  ? 'bg-[#8c2f39] text-white shadow-2xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-2xs'
                   : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
               }`}
             >
@@ -113,7 +113,7 @@ export function GovernmentCertificatesSection({
 
       {/* Statutory Clarification Alert */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fbf5e9] p-4 flex items-start gap-3">
-        <AlertCircle size={18} className="text-[#8c2f39] shrink-0 mt-0.5" />
+        <AlertCircle size={18} className="text-[#0d3e2e] shrink-0 mt-0.5" />
         <div className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed">
           <strong className="text-[#2b2118] font-bold block mb-0.5">Authoritative Revenue Guidance:</strong>
           In Tamil Nadu, Community Certificates (REV-101) carry <strong>permanent lifetime validity</strong>.

@@ -44,10 +44,10 @@ export function ExamPreparationCentre({ onSelectExam }: ExamPreparationCentrePro
     <div className="space-y-8 font-sans">
       {/* Header Banner */}
       <div className="rounded-3xl bg-gradient-to-r from-[#fbf5e9] to-[#efe3cc]/60 border border-[#efe3cc] p-6 sm:p-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 mb-3">
           <BookOpen className="w-4 h-4" /> Official Examination Blueprints
         </div>
-        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#8c2f39]">
+        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#0d3e2e]">
           Exam Preparation & Official Syllabi
         </h2>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed">
@@ -64,7 +64,7 @@ export function ExamPreparationCentre({ onSelectExam }: ExamPreparationCentrePro
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by exam name or syllabus topic..."
-              className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             />
           </div>
 
@@ -72,7 +72,7 @@ export function ExamPreparationCentre({ onSelectExam }: ExamPreparationCentrePro
             <select
               value={selectedStage}
               onChange={(e) => setSelectedStage(e.target.value)}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="all">All Education Stages</option>
               <option value="Class 10">Class 10</option>
@@ -98,7 +98,7 @@ export function ExamPreparationCentre({ onSelectExam }: ExamPreparationCentrePro
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#fbf5e9] text-[#8c2f39] border border-[#efe3cc]">
+                  <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#fbf5e9] text-[#0d3e2e] border border-[#efe3cc]">
                     {exam.shortCode}
                   </span>
                   <span className="text-xs text-stone-500 font-medium">
@@ -108,7 +108,7 @@ export function ExamPreparationCentre({ onSelectExam }: ExamPreparationCentrePro
 
                 <h3
                   onClick={() => onSelectExam(exam)}
-                  className="text-lg font-serif font-bold text-[#8c2f39] hover:underline cursor-pointer leading-snug"
+                  className="text-lg font-serif font-bold text-[#0d3e2e] hover:underline cursor-pointer leading-snug"
                 >
                   {exam.title}
                 </h3>
@@ -168,7 +168,7 @@ export function ExamPreparationCentre({ onSelectExam }: ExamPreparationCentrePro
                 <button
                   type="button"
                   onClick={() => onSelectExam(exam)}
-                  className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#8c2f39] text-white hover:bg-[#72262e] transition"
+                  className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0d3e2e] text-white hover:bg-[#061d15] transition"
                 >
                   View Opportunities & Details &rarr;
                 </button>

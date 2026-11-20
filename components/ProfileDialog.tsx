@@ -140,11 +140,11 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
         />
 
         {/* Gradient strip */}
-        <div className="h-2 rounded-t-3xl bg-gradient-to-r from-[#8c2f39] via-[#b8543e] to-[#e0a526]" />
+        <div className="h-2 rounded-t-3xl bg-gradient-to-r from-[#0d3e2e] via-[#b8543e] to-[#e0a526]" />
 
         <button
           onClick={onClose}
-          className="absolute right-4 top-5 rounded-full p-2 text-[#7a6a5a] transition-colors hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-5 rounded-full p-2 text-[#7a6a5a] transition-colors hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
           aria-label="Close profile"
         >
           <X size={18} />
@@ -162,7 +162,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
                 />
               </div>
             ) : (
-              <div className="w-[104px] h-[104px] flex items-center justify-center rounded-2xl bg-[#8c2f39] text-[30px] font-bold text-white shadow-md border-2 border-[#e0a526] mx-auto">
+              <div className="w-[104px] h-[104px] flex items-center justify-center rounded-2xl bg-[#0d3e2e] text-[30px] font-bold text-white shadow-md border-2 border-[#e0a526] mx-auto">
                 {initials}
               </div>
             )}
@@ -173,7 +173,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
               disabled={uploadingPhoto}
               onClick={() => fileInputRef.current?.click()}
               title="Upload / Change profile picture (Max 2MB)"
-              className="absolute -bottom-1 -right-1 p-2 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer disabled:opacity-60"
+              className="absolute -bottom-1 -right-1 p-2 rounded-full bg-[#0d3e2e] text-white hover:bg-[#08261c] shadow-md border-2 border-[#fdfbf6] transition-transform hover:scale-110 cursor-pointer disabled:opacity-60"
             >
               {uploadingPhoto ? <Loader2 size={13} className="animate-spin" /> : <Camera size={13} />}
             </button>
@@ -186,7 +186,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
                 type="button"
                 disabled={uploadingPhoto}
                 onClick={() => fileInputRef.current?.click()}
-                className="text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1 disabled:opacity-50"
+                className="text-[11px] font-mono font-semibold text-[#0d3e2e] hover:underline cursor-pointer flex items-center gap-1 disabled:opacity-50"
               >
                 <Camera size={12} />
                 <span>Change Photo</span>
@@ -207,7 +207,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
               type="button"
               disabled={uploadingPhoto}
               onClick={() => fileInputRef.current?.click()}
-              className="mt-2 text-[11px] font-mono font-semibold text-[#8c2f39] hover:underline cursor-pointer flex items-center gap-1 disabled:opacity-50"
+              className="mt-2 text-[11px] font-mono font-semibold text-[#0d3e2e] hover:underline cursor-pointer flex items-center gap-1 disabled:opacity-50"
             >
               <Camera size={12} />
               <span>Upload Profile Picture (Max 2MB)</span>
@@ -253,7 +253,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
             return (
               <div className="p-4 rounded-2xl bg-white border border-[#efe3cc] space-y-2.5 text-xs text-[#2b2118]">
                 <div className="flex items-center gap-2.5">
-                  <GraduationCap size={16} className="text-[#8c2f39] shrink-0" />
+                  <GraduationCap size={16} className="text-[#0d3e2e] shrink-0" />
                   <div>
                     <span className="font-semibold text-[#7a6a5a] block text-[10px] uppercase font-mono">
                       {isSchool ? 'School Board / Stream' : 'Course / Program'}
@@ -278,7 +278,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
                 )}
 
             <div className="flex items-center gap-2.5 pt-2 border-t border-[#efe3cc]/60">
-              <User size={16} className="text-[#8c2f39] shrink-0" />
+              <User size={16} className="text-[#0d3e2e] shrink-0" />
               <div>
                 <span className="font-semibold text-[#7a6a5a] block text-[10px] uppercase font-mono">Gender</span>
                 <span className="font-medium text-[12px]">{profile?.gender || 'Male'}</span>
@@ -314,7 +314,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
           <button
             type="button"
             onClick={handleEditClick}
-            className="w-full py-3 px-4 rounded-xl bg-white hover:bg-[#f6ede0] border-2 border-[#8c2f39] text-[#8c2f39] font-sans text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+            className="w-full py-3 px-4 rounded-xl bg-white hover:bg-[#f6ede0] border-2 border-[#0d3e2e] text-[#0d3e2e] font-sans text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-xs"
           >
             <Edit3 size={15} />
             <span>Edit Profile Details</span>
@@ -323,7 +323,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
           <Link
             href="/dashboard"
             onClick={onClose}
-            className="w-full py-3 px-4 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-md text-center"
+            className="w-full py-3 px-4 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-md text-center"
           >
             <LayoutDashboard size={15} />
             <span>Open Student Dashboard</span>
@@ -332,7 +332,7 @@ export function ProfileDialog({ open, onClose, onEditProfile }: ProfileDialogPro
           <button
             type="button"
             onClick={handleSignOut}
-            className="w-full rounded-xl border border-[#d8c7ad] py-2.5 text-xs font-semibold text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+            className="w-full rounded-xl border border-[#d8c7ad] py-2.5 text-xs font-semibold text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
           >
             Sign Out
           </button>

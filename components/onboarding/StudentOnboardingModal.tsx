@@ -237,7 +237,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-serif font-bold text-lg text-[#2b2118]">Student Onboarding</span>
-                <span className="text-[10px] font-mono uppercase bg-[#cfa052]/20 text-[#8c2f39] px-2 py-0.5 rounded font-bold">
+                <span className="text-[10px] font-mono uppercase bg-[#cfa052]/20 text-[#0d3e2e] px-2 py-0.5 rounded font-bold">
                   Step {currentStep + 1} of 6
                 </span>
               </div>
@@ -268,9 +268,9 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                 onClick={() => setCurrentStep(idx)}
                 className={`flex flex-col items-center justify-center p-2 rounded-xl text-center transition-all ${
                   active
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : completed
-                    ? 'bg-[#f6ede0] text-[#8c2f39] border border-[#d8c7ad]'
+                    ? 'bg-[#f6ede0] text-[#0d3e2e] border border-[#d8c7ad]'
                     : 'bg-white text-[#a09080] border border-[#efe3cc]'
                 }`}
               >
@@ -325,7 +325,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   <img
                     src={avatarUrl}
                     alt="Preview"
-                    className="w-14 h-14 rounded-2xl object-cover border-2 border-[#8c2f39] shadow-xs"
+                    className="w-14 h-14 rounded-2xl object-cover border-2 border-[#0d3e2e] shadow-xs"
                   />
                 ) : (
                   <div className="w-14 h-14 rounded-2xl bg-white border border-[#d8c7ad] flex items-center justify-center text-[#7a6a5a]">
@@ -336,7 +336,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="button"
                   disabled={uploadingAvatar}
                   onClick={() => avatarInputRef.current?.click()}
-                  className="absolute -bottom-1 -right-1 p-1 rounded-full bg-[#8c2f39] text-white hover:bg-[#6d1824] shadow-xs cursor-pointer"
+                  className="absolute -bottom-1 -right-1 p-1 rounded-full bg-[#0d3e2e] text-white hover:bg-[#08261c] shadow-xs cursor-pointer"
                   title="Upload profile picture (Max 2MB)"
                 >
                   {uploadingAvatar ? <Loader2 size={11} className="animate-spin" /> : <Camera size={11} />}
@@ -353,7 +353,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                       type="button"
                       disabled={uploadingAvatar}
                       onClick={() => avatarInputRef.current?.click()}
-                      className="text-[11px] font-mono font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                      className="text-[11px] font-mono font-bold text-[#0d3e2e] hover:underline cursor-pointer"
                     >
                       Change Photo
                     </button>
@@ -373,7 +373,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                     type="button"
                     disabled={uploadingAvatar}
                     onClick={() => avatarInputRef.current?.click()}
-                    className="text-[11px] font-mono font-bold text-[#8c2f39] hover:underline mt-0.5 cursor-pointer block"
+                    className="text-[11px] font-mono font-bold text-[#0d3e2e] hover:underline mt-0.5 cursor-pointer block"
                   >
                     Upload Profile Picture (Max 2MB)
                   </button>
@@ -390,7 +390,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#0d3e2e]"
                 />
               </div>
 
@@ -399,7 +399,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                 <select
                   value={gender}
                   onChange={(e) => setGender(e.target.value as any)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#0d3e2e]"
                 >
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -424,7 +424,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Enter 10-digit mobile number"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#0d3e2e]"
                 />
               </div>
 
@@ -434,7 +434,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="date"
                   value={dob}
                   onChange={(e) => setDob(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#0d3e2e]"
                 />
               </div>
 
@@ -444,7 +444,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="text"
                   value={state}
                   onChange={(e) => setState(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#0d3e2e]"
                 />
               </div>
 
@@ -453,7 +453,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                 <select
                   value={district}
                   onChange={(e) => setDistrict(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-sm text-[#2b2118] focus:ring-2 focus:ring-[#0d3e2e]"
                 >
                   {TN_DISTRICTS.map((d) => (
                     <option key={d} value={d}>
@@ -813,7 +813,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                     onClick={() => toggleArrayItem(studyInterests, field, setStudyInterests)}
                     className={`flex items-center justify-between p-3.5 rounded-xl border text-left text-xs font-semibold transition ${
                       selected
-                        ? 'bg-[#8c2f39] text-white border-[#8c2f39] shadow-xs'
+                        ? 'bg-[#0d3e2e] text-white border-[#0d3e2e] shadow-xs'
                         : 'bg-white text-[#2b2118] border-[#d8c7ad] hover:bg-[#f6ede0]'
                     }`}
                   >
@@ -846,7 +846,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                     onClick={() => toggleArrayItem(careerInterests, c, setCareerInterests)}
                     className={`flex items-center justify-between p-3.5 rounded-xl border text-left text-xs font-semibold transition ${
                       selected
-                        ? 'bg-[#8c2f39] text-white border-[#8c2f39] shadow-xs'
+                        ? 'bg-[#0d3e2e] text-white border-[#0d3e2e] shadow-xs'
                         : 'bg-white text-[#2b2118] border-[#d8c7ad] hover:bg-[#f6ede0]'
                     }`}
                   >
@@ -911,7 +911,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="checkbox"
                   checked={studiedInGovtSchool}
                   onChange={(e) => setStudiedInGovtSchool(e.target.checked)}
-                  className="w-4 h-4 text-[#8c2f39] rounded accent-[#8c2f39]"
+                  className="w-4 h-4 text-[#0d3e2e] rounded accent-[#0d3e2e]"
                 />
                 <div className="text-xs">
                   <p className="font-semibold text-[#2b2118]">Studied in Tamil Nadu Government School (Classes 6 to 12)</p>
@@ -926,7 +926,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="checkbox"
                   checked={isFirstGraduate}
                   onChange={(e) => setIsFirstGraduate(e.target.checked)}
-                  className="w-4 h-4 text-[#8c2f39] rounded accent-[#8c2f39]"
+                  className="w-4 h-4 text-[#0d3e2e] rounded accent-[#0d3e2e]"
                 />
                 <div className="text-xs">
                   <p className="font-semibold text-[#2b2118]">First Graduate in Family</p>
@@ -941,7 +941,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="checkbox"
                   checked={isSingleGirlChild}
                   onChange={(e) => setIsSingleGirlChild(e.target.checked)}
-                  className="w-4 h-4 text-[#8c2f39] rounded accent-[#8c2f39]"
+                  className="w-4 h-4 text-[#0d3e2e] rounded accent-[#0d3e2e]"
                 />
                 <div className="text-xs">
                   <p className="font-semibold text-[#2b2118]">Single Girl Child</p>
@@ -956,7 +956,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                   type="checkbox"
                   checked={hasDisability}
                   onChange={(e) => setHasDisability(e.target.checked)}
-                  className="w-4 h-4 text-[#8c2f39] rounded accent-[#8c2f39]"
+                  className="w-4 h-4 text-[#0d3e2e] rounded accent-[#0d3e2e]"
                 />
                 <div className="text-xs">
                   <p className="font-semibold text-[#2b2118]">Differently-Abled Student (PwD / 40%+)</p>
@@ -989,7 +989,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                     onClick={() => toggleArrayItem(learningPreferences, item, setLearningPreferences)}
                     className={`flex items-center justify-between p-3.5 rounded-xl border text-left text-xs font-semibold transition ${
                       selected
-                        ? 'bg-[#8c2f39] text-white border-[#8c2f39] shadow-xs'
+                        ? 'bg-[#0d3e2e] text-white border-[#0d3e2e] shadow-xs'
                         : 'bg-white text-[#2b2118] border-[#d8c7ad] hover:bg-[#f6ede0]'
                     }`}
                   >
@@ -1030,7 +1030,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
               type="button"
               disabled={busy}
               onClick={handleSaveAndComplete}
-              className="px-4 py-2.5 rounded-xl border-2 border-[#8c2f39] text-[#8c2f39] bg-white hover:bg-[#f6ede0] text-xs font-bold transition flex items-center gap-1.5 cursor-pointer disabled:opacity-60 shadow-2xs"
+              className="px-4 py-2.5 rounded-xl border-2 border-[#0d3e2e] text-[#0d3e2e] bg-white hover:bg-[#f6ede0] text-xs font-bold transition flex items-center gap-1.5 cursor-pointer disabled:opacity-60 shadow-2xs"
               title="Save current details to your profile"
             >
               {busy ? <Loader2 size={15} className="animate-spin" /> : <CheckCircle2 size={15} />}
@@ -1041,7 +1041,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
               <button
                 type="button"
                 onClick={() => setCurrentStep((prev) => Math.min(5, prev + 1))}
-                className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-xs flex items-center gap-1.5 cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-[#0d3e2e] text-white text-xs font-bold hover:bg-[#08261c] shadow-xs flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Next Step</span>
                 <ChevronRight size={16} />
@@ -1051,7 +1051,7 @@ export function StudentOnboardingModal({ open, onClose, onSaved, initialProfile 
                 type="button"
                 disabled={busy}
                 onClick={handleSaveAndComplete}
-                className="px-5 py-2.5 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-60"
+                className="px-5 py-2.5 rounded-xl bg-[#0d3e2e] text-white text-xs font-bold hover:bg-[#08261c] shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {busy ? <Loader2 size={16} className="animate-spin" /> : <CheckCircle2 size={16} />}
                 <span>Save & Complete Profile</span>

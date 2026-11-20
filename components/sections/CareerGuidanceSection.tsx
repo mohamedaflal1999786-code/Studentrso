@@ -17,7 +17,7 @@ export function CareerGuidanceSection({ onOpenAIChat }: CareerGuidanceSectionPro
             <div className="w-8 h-0.5 bg-[#92400e]" />
           </div>
           <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#2b2118] mt-2 mb-4 font-bold">
-            AI Career Assistant: <span className="italic text-[#8c2f39]">Make your next education decision clearer.</span>
+            AI Career Assistant: <span className="italic text-[#0d3e2e]">Make your next education decision clearer.</span>
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
             Explore possible education pathways based on your subjects, academic performance, interests, preferred
@@ -45,14 +45,14 @@ export function CareerGuidanceSection({ onOpenAIChat }: CareerGuidanceSectionPro
             <div className="flex flex-col sm:flex-row items-center gap-2.5">
               <a
                 href="/career-assistant"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer min-h-[44px]"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer min-h-[44px]"
               >
                 <span>Launch AI Career Assistant</span>
                 <AppIcon name="psychology" className="text-[16px]" />
               </a>
               <button
                 onClick={onOpenAIChat}
-                className="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-[#8c2f39] font-sans text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-[#fbf5e9] hover:bg-[#f6ede0] border border-[#d8c7ad] text-[#0d3e2e] font-sans text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
               >
                 <span>Quick Q&amp;A Modal</span>
                 <AppIcon name="chat" className="text-[16px]" />

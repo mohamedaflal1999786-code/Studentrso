@@ -24,7 +24,7 @@ export function CertificateCard({
       {/* Top Header */}
       <div className="flex items-start justify-between gap-2">
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="rounded-full border border-[#8c2f39]/20 bg-[#8c2f39]/10 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <span className="rounded-full border border-[#0d3e2e]/20 bg-[#0d3e2e]/10 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             {document.code || 'STATUTORY'}
           </span>
           <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-mono text-[10px] font-bold text-emerald-800">
@@ -32,7 +32,7 @@ export function CertificateCard({
           </span>
           {document.isDigiLockerAvailable && (
             <span className="rounded-full border border-[#d8c7ad] bg-[#fbf5e9] px-2 py-0.5 font-mono text-[9px] font-semibold text-[#554a3f] flex items-center gap-1">
-              <ShieldCheck size={11} className="text-[#8c2f39]" /> DigiLocker
+              <ShieldCheck size={11} className="text-[#0d3e2e]" /> DigiLocker
             </span>
           )}
         </div>
@@ -41,12 +41,12 @@ export function CertificateCard({
       {/* Title */}
       <h3
         onClick={() => onOpenDocModal(document)}
-        className="mt-3 font-serif text-[18px] font-bold leading-snug text-[#2b2118] line-clamp-2 hover:text-[#8c2f39] transition-colors cursor-pointer"
+        className="mt-3 font-serif text-[18px] font-bold leading-snug text-[#2b2118] line-clamp-2 hover:text-[#0d3e2e] transition-colors cursor-pointer"
       >
         {document.title}
       </h3>
       <p className="mt-1 font-sans text-[12px] font-medium text-[#7a6a5a] line-clamp-1 flex items-center gap-1.5">
-        <Building size={13} className="text-[#8c2f39] shrink-0" />
+        <Building size={13} className="text-[#0d3e2e] shrink-0" />
         <span className="truncate">{document.issuingAuthority}</span>
         {document.governingDepartment && (
           <>
@@ -64,7 +64,7 @@ export function CertificateCard({
       {/* Metadata Badges */}
       <div className="mt-4 flex flex-wrap items-center gap-1.5">
         <span className="rounded-md border border-[#efe3cc] bg-[#fbf5e9] px-2 py-0.5 font-mono text-[10px] text-[#7a6a5a] flex items-center gap-1">
-          <Clock size={11} className="text-[#8c2f39]" /> {document.turnaroundTime}
+          <Clock size={11} className="text-[#0d3e2e]" /> {document.turnaroundTime}
         </span>
         <span
           className="rounded-md border border-[#efe3cc] bg-[#fbf5e9] px-2 py-0.5 font-sans text-[11px] font-medium text-[#554a3f] truncate max-w-[200px]"
@@ -90,7 +90,7 @@ export function CertificateCard({
           <button
             type="button"
             onClick={() => onOpenDocModal(document)}
-            className="flex-1 rounded-lg bg-[#8c2f39] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#6d1824] shadow-xs cursor-pointer text-center"
+            className="flex-1 rounded-lg bg-[#0d3e2e] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#08261c] shadow-xs cursor-pointer text-center"
           >
             View Details
           </button>
@@ -99,7 +99,7 @@ export function CertificateCard({
               href={document.applicationPortalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] transition-colors hover:bg-[#f6ede0] cursor-pointer"
+              className="inline-flex items-center justify-center gap-1 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] transition-colors hover:bg-[#f6ede0] cursor-pointer"
             >
               <span>Apply</span>
               <ExternalLink size={13} />

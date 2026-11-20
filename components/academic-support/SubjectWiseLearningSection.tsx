@@ -48,7 +48,7 @@ export function SubjectWiseLearningSection() {
       <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold uppercase mb-1">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold uppercase mb-1">
               CURRICULUM DIRECTORY
             </div>
             <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2b2118]">
@@ -66,7 +66,7 @@ export function SubjectWiseLearningSection() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search subject (e.g. Physics, Maths, Algorithms)..."
-              className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#efe3cc] bg-[#fbf5e9]/50 text-xs text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20 focus:border-[#8c2f39]"
+              className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#efe3cc] bg-[#fbf5e9]/50 text-xs text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20 focus:border-[#0d3e2e]"
             />
           </div>
         </div>
@@ -83,11 +83,11 @@ export function SubjectWiseLearningSection() {
                 onClick={() => setSelectedStage(stg.id)}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
                   isSelected
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-[#fbf5e9] border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#efe3cc]/50 hover:text-[#2b2118]'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-[#8c2f39]'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-[#0d3e2e]'}`} />
                 <span>{stg.label}</span>
               </button>
             );
@@ -104,7 +104,7 @@ export function SubjectWiseLearningSection() {
           >
             <div className="space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold">
                   {subj.stage}
                 </span>
                 {subj.stream && (
@@ -119,7 +119,7 @@ export function SubjectWiseLearningSection() {
                   {subj.name}
                 </h3>
                 {subj.code && (
-                  <span className="font-mono text-xs text-[#8c2f39] font-semibold">
+                  <span className="font-mono text-xs text-[#0d3e2e] font-semibold">
                     Code: {subj.code}
                   </span>
                 )}
@@ -131,7 +131,7 @@ export function SubjectWiseLearningSection() {
 
               {/* Learning Objectives */}
               <div className="space-y-1.5">
-                <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   Core Learning Objectives
                 </span>
                 <ul className="space-y-1">
@@ -156,13 +156,13 @@ export function SubjectWiseLearningSection() {
                       href={fc.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#8c2f39] transition flex items-center justify-between text-xs"
+                      className="p-2.5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#0d3e2e] transition flex items-center justify-between text-xs"
                     >
                       <span className="flex items-center gap-1.5 text-[#2b2118] font-semibold">
-                        <Video className="w-3.5 h-3.5 text-[#8c2f39]" />
+                        <Video className="w-3.5 h-3.5 text-[#0d3e2e]" />
                         <span>{fc.title} ({fc.platform})</span>
                       </span>
-                      <ExternalLink className="w-3 h-3 text-[#8c2f39]" />
+                      <ExternalLink className="w-3 h-3 text-[#0d3e2e]" />
                     </a>
                   ))}
 
@@ -172,7 +172,7 @@ export function SubjectWiseLearningSection() {
                       href={tb.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white border border-[#efe3cc] hover:border-[#8c2f39] transition flex items-center justify-between text-xs"
+                      className="p-2.5 rounded-xl bg-white border border-[#efe3cc] hover:border-[#0d3e2e] transition flex items-center justify-between text-xs"
                     >
                       <span className="flex items-center gap-1.5 text-[#2b2118] font-semibold">
                         <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
@@ -195,7 +195,7 @@ export function SubjectWiseLearningSection() {
                 href={subj.officialSyllabusUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition font-bold"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition font-bold"
               >
                 <span>Official Syllabus</span>
                 <ExternalLink className="w-3 h-3" />

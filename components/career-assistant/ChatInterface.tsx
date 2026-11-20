@@ -227,19 +227,19 @@ export function ChatInterface({
       // Headers
       if (line.startsWith('### ')) {
         elements.push(
-          <h4 key={idx} className="font-serif text-base font-bold text-[#8c2f39] mt-3.5 mb-1.5">
+          <h4 key={idx} className="font-serif text-base font-bold text-[#0d3e2e] mt-3.5 mb-1.5">
             {line.replace('### ', '')}
           </h4>
         );
       } else if (line.startsWith('## ')) {
         elements.push(
-          <h3 key={idx} className="font-serif text-lg font-bold text-[#8c2f39] mt-4 mb-2">
+          <h3 key={idx} className="font-serif text-lg font-bold text-[#0d3e2e] mt-4 mb-2">
             {line.replace('## ', '')}
           </h3>
         );
       } else if (line.startsWith('# ')) {
         elements.push(
-          <h2 key={idx} className="font-serif text-xl font-bold text-[#8c2f39] mt-5 mb-2.5">
+          <h2 key={idx} className="font-serif text-xl font-bold text-[#0d3e2e] mt-5 mb-2.5">
             {line.replace('# ', '')}
           </h2>
         );
@@ -318,7 +318,7 @@ export function ChatInterface({
             href={linkMatch[2]}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#8c2f39] underline font-semibold hover:text-[#6d1824] inline-flex items-center gap-0.5"
+            className="text-[#0d3e2e] underline font-semibold hover:text-[#08261c] inline-flex items-center gap-0.5"
           >
             {linkMatch[1]}
             <ExternalLink className="w-3 h-3 inline" />
@@ -348,7 +348,7 @@ export function ChatInterface({
           /* Welcome Section */
           <div className="max-w-3xl mx-auto space-y-6 pt-6 pb-8">
             <div className="rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] p-6 sm:p-8 text-center space-y-3 shadow-2xs">
-              <div className="w-12 h-12 rounded-2xl bg-[#8c2f39] text-white flex items-center justify-center mx-auto shadow-xs">
+              <div className="w-12 h-12 rounded-2xl bg-[#0d3e2e] text-white flex items-center justify-center mx-auto shadow-xs">
                 <Sparkles className="w-6 h-6" />
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2b2118]">
@@ -370,9 +370,9 @@ export function ChatInterface({
                     key={qIdx}
                     type="button"
                     onClick={() => onSendMessage(question)}
-                    className="p-3.5 rounded-xl border border-[#efe3cc] bg-white hover:bg-[#fbf5e9] hover:border-[#8c2f39]/50 text-left transition group cursor-pointer shadow-2xs"
+                    className="p-3.5 rounded-xl border border-[#efe3cc] bg-white hover:bg-[#fbf5e9] hover:border-[#0d3e2e]/50 text-left transition group cursor-pointer shadow-2xs"
                   >
-                    <p className="text-xs sm:text-sm font-semibold text-[#2b2118] group-hover:text-[#8c2f39] transition">
+                    <p className="text-xs sm:text-sm font-semibold text-[#2b2118] group-hover:text-[#0d3e2e] transition">
                       {question}
                     </p>
                   </button>
@@ -390,7 +390,7 @@ export function ChatInterface({
                 className={`flex gap-3 sm:gap-4 ${isUser ? 'justify-end' : 'justify-start'}`}
               >
                 {!isUser && (
-                  <div className="w-8 h-8 rounded-xl bg-[#8c2f39] text-white flex items-center justify-center shrink-0 shadow-xs mt-1">
+                  <div className="w-8 h-8 rounded-xl bg-[#0d3e2e] text-white flex items-center justify-center shrink-0 shadow-xs mt-1">
                     <Sparkles className="w-4 h-4" />
                   </div>
                 )}
@@ -398,7 +398,7 @@ export function ChatInterface({
                 <div
                   className={`max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 sm:p-5 shadow-2xs transition ${
                     isUser
-                      ? 'bg-[#8c2f39] text-white rounded-tr-sm'
+                      ? 'bg-[#0d3e2e] text-white rounded-tr-sm'
                       : 'bg-white border border-[#efe3cc] text-[#2b2118] rounded-tl-sm'
                   }`}
                 >
@@ -418,7 +418,7 @@ export function ChatInterface({
                           <button
                             type="button"
                             onClick={() => handleCopyText(msg.content, msg.id)}
-                            className="p-1 hover:text-[#8c2f39] transition flex items-center gap-1 cursor-pointer"
+                            className="p-1 hover:text-[#0d3e2e] transition flex items-center gap-1 cursor-pointer"
                             title="Copy response"
                           >
                             {copiedId === msg.id ? (
@@ -436,7 +436,7 @@ export function ChatInterface({
                           <button
                             type="button"
                             onClick={onRetryMessage}
-                            className="p-1 hover:text-[#8c2f39] transition flex items-center gap-1 cursor-pointer"
+                            className="p-1 hover:text-[#0d3e2e] transition flex items-center gap-1 cursor-pointer"
                             title="Regenerate answer"
                           >
                             <RotateCcw className="w-3.5 h-3.5" />
@@ -449,7 +449,7 @@ export function ChatInterface({
                 </div>
 
                 {isUser && (
-                  <div className="w-8 h-8 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 shadow-xs mt-1">
+                  <div className="w-8 h-8 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e] flex items-center justify-center shrink-0 shadow-xs mt-1">
                     <User className="w-4 h-4" />
                   </div>
                 )}
@@ -461,14 +461,14 @@ export function ChatInterface({
         {/* Streaming / Typing Indicator */}
         {isStreaming && (
           <div className="flex gap-3 items-center text-xs text-[#7a6a5a]">
-            <div className="w-8 h-8 rounded-xl bg-[#8c2f39] text-white flex items-center justify-center shrink-0 animate-pulse">
+            <div className="w-8 h-8 rounded-xl bg-[#0d3e2e] text-white flex items-center justify-center shrink-0 animate-pulse">
               <Sparkles className="w-4 h-4" />
             </div>
             <div className="flex items-center gap-1.5 p-3 rounded-2xl bg-white border border-[#efe3cc] shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#8c2f39] animate-bounce" />
-              <span className="w-2 h-2 rounded-full bg-[#8c2f39] animate-bounce [animation-delay:0.2s]" />
-              <span className="w-2 h-2 rounded-full bg-[#8c2f39] animate-bounce [animation-delay:0.4s]" />
-              <span className="ml-2 font-serif text-[#8c2f39] font-medium">Assistant is thinking...</span>
+              <span className="w-2 h-2 rounded-full bg-[#0d3e2e] animate-bounce" />
+              <span className="w-2 h-2 rounded-full bg-[#0d3e2e] animate-bounce [animation-delay:0.2s]" />
+              <span className="w-2 h-2 rounded-full bg-[#0d3e2e] animate-bounce [animation-delay:0.4s]" />
+              <span className="ml-2 font-serif text-[#0d3e2e] font-medium">Assistant is thinking...</span>
             </div>
           </div>
         )}
@@ -508,7 +508,7 @@ export function ChatInterface({
         {/* Uploading Status */}
         {isUploading && (
           <div className="flex items-center gap-2 p-2 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-xs text-[#7a6a5a]">
-            <Loader2 className="w-4 h-4 animate-spin text-[#8c2f39]" />
+            <Loader2 className="w-4 h-4 animate-spin text-[#0d3e2e]" />
             <span>Analyzing file for AI assistant context...</span>
           </div>
         )}
@@ -535,12 +535,12 @@ export function ChatInterface({
         )}
 
         {/* Text Input Row */}
-        <div className="relative flex items-end gap-2 bg-white rounded-2xl border border-[#efe3cc] p-2 focus-within:ring-2 focus-within:ring-[#8c2f39]/20 focus-within:border-[#8c2f39] shadow-2xs">
+        <div className="relative flex items-end gap-2 bg-white rounded-2xl border border-[#efe3cc] p-2 focus-within:ring-2 focus-within:ring-[#0d3e2e]/20 focus-within:border-[#0d3e2e] shadow-2xs">
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
             disabled={isUploading}
-            className="p-2.5 rounded-xl text-[#7a6a5a] hover:text-[#8c2f39] hover:bg-[#fbf5e9] transition shrink-0 cursor-pointer disabled:opacity-50"
+            className="p-2.5 rounded-xl text-[#7a6a5a] hover:text-[#0d3e2e] hover:bg-[#fbf5e9] transition shrink-0 cursor-pointer disabled:opacity-50"
             title="Attach document or image (JPG, PNG, PDF, DOCX, PPTX up to 10MB)"
           >
             <Paperclip className="w-5 h-5" />
@@ -564,7 +564,7 @@ export function ChatInterface({
             <button
               type="button"
               onClick={onStopStreaming}
-              className="p-2.5 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition shrink-0 cursor-pointer shadow-xs"
+              className="p-2.5 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition shrink-0 cursor-pointer shadow-xs"
               title="Stop response"
             >
               <Square className="w-4 h-4 fill-current" />
@@ -574,7 +574,7 @@ export function ChatInterface({
               type="button"
               onClick={handleSubmit}
               disabled={(!inputText.trim() && !attachedDoc) || isUploading}
-              className="p-2.5 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition disabled:opacity-40 disabled:cursor-not-allowed shrink-0 shadow-xs cursor-pointer"
+              className="p-2.5 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition disabled:opacity-40 disabled:cursor-not-allowed shrink-0 shadow-xs cursor-pointer"
               title="Send message"
             >
               <Send className="w-4 h-4" />

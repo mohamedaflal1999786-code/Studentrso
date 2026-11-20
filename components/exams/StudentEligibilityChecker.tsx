@@ -154,10 +154,10 @@ export function StudentEligibilityChecker({
     <div className="space-y-8 font-sans">
       {/* Banner */}
       <div className="rounded-3xl bg-gradient-to-r from-[#fbf5e9] to-[#efe3cc]/60 border border-[#efe3cc] p-6 sm:p-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 mb-3">
           <Sparkles className="w-4 h-4" /> Smart Eligibility Intelligence
         </div>
-        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#8c2f39]">
+        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#0d3e2e]">
           Student Examination Eligibility Finder
         </h2>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed">
@@ -168,7 +168,7 @@ export function StudentEligibilityChecker({
 
       {/* Interactive Questionnaire Form */}
       <div className="rounded-2xl bg-white border border-[#efe3cc] p-6 sm:p-8 shadow-sm space-y-6">
-        <h3 className="text-lg font-serif font-bold text-[#8c2f39] flex items-center gap-2">
+        <h3 className="text-lg font-serif font-bold text-[#0d3e2e] flex items-center gap-2">
           <GraduationCap className="w-5 h-5" /> Your Academic & Profile Details
         </h3>
 
@@ -181,7 +181,7 @@ export function StudentEligibilityChecker({
             <select
               value={stage}
               onChange={(e) => setStage(e.target.value)}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="Class 10">Class 10 (SSLC)</option>
               <option value="Class 12">Class 11 - 12 (HSC)</option>
@@ -201,7 +201,7 @@ export function StudentEligibilityChecker({
             <select
               value={stream}
               onChange={(e) => setStream(e.target.value)}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="Science (PCM)">Science (Maths / Physics / Chemistry)</option>
               <option value="Science (PCB)">Science (Biology / Physics / Chemistry)</option>
@@ -222,7 +222,7 @@ export function StudentEligibilityChecker({
             <select
               value={marksRange}
               onChange={(e) => setMarksRange(e.target.value)}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="75% and above">75% and above (Distinction)</option>
               <option value="60% - 74%">60% - 74% (First Class)</option>
@@ -242,11 +242,11 @@ export function StudentEligibilityChecker({
               max={38}
               value={age}
               onChange={(e) => setAge(parseInt(e.target.value, 10))}
-              className="w-full accent-[#8c2f39] cursor-pointer mt-2"
+              className="w-full accent-[#0d3e2e] cursor-pointer mt-2"
             />
             <div className="flex justify-between text-[11px] text-stone-500 mt-1">
               <span>14 yrs</span>
-              <span className="font-bold text-[#8c2f39]">{age} yrs</span>
+              <span className="font-bold text-[#0d3e2e]">{age} yrs</span>
               <span>38 yrs</span>
             </div>
           </div>
@@ -265,7 +265,7 @@ export function StudentEligibilityChecker({
                   name="domicile"
                   checked={isTnDomicile}
                   onChange={() => setIsTnDomicile(true)}
-                  className="accent-[#8c2f39]"
+                  className="accent-[#0d3e2e]"
                 />
                 <span>Yes, Tamil Nadu Resident</span>
               </label>
@@ -275,7 +275,7 @@ export function StudentEligibilityChecker({
                   name="domicile"
                   checked={!isTnDomicile}
                   onChange={() => setIsTnDomicile(false)}
-                  className="accent-[#8c2f39]"
+                  className="accent-[#0d3e2e]"
                 />
                 <span>Other State</span>
               </label>
@@ -289,7 +289,7 @@ export function StudentEligibilityChecker({
             <select
               value={community}
               onChange={(e) => setCommunity(e.target.value)}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="General / OC">General / OC</option>
               <option value="BC">BC (Backward Classes)</option>
@@ -307,7 +307,7 @@ export function StudentEligibilityChecker({
             <select
               value={annualIncome}
               onChange={(e) => setAnnualIncome(e.target.value)}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-[#fdfbf6] border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="Below ₹2.5 Lakhs">Below ₹2.5 Lakhs (Full Concession & Scholarship)</option>
               <option value="₹2.5L - ₹8.0 Lakhs">₹2.5L - ₹8.0 Lakhs (OBC / EWS Quota eligible)</option>
@@ -331,7 +331,7 @@ export function StudentEligibilityChecker({
                   onClick={() => toggleSubject(sub)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition ${
                     active
-                      ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                      ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                       : 'bg-[#fbf5e9] text-stone-700 border-[#efe3cc] hover:bg-[#efe3cc]'
                   }`}
                 >
@@ -386,7 +386,7 @@ export function StudentEligibilityChecker({
                         onClick={() => onTrackExam(exam)}
                         className={`p-1.5 rounded-lg border transition shrink-0 ${
                           isSaved
-                            ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                            ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                             : 'bg-[#fdfbf6] text-stone-600 border-[#efe3cc] hover:bg-[#fbf5e9]'
                         }`}
                         title={isSaved ? 'In your tracker' : 'Add to tracker'}
@@ -397,7 +397,7 @@ export function StudentEligibilityChecker({
 
                     <h4
                       onClick={() => onSelectExam(exam)}
-                      className="text-base font-serif font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                      className="text-base font-serif font-bold text-[#0d3e2e] hover:underline cursor-pointer"
                     >
                       {exam.title}
                     </h4>
@@ -406,7 +406,7 @@ export function StudentEligibilityChecker({
                     </p>
 
                     <div className="mt-3 p-2.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-xs">
-                      <strong className="text-[#8c2f39] block mb-0.5">Opportunity Provided:</strong>
+                      <strong className="text-[#0d3e2e] block mb-0.5">Opportunity Provided:</strong>
                       <span className="text-stone-800">{exam.linkedOpportunities.opportunityType} — {exam.linkedOpportunities.targetProgrammesOrPosts.slice(0, 2).join(', ')}</span>
                     </div>
 
@@ -422,7 +422,7 @@ export function StudentEligibilityChecker({
                     <button
                       type="button"
                       onClick={() => onSelectExam(exam)}
-                      className="px-3 py-1.5 rounded-lg font-bold bg-[#8c2f39] text-white hover:bg-[#72262e] transition text-xs"
+                      className="px-3 py-1.5 rounded-lg font-bold bg-[#0d3e2e] text-white hover:bg-[#061d15] transition text-xs"
                     >
                       View Details
                     </button>
@@ -463,7 +463,7 @@ export function StudentEligibilityChecker({
                     </div>
                     <h4
                       onClick={() => onSelectExam(exam)}
-                      className="text-base font-serif font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                      className="text-base font-serif font-bold text-[#0d3e2e] hover:underline cursor-pointer"
                     >
                       {exam.title}
                     </h4>
@@ -479,7 +479,7 @@ export function StudentEligibilityChecker({
                     <button
                       type="button"
                       onClick={() => onSelectExam(exam)}
-                      className="px-3 py-1.5 rounded-lg font-bold bg-[#8c2f39] text-white hover:bg-[#72262e] transition text-xs"
+                      className="px-3 py-1.5 rounded-lg font-bold bg-[#0d3e2e] text-white hover:bg-[#061d15] transition text-xs"
                     >
                       Check Criteria
                     </button>

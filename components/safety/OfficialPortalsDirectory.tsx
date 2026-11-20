@@ -50,7 +50,7 @@ export function OfficialPortalsDirectory() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Landmark size={14} /> DIRECT GOVERNMENT COMPLAINT CHANNELS
             </div>
             <h3 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -74,7 +74,7 @@ export function OfficialPortalsDirectory() {
               placeholder="Search by authority name, complaint type, or government domain (e.g., UGC, NCSC, CM Helpline, Cyber Crime)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -83,7 +83,7 @@ export function OfficialPortalsDirectory() {
               onClick={() => setSelectedGroup('All')}
               className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold whitespace-nowrap transition ${
                 selectedGroup === 'All'
-                  ? 'bg-[#8c2f39] text-white shadow-2xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-2xs'
                   : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
               }`}
             >
@@ -97,7 +97,7 @@ export function OfficialPortalsDirectory() {
                   onClick={() => setSelectedGroup(grp)}
                   className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold whitespace-nowrap transition ${
                     selectedGroup === grp
-                      ? 'bg-[#8c2f39] text-white shadow-2xs'
+                      ? 'bg-[#0d3e2e] text-white shadow-2xs'
                       : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
                   }`}
                 >
@@ -119,7 +119,7 @@ export function OfficialPortalsDirectory() {
             <div className="space-y-3">
               {/* Classification Tag & Status */}
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#f6ede0] px-2.5 py-0.5 rounded-full border border-[#d8c7ad]">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#f6ede0] px-2.5 py-0.5 rounded-full border border-[#d8c7ad]">
                   {auth.classification}
                 </span>
                 <span className="font-mono text-[10px] text-[#5e8b7e] font-semibold flex items-center gap-1 bg-[#fbf5e9] px-2 py-0.5 rounded-full border border-[#efe3cc]">
@@ -175,7 +175,7 @@ export function OfficialPortalsDirectory() {
                   href={auth.officialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-[12px] font-semibold text-[#7a6a5a] hover:text-[#8c2f39] inline-flex items-center gap-1"
+                  className="font-sans text-[12px] font-semibold text-[#7a6a5a] hover:text-[#0d3e2e] inline-flex items-center gap-1"
                 >
                   <Globe size={13} />
                   <span>Official Website</span>
@@ -185,7 +185,7 @@ export function OfficialPortalsDirectory() {
                 {auth.helpline && (
                   <a
                     href={auth.telUrl || `tel:${auth.helpline}`}
-                    className="font-mono text-[11px] font-bold text-[#8c2f39] hover:underline inline-flex items-center gap-1"
+                    className="font-mono text-[11px] font-bold text-[#0d3e2e] hover:underline inline-flex items-center gap-1"
                   >
                     <PhoneCall size={12} />
                     <span>Helpline: {auth.helpline}</span>
@@ -197,7 +197,7 @@ export function OfficialPortalsDirectory() {
                 href={auth.complaintUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white py-2.5 font-sans text-[13px] font-bold shadow-2xs transition"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white py-2.5 font-sans text-[13px] font-bold shadow-2xs transition"
               >
                 <span>Access Official Complaint Page</span>
                 <ExternalLink size={14} />

@@ -25,7 +25,7 @@ export function ExamPreparationSection() {
     <div className="space-y-6 sm:space-y-8 font-sans">
       {/* Header Banner */}
       <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold uppercase">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold uppercase">
           OFFICIAL EXAMINATION MASTERY
         </div>
         <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2b2118]">
@@ -53,18 +53,18 @@ export function ExamPreparationSection() {
                   onClick={() => setSelectedGuide(guide)}
                   className={`p-4 rounded-2xl border transition cursor-pointer space-y-2 ${
                     isSelected
-                      ? 'bg-white border-[#8c2f39] shadow-xs ring-1 ring-[#8c2f39]/20'
-                      : 'bg-white/70 border-[#efe3cc] hover:bg-white hover:border-[#8c2f39]/40'
+                      ? 'bg-white border-[#0d3e2e] shadow-xs ring-1 ring-[#0d3e2e]/20'
+                      : 'bg-white/70 border-[#efe3cc] hover:bg-white hover:border-[#0d3e2e]/40'
                   }`}
                 >
-                  <span className="px-2 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold">
+                  <span className="px-2 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold">
                     {guide.stage}
                   </span>
                   <h4 className="font-serif font-bold text-sm text-[#2b2118]">
                     {guide.examName}
                   </h4>
                   <p className="text-[11px] text-[#7a6a5a] flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-[#8c2f39]" />
+                    <Award className="w-3.5 h-3.5 text-[#0d3e2e]" />
                     <span>{guide.conductingBody}</span>
                   </p>
                 </div>
@@ -77,7 +77,7 @@ export function ExamPreparationSection() {
         <div className="lg:col-span-2 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-6">
           <div className="border-b border-[#efe3cc] pb-4 space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold">
                 {selectedGuide.stage}
               </span>
               <span className="text-xs font-semibold text-[#7a6a5a]">
@@ -96,7 +96,7 @@ export function ExamPreparationSection() {
 
           {/* Exam Pattern */}
           <div className="p-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] space-y-1.5">
-            <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+            <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
               Official Examination Pattern &amp; Structure
             </span>
             <p className="text-xs text-[#2b2118] leading-relaxed">
@@ -106,14 +106,14 @@ export function ExamPreparationSection() {
 
           {/* 4-Phase Study Plan Roadmap */}
           <div className="space-y-3">
-            <span className="text-xs font-bold text-[#8c2f39] uppercase tracking-wider block">
+            <span className="text-xs font-bold text-[#0d3e2e] uppercase tracking-wider block">
               Phase-by-Phase Preparation Roadmap
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {selectedGuide.studyPlanRoadmap.map((phase, pIdx) => (
                 <div key={pIdx} className="p-3.5 rounded-xl bg-white border border-[#efe3cc] space-y-1.5 shadow-2xs">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-serif font-bold text-xs text-[#8c2f39]">
+                    <span className="font-serif font-bold text-xs text-[#0d3e2e]">
                       {phase.phase}
                     </span>
                     <span className="font-mono text-[10px] text-[#7a6a5a] bg-[#fbf5e9] px-2 py-0.5 rounded-md">
@@ -130,7 +130,7 @@ export function ExamPreparationSection() {
 
           {/* Subject Preparation Tips */}
           <div className="space-y-2">
-            <span className="text-xs font-bold text-[#8c2f39] uppercase tracking-wider block">
+            <span className="text-xs font-bold text-[#0d3e2e] uppercase tracking-wider block">
               High-Yield Subject Preparation Strategies
             </span>
             <div className="space-y-2">
@@ -149,7 +149,7 @@ export function ExamPreparationSection() {
               href={selectedGuide.modelPapersUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-[#efe3cc] bg-[#fbf5e9] text-[#8c2f39] hover:bg-[#efe3cc]/50 transition text-xs font-bold cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-[#efe3cc] bg-[#fbf5e9] text-[#0d3e2e] hover:bg-[#efe3cc]/50 transition text-xs font-bold cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Official Model Papers &amp; Blueprints</span>
@@ -159,7 +159,7 @@ export function ExamPreparationSection() {
               href={selectedGuide.officialPortalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition text-xs font-bold shadow-xs"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition text-xs font-bold shadow-xs"
             >
               <span>COE Official Examination Portal</span>
               <ExternalLink className="w-3.5 h-3.5" />

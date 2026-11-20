@@ -383,7 +383,7 @@ function CareerAssistantContent() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#8c2f39] hover:underline"
+              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:underline"
             >
               <ArrowLeft size={16} />
               <span>Back to Student RSO</span>
@@ -408,7 +408,7 @@ function CareerAssistantContent() {
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
-                <User size={14} className="text-[#8c2f39]" />
+                <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
@@ -418,7 +418,7 @@ function CareerAssistantContent() {
                   setAuthMode('login');
                   setAuthOpen(true);
                 }}
-                className="rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+                className="rounded-lg bg-[#0d3e2e] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
               >
                 Sign In
               </button>
@@ -463,8 +463,8 @@ export default function CareerAssistantPage() {
       fallback={
         <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center p-8">
           <div className="text-center space-y-3">
-            <div className="w-10 h-10 border-4 border-[#8c2f39] border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="font-serif text-lg font-bold text-[#8c2f39]">Loading AI Student Career &amp; Life Assistant...</p>
+            <div className="w-10 h-10 border-4 border-[#0d3e2e] border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="font-serif text-lg font-bold text-[#0d3e2e]">Loading AI Student Career &amp; Life Assistant...</p>
           </div>
         </div>
       }

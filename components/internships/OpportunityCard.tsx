@@ -34,7 +34,7 @@ export function OpportunityCard({
 
   const categoryColor =
     item.category === 'government-internship' || item.category === 'government-job'
-      ? 'bg-[#8c2f39]/10 text-[#8c2f39] border-[#8c2f39]/20'
+      ? 'bg-[#0d3e2e]/10 text-[#0d3e2e] border-[#0d3e2e]/20'
       : item.category === 'apprenticeship'
       ? 'bg-blue-100 text-blue-900 border-blue-300'
       : item.category === 'skill-development'
@@ -77,8 +77,8 @@ export function OpportunityCard({
           aria-label={isBookmarked ? 'Remove from saved' : 'Save opportunity'}
           className={`rounded-lg p-2 transition-colors cursor-pointer ${
             isBookmarked
-              ? 'bg-[#8c2f39]/10 text-[#8c2f39]'
-              : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#8c2f39]'
+              ? 'bg-[#0d3e2e]/10 text-[#0d3e2e]'
+              : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#0d3e2e]'
           }`}
         >
           {isBookmarked ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
@@ -88,12 +88,12 @@ export function OpportunityCard({
       {/* Title */}
       <h3
         onClick={() => onViewDetails(item)}
-        className="mt-3 font-serif text-[18px] font-bold leading-snug text-[#2b2118] line-clamp-2 hover:text-[#8c2f39] transition-colors cursor-pointer"
+        className="mt-3 font-serif text-[18px] font-bold leading-snug text-[#2b2118] line-clamp-2 hover:text-[#0d3e2e] transition-colors cursor-pointer"
       >
         {item.title}
       </h3>
       <p className="mt-1 font-sans text-[12px] font-medium text-[#7a6a5a] line-clamp-1 flex items-center gap-1.5">
-        <Building size={13} className="text-[#8c2f39] shrink-0" />
+        <Building size={13} className="text-[#0d3e2e] shrink-0" />
         <span className="truncate">{item.organisation}</span>
         {item.location && <span className="text-[#efe3cc]">·</span>}
         {item.location && <span className="truncate">{item.location}</span>}
@@ -156,14 +156,14 @@ export function OpportunityCard({
           <div className="flex gap-2">
             <button
               onClick={() => onViewDetails(item)}
-              className="flex-1 rounded-lg bg-[#8c2f39] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#6d1824] shadow-xs cursor-pointer"
+              className="flex-1 rounded-lg bg-[#0d3e2e] px-3 py-2 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-[#08261c] shadow-xs cursor-pointer"
             >
               View Details
             </button>
             <button
               onClick={() => onToggleBookmark(item)}
               title={isBookmarked ? 'Saved in Tracker' : 'Track Application'}
-              className="flex items-center justify-center rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] transition-colors hover:bg-[#f6ede0] cursor-pointer"
+              className="flex items-center justify-center rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] transition-colors hover:bg-[#f6ede0] cursor-pointer"
             >
               <PlusCircle size={15} className="mr-1 inline" />
               {isBookmarked ? 'Tracked' : 'Track'}
@@ -173,7 +173,7 @@ export function OpportunityCard({
           {item.officialApplicationUrl && onApplyOfficial && (
             <button
               onClick={() => onApplyOfficial(item.officialApplicationUrl)}
-              className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#8c2f39]/30 bg-[#8c2f39]/5 py-1.5 font-sans text-[12px] font-bold text-[#8c2f39] hover:bg-[#8c2f39]/10 cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#0d3e2e]/30 bg-[#0d3e2e]/5 py-1.5 font-sans text-[12px] font-bold text-[#0d3e2e] hover:bg-[#0d3e2e]/10 cursor-pointer"
             >
               <span>Official Direct Link</span>
               <ExternalLink size={13} />

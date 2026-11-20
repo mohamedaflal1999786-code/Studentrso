@@ -281,7 +281,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#8c2f39] transition-colors cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#0d3e2e] transition-colors cursor-pointer"
           aria-label="Close"
         >
           <X size={20} />
@@ -291,7 +291,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
         <div className="flex items-center gap-2.5 mb-6">
           <img src="/images/student-rso-emblem.jpg" alt="Student RSO" className="h-8 w-auto object-contain" width={41} height={32} />
           <div className="h-6 w-px bg-[#d8c7ad]" />
-          <span className="font-serif text-lg font-bold text-[#8c2f39] italic">Student RSO</span>
+          <span className="font-serif text-lg font-bold text-[#0d3e2e] italic">Student RSO</span>
         </div>
 
         {/* VIEW 1: CREATE PASSWORD AFTER GOOGLE SIGN-UP */}
@@ -327,7 +327,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="At least 8 characters"
                     disabled={busy}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8c2f39] pr-10"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#0d3e2e] pr-10"
                     required
                   />
                   <button
@@ -351,7 +351,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="Repeat password"
                     disabled={busy}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8c2f39] pr-10"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#0d3e2e] pr-10"
                     required
                   />
                   <button
@@ -380,7 +380,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
               <button
                 type="submit"
                 disabled={busy}
-                className="w-full py-3 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full py-3 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {busy ? <Loader2 size={18} className="animate-spin" /> : <LockKeyhole size={18} />}
                 <span>Complete Registration & Open Dashboard →</span>
@@ -395,7 +395,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
             <button
               type="button"
               onClick={() => setView('main')}
-              className="inline-flex items-center gap-1.5 text-xs text-[#7a6a5a] hover:text-[#8c2f39] font-medium transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs text-[#7a6a5a] hover:text-[#0d3e2e] font-medium transition cursor-pointer"
             >
               <ArrowLeft size={14} />
               <span>Back to Sign In</span>
@@ -436,7 +436,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Username or email address"
                   disabled={busy}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8c2f39]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]"
                   required
                 />
               </div>
@@ -457,7 +457,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
               <button
                 type="submit"
                 disabled={busy}
-                className="w-full py-3 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full py-3 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {busy ? <Loader2 size={18} className="animate-spin" /> : <Mail size={18} />}
                 <span>Send Password Reset Link to Gmail</span>
@@ -479,7 +479,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                 }}
                 className={`flex-1 py-2 rounded-lg font-sans text-xs font-bold transition-all cursor-pointer ${
                   mode === 'login'
-                    ? 'bg-white text-[#8c2f39] shadow-xs'
+                    ? 'bg-white text-[#0d3e2e] shadow-xs'
                     : 'text-[#7a6a5a] hover:text-[#2b2118]'
                 }`}
               >
@@ -493,7 +493,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                 }}
                 className={`flex-1 py-2 rounded-lg font-sans text-xs font-bold transition-all cursor-pointer ${
                   mode === 'signup'
-                    ? 'bg-white text-[#8c2f39] shadow-xs'
+                    ? 'bg-white text-[#0d3e2e] shadow-xs'
                     : 'text-[#7a6a5a] hover:text-[#2b2118]'
                 }`}
               >
@@ -516,10 +516,10 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                   type="button"
                   onClick={() => handleGoogleAuth(true)}
                   disabled={busy}
-                  className="w-full py-3.5 px-4 rounded-2xl border-2 border-[#8c2f39] bg-white hover:bg-[#f6ede0] text-[#2b2118] font-sans text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 cursor-pointer disabled:opacity-60 group"
+                  className="w-full py-3.5 px-4 rounded-2xl border-2 border-[#0d3e2e] bg-white hover:bg-[#f6ede0] text-[#2b2118] font-sans text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 cursor-pointer disabled:opacity-60 group"
                 >
                   <GoogleIcon size={22} />
-                  <span className="text-[#8c2f39] group-hover:text-[#6d1824]">Sign up with Google</span>
+                  <span className="text-[#0d3e2e] group-hover:text-[#08261c]">Sign up with Google</span>
                 </button>
 
                 {/* Benefits / No OTP Guarantee */}
@@ -529,7 +529,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                     <span>Instant verification via Google (Zero OTPs)</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-[#5c4a3b] font-medium">
-                    <KeyRound size={15} className="text-[#8c2f39] shrink-0" />
+                    <KeyRound size={15} className="text-[#0d3e2e] shrink-0" />
                     <span>Create a personal password right after Google login</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-[#5c4a3b] font-medium">
@@ -556,7 +556,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                   <button
                     type="button"
                     onClick={() => onModeChange('login')}
-                    className="font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                    className="font-bold text-[#0d3e2e] hover:underline cursor-pointer"
                   >
                     Sign In here
                   </button>
@@ -604,7 +604,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Username or email address"
                       disabled={busy}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8c2f39]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]"
                       required
                     />
                   </div>
@@ -617,7 +617,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                       <button
                         type="button"
                         onClick={() => setView('forgot-password')}
-                        className="font-sans text-xs text-[#8c2f39] hover:underline cursor-pointer"
+                        className="font-sans text-xs text-[#0d3e2e] hover:underline cursor-pointer"
                       >
                         Forgot password?
                       </button>
@@ -629,7 +629,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Your password"
                         disabled={busy}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8c2f39] pr-10"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#d8c7ad] bg-white text-[#2b2118] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#0d3e2e] pr-10"
                         required
                       />
                       <button
@@ -658,7 +658,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                   <button
                     type="submit"
                     disabled={busy}
-                    className="w-full py-3 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                    className="w-full py-3 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                   >
                     {busy ? <Loader2 size={18} className="animate-spin" /> : <LockKeyhole size={18} />}
                     <span>Sign In →</span>
@@ -670,7 +670,7 @@ export function AuthDialog({ open, mode, onModeChange, onClose, onSuccess }: Aut
                   <button
                     type="button"
                     onClick={() => onModeChange('signup')}
-                    className="font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                    className="font-bold text-[#0d3e2e] hover:underline cursor-pointer"
                   >
                     Register with Google
                   </button>

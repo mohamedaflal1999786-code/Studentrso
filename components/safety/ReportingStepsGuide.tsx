@@ -74,7 +74,7 @@ export function ReportingStepsGuide() {
     <div className="space-y-8">
       {/* Overview Banner */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-3">
-        <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+        <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
           <FileCheck size={15} /> OFFICIAL PROTOCOL
         </div>
         <h3 className="font-serif text-[24px] font-bold text-[#2b2118]">
@@ -91,9 +91,9 @@ export function ReportingStepsGuide() {
         {REPORTING_STEPS.map((s, idx) => (
           <div
             key={s.stepNumber}
-            className="rounded-2xl border border-[#efe3cc] bg-white p-5 sm:p-6 shadow-xs hover:border-[#8c2f39]/30 transition flex flex-col sm:flex-row items-start gap-4"
+            className="rounded-2xl border border-[#efe3cc] bg-white p-5 sm:p-6 shadow-xs hover:border-[#0d3e2e]/30 transition flex flex-col sm:flex-row items-start gap-4"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] flex items-center justify-center shrink-0 font-mono text-[16px] font-bold">
+            <div className="w-12 h-12 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e] flex items-center justify-center shrink-0 font-mono text-[16px] font-bold">
               {s.stepNumber}
             </div>
             <div className="flex-1 space-y-1.5">

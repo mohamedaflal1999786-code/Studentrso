@@ -33,7 +33,7 @@ export function SafetyFeatureCard({
             className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider ${
               isEmergency
                 ? 'bg-rose-100 border border-rose-300 text-rose-800'
-                : 'bg-[#8c2f39]/10 border border-[#8c2f39]/20 text-[#8c2f39]'
+                : 'bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 text-[#0d3e2e]'
             }`}
           >
             {feature.badge}
@@ -62,7 +62,7 @@ export function SafetyFeatureCard({
           className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${
             isEmergency
               ? 'bg-rose-50 border-rose-200 text-rose-700'
-              : 'bg-[#fbf5e9] border-[#efe3cc] text-[#8c2f39]'
+              : 'bg-[#fbf5e9] border-[#efe3cc] text-[#0d3e2e]'
           }`}
         >
           {isEmergency ? <PhoneCall size={20} /> : <ShieldAlert size={20} />}
@@ -71,7 +71,7 @@ export function SafetyFeatureCard({
           <h3 className="font-serif text-[18px] sm:text-[20px] font-bold leading-snug text-[#2b2118]">
             {feature.title}
           </h3>
-          <p className="font-serif text-[13px] italic text-[#8c2f39] line-clamp-1 mt-0.5">
+          <p className="font-serif text-[13px] italic text-[#0d3e2e] line-clamp-1 mt-0.5">
             {feature.subtitle}
           </p>
         </div>
@@ -84,7 +84,7 @@ export function SafetyFeatureCard({
 
       {/* Authority reference */}
       <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#fbf5e9] border border-[#efe3cc] text-[#554a3f] font-mono text-[10.5px]">
-        <span className="text-[#8c2f39] font-bold">Authority:</span>
+        <span className="text-[#0d3e2e] font-bold">Authority:</span>
         <span className="truncate max-w-[230px]">{feature.authority}</span>
       </div>
 
@@ -95,7 +95,7 @@ export function SafetyFeatureCard({
         </span>
         {feature.actionSteps.slice(0, 2).map((step) => (
           <div key={step.stepNumber} className="flex items-start gap-1.5 font-sans text-[12px] text-[#554a3f]">
-            <span className="text-[#8c2f39] font-bold shrink-0 mt-0.5">
+            <span className="text-[#0d3e2e] font-bold shrink-0 mt-0.5">
               {step.stepNumber}.
             </span>
             <span className="line-clamp-1 font-medium">{step.title}</span>
@@ -108,7 +108,7 @@ export function SafetyFeatureCard({
         <button
           type="button"
           onClick={() => onViewDetails(feature)}
-          className="flex-1 rounded-lg bg-[#8c2f39] px-3.5 py-2 font-sans text-[13px] font-bold text-white transition-colors hover:bg-[#6d1824] shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
+          className="flex-1 rounded-lg bg-[#0d3e2e] px-3.5 py-2 font-sans text-[13px] font-bold text-white transition-colors hover:bg-[#08261c] shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
         >
           <BookOpen size={14} />
           <span>View Action Guide</span>
@@ -128,7 +128,7 @@ export function SafetyFeatureCard({
             href={feature.officialPortalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] transition-colors hover:bg-[#f6ede0] cursor-pointer flex items-center justify-center gap-1 shrink-0"
+            className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] transition-colors hover:bg-[#f6ede0] cursor-pointer flex items-center justify-center gap-1 shrink-0"
             title="Open official portal in new tab"
           >
             <span>Portal</span>
@@ -138,7 +138,7 @@ export function SafetyFeatureCard({
           <button
             type="button"
             onClick={() => onQuickAction && onQuickAction(feature)}
-            className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] transition-colors hover:bg-[#f6ede0] cursor-pointer flex items-center justify-center gap-1 shrink-0"
+            className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] transition-colors hover:bg-[#f6ede0] cursor-pointer flex items-center justify-center gap-1 shrink-0"
           >
             <span>Action</span>
             <ArrowRight size={14} />

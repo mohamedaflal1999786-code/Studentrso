@@ -152,7 +152,7 @@ export function ApplicationTrackerSection({
 
         <button
           onClick={() => setShowAddForm(!showAddForm)}
-          className="inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824] shadow-xs"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#08261c] shadow-xs"
         >
           <Plus size={16} />
           <span>{showAddForm ? 'Cancel' : 'Track New Application'}</span>
@@ -178,7 +178,7 @@ export function ApplicationTrackerSection({
                 required
                 value={selectedSchemeId}
                 onChange={(e) => setSelectedSchemeId(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 <option value="">Choose scholarship scheme...</option>
                 {programs.map((p) => (
@@ -196,7 +196,7 @@ export function ApplicationTrackerSection({
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as TrackerApplicationStatus)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 {TRACKER_STATUSES.map((st) => (
                   <option key={st} value={st}>
@@ -215,7 +215,7 @@ export function ApplicationTrackerSection({
                 placeholder="e.g. NSP Application ID, UMIS ID, or token"
                 value={reference}
                 onChange={(e) => setReference(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -227,7 +227,7 @@ export function ApplicationTrackerSection({
                 type="date"
                 value={submissionDate}
                 onChange={(e) => setSubmissionDate(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
           </div>
@@ -241,7 +241,7 @@ export function ApplicationTrackerSection({
               placeholder="e.g. Documents submitted at college scholarship desk on Monday. Waiting for principal sign-off."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -255,7 +255,7 @@ export function ApplicationTrackerSection({
             </button>
             <button
               type="submit"
-              className="rounded-lg bg-[#8c2f39] px-5 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824]"
+              className="rounded-lg bg-[#0d3e2e] px-5 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#08261c]"
             >
               Save Application to Tracker
             </button>
@@ -275,7 +275,7 @@ export function ApplicationTrackerSection({
           </p>
           <button
             onClick={() => setShowAddForm(true)}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824]"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-4 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#08261c]"
           >
             <Plus size={16} />
             <span>Add First Application</span>
@@ -295,7 +295,7 @@ export function ApplicationTrackerSection({
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <span className="font-mono text-[10px] uppercase font-bold text-[#8c2f39]">
+                    <span className="font-mono text-[10px] uppercase font-bold text-[#0d3e2e]">
                       {program.category}
                     </span>
                     <h3 className="font-serif text-[18px] font-bold text-[#2b2118]">
@@ -337,7 +337,7 @@ export function ApplicationTrackerSection({
                           status: e.target.value as TrackerApplicationStatus,
                         })
                       }
-                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                     >
                       {TRACKER_STATUSES.map((st) => (
                         <option key={st} value={st}>
@@ -358,7 +358,7 @@ export function ApplicationTrackerSection({
                       onChange={(e) =>
                         onUpdateApplication(app.id, { externalReference: e.target.value })
                       }
-                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                     />
                   </div>
 
@@ -372,7 +372,7 @@ export function ApplicationTrackerSection({
                       onChange={(e) =>
                         onUpdateApplication(app.id, { submissionDate: e.target.value })
                       }
-                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                     />
                   </div>
                 </div>
@@ -388,7 +388,7 @@ export function ApplicationTrackerSection({
                       value={app.notes || ''}
                       placeholder="Add reminders or follow-up notes"
                       onChange={(e) => onUpdateApplication(app.id, { notes: e.target.value })}
-                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                      className="w-full rounded-lg border border-[#d8c7ad] bg-white px-2.5 py-1.5 font-sans text-[12px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                     />
                   </div>
 
@@ -402,7 +402,7 @@ export function ApplicationTrackerSection({
                             institutionVerifiedSelfReport: e.target.checked,
                           })
                         }
-                        className="h-3.5 w-3.5 accent-[#8c2f39] rounded"
+                        className="h-3.5 w-3.5 accent-[#0d3e2e] rounded"
                       />
                       <span>Institution scholarship nodal desk has endorsed application (Self-Reported)</span>
                     </label>
@@ -410,7 +410,7 @@ export function ApplicationTrackerSection({
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => onOpenDetails(program)}
-                        className="font-sans font-bold text-[#8c2f39] hover:underline"
+                        className="font-sans font-bold text-[#0d3e2e] hover:underline"
                       >
                         Inspect Scheme Details
                       </button>
@@ -418,7 +418,7 @@ export function ApplicationTrackerSection({
                         href={program.officialApplicationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-sans font-bold text-[#8c2f39] hover:underline"
+                        className="inline-flex items-center gap-1 font-sans font-bold text-[#0d3e2e] hover:underline"
                       >
                         <span>Official Portal</span>
                         <ExternalLink size={12} />

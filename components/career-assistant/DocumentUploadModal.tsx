@@ -102,11 +102,11 @@ export function DocumentUploadModal({
       >
         <div className="flex items-start justify-between border-b border-[#efe3cc] pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] flex items-center justify-center">
               <FileSearch className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-xl font-serif font-bold text-[#8c2f39]">
+              <h3 className="text-xl font-serif font-bold text-[#0d3e2e]">
                 Upload Document for Analysis
               </h3>
               <p className="text-xs text-[#7a6a5a]">
@@ -131,7 +131,7 @@ export function DocumentUploadModal({
             <select
               value={docType}
               onChange={(e) => setDocType(e.target.value)}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               {docTypes.map((t) => (
                 <option key={t} value={t}>
@@ -160,10 +160,10 @@ export function DocumentUploadModal({
               onClick={() => fileInputRef.current?.click()}
               className={`p-6 border-2 border-dashed rounded-2xl text-center cursor-pointer transition flex flex-col items-center justify-center gap-2 ${
                 dragActive
-                  ? 'border-[#8c2f39] bg-[#8c2f39]/5'
+                  ? 'border-[#0d3e2e] bg-[#0d3e2e]/5'
                   : selectedFile
                   ? 'border-emerald-500 bg-emerald-50/40'
-                  : 'border-[#efe3cc] bg-white hover:border-[#8c2f39]/40 hover:bg-[#fbf5e9]'
+                  : 'border-[#efe3cc] bg-white hover:border-[#0d3e2e]/40 hover:bg-[#fbf5e9]'
               }`}
             >
               <input
@@ -184,7 +184,7 @@ export function DocumentUploadModal({
                 </>
               ) : (
                 <>
-                  <Upload className="w-8 h-8 text-[#8c2f39] mb-1" />
+                  <Upload className="w-8 h-8 text-[#0d3e2e] mb-1" />
                   <span className="text-xs font-bold text-[#2b2118]">
                     Click to browse or drop file here
                   </span>
@@ -215,7 +215,7 @@ export function DocumentUploadModal({
               type="button"
               disabled={!selectedFile || isUploading}
               onClick={handleUpload}
-              className="px-5 py-2 text-xs font-bold rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition shadow-sm disabled:opacity-50 flex items-center gap-1.5"
+              className="px-5 py-2 text-xs font-bold rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition shadow-sm disabled:opacity-50 flex items-center gap-1.5"
             >
               {isUploading ? (
                 <>

@@ -103,7 +103,7 @@ export function MyApplicationTracker() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <Search size={12} /> REFERENCE MANAGEMENT SYSTEM
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -130,7 +130,7 @@ export function MyApplicationTracker() {
         </h3>
         <button
           onClick={() => setIsAdding(!isAdding)}
-          className="px-4 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shadow-xs"
+          className="px-4 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shadow-xs"
         >
           <Plus size={15} />
           {isAdding ? 'Cancel' : 'Track New Application'}
@@ -155,7 +155,7 @@ export function MyApplicationTracker() {
               <select
                 value={certTitle}
                 onChange={(e) => setCertTitle(e.target.value)}
-                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39]"
+                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e]"
               >
                 <option value="Community Certificate (REV-101)">Community Certificate (REV-101)</option>
                 <option value="Nativity Certificate (REV-102)">Nativity Certificate (REV-102)</option>
@@ -179,7 +179,7 @@ export function MyApplicationTracker() {
                 value={refNumber}
                 onChange={(e) => setRefNumber(e.target.value)}
                 required
-                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39]"
+                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -191,7 +191,7 @@ export function MyApplicationTracker() {
                 type="text"
                 value={authority}
                 onChange={(e) => setAuthority(e.target.value)}
-                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39]"
+                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -203,7 +203,7 @@ export function MyApplicationTracker() {
                 type="date"
                 value={appDate}
                 onChange={(e) => setAppDate(e.target.value)}
-                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39]"
+                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -214,7 +214,7 @@ export function MyApplicationTracker() {
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as any)}
-                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39]"
+                className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e]"
               >
                 <option value="Preparing">Preparing</option>
                 <option value="Ready to Apply">Ready to Apply</option>
@@ -237,7 +237,7 @@ export function MyApplicationTracker() {
               placeholder="e.g., Visited Taluk office on Friday; submitted physical ration card photocopy."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39]"
+              className="w-full bg-white border border-[#efe3cc] rounded-xl px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -251,7 +251,7 @@ export function MyApplicationTracker() {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold shadow-xs"
+              className="px-4 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold shadow-xs"
             >
               Save Application Reference
             </button>
@@ -264,7 +264,7 @@ export function MyApplicationTracker() {
         {records.map((rec) => (
           <div
             key={rec.id}
-            className="rounded-2xl border border-[#efe3cc] bg-white p-5 shadow-2xs hover:border-[#8c2f39]/30 transition flex flex-col md:flex-row md:items-center justify-between gap-4"
+            className="rounded-2xl border border-[#efe3cc] bg-white p-5 shadow-2xs hover:border-[#0d3e2e]/30 transition flex flex-col md:flex-row md:items-center justify-between gap-4"
           >
             <div className="space-y-1">
               <div className="flex flex-wrap items-center gap-2">
@@ -321,7 +321,7 @@ export function MyApplicationTracker() {
                 href="https://edistricts.tn.gov.in/revenue/status.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center gap-1 transition shadow-2xs"
+                className="px-3.5 py-1.5 rounded-lg bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center gap-1 transition shadow-2xs"
               >
                 Official Tracker <ExternalLink size={12} />
               </a>

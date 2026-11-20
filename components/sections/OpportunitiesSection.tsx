@@ -39,7 +39,7 @@ export function OpportunitiesSection() {
               className="p-4 rounded-xl bg-[#fdfbf6] hover:bg-[#f6ede0] border border-[#efe3cc] transition-all flex items-center justify-between group cursor-pointer min-h-[44px]"
             >
               <div>
-                <span className="font-sans text-[16px] font-bold text-[#2b2118] block group-hover:text-[#8c2f39]">
+                <span className="font-sans text-[16px] font-bold text-[#2b2118] block group-hover:text-[#0d3e2e]">
                   {opp.name}
                 </span>
                 <span className="font-sans text-[12px] text-[#524336]">{opp.fullName}</span>

@@ -22,7 +22,7 @@ export function ApplicationGuidanceSection() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <HelpCircle size={12} /> END-TO-END PROCEDURAL MANUAL
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -39,7 +39,7 @@ export function ApplicationGuidanceSection() {
           onClick={() => setActiveWorkflow('esevai_online')}
           className={`px-4 py-2 rounded-xl font-sans text-[12px] sm:text-[13px] font-semibold transition ${
             activeWorkflow === 'esevai_online'
-              ? 'bg-[#8c2f39] text-white shadow-xs'
+              ? 'bg-[#0d3e2e] text-white shadow-xs'
               : 'bg-white border border-[#efe3cc] text-[#5c4a3a] hover:bg-[#fbf5e9]'
           }`}
         >
@@ -49,7 +49,7 @@ export function ApplicationGuidanceSection() {
           onClick={() => setActiveWorkflow('kendra_offline')}
           className={`px-4 py-2 rounded-xl font-sans text-[12px] sm:text-[13px] font-semibold transition ${
             activeWorkflow === 'kendra_offline'
-              ? 'bg-[#8c2f39] text-white shadow-xs'
+              ? 'bg-[#0d3e2e] text-white shadow-xs'
               : 'bg-white border border-[#efe3cc] text-[#5c4a3a] hover:bg-[#fbf5e9]'
           }`}
         >
@@ -59,7 +59,7 @@ export function ApplicationGuidanceSection() {
           onClick={() => setActiveWorkflow('rejected_escalation')}
           className={`px-4 py-2 rounded-xl font-sans text-[12px] sm:text-[13px] font-semibold transition ${
             activeWorkflow === 'rejected_escalation'
-              ? 'bg-[#8c2f39] text-white shadow-xs'
+              ? 'bg-[#0d3e2e] text-white shadow-xs'
               : 'bg-white border border-[#efe3cc] text-[#5c4a3a] hover:bg-[#fbf5e9]'
           }`}
         >
@@ -73,13 +73,13 @@ export function ApplicationGuidanceSection() {
           <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="font-sans text-[12px] text-[#5c4a3a]">
               <strong className="text-[#2b2118] font-bold block mb-0.5">Official Citizen Portal:</strong>
-              Apply directly without agent commissions at <code className="text-[#8c2f39] bg-[#fbf5e9] px-1 py-0.5 rounded font-mono">tnesevai.tn.gov.in/Citizen/</code>. Official fee is just ₹60 per certificate.
+              Apply directly without agent commissions at <code className="text-[#0d3e2e] bg-[#fbf5e9] px-1 py-0.5 rounded font-mono">tnesevai.tn.gov.in/Citizen/</code>. Official fee is just ₹60 per certificate.
             </div>
             <a
               href="https://www.tnesevai.tn.gov.in/Citizen/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shrink-0 shadow-2xs"
+              className="px-3.5 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold flex items-center gap-1.5 transition shrink-0 shadow-2xs"
             >
               Open Citizen Portal <ExternalLink size={13} />
             </a>
@@ -113,7 +113,7 @@ export function ApplicationGuidanceSection() {
               },
             ].map((s, idx) => (
               <div key={idx} className="p-4 rounded-xl border border-[#efe3cc] bg-white shadow-2xs space-y-1">
-                <span className="font-mono text-[10px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="font-mono text-[10px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   {s.step}
                 </span>
                 <p className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed">{s.text}</p>
@@ -207,7 +207,7 @@ export function ApplicationGuidanceSection() {
                 3. CM Helpline Escalation
               </h4>
               <p className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed">
-                If the delay exceeds 30 days without lawful reason, dial <strong>1100</strong> (Mukhya Mantri / CM Helpline Tamil Nadu) or submit a grievance at <a href="https://cmhelpline.tnega.org" target="_blank" rel="noopener noreferrer" className="text-[#8c2f39] underline font-semibold">cmhelpline.tnega.org</a> citing your e-Sevai reference number.
+                If the delay exceeds 30 days without lawful reason, dial <strong>1100</strong> (Mukhya Mantri / CM Helpline Tamil Nadu) or submit a grievance at <a href="https://cmhelpline.tnega.org" target="_blank" rel="noopener noreferrer" className="text-[#0d3e2e] underline font-semibold">cmhelpline.tnega.org</a> citing your e-Sevai reference number.
               </p>
             </div>
           </div>

@@ -27,7 +27,7 @@ export function IdentityDocumentsSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <ShieldCheck size={14} /> NATIONAL PROOF OF IDENTITY &amp; CITIZENSHIP
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -45,7 +45,7 @@ export function IdentityDocumentsSection({
 
       {/* Aadhaar Privacy & Fraud Protection Banner */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fbf5e9] p-5 sm:p-6 flex items-start gap-4 text-[#2b2118]">
-        <Lock size={22} className="text-[#8c2f39] shrink-0 mt-0.5" />
+        <Lock size={22} className="text-[#0d3e2e] shrink-0 mt-0.5" />
         <div className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed space-y-1.5">
           <strong className="font-serif text-[15px] font-bold text-[#2b2118] block">
             Aadhaar Lifetime Validity &amp; Zero-Data-Collection Principle
@@ -54,7 +54,7 @@ export function IdentityDocumentsSection({
             • <strong>No Annual Expiry:</strong> Aadhaar has permanent lifetime validity and never expires annually. Mandatory biometric updates occur only at ages 5 and 15 (free at official Aadhaar Seva Kendras).
           </p>
           <p>
-            • <strong>Privacy Guarantee:</strong> Student RSO strictly never collects or stores your 12-digit Aadhaar number, OTPs, or biometric records. For general identity proofs, always use <strong>Masked Aadhaar</strong> (where only the last 4 digits are visible) downloaded from <a href="https://myaadhaar.uidai.gov.in" target="_blank" rel="noopener noreferrer" className="text-[#8c2f39] underline font-semibold">myaadhaar.uidai.gov.in</a>.
+            • <strong>Privacy Guarantee:</strong> Student RSO strictly never collects or stores your 12-digit Aadhaar number, OTPs, or biometric records. For general identity proofs, always use <strong>Masked Aadhaar</strong> (where only the last 4 digits are visible) downloaded from <a href="https://myaadhaar.uidai.gov.in" target="_blank" rel="noopener noreferrer" className="text-[#0d3e2e] underline font-semibold">myaadhaar.uidai.gov.in</a>.
           </p>
         </div>
       </div>

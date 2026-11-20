@@ -15,7 +15,7 @@ export function SafetyFaqsSection() {
     <div className="space-y-6">
       {/* Title */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-2">
-        <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+        <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
           <HelpCircle size={15} /> LEGAL & PROCEDURAL CLARITY
         </div>
         <h3 className="font-serif text-[24px] font-bold text-[#2b2118]">
@@ -39,13 +39,13 @@ export function SafetyFaqsSection() {
               <button
                 type="button"
                 onClick={() => toggleFaq(idx)}
-                className="w-full p-5 text-left flex items-center justify-between gap-4 font-serif text-[17px] font-bold text-[#2b2118] hover:text-[#8c2f39] transition"
+                className="w-full p-5 text-left flex items-center justify-between gap-4 font-serif text-[17px] font-bold text-[#2b2118] hover:text-[#0d3e2e] transition"
               >
                 <span>{faq.question}</span>
                 <ChevronDown
                   size={18}
                   className={`text-[#7a6a5a] transition-transform duration-200 shrink-0 ${
-                    isOpen ? 'rotate-180 text-[#8c2f39]' : ''
+                    isOpen ? 'rotate-180 text-[#0d3e2e]' : ''
                   }`}
                 />
               </button>

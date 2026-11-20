@@ -145,14 +145,14 @@ export function SmartEligibilityChecker({
         <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-7 shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <Sparkles size={18} className="text-[#8c2f39]" />
+              <Sparkles size={18} className="text-[#0d3e2e]" />
               <h2 className="font-serif text-[20px] font-bold text-[#2b2118]">
                 Student Eligibility Profile
               </h2>
             </div>
             <button
               onClick={handleSaveProfile}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-1.5 font-sans text-[12px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0]"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3 py-1.5 font-sans text-[12px] font-semibold text-[#0d3e2e] hover:bg-[#f6ede0]"
             >
               <Save size={14} />
               {savingStatus || 'Save Profile'}
@@ -171,7 +171,7 @@ export function SmartEligibilityChecker({
               <select
                 value={profile.educationStage}
                 onChange={(e) => handleFieldChange('educationStage', e.target.value as EducationStage | '')}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[14px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[14px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 <option value="">Select current stage...</option>
                 <optgroup label="School Education">
@@ -211,7 +211,7 @@ export function SmartEligibilityChecker({
                   placeholder="Enter course or field of study"
                   value={profile.courseName}
                   onChange={(e) => handleFieldChange('courseName', e.target.value)}
-                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                 />
               </div>
               <div>
@@ -221,7 +221,7 @@ export function SmartEligibilityChecker({
                 <select
                   value={profile.courseYear}
                   onChange={(e) => handleFieldChange('courseYear', e.target.value)}
-                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                 >
                   <option value="">Select year</option>
                   <option value="1st Year">1st Year / Fresh Entry</option>
@@ -268,7 +268,7 @@ export function SmartEligibilityChecker({
                         type="checkbox"
                         checked={profile.hasUgcNetJrf || false}
                         onChange={(e) => handleFieldChange('hasUgcNetJrf', e.target.checked)}
-                        className="rounded accent-[#8c2f39]"
+                        className="rounded accent-[#0d3e2e]"
                       />
                       <span>UGC-NET / JRF Qualified</span>
                     </label>
@@ -278,7 +278,7 @@ export function SmartEligibilityChecker({
                         type="checkbox"
                         checked={profile.hasCsirNetJrf || false}
                         onChange={(e) => handleFieldChange('hasCsirNetJrf', e.target.checked)}
-                        className="rounded accent-[#8c2f39]"
+                        className="rounded accent-[#0d3e2e]"
                       />
                       <span>CSIR-NET / JRF Qualified</span>
                     </label>
@@ -288,7 +288,7 @@ export function SmartEligibilityChecker({
                         type="checkbox"
                         checked={profile.hasGate || false}
                         onChange={(e) => handleFieldChange('hasGate', e.target.checked)}
-                        className="rounded accent-[#8c2f39]"
+                        className="rounded accent-[#0d3e2e]"
                       />
                       <span>GATE Qualified</span>
                     </label>
@@ -298,7 +298,7 @@ export function SmartEligibilityChecker({
                         type="checkbox"
                         checked={profile.hasIcarExam || false}
                         onChange={(e) => handleFieldChange('hasIcarExam', e.target.checked)}
-                        className="rounded accent-[#8c2f39]"
+                        className="rounded accent-[#0d3e2e]"
                       />
                       <span>ICAR-AICE / AIEEA Qualified</span>
                     </label>
@@ -323,7 +323,7 @@ export function SmartEligibilityChecker({
                   const val = e.target.value ? parseFloat(e.target.value) : null;
                   handleFieldChange('academicPercentage', val);
                 }}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -335,7 +335,7 @@ export function SmartEligibilityChecker({
               <select
                 value={profile.incomeRange}
                 onChange={(e) => handleFieldChange('incomeRange', e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[14px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[14px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 <option value="">Select income range...</option>
                 <option value="Below ₹1 lakh">Below ₹1,00,000 / year (Antyodaya / BPL)</option>
@@ -354,7 +354,7 @@ export function SmartEligibilityChecker({
               <select
                 value={profile.communityCategory}
                 onChange={(e) => handleFieldChange('communityCategory', e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[14px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3.5 py-2.5 font-sans text-[14px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 <option value="">Select category...</option>
                 <option value="BC">BC (Backward Classes)</option>
@@ -379,7 +379,7 @@ export function SmartEligibilityChecker({
                 <select
                   value={profile.district}
                   onChange={(e) => handleFieldChange('district', e.target.value)}
-                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                 >
                   <option value="">Select district</option>
                   {tnDistricts.map((d) => (
@@ -397,7 +397,7 @@ export function SmartEligibilityChecker({
                 <select
                   value={profile.gender}
                   onChange={(e) => handleFieldChange('gender', e.target.value)}
-                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                  className="w-full rounded-xl border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                 >
                   <option value="">Select gender</option>
                   <option value="Female">Female</option>
@@ -418,7 +418,7 @@ export function SmartEligibilityChecker({
                   type="checkbox"
                   checked={profile.studiedInTnGovtSchool}
                   onChange={(e) => handleFieldChange('studiedInTnGovtSchool', e.target.checked)}
-                  className="rounded accent-[#8c2f39]"
+                  className="rounded accent-[#0d3e2e]"
                 />
                 <span className="text-[#2b2118]">
                   Studied Class 6 to 12 in TN Government School (Pudhumai Penn / Tamil Pudhalvan)
@@ -430,7 +430,7 @@ export function SmartEligibilityChecker({
                   type="checkbox"
                   checked={profile.isFirstGenerationGraduate}
                   onChange={(e) => handleFieldChange('isFirstGenerationGraduate', e.target.checked)}
-                  className="rounded accent-[#8c2f39]"
+                  className="rounded accent-[#0d3e2e]"
                 />
                 <span className="text-[#2b2118]">
                   First Generation Graduate in Family (TN Free Education / Fee Waiver)
@@ -442,7 +442,7 @@ export function SmartEligibilityChecker({
                   type="checkbox"
                   checked={profile.hasDisability}
                   onChange={(e) => handleFieldChange('hasDisability', e.target.checked)}
-                  className="rounded accent-[#8c2f39]"
+                  className="rounded accent-[#0d3e2e]"
                 />
                 <span className="text-[#2b2118]">
                   Person with Benchmark Disability (PwD 40%+ UDID)
@@ -454,7 +454,7 @@ export function SmartEligibilityChecker({
                   type="checkbox"
                   checked={profile.isSingleGirlChild}
                   onChange={(e) => handleFieldChange('isSingleGirlChild', e.target.checked)}
-                  className="rounded accent-[#8c2f39]"
+                  className="rounded accent-[#0d3e2e]"
                 />
                 <span className="text-[#2b2118]">
                   Single Girl Child (Only daughter in family)
@@ -479,7 +479,7 @@ export function SmartEligibilityChecker({
 
               <button
                 onClick={onSwitchToRecommendations}
-                className="inline-flex items-center gap-1 font-sans text-[12px] font-bold text-[#8c2f39] hover:underline"
+                className="inline-flex items-center gap-1 font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline"
               >
                 <span>View Ranked Recommendations</span>
                 <ChevronRight size={14} />
@@ -492,7 +492,7 @@ export function SmartEligibilityChecker({
                 onClick={() => setFilterResult('All')}
                 className={`rounded-lg px-2.5 py-1 font-sans text-[12px] font-semibold transition ${
                   filterResult === 'All'
-                    ? 'bg-[#8c2f39] text-white'
+                    ? 'bg-[#0d3e2e] text-white'
                     : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
                 }`}
               >
@@ -564,7 +564,7 @@ export function SmartEligibilityChecker({
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="rounded-full bg-[#f6ede0] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-[#8c2f39]">
+                        <span className="rounded-full bg-[#f6ede0] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-[#0d3e2e]">
                           {rep.program.category}
                         </span>
                         <span
@@ -638,7 +638,7 @@ export function SmartEligibilityChecker({
                   <div className="mt-4 flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[#efe3cc]">
                     <button
                       onClick={() => onViewDetails(rep.program)}
-                      className="font-sans text-[12px] font-bold text-[#8c2f39] hover:underline"
+                      className="font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline"
                     >
                       View Full Details →
                     </button>
@@ -646,7 +646,7 @@ export function SmartEligibilityChecker({
                     {onApplyOfficial && (
                       <button
                         onClick={() => onApplyOfficial(rep.program)}
-                        className="inline-flex items-center gap-1 text-[12px] font-bold text-[#8c2f39] hover:underline"
+                        className="inline-flex items-center gap-1 text-[12px] font-bold text-[#0d3e2e] hover:underline"
                       >
                         <span>Apply on Official Website</span>
                         <ExternalLink size={12} />

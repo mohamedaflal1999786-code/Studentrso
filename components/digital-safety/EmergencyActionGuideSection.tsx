@@ -113,7 +113,7 @@ export function EmergencyActionGuideSection() {
       {/* 2. Step-by-Step Incident Resolution Guides */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-8 shadow-sm">
         <div className="border-b border-[#efe3cc] pb-5">
-          <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             STANDARD OPERATING PROCEDURES
           </span>
           <h3 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#2b2118] mt-1">
@@ -134,7 +134,7 @@ export function EmergencyActionGuideSection() {
                   onClick={() => setSelectedProcedureId(proc.id)}
                   className={`rounded-xl px-3.5 py-2 font-sans text-[12.5px] font-semibold transition cursor-pointer shrink-0 ${
                     isSelected
-                      ? 'bg-[#8c2f39] text-white shadow-xs'
+                      ? 'bg-[#0d3e2e] text-white shadow-xs'
                       : 'bg-white border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#fbf5e9]'
                   }`}
                 >
@@ -149,7 +149,7 @@ export function EmergencyActionGuideSection() {
         <div className="mt-6 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
                 INCIDENT SCENARIO
               </span>
               <h4 className="font-serif text-[20px] font-bold text-[#2b2118]">
@@ -163,7 +163,7 @@ export function EmergencyActionGuideSection() {
           </div>
 
           {/* Primary Action Callout */}
-          <div className="rounded-xl bg-[#8c2f39] text-white p-4">
+          <div className="rounded-xl bg-[#0d3e2e] text-white p-4">
             <span className="font-mono text-[10.5px] uppercase font-bold text-[#f5cf7b] block mb-1">
               PRIMARY IMMEDIATE ACTION:
             </span>
@@ -183,7 +183,7 @@ export function EmergencyActionGuideSection() {
                   key={idx}
                   className="flex items-start gap-3 rounded-xl border border-[#efe3cc] bg-white p-3.5 font-sans text-[13px] text-[#2b2118]"
                 >
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[11px] font-bold text-[#8c2f39]">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[11px] font-bold text-[#0d3e2e]">
                     {idx + 1}
                   </span>
                   <span className="leading-relaxed">{step}</span>
@@ -216,7 +216,7 @@ export function EmergencyActionGuideSection() {
               href={activeProcedure.officialReportingLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-5 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824] transition shadow-xs"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-5 py-2.5 font-sans text-[13px] font-bold text-white hover:bg-[#08261c] transition shadow-xs"
             >
               <span>Submit Formal Incident Report</span>
               <ExternalLink size={14} />

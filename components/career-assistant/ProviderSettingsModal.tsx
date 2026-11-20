@@ -69,11 +69,11 @@ export function ProviderSettingsModal({
       >
         <div className="flex items-start justify-between border-b border-[#efe3cc] pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] flex items-center justify-center">
               <Cpu className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-xl font-serif font-bold text-[#8c2f39]">
+              <h3 className="text-xl font-serif font-bold text-[#0d3e2e]">
                 AI Provider Architecture & Telemetry
               </h3>
               <p className="text-xs text-[#7a6a5a]">
@@ -92,10 +92,10 @@ export function ProviderSettingsModal({
 
         <div className="mt-5 space-y-5 text-xs sm:text-sm">
           {/* Active Provider Banner */}
-          <div className="p-4 rounded-2xl bg-[#8c2f39]/5 border border-[#8c2f39]/20 flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-[#8c2f39] shrink-0 mt-0.5" />
+          <div className="p-4 rounded-2xl bg-[#0d3e2e]/5 border border-[#0d3e2e]/20 flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-[#0d3e2e] shrink-0 mt-0.5" />
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-[#8c2f39]">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#0d3e2e]">
                 Current Active Inference Engine
               </div>
               <div className="text-base font-serif font-bold text-[#2b2118] mt-0.5">
@@ -116,7 +116,7 @@ export function ProviderSettingsModal({
               <button
                 type="button"
                 onClick={loadStatus}
-                className="text-[11px] font-semibold text-[#8c2f39] hover:underline flex items-center gap-1"
+                className="text-[11px] font-semibold text-[#0d3e2e] hover:underline flex items-center gap-1"
               >
                 <RefreshCw className={`w-3 h-3 ${loading ? 'animate-spin' : ''}`} /> Refresh Status
               </button>
@@ -128,12 +128,12 @@ export function ProviderSettingsModal({
                 onClick={() => onSelectProvider('auto')}
                 className={`p-3.5 rounded-2xl border transition cursor-pointer flex items-center justify-between ${
                   selectedProvider === 'auto'
-                    ? 'border-[#8c2f39] bg-white shadow-xs ring-1 ring-[#8c2f39]/20'
+                    ? 'border-[#0d3e2e] bg-white shadow-xs ring-1 ring-[#0d3e2e]/20'
                     : 'border-[#efe3cc] bg-white hover:bg-[#fbf5e9]'
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] flex items-center justify-center font-bold text-xs">
+                  <div className="w-8 h-8 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] flex items-center justify-center font-bold text-xs">
                     Auto
                   </div>
                   <div>
@@ -145,7 +145,7 @@ export function ProviderSettingsModal({
                     </div>
                   </div>
                 </div>
-                {selectedProvider === 'auto' && <CheckCircle className="w-4 h-4 text-[#8c2f39]" />}
+                {selectedProvider === 'auto' && <CheckCircle className="w-4 h-4 text-[#0d3e2e]" />}
               </div>
 
               {providers.map((p) => {
@@ -156,7 +156,7 @@ export function ProviderSettingsModal({
                     onClick={() => onSelectProvider(p.id)}
                     className={`p-3.5 rounded-2xl border transition cursor-pointer flex items-center justify-between ${
                       isSelected
-                        ? 'border-[#8c2f39] bg-white shadow-xs ring-1 ring-[#8c2f39]/20'
+                        ? 'border-[#0d3e2e] bg-white shadow-xs ring-1 ring-[#0d3e2e]/20'
                         : 'border-[#efe3cc] bg-white hover:bg-[#fbf5e9]'
                     }`}
                   >
@@ -177,7 +177,7 @@ export function ProviderSettingsModal({
                           {p.description}
                         </p>
                         <span className="font-mono text-[10px] text-stone-500 block mt-1">
-                          Key: <code className="text-[#8c2f39]">{p.envKeyRequired}</code>
+                          Key: <code className="text-[#0d3e2e]">{p.envKeyRequired}</code>
                         </span>
                       </div>
                     </div>
@@ -198,10 +198,10 @@ export function ProviderSettingsModal({
           {/* Configuration Note */}
           <div className="p-3.5 rounded-2xl bg-white border border-[#efe3cc] text-xs text-[#7a6a5a] space-y-2">
             <div className="flex items-center gap-1.5 font-bold text-[#2b2118]">
-              <Info className="w-4 h-4 text-[#8c2f39]" /> Server-Side Environment Instructions
+              <Info className="w-4 h-4 text-[#0d3e2e]" /> Server-Side Environment Instructions
             </div>
             <p className="text-[11px] leading-relaxed">
-              To connect your live API key securely, add the desired key to <code className="bg-[#fbf5e9] px-1.5 py-0.5 rounded border border-[#efe3cc] text-[#8c2f39]">.env.local</code> in the project directory:
+              To connect your live API key securely, add the desired key to <code className="bg-[#fbf5e9] px-1.5 py-0.5 rounded border border-[#efe3cc] text-[#0d3e2e]">.env.local</code> in the project directory:
             </p>
             <div className="bg-[#fbf5e9] p-2.5 rounded-xl border border-[#efe3cc] font-mono text-[11px] text-[#2b2118] space-y-1">
               <div>GEMINI_API_KEY=your_gemini_api_key</div>
@@ -218,7 +218,7 @@ export function ProviderSettingsModal({
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2 text-xs font-bold rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition shadow-xs"
+            className="px-5 py-2 text-xs font-bold rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition shadow-xs"
           >
             Apply & Close
           </button>

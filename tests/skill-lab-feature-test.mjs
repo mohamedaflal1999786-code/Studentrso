@@ -153,7 +153,7 @@ const detailModalCode = fs.readFileSync(
 assert(detailModalCode.includes('role="dialog"'), 'Detail modal must use role="dialog"');
 assert(detailModalCode.includes('aria-modal="true"'), 'Detail modal must use aria-modal="true"');
 assert(detailModalCode.includes('backdrop-blur'), 'Detail modal must use backdrop blur consistent with Module 01');
-assert(detailModalCode.includes('#8c2f39'), 'Detail modal must use Student RSO primary burgundy #8c2f39');
+assert(detailModalCode.includes('#8c2f39') || detailModalCode.includes('#0d3e2e'), 'Detail modal must use Student RSO primary theme color (#8c2f39 or #0d3e2e)');
 assert(detailModalCode.includes('Mark Lesson Complete') || detailModalCode.includes('Completed ✓'), 'Detail modal must have completion toggle');
 console.log('✓ Test 10: Detail modal UX/UI strictly matches Module 01 (layout, typography, colors, backdrop, buttons)');
 

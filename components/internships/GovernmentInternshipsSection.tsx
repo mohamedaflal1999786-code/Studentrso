@@ -28,7 +28,7 @@ export function GovernmentInternshipsSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Building size={14} /> PUBLIC SECTOR &amp; AUTONOMOUS BODIES
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -57,13 +57,13 @@ export function GovernmentInternshipsSection({
               href={portal.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#8c2f39] transition text-left group flex items-center justify-between"
+              className="p-3 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#0d3e2e] transition text-left group flex items-center justify-between"
             >
               <div>
-                <p className="text-xs font-bold text-[#2b2118] group-hover:text-[#8c2f39]">{portal.name}</p>
+                <p className="text-xs font-bold text-[#2b2118] group-hover:text-[#0d3e2e]">{portal.name}</p>
                 <p className="text-[10px] font-mono text-[#7a6a5a]">{portal.code}</p>
               </div>
-              <ExternalLink size={13} className="text-[#8c2f39] shrink-0" />
+              <ExternalLink size={13} className="text-[#0d3e2e] shrink-0" />
             </a>
           ))}
         </div>

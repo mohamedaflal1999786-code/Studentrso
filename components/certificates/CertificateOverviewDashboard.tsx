@@ -114,7 +114,7 @@ export function CertificateOverviewDashboard({
       {/* Welcome Card */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-8 shadow-xs">
         <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#8c2f39]/20 bg-[#8c2f39]/10 px-3 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#0d3e2e]/20 bg-[#0d3e2e]/10 px-3 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             <ShieldCheck size={13} />
             TAMIL NADU &amp; GOVERNMENT OF INDIA STUDENT DOCUMENT GATEWAY
           </div>
@@ -128,7 +128,7 @@ export function CertificateOverviewDashboard({
           <div className="flex flex-wrap items-center gap-2.5 pt-2">
             <button
               onClick={() => onNavigateTab('finder')}
-              className="rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] px-4 py-2.5 font-sans text-[13px] font-bold text-white shadow-xs transition flex items-center gap-1.5"
+              className="rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] px-4 py-2.5 font-sans text-[13px] font-bold text-white shadow-xs transition flex items-center gap-1.5"
             >
               <Compass size={15} />
               Find My Certificate
@@ -137,7 +137,7 @@ export function CertificateOverviewDashboard({
               onClick={() => onNavigateTab('readiness')}
               className="rounded-xl border border-[#efe3cc] bg-white hover:bg-[#fbf5e9] px-4 py-2.5 font-sans text-[13px] font-semibold text-[#2b2118] transition flex items-center gap-1.5 shadow-2xs"
             >
-              <FileCheck size={15} className="text-[#8c2f39]" />
+              <FileCheck size={15} className="text-[#0d3e2e]" />
               Check Document Readiness
             </button>
             <button
@@ -171,18 +171,18 @@ export function CertificateOverviewDashboard({
               <div
                 key={cat.id}
                 onClick={() => onNavigateTab(cat.id)}
-                className="group relative cursor-pointer rounded-2xl border border-[#efe3cc] bg-white hover:border-[#8c2f39]/40 p-5 sm:p-6 shadow-2xs hover:shadow-xs transition-all duration-200 flex flex-col justify-between"
+                className="group relative cursor-pointer rounded-2xl border border-[#efe3cc] bg-white hover:border-[#0d3e2e]/40 p-5 sm:p-6 shadow-2xs hover:shadow-xs transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 flex items-center justify-center font-bold">
+                    <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 flex items-center justify-center font-bold">
                       <Icon size={20} />
                     </div>
                     <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#7a6a5a] bg-[#fbf5e9] border border-[#efe3cc]">
                       {cat.badge}
                     </span>
                   </div>
-                  <h4 className="font-serif text-[17px] font-bold text-[#2b2118] group-hover:text-[#8c2f39] transition">
+                  <h4 className="font-serif text-[17px] font-bold text-[#2b2118] group-hover:text-[#0d3e2e] transition">
                     {cat.name}
                   </h4>
                   <p className="font-sans text-[12px] text-[#5c4a3a] mt-1.5 leading-relaxed">
@@ -190,7 +190,7 @@ export function CertificateOverviewDashboard({
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#efe3cc] flex items-center justify-between font-sans text-[12px] font-semibold text-[#8c2f39]">
+                <div className="pt-4 mt-4 border-t border-[#efe3cc] flex items-center justify-between font-sans text-[12px] font-semibold text-[#0d3e2e]">
                   <span>Explore Service</span>
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </div>
@@ -213,7 +213,7 @@ export function CertificateOverviewDashboard({
           </div>
           <button
             onClick={() => onNavigateTab('govt')}
-            className="font-sans text-[12px] font-bold text-[#8c2f39] hover:underline flex items-center gap-1 self-start"
+            className="font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline flex items-center gap-1 self-start"
           >
             View all services <ArrowRight size={13} />
           </button>
@@ -232,7 +232,7 @@ export function CertificateOverviewDashboard({
 
       {/* Statutory Guidance Note */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#f8f1e3] p-5 flex items-start gap-3.5 text-[#2b2118]">
-        <AlertCircle size={20} className="text-[#8c2f39] shrink-0 mt-0.5" />
+        <AlertCircle size={20} className="text-[#0d3e2e] shrink-0 mt-0.5" />
         <div className="font-sans text-[12px] text-[#5c4a3a] leading-relaxed space-y-1">
           <strong className="font-serif text-[14px] font-bold text-[#2b2118] block">
             Statutory Validity Principles:

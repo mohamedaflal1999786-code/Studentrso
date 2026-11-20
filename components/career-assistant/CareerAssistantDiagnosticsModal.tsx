@@ -50,7 +50,7 @@ export function CareerAssistantDiagnosticsModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
         >
           <X size={20} />
         </button>
@@ -82,7 +82,7 @@ export function CareerAssistantDiagnosticsModal({
             </div>
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc]">
               <span className="font-mono text-[10px] text-[#7a6a5a] uppercase block">Primary Engine</span>
-              <span className="font-mono text-[12px] font-bold text-[#8c2f39] mt-1 block">
+              <span className="font-mono text-[12px] font-bold text-[#0d3e2e] mt-1 block">
                 {MODEL_CANDIDATES[0]}
               </span>
             </div>
@@ -94,7 +94,7 @@ export function CareerAssistantDiagnosticsModal({
             </div>
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc]">
               <span className="font-mono text-[10px] text-[#7a6a5a] uppercase block">Platform Modules</span>
-              <span className="font-serif text-[18px] font-bold text-[#8c2f39] mt-0.5 block">
+              <span className="font-serif text-[18px] font-bold text-[#0d3e2e] mt-0.5 block">
                 10 Registered
               </span>
             </div>
@@ -102,7 +102,7 @@ export function CareerAssistantDiagnosticsModal({
 
           {/* Model Hierarchy Details */}
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2">
-            <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block flex items-center gap-1.5">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block flex items-center gap-1.5">
               <Cpu size={14} /> Multi-Model Quota Pool Hierarchy
             </span>
             <div className="space-y-1.5 font-mono text-[11px]">
@@ -125,7 +125,7 @@ export function CareerAssistantDiagnosticsModal({
 
           {/* Platform Architecture & Attribution */}
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2">
-            <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block flex items-center gap-1.5">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block flex items-center gap-1.5">
               <ShieldCheck size={14} /> System Attribution &amp; Knowledge Scope
             </span>
             <p className="font-sans text-[12px] leading-relaxed text-[#5a4a3a]">
@@ -138,7 +138,7 @@ export function CareerAssistantDiagnosticsModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg bg-[#8c2f39] px-4 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+            className="rounded-lg bg-[#0d3e2e] px-4 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
           >
             Close Diagnostics
           </button>

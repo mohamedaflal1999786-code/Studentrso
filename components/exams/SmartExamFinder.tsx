@@ -119,10 +119,10 @@ export function SmartExamFinder({
     <div className="space-y-8 font-sans">
       {/* Header Banner */}
       <div className="rounded-3xl bg-gradient-to-r from-[#fbf5e9] to-[#efe3cc]/60 border border-[#efe3cc] p-6 sm:p-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 mb-3">
           <Sparkles className="w-4 h-4" /> Personalized Discovery Engine
         </div>
-        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#8c2f39]">
+        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#0d3e2e]">
           Find My Exam Opportunities
         </h2>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed">
@@ -147,7 +147,7 @@ export function SmartExamFinder({
                     onClick={() => setSelectedStage(st.value)}
                     className={`p-3 rounded-xl border text-left transition ${
                       isSelected
-                        ? 'bg-[#8c2f39] text-white border-[#8c2f39] shadow-sm'
+                        ? 'bg-[#0d3e2e] text-white border-[#0d3e2e] shadow-sm'
                         : 'bg-white text-stone-800 border-[#efe3cc] hover:bg-[#fbf5e9]'
                     }`}
                   >
@@ -170,7 +170,7 @@ export function SmartExamFinder({
               <select
                 value={selectedStream}
                 onChange={(e) => setSelectedStream(e.target.value)}
-                className="w-full px-3 py-2.5 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                className="w-full px-3 py-2.5 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
               >
                 <option value="all">All Academic Streams</option>
                 <option value="pcm">Science (Physics, Chemistry, Maths)</option>
@@ -187,7 +187,7 @@ export function SmartExamFinder({
               <select
                 value={selectedGoal}
                 onChange={(e) => setSelectedGoal(e.target.value)}
-                className="w-full px-3 py-2.5 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                className="w-full px-3 py-2.5 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
               >
                 {goals.map((g) => (
                   <option key={g.value} value={g.value}>
@@ -203,7 +203,7 @@ export function SmartExamFinder({
                   type="checkbox"
                   checked={freeOnly}
                   onChange={(e) => setFreeOnly(e.target.checked)}
-                  className="rounded text-[#8c2f39] focus:ring-[#8c2f39]"
+                  className="rounded text-[#0d3e2e] focus:ring-[#0d3e2e]"
                 />
                 <span className="text-xs font-semibold text-stone-800">
                   Free Application Only (₹0 Fee)
@@ -245,7 +245,7 @@ export function SmartExamFinder({
               setSelectedGoal('all');
               setFreeOnly(false);
             }}
-            className="mt-4 px-4 py-2 text-xs font-bold rounded-lg bg-[#8c2f39] text-white hover:bg-[#72262e] transition"
+            className="mt-4 px-4 py-2 text-xs font-bold rounded-lg bg-[#0d3e2e] text-white hover:bg-[#061d15] transition"
           >
             Reset Filters
           </button>
@@ -280,7 +280,7 @@ export function SmartExamFinder({
                       onClick={() => onTrackExam(exam)}
                       className={`p-1.5 rounded-lg border transition shrink-0 ${
                         isSaved
-                          ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                          ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                           : 'bg-[#fdfbf6] text-stone-600 border-[#efe3cc] hover:bg-[#fbf5e9]'
                       }`}
                       title={isSaved ? 'In your tracker' : 'Add to tracker'}
@@ -291,7 +291,7 @@ export function SmartExamFinder({
 
                   <h4
                     onClick={() => onSelectExam(exam)}
-                    className="text-lg font-serif font-bold text-[#8c2f39] hover:underline cursor-pointer leading-snug"
+                    className="text-lg font-serif font-bold text-[#0d3e2e] hover:underline cursor-pointer leading-snug"
                   >
                     {exam.title}
                   </h4>
@@ -300,8 +300,8 @@ export function SmartExamFinder({
                   </p>
 
                   {/* UNLOCKED OPPORTUNITY BOX */}
-                  <div className="mt-4 rounded-xl bg-[#8c2f39]/5 border border-[#8c2f39]/20 p-3.5">
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#8c2f39] mb-1">
+                  <div className="mt-4 rounded-xl bg-[#0d3e2e]/5 border border-[#0d3e2e]/20 p-3.5">
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e] mb-1">
                       <Award className="w-3.5 h-3.5" /> What This Examination Unlocks
                     </div>
                     <div className="text-xs font-bold text-stone-900 mb-1">
@@ -335,7 +335,7 @@ export function SmartExamFinder({
                     <button
                       type="button"
                       onClick={() => onSelectExam(exam)}
-                      className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#8c2f39] text-white hover:bg-[#72262e] transition"
+                      className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0d3e2e] text-white hover:bg-[#061d15] transition"
                     >
                       Opportunities & Syllabus &rarr;
                     </button>

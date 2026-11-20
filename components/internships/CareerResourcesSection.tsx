@@ -29,7 +29,7 @@ export function CareerResourcesSection() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <ShieldAlert size={14} /> FRAUD PREVENTION &amp; VERIFIED HELPLINES
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -39,7 +39,7 @@ export function CareerResourcesSection() {
               Essential anti-fraud guidelines, official verification protocols, and verified helpline contacts across Tamil Nadu and Central departments.
             </p>
           </div>
-          <span className="font-mono text-[11px] font-semibold text-[#8c2f39] bg-[#fbf5e9] border border-[#efe3cc] px-3 py-1 rounded-full">
+          <span className="font-mono text-[11px] font-semibold text-[#0d3e2e] bg-[#fbf5e9] border border-[#efe3cc] px-3 py-1 rounded-full">
             100% Zero Fee Verification Standard
           </span>
         </div>
@@ -88,7 +88,7 @@ export function CareerResourcesSection() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div>
           <h3 className="font-serif text-[20px] font-bold text-[#2b2118] flex items-center gap-2">
-            <PhoneCall size={20} className="text-[#8c2f39]" />
+            <PhoneCall size={20} className="text-[#0d3e2e]" />
             <span>Official Employment &amp; Grievance Helplines</span>
           </h3>
           <p className="font-sans text-[13px] text-[#7a6a5a]">
@@ -105,7 +105,7 @@ export function CareerResourcesSection() {
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#7a6a5a]">
                 {item.title}
               </span>
-              <p className="font-mono text-base font-bold text-[#8c2f39]">{item.number}</p>
+              <p className="font-mono text-base font-bold text-[#0d3e2e]">{item.number}</p>
               <p className="text-xs text-[#2b2118] leading-tight">{item.desc}</p>
             </div>
           ))}
@@ -116,7 +116,7 @@ export function CareerResourcesSection() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div>
           <h3 className="font-serif text-[20px] font-bold text-[#2b2118] flex items-center gap-2">
-            <FileText size={20} className="text-[#8c2f39]" />
+            <FileText size={20} className="text-[#0d3e2e]" />
             <span>Fresher Preparation &amp; Documentation Checklist</span>
           </h3>
           <p className="font-sans text-[13px] text-[#7a6a5a]">
@@ -126,21 +126,21 @@ export function CareerResourcesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#2b2118] pt-2 border-t border-[#efe3cc]">
           <div className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 space-y-2">
-            <h4 className="font-serif text-sm font-bold text-[#8c2f39]">1. Bonafide &amp; College NOC</h4>
+            <h4 className="font-serif text-sm font-bold text-[#0d3e2e]">1. Bonafide &amp; College NOC</h4>
             <p className="text-[#7a6a5a] leading-relaxed">
               Required for all active students applying to AICTE, ISRO, DRDO and corporate internships. Must contain student roll number, college seal, and semester approval.
             </p>
           </div>
 
           <div className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 space-y-2">
-            <h4 className="font-serif text-sm font-bold text-[#8c2f39]">2. 1-Page ATS Fresher Resume</h4>
+            <h4 className="font-serif text-sm font-bold text-[#0d3e2e]">2. 1-Page ATS Fresher Resume</h4>
             <p className="text-[#7a6a5a] leading-relaxed">
               Include academic aggregate, programming or laboratory skills, key projects with live GitHub links, and co-curricular achievements. Avoid generic objective statements.
             </p>
           </div>
 
           <div className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 space-y-2">
-            <h4 className="font-serif text-sm font-bold text-[#8c2f39]">3. Aadhaar-Seeded Bank Account</h4>
+            <h4 className="font-serif text-sm font-bold text-[#0d3e2e]">3. Aadhaar-Seeded Bank Account</h4>
             <p className="text-[#7a6a5a] leading-relaxed">
               Essential for receiving government Direct Benefit Transfer (DBT) stipends under NATS and NAPS apprenticeships. Ensure your bank account is active and mapped with NPCI.
             </p>

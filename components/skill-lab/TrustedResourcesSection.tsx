@@ -35,7 +35,7 @@ export function TrustedResourcesSection() {
             Official Government &amp; Institutional Verification Guarantee:
           </p>
           <p className="text-[#7a6a5a] text-[12px] leading-relaxed">
-            All resources listed below route exclusively to authorized government domains (<code className="font-mono text-[11px] text-[#8c2f39]">.gov.in</code>, <code className="font-mono text-[11px] text-[#8c2f39]">.education.gov.in</code>). Student RSO does not collect Aadhaar OTPs, banking passwords, or personal credentials.
+            All resources listed below route exclusively to authorized government domains (<code className="font-mono text-[11px] text-[#0d3e2e]">.gov.in</code>, <code className="font-mono text-[11px] text-[#0d3e2e]">.education.gov.in</code>). Student RSO does not collect Aadhaar OTPs, banking passwords, or personal credentials.
           </p>
         </div>
       </div>
@@ -49,7 +49,7 @@ export function TrustedResourcesSection() {
           >
             <div>
               <div className="flex items-start justify-between gap-2 mb-2">
-                <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+                <span className="rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
                   {res.badge}
                 </span>
                 <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
@@ -96,7 +96,7 @@ export function TrustedResourcesSection() {
                 href={res.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-3 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] text-white font-sans text-[12px] font-bold transition flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
+                className="w-full py-2.5 px-3 rounded-lg bg-[#0d3e2e] hover:bg-[#08261c] text-white font-sans text-[12px] font-bold transition flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
               >
                 <span>Open Official Portal</span>
                 <ExternalLink size={13} />

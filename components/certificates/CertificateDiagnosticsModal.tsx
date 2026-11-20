@@ -55,7 +55,7 @@ export function CertificateDiagnosticsModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in overflow-y-auto">
       <div className="relative w-full max-w-4xl bg-[#fdfbf6] border border-[#efe3cc] rounded-2xl shadow-xl overflow-hidden my-8 text-[#2b2118]">
         {/* Header */}
-        <div className="bg-[#8c2f39] text-white p-6">
+        <div className="bg-[#0d3e2e] text-white p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-white">
@@ -117,12 +117,12 @@ export function CertificateDiagnosticsModal({
           <div>
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-serif text-[16px] font-bold text-[#2b2118] flex items-center gap-1.5">
-                <Globe size={16} className="text-[#8c2f39]" /> Monitored Official Portals (8 Tiers)
+                <Globe size={16} className="text-[#0d3e2e]" /> Monitored Official Portals (8 Tiers)
               </h3>
               <button
                 onClick={fetchTelemetry}
                 disabled={isRefreshing}
-                className="font-sans text-[12px] font-bold text-[#8c2f39] hover:underline flex items-center gap-1"
+                className="font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline flex items-center gap-1"
               >
                 <RefreshCw size={13} className={isRefreshing ? 'animate-spin' : ''} />
                 Refresh Probe
@@ -137,7 +137,7 @@ export function CertificateDiagnosticsModal({
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-[#8c2f39]/10 text-[#8c2f39]">
+                      <span className="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-[#0d3e2e]/10 text-[#0d3e2e]">
                         {src.category}
                       </span>
                       <strong className="text-[#2b2118] text-[13px]">{src.name}</strong>

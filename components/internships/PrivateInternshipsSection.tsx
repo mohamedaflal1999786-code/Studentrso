@@ -45,7 +45,7 @@ export function PrivateInternshipsSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Briefcase size={14} /> INDUSTRY &amp; CORPORATE RECRUITMENT
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -68,7 +68,7 @@ export function PrivateInternshipsSection({
               onClick={() => setSelectedDomain(d.id)}
               className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                 selectedDomain === d.id
-                  ? 'bg-[#8c2f39] text-white shadow-2xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-2xs'
                   : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
               }`}
             >

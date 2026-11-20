@@ -71,7 +71,7 @@ export function GuidedAuthorityFinder() {
             <span>Student Assessment Questions</span>
             <button
               onClick={handleReset}
-              className="font-sans text-[12px] font-semibold text-[#8c2f39] hover:underline inline-flex items-center gap-1"
+              className="font-sans text-[12px] font-semibold text-[#0d3e2e] hover:underline inline-flex items-center gap-1"
             >
               <RefreshCw size={12} />
               <span>Reset</span>
@@ -89,7 +89,7 @@ export function GuidedAuthorityFinder() {
                 setIssueType(e.target.value as any);
                 setEvaluated(true);
               }}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             >
               <option value="ragging">Ragging / Senior Intimidation</option>
               <option value="bullying">Bullying / Peer Harassment</option>
@@ -130,7 +130,7 @@ export function GuidedAuthorityFinder() {
                   }}
                   className={`rounded-lg border p-2 text-center font-sans text-[12px] font-semibold transition ${
                     incidentLocation === val
-                      ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                      ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                       : 'bg-[#fbf5e9] text-[#7a6a5a] border-[#efe3cc] hover:bg-[#f6ede0]'
                   }`}
                 >
@@ -168,7 +168,7 @@ export function GuidedAuthorityFinder() {
                 }}
                 className={`flex-1 rounded-lg py-2 font-sans text-[13px] font-bold transition ${
                   !immediateDanger
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-white text-[#7a6a5a] border border-[#efe3cc] hover:bg-[#fbf5e9]'
                 }`}
               >
@@ -188,7 +188,7 @@ export function GuidedAuthorityFinder() {
                 setNatureOrGround(e.target.value);
                 setEvaluated(true);
               }}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             >
               <option value="General Student Grievance">General Student / Campus Grievance</option>
               <option value="Caste Discrimination (SC/ST/BC)">Caste Discrimination / Atrocities (SC/ST/BC)</option>
@@ -214,7 +214,7 @@ export function GuidedAuthorityFinder() {
                 }}
                 className={`flex-1 rounded-lg py-2 font-sans text-[13px] font-semibold transition ${
                   isMinor
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-[#fbf5e9] text-[#7a6a5a] border border-[#efe3cc] hover:bg-[#f6ede0]'
                 }`}
               >
@@ -228,7 +228,7 @@ export function GuidedAuthorityFinder() {
                 }}
                 className={`flex-1 rounded-lg py-2 font-sans text-[13px] font-semibold transition ${
                   !isMinor
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-[#fbf5e9] text-[#7a6a5a] border border-[#efe3cc] hover:bg-[#f6ede0]'
                 }`}
               >
@@ -264,7 +264,7 @@ export function GuidedAuthorityFinder() {
           {/* Primary Recommended Authority Card */}
           <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-sm space-y-4">
             <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#efe3cc]">
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] bg-[#f6ede0] px-3 py-1 rounded-full border border-[#d8c7ad]">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] bg-[#f6ede0] px-3 py-1 rounded-full border border-[#d8c7ad]">
                 RECOMMENDED OFFICIAL AUTHORITY
               </span>
               <span className="font-mono text-[10px] text-[#5e8b7e] font-semibold">
@@ -318,7 +318,7 @@ export function GuidedAuthorityFinder() {
                 href={result.primaryAuthority.complaintUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white py-2.5 font-sans text-[13px] font-bold shadow-2xs transition"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white py-2.5 font-sans text-[13px] font-bold shadow-2xs transition"
               >
                 <span>Access Official Complaint Page</span>
                 <ExternalLink size={14} />
@@ -330,7 +330,7 @@ export function GuidedAuthorityFinder() {
                     <a
                       key={idx}
                       href={hl.telUrl}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-white px-3 py-1.5 font-mono text-[12px] font-bold text-[#8c2f39] hover:bg-[#f6ede0]"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-white px-3 py-1.5 font-mono text-[12px] font-bold text-[#0d3e2e] hover:bg-[#f6ede0]"
                     >
                       <PhoneCall size={12} />
                       <span>{hl.name}: {hl.number}</span>
@@ -360,7 +360,7 @@ export function GuidedAuthorityFinder() {
                   href={result.secondaryEscalationAuthority.complaintUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] px-3 py-1.5 font-sans text-[12px] font-bold text-[#8c2f39] hover:bg-[#f6ede0] shrink-0 inline-flex items-center gap-1"
+                  className="rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] px-3 py-1.5 font-sans text-[12px] font-bold text-[#0d3e2e] hover:bg-[#f6ede0] shrink-0 inline-flex items-center gap-1"
                 >
                   <span>Portal</span>
                   <ExternalLink size={12} />

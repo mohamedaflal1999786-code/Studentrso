@@ -39,7 +39,7 @@ export function LearningPathwaySection({
         {/* Progress Badge & Bar */}
         <div className="w-full sm:w-64 p-3.5 rounded-xl bg-white border border-[#efe3cc] shadow-2xs">
           <div className="flex items-center justify-between text-[12px] font-mono mb-1.5">
-            <span className="font-bold text-[#8c2f39]">Pathway Progress:</span>
+            <span className="font-bold text-[#0d3e2e]">Pathway Progress:</span>
             <span className="font-bold text-emerald-800">{completedStagesCount} / {totalStages} Stages ({progressPercentage}%)</span>
           </div>
           <div className="w-full h-2 rounded-full bg-[#fbf5e9] overflow-hidden border border-[#efe3cc]">
@@ -71,7 +71,7 @@ export function LearningPathwaySection({
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="w-8 h-8 rounded-lg bg-[#8c2f39] text-white font-serif text-[15px] font-bold flex items-center justify-center shrink-0">
+                  <span className="w-8 h-8 rounded-lg bg-[#0d3e2e] text-white font-serif text-[15px] font-bold flex items-center justify-center shrink-0">
                     {stage.stageNumber}
                   </span>
                   <span className="font-mono text-[10px] text-[#7a6a5a] flex items-center gap-1">
@@ -82,7 +82,7 @@ export function LearningPathwaySection({
                 <h3 className="font-serif text-[16px] font-bold text-[#2b2118] leading-snug">
                   {stage.title}
                 </h3>
-                <p className="font-serif text-[12px] italic text-[#8c2f39] mt-0.5 mb-2">
+                <p className="font-serif text-[12px] italic text-[#0d3e2e] mt-0.5 mb-2">
                   {stage.subtitle}
                 </p>
                 <p className="font-sans text-[12px] text-[#7a6a5a] leading-relaxed mb-3">
@@ -100,7 +100,7 @@ export function LearningPathwaySection({
                   <button
                     type="button"
                     onClick={() => onSelectCategoryById(matchedCategory.id)}
-                    className="w-full py-2 px-3 rounded-lg bg-[#fbf5e9] hover:bg-[#8c2f39] hover:text-white border border-[#d8c7ad] text-[#8c2f39] font-sans text-[12px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="w-full py-2 px-3 rounded-lg bg-[#fbf5e9] hover:bg-[#0d3e2e] hover:text-white border border-[#d8c7ad] text-[#0d3e2e] font-sans text-[12px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <span>{isStageComplete ? 'Review Stage Lessons' : 'Start Stage Lessons'}</span>
                     <ArrowRight size={13} />

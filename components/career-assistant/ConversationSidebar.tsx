@@ -68,7 +68,7 @@ export function ConversationSidebar({
           <button
             type="button"
             onClick={onNewConversation}
-            className="flex-1 py-2.5 px-3.5 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition shadow-xs flex items-center justify-center gap-2 font-sans text-xs font-bold"
+            className="flex-1 py-2.5 px-3.5 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition shadow-xs flex items-center justify-center gap-2 font-sans text-xs font-bold"
           >
             <Plus className="w-4 h-4" /> New Conversation
           </button>
@@ -96,12 +96,12 @@ export function ConversationSidebar({
                   onClick={() => onSelectConversation(conv.id)}
                   className={`group relative p-2.5 rounded-xl border transition cursor-pointer flex items-center justify-between text-xs ${
                     isActive
-                      ? 'bg-[#8c2f39]/10 border-[#8c2f39]/30 text-[#8c2f39] font-bold'
+                      ? 'bg-[#0d3e2e]/10 border-[#0d3e2e]/30 text-[#0d3e2e] font-bold'
                       : 'bg-white border-[#efe3cc] hover:bg-[#fbf5e9] text-[#2b2118]'
                   }`}
                 >
                   <div className="flex items-center gap-2 min-w-0 flex-1 mr-2">
-                    <MessageSquare className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#8c2f39]' : 'text-[#7a6a5a]'}`} />
+                    <MessageSquare className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#0d3e2e]' : 'text-[#7a6a5a]'}`} />
                     {isEditing ? (
                       <input
                         type="text"
@@ -113,7 +113,7 @@ export function ConversationSidebar({
                           if (e.key === 'Escape') setEditingId(null);
                         }}
                         autoFocus
-                        className="w-full text-xs px-1.5 py-0.5 rounded border border-[#8c2f39] bg-white text-[#2b2118] focus:outline-none"
+                        className="w-full text-xs px-1.5 py-0.5 rounded border border-[#0d3e2e] bg-white text-[#2b2118] focus:outline-none"
                       />
                     ) : (
                       <span className="truncate">{conv.title}</span>
@@ -148,7 +148,7 @@ export function ConversationSidebar({
                         <button
                           type="button"
                           onClick={(e) => startRename(conv, e)}
-                          className="p-1 text-[#7a6a5a] hover:text-[#8c2f39] transition"
+                          className="p-1 text-[#7a6a5a] hover:text-[#0d3e2e] transition"
                           title="Rename"
                         >
                           <Edit2 className="w-3 h-3" />

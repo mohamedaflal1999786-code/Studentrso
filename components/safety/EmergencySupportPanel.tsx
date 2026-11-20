@@ -41,7 +41,7 @@ export function EmergencySupportPanel() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-5">
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#efe3cc]">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Phone size={14} /> OFFICIAL STATUTORY & EMERGENCY HELPLINES
             </div>
             <h3 className="font-serif text-[22px] font-bold text-[#2b2118] mt-0.5">
@@ -60,14 +60,14 @@ export function EmergencySupportPanel() {
               className={`rounded-xl p-5 border flex flex-col justify-between transition ${
                 hl.isIntegratedEmergency
                   ? 'bg-red-50/70 border-red-200'
-                  : 'bg-white border-[#efe3cc] hover:border-[#8c2f39]/30'
+                  : 'bg-white border-[#efe3cc] hover:border-[#0d3e2e]/30'
               }`}
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
                   <span
                     className={`font-mono text-[18px] sm:text-[20px] font-bold ${
-                      hl.isIntegratedEmergency ? 'text-red-700' : 'text-[#8c2f39]'
+                      hl.isIntegratedEmergency ? 'text-red-700' : 'text-[#0d3e2e]'
                     }`}
                   >
                     {hl.number}
@@ -81,7 +81,7 @@ export function EmergencySupportPanel() {
                   {hl.title}
                 </h4>
 
-                <p className="font-mono text-[11px] font-semibold text-[#8c2f39]">
+                <p className="font-mono text-[11px] font-semibold text-[#0d3e2e]">
                   {hl.authority}
                 </p>
 
@@ -96,7 +96,7 @@ export function EmergencySupportPanel() {
                   className={`w-full inline-flex items-center justify-center gap-2 rounded-lg py-2 font-sans text-[13px] font-bold transition shadow-2xs ${
                     hl.isIntegratedEmergency
                       ? 'bg-red-600 text-white hover:bg-red-700'
-                      : 'bg-[#8c2f39] text-white hover:bg-[#6d1824]'
+                      : 'bg-[#0d3e2e] text-white hover:bg-[#08261c]'
                   }`}
                 >
                   <PhoneCall size={14} />

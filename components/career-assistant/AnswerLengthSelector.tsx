@@ -25,7 +25,7 @@ export function AnswerLengthSelector({ value, onChange }: AnswerLengthSelectorPr
   return (
     <div className="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none text-xs">
       <span className="text-[11px] font-bold uppercase tracking-wider text-[#7a6a5a] shrink-0 mr-1 flex items-center gap-1">
-        <AlignLeft className="w-3.5 h-3.5 text-[#8c2f39]" /> Length:
+        <AlignLeft className="w-3.5 h-3.5 text-[#0d3e2e]" /> Length:
       </span>
 
       {options.map((opt) => {
@@ -38,7 +38,7 @@ export function AnswerLengthSelector({ value, onChange }: AnswerLengthSelectorPr
             title={opt.tooltip}
             className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition shrink-0 flex items-center gap-1 ${
               isActive
-                ? 'bg-[#8c2f39] text-white shadow-xs'
+                ? 'bg-[#0d3e2e] text-white shadow-xs'
                 : 'bg-white text-[#7a6a5a] border border-[#efe3cc] hover:bg-[#fbf5e9] hover:text-[#2b2118]'
             }`}
           >

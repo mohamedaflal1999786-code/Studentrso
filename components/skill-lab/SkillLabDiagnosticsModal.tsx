@@ -28,7 +28,7 @@ export function SkillLabDiagnosticsModal({ isOpen, onClose }: SkillLabDiagnostic
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#8c2f39] cursor-pointer"
+          className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition hover:bg-[#f6ede0] hover:text-[#0d3e2e] cursor-pointer"
         >
           <X size={20} />
         </button>
@@ -49,22 +49,22 @@ export function SkillLabDiagnosticsModal({ isOpen, onClose }: SkillLabDiagnostic
 
         <div className="mt-5 space-y-4">
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2">
-            <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block">
               CURRICULUM INVENTORY HEALTH
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
               <div className="p-2.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc]">
-                <span className="font-serif text-[20px] font-bold text-[#8c2f39] block">{SKILL_CATEGORIES.length}</span>
+                <span className="font-serif text-[20px] font-bold text-[#0d3e2e] block">{SKILL_CATEGORIES.length}</span>
                 <span className="font-mono text-[10px] text-[#7a6a5a]">Categories</span>
               </div>
               <div className="p-2.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc]">
-                <span className="font-serif text-[20px] font-bold text-[#8c2f39] block">
+                <span className="font-serif text-[20px] font-bold text-[#0d3e2e] block">
                   {SKILL_CATEGORIES.reduce((acc, c) => acc + c.topics.length, 0)}
                 </span>
                 <span className="font-mono text-[10px] text-[#7a6a5a]">Lesson Guides</span>
               </div>
               <div className="p-2.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc]">
-                <span className="font-serif text-[20px] font-bold text-[#8c2f39] block">
+                <span className="font-serif text-[20px] font-bold text-[#0d3e2e] block">
                   {TRUSTED_OFFICIAL_RESOURCES.length}
                 </span>
                 <span className="font-mono text-[10px] text-[#7a6a5a]">Govt Portals</span>
@@ -77,7 +77,7 @@ export function SkillLabDiagnosticsModal({ isOpen, onClose }: SkillLabDiagnostic
           </div>
 
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc] space-y-2">
-            <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block mb-2">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block mb-2">
               VERIFIED OFFICIAL DOMAINS
             </span>
             <div className="space-y-1.5 font-mono text-[11px]">
@@ -97,7 +97,7 @@ export function SkillLabDiagnosticsModal({ isOpen, onClose }: SkillLabDiagnostic
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 rounded-lg bg-[#8c2f39] text-white font-sans text-[13px] font-bold hover:bg-[#6d1824] transition cursor-pointer"
+            className="px-4 py-2 rounded-lg bg-[#0d3e2e] text-white font-sans text-[13px] font-bold hover:bg-[#08261c] transition cursor-pointer"
           >
             Close Telemetry
           </button>

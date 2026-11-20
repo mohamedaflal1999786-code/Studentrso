@@ -143,7 +143,7 @@ function CertificatesContent() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#8c2f39] hover:underline"
+              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:underline"
             >
               <ArrowLeft size={16} />
               <span>Back to Student RSO</span>
@@ -167,7 +167,7 @@ function CertificatesContent() {
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
-                <User size={14} className="text-[#8c2f39]" />
+                <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
@@ -176,7 +176,7 @@ function CertificatesContent() {
                   setAuthMode('login');
                   setAuthOpen(true);
                 }}
-                className="rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824]"
+                className="rounded-lg bg-[#0d3e2e] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c]"
               >
                 Sign In to Sync
               </button>
@@ -186,7 +186,7 @@ function CertificatesContent() {
       </header>
 
       {/* Hero Banner Strip */}
-      <section className="border-b border-[#efe3cc] bg-[#8c2f39] text-white">
+      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -205,7 +205,7 @@ function CertificatesContent() {
             <div className="flex flex-wrap gap-2.5">
               <button
                 onClick={() => setActiveTab('readiness')}
-                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#8c2f39] hover:bg-[#f6ede0] shadow-sm flex items-center gap-1.5"
+                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#0d3e2e] hover:bg-[#f6ede0] shadow-sm flex items-center gap-1.5"
               >
                 <FileCheck size={16} /> Check Document Readiness
               </button>
@@ -232,7 +232,7 @@ function CertificatesContent() {
                 onClick={() => setActiveTab(id)}
                 className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2 font-sans text-[12px] sm:text-[13px] font-semibold transition ${
                   isActive
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#2b2118]'
                 }`}
               >

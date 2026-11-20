@@ -104,10 +104,10 @@ export function ApplicationTrackerSection({
     <div className="space-y-8 font-sans">
       {/* Header Banner */}
       <div className="rounded-3xl bg-gradient-to-r from-[#fbf5e9] to-[#efe3cc]/60 border border-[#efe3cc] p-6 sm:p-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#8c2f39]/10 text-[#8c2f39] border border-[#8c2f39]/20 mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#0d3e2e]/10 text-[#0d3e2e] border border-[#0d3e2e]/20 mb-3">
           <Bookmark className="w-4 h-4" /> Personal Confidential Tracker
         </div>
-        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#8c2f39]">
+        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#0d3e2e]">
           My Application Tracker
         </h2>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed">
@@ -144,7 +144,7 @@ export function ApplicationTrackerSection({
             <button
               type="button"
               onClick={() => onSelectTab('govt-exams')}
-              className="px-4 py-2 text-xs font-bold rounded-lg bg-[#8c2f39] text-white hover:bg-[#72262e] transition"
+              className="px-4 py-2 text-xs font-bold rounded-lg bg-[#0d3e2e] text-white hover:bg-[#061d15] transition"
             >
               Browse Examinations
             </button>
@@ -177,14 +177,14 @@ export function ApplicationTrackerSection({
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
-                        <span className="font-bold text-xs px-2 py-0.5 rounded bg-[#fbf5e9] text-[#8c2f39] border border-[#efe3cc]">
+                        <span className="font-bold text-xs px-2 py-0.5 rounded bg-[#fbf5e9] text-[#0d3e2e] border border-[#efe3cc]">
                           {exam.shortCode}
                         </span>
                         <span className="text-xs text-stone-500">{exam.levelClassification}</span>
                       </div>
                       <h4
                         onClick={() => onSelectExam(exam)}
-                        className="text-base sm:text-lg font-serif font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                        className="text-base sm:text-lg font-serif font-bold text-[#0d3e2e] hover:underline cursor-pointer"
                       >
                         {exam.title}
                       </h4>
@@ -198,7 +198,7 @@ export function ApplicationTrackerSection({
                         href={exam.officialApplicationPortalUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#8c2f39] text-white hover:bg-[#72262e] transition"
+                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0d3e2e] text-white hover:bg-[#061d15] transition"
                       >
                         Official Portal <ExternalLink className="w-3.5 h-3.5" />
                       </a>
@@ -222,7 +222,7 @@ export function ApplicationTrackerSection({
                       <select
                         value={item.status}
                         onChange={(e) => handleUpdateStatus(item.examId, e.target.value as TrackerStatus)}
-                        className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                        className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
                       >
                         {statusOptions.map((opt) => (
                           <option key={opt} value={opt}>
@@ -244,7 +244,7 @@ export function ApplicationTrackerSection({
                         value={item.personalNotes || ''}
                         onChange={(e) => handleUpdateNotes(item.examId, e.target.value)}
                         placeholder="e.g. Target cut-off 195+, revise organic chemistry..."
-                        className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                        className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg bg-white border border-[#efe3cc] text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
                       />
                     </div>
                   </div>

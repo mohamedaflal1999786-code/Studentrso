@@ -84,7 +84,7 @@ export function DocumentChecklistSection({
 
             <button
               onClick={onResetChecklist}
-              className="inline-flex items-center gap-1.5 font-sans text-[12px] font-semibold text-[#7a6a5a] hover:text-[#8c2f39]"
+              className="inline-flex items-center gap-1.5 font-sans text-[12px] font-semibold text-[#7a6a5a] hover:text-[#0d3e2e]"
             >
               <RotateCcw size={14} />
               Reset All
@@ -99,7 +99,7 @@ export function DocumentChecklistSection({
             <select
               value={selectedSchemeId}
               onChange={(e) => setSelectedSchemeId(e.target.value)}
-              className="w-full rounded-lg border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-lg border border-[#d8c7ad] bg-white px-3 py-2 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             >
               <option value="ALL">Master Document Checklist (All Common Documents)</option>
               {programs.map((p) => (
@@ -120,7 +120,7 @@ export function DocumentChecklistSection({
             </div>
             <div className="h-2.5 w-full rounded-full bg-[#f6ede0] overflow-hidden">
               <div
-                className="h-full bg-[#8c2f39] transition-all duration-300"
+                className="h-full bg-[#0d3e2e] transition-all duration-300"
                 style={{ width: `${percentComplete}%` }}
               />
             </div>
@@ -144,7 +144,7 @@ export function DocumentChecklistSection({
                     type="checkbox"
                     checked={isChecked}
                     onChange={() => onToggleDocument(doc.name)}
-                    className="mt-1 h-4 w-4 accent-[#8c2f39] rounded"
+                    className="mt-1 h-4 w-4 accent-[#0d3e2e] rounded"
                   />
                   <div className="flex-1 space-y-0.5">
                     <span
@@ -176,13 +176,13 @@ export function DocumentChecklistSection({
         <div className="space-y-4">
           <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
             <div className="flex items-center gap-2 font-serif text-[18px] font-bold text-[#2b2118]">
-              <HeartHandshake size={20} className="text-[#8c2f39]" />
+              <HeartHandshake size={20} className="text-[#0d3e2e]" />
               Submission Essentials
             </div>
 
             <ul className="space-y-3 font-sans text-[13px] leading-[22px] text-[#554a3f]">
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#8c2f39] mt-2 shrink-0" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0d3e2e] mt-2 shrink-0" />
                 <span>
                   <strong>Aadhaar Seeding on NPCI:</strong> For Central and State DBT scholarships, your bank
                   account must be mapped with Aadhaar on the NPCI mapper. Having an Aadhaar-linked account is not
@@ -191,7 +191,7 @@ export function DocumentChecklistSection({
               </li>
 
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#8c2f39] mt-2 shrink-0" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0d3e2e] mt-2 shrink-0" />
                 <span>
                   <strong>Income Certificate Validity:</strong> In Tamil Nadu, revenue income certificates are generally
                   valid for 1 year from the date of issue. Ensure your certificate is current and digitally signed.
@@ -199,7 +199,7 @@ export function DocumentChecklistSection({
               </li>
 
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#8c2f39] mt-2 shrink-0" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0d3e2e] mt-2 shrink-0" />
                 <span>
                   <strong>Bonafide Certificate:</strong> Always request a bonafide with your current year of study,
                   fee particulars, and roll number on the institution’s official letterhead.
@@ -207,7 +207,7 @@ export function DocumentChecklistSection({
               </li>
 
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#8c2f39] mt-2 shrink-0" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0d3e2e] mt-2 shrink-0" />
                 <span>
                   <strong>EMIS School Verification:</strong> For Pudhumai Penn and Tamil Pudhalvan, your school
                   study from Class 6 to 12 in a Tamil Nadu Government school is electronically verified via the EMIS portal.

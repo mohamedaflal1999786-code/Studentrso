@@ -18,7 +18,7 @@ export function RemedialLearningSection() {
     <div className="space-y-6 sm:space-y-8 font-sans">
       {/* Header Banner */}
       <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold uppercase">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold uppercase">
           FOUNDATIONAL BRIDGE PROGRAMMES
         </div>
         <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2b2118]">
@@ -38,7 +38,7 @@ export function RemedialLearningSection() {
           >
             <div className="space-y-4">
               <div>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold">
                   {track.targetStage.join(', ')}
                 </span>
                 <h3 className="font-serif text-lg sm:text-xl font-bold text-[#2b2118] mt-2">
@@ -48,7 +48,7 @@ export function RemedialLearningSection() {
 
               {/* Foundational Concepts */}
               <div className="space-y-1.5">
-                <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   Essential Prerequisite Concepts
                 </span>
                 <ul className="space-y-1">
@@ -69,7 +69,7 @@ export function RemedialLearningSection() {
                 <div className="space-y-2">
                   {track.learningRoadmap.map((rm, rIdx) => (
                     <div key={rIdx} className="p-3 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] space-y-1 text-xs">
-                      <div className="font-bold text-[#8c2f39]">{rm.stage}</div>
+                      <div className="font-bold text-[#0d3e2e]">{rm.stage}</div>
                       <p className="text-[#7a6a5a]">Topics: {rm.topics.join(', ')}</p>
                       <p className="text-[#2b2118] font-medium">🎯 Milestone: {rm.milestone}</p>
                     </div>
@@ -89,10 +89,10 @@ export function RemedialLearningSection() {
                       href={bc.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white border border-[#efe3cc] hover:border-[#8c2f39] transition flex items-center justify-between text-xs"
+                      className="p-2.5 rounded-xl bg-white border border-[#efe3cc] hover:border-[#0d3e2e] transition flex items-center justify-between text-xs"
                     >
                       <span className="font-semibold text-[#2b2118]">{bc.title} ({bc.platform})</span>
-                      <ExternalLink className="w-3 h-3 text-[#8c2f39]" />
+                      <ExternalLink className="w-3 h-3 text-[#0d3e2e]" />
                     </a>
                   ))}
                 </div>

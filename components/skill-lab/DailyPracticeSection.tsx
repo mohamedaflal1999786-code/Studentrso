@@ -71,7 +71,7 @@ export function DailyPracticeSection() {
         </div>
 
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[11px] text-[#554a3f]">
-          <Calendar size={14} className="text-[#8c2f39]" />
+          <Calendar size={14} className="text-[#0d3e2e]" />
           <span>{todayFormatted}</span>
         </div>
       </div>
@@ -87,7 +87,7 @@ export function DailyPracticeSection() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg px-3 py-2 font-sans text-[12px] sm:text-[13px] font-semibold transition cursor-pointer ${
                 isActive
-                  ? 'bg-[#8c2f39] text-white shadow-xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-xs'
                   : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#2b2118]'
               }`}
             >
@@ -104,7 +104,7 @@ export function DailyPracticeSection() {
           <div className="md:col-span-2 rounded-xl bg-white p-5 border border-[#efe3cc]">
             <div className="flex items-start justify-between gap-3 mb-2">
               <div>
-                <span className="font-mono text-[11px] text-[#8c2f39] font-bold uppercase tracking-wider">
+                <span className="font-mono text-[11px] text-[#0d3e2e] font-bold uppercase tracking-wider">
                   {dailyItem.wordOfTheDay.partOfSpeech}
                 </span>
                 <h3 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#2b2118] leading-tight">
@@ -118,7 +118,7 @@ export function DailyPracticeSection() {
               <button
                 type="button"
                 onClick={() => handleCopy(dailyItem.wordOfTheDay.word, 'word')}
-                className="p-2 rounded-lg border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#8c2f39] transition cursor-pointer"
+                className="p-2 rounded-lg border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#0d3e2e] transition cursor-pointer"
                 title="Copy word"
               >
                 {copiedKey === 'word' ? <Check size={16} className="text-emerald-700" /> : <Copy size={16} />}
@@ -130,7 +130,7 @@ export function DailyPracticeSection() {
             </p>
 
             <div className="mt-3 p-3 rounded-lg bg-[#fbf5e9] border border-[#efe3cc]">
-              <span className="font-mono text-[10px] uppercase font-bold text-[#8c2f39] block mb-1">
+              <span className="font-mono text-[10px] uppercase font-bold text-[#0d3e2e] block mb-1">
                 TAMIL CONTEXTUAL MEANING / பயன்பாட்டுப் பொருள்:
               </span>
               <p className="font-sans text-[13px] text-[#554a3f]">
@@ -166,7 +166,7 @@ export function DailyPracticeSection() {
             </div>
 
             <div className="mt-6 pt-3 border-t border-[#efe3cc]">
-              <span className="font-mono text-[11px] font-bold text-[#8c2f39] block mb-1">
+              <span className="font-mono text-[11px] font-bold text-[#0d3e2e] block mb-1">
                 PRACTICE CHALLENGE:
               </span>
               <p className="font-sans text-[12px] text-[#7a6a5a]">
@@ -203,7 +203,7 @@ export function DailyPracticeSection() {
           </p>
 
           <div className="p-4 rounded-lg bg-[#fbf5e9] border border-[#efe3cc]">
-            <span className="font-mono text-[11px] uppercase font-bold text-[#8c2f39] block mb-1">
+            <span className="font-mono text-[11px] uppercase font-bold text-[#0d3e2e] block mb-1">
               HOW TO USE IN MEETINGS / EMAILS:
             </span>
             <p className="font-sans text-[14px] text-[#2b2118] font-medium">
@@ -226,7 +226,7 @@ export function DailyPracticeSection() {
       {activeTab === 'conversation' && (
         <div className="mt-5 rounded-xl bg-white p-5 sm:p-6 border border-[#efe3cc] space-y-4">
           <div>
-            <span className="font-mono text-[11px] font-bold text-[#8c2f39] uppercase">
+            <span className="font-mono text-[11px] font-bold text-[#0d3e2e] uppercase">
               REALISTIC STUDENT SCENARIO
             </span>
             <h3 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -243,11 +243,11 @@ export function DailyPracticeSection() {
                 key={i}
                 className={`p-3.5 rounded-xl border flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3 text-[13px] ${
                   line.speaker === 'Student' || line.speaker === 'Junior Developer' || line.speaker === 'Candidate'
-                    ? 'bg-[#8c2f39]/5 border-[#8c2f39]/20'
+                    ? 'bg-[#0d3e2e]/5 border-[#0d3e2e]/20'
                     : 'bg-[#fbf5e9] border-[#efe3cc]'
                 }`}
               >
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39] sm:w-36 shrink-0 mt-0.5">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e] sm:w-36 shrink-0 mt-0.5">
                   {line.speaker}:
                 </span>
                 <span className="font-sans text-[#2b2118] leading-relaxed flex-1">
@@ -278,7 +278,7 @@ export function DailyPracticeSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-lg bg-[#fbf5e9] border border-[#efe3cc]">
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block mb-1">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block mb-1">
                 WHAT THE INTERVIEWER IS REALLY TESTING:
               </span>
               <p className="font-sans text-[13px] text-[#554a3f] leading-relaxed">
@@ -296,15 +296,15 @@ export function DailyPracticeSection() {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-white border-2 border-[#8c2f39]/20">
+          <div className="p-4 rounded-xl bg-white border-2 border-[#0d3e2e]/20">
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39]">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e]">
                 MODEL SAMPLE RESPONSE (ADAPT TO YOUR EXPERIENCE):
               </span>
               <button
                 type="button"
                 onClick={() => handleCopy(dailyItem.interviewQuestionOfTheDay.sampleAnswer, 'interview-ans')}
-                className="text-xs text-[#8c2f39] hover:underline font-semibold flex items-center gap-1 cursor-pointer"
+                className="text-xs text-[#0d3e2e] hover:underline font-semibold flex items-center gap-1 cursor-pointer"
               >
                 {copiedKey === 'interview-ans' ? <Check size={13} /> : <Copy size={13} />}
                 <span>Copy Script</span>
@@ -322,7 +322,7 @@ export function DailyPracticeSection() {
         <div className="mt-5 rounded-xl bg-white p-5 sm:p-6 border border-[#efe3cc] space-y-4">
           <div className="flex items-center justify-between gap-2">
             <div>
-              <span className="font-mono text-[11px] font-bold text-[#8c2f39] uppercase">
+              <span className="font-mono text-[11px] font-bold text-[#0d3e2e] uppercase">
                 GD THEME: {dailyItem.groupDiscussionTopic.category}
               </span>
               <h3 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -391,8 +391,8 @@ export function DailyPracticeSection() {
             </span>
           </div>
 
-          <div className="p-3.5 rounded-lg bg-[#8c2f39]/5 border border-[#8c2f39]/20">
-            <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block mb-1">
+          <div className="p-3.5 rounded-lg bg-[#0d3e2e]/5 border border-[#0d3e2e]/20">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block mb-1">
               ENGAGING OPENING HOOK IDEA:
             </span>
             <p className="font-serif italic text-[14px] text-[#2b2118]">
@@ -406,7 +406,7 @@ export function DailyPracticeSection() {
             </span>
             {dailyItem.publicSpeakingTopic.structureGuide.map((step, i) => (
               <div key={i} className="flex items-start gap-2 text-[13px] font-sans text-[#2b2118]">
-                <span className="w-5 h-5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] text-[#8c2f39] font-mono text-[11px] font-bold flex items-center justify-center shrink-0">
+                <span className="w-5 h-5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] text-[#0d3e2e] font-mono text-[11px] font-bold flex items-center justify-center shrink-0">
                   {i + 1}
                 </span>
                 <span>{step}</span>
@@ -429,7 +429,7 @@ export function DailyPracticeSection() {
             {dailyItem.proCommunicationTip.tip}
           </p>
           <div className="mt-4 p-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc]">
-            <span className="font-mono text-[11px] uppercase font-bold text-[#8c2f39] block mb-1">
+            <span className="font-mono text-[11px] uppercase font-bold text-[#0d3e2e] block mb-1">
               WORKPLACE APPLICATION:
             </span>
             <p className="font-sans text-[13px] text-[#554a3f] leading-relaxed">

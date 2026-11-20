@@ -78,7 +78,7 @@ export function ExamDetailModal({
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#8c2f39] leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0d3e2e] leading-tight">
               {exam.title}
             </h2>
             <p className="text-xs sm:text-sm text-stone-600 mt-1 font-sans">
@@ -93,7 +93,7 @@ export function ExamDetailModal({
                 onClick={() => onTrackExam(exam)}
                 className={`p-2 rounded-xl border transition ${
                   isSaved
-                    ? 'bg-[#8c2f39] text-white border-[#8c2f39]'
+                    ? 'bg-[#0d3e2e] text-white border-[#0d3e2e]'
                     : 'bg-white text-stone-700 border-[#efe3cc] hover:bg-[#fbf5e9]'
                 }`}
                 title={isSaved ? 'Saved to Tracker' : 'Add to Application Tracker'}
@@ -115,18 +115,18 @@ export function ExamDetailModal({
         {/* Modal Body: 22 Structured Fields */}
         <div className="mt-6 space-y-6 text-sm font-sans">
           {/* FIELD 22: WHAT OPPORTUNITY DOES THIS EXAMINATION PROVIDE? (PROMINENT HIGHLIGHT) */}
-          <div className="rounded-2xl bg-[#8c2f39]/5 border-2 border-[#8c2f39]/30 p-5 sm:p-6 shadow-sm">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8c2f39] mb-2">
+          <div className="rounded-2xl bg-[#0d3e2e]/5 border-2 border-[#0d3e2e]/30 p-5 sm:p-6 shadow-sm">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0d3e2e] mb-2">
               <Award className="w-5 h-5" /> What Opportunity Does This Examination Provide?
             </div>
-            <div className="text-lg font-serif font-bold text-[#8c2f39] mb-1">
+            <div className="text-lg font-serif font-bold text-[#0d3e2e] mb-1">
               Unlocks: {linkedOpportunities.opportunityType}
             </div>
             <p className="text-stone-800 text-sm leading-relaxed mb-4">
               {linkedOpportunities.expectedOutcome}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#8c2f39]/15 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#0d3e2e]/15 text-xs">
               <div>
                 <strong className="text-stone-900 block mb-1.5 font-bold uppercase tracking-wider text-[11px]">
                   Target Degrees / Appointed Government Posts:
@@ -160,7 +160,7 @@ export function ExamDetailModal({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="rounded-2xl bg-white border border-[#efe3cc] p-5 shadow-sm">
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2 flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-[#8c2f39]" /> Statutory Purpose
+                <FileText className="w-4 h-4 text-[#0d3e2e]" /> Statutory Purpose
               </h4>
               <p className="text-xs sm:text-sm text-stone-800 leading-relaxed">
                 {exam.purpose}
@@ -169,7 +169,7 @@ export function ExamDetailModal({
 
             <div className="rounded-2xl bg-white border border-[#efe3cc] p-5 shadow-sm">
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2 flex items-center gap-1.5">
-                <GraduationCap className="w-4 h-4 text-[#8c2f39]" /> Who Can Apply
+                <GraduationCap className="w-4 h-4 text-[#0d3e2e]" /> Who Can Apply
               </h4>
               <p className="text-xs sm:text-sm text-stone-800 leading-relaxed">
                 {exam.whoCanApply}
@@ -195,7 +195,7 @@ export function ExamDetailModal({
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {exam.eligibleStreams.map((st) => (
-                    <span key={st} className="px-2 py-0.5 rounded text-[11px] font-semibold bg-[#fbf5e9] text-[#8c2f39] border border-[#efe3cc]">
+                    <span key={st} className="px-2 py-0.5 rounded text-[11px] font-semibold bg-[#fbf5e9] text-[#0d3e2e] border border-[#efe3cc]">
                       {st}
                     </span>
                   ))}
@@ -240,7 +240,7 @@ export function ExamDetailModal({
           {/* Section 4: Exam Pattern, Duration, Negative Marking & Syllabus */}
           <div className="rounded-2xl bg-white border border-[#efe3cc] p-6 shadow-sm">
             <h4 className="text-xs font-bold uppercase tracking-wider text-stone-600 mb-3 flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-[#8c2f39]" /> Examination Pattern & Syllabus Roadmap
+              <BookOpen className="w-4 h-4 text-[#0d3e2e]" /> Examination Pattern & Syllabus Roadmap
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-xs">
@@ -283,7 +283,7 @@ export function ExamDetailModal({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="rounded-2xl bg-white border border-[#efe3cc] p-5 shadow-sm">
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-600 mb-3 flex items-center gap-1.5">
-                <IndianRupee className="w-4 h-4 text-[#8c2f39]" /> Application Fee Structure
+                <IndianRupee className="w-4 h-4 text-[#0d3e2e]" /> Application Fee Structure
               </h4>
               <div className="space-y-2 text-xs sm:text-sm">
                 <div className="flex justify-between py-1 border-b border-stone-100">
@@ -311,7 +311,7 @@ export function ExamDetailModal({
 
             <div className="rounded-2xl bg-white border border-[#efe3cc] p-5 shadow-sm">
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-600 mb-3 flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-[#8c2f39]" /> Scholarship / Stipend Linked
+                <Sparkles className="w-4 h-4 text-[#0d3e2e]" /> Scholarship / Stipend Linked
               </h4>
               {exam.hasScholarship && exam.scholarshipDetails ? (
                 <div className="p-3 rounded-xl bg-purple-50 border border-purple-200 text-purple-950 text-xs sm:text-sm">
@@ -331,12 +331,12 @@ export function ExamDetailModal({
           {/* Section 6: Selection Steps & Procedures */}
           <div className="rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] p-5 sm:p-6">
             <h4 className="text-xs font-bold uppercase tracking-wider text-stone-700 mb-3 flex items-center gap-2">
-              <Layers className="w-4 h-4 text-[#8c2f39]" /> Next Steps After Taking the Examination
+              <Layers className="w-4 h-4 text-[#0d3e2e]" /> Next Steps After Taking the Examination
             </h4>
             <div className="space-y-2">
               {linkedOpportunities.selectionStepsAfterExam.map((step, idx) => (
                 <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-stone-800">
-                  <span className="w-5 h-5 rounded-full bg-[#8c2f39] text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                  <span className="w-5 h-5 rounded-full bg-[#0d3e2e] text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
                   <span className="leading-snug">{step}</span>
@@ -348,7 +348,7 @@ export function ExamDetailModal({
           {/* Section 7: Important Dates Timeline */}
           <div className="rounded-2xl bg-white border border-[#efe3cc] p-5 shadow-sm">
             <h4 className="text-xs font-bold uppercase tracking-wider text-stone-600 mb-3 flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#8c2f39]" /> Verified Timeline
+              <Calendar className="w-4 h-4 text-[#0d3e2e]" /> Verified Timeline
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
               <div className="p-3 rounded-xl bg-[#fdfbf6] border border-[#efe3cc]">
@@ -361,7 +361,7 @@ export function ExamDetailModal({
               </div>
               <div className="p-3 rounded-xl bg-[#fdfbf6] border border-[#efe3cc]">
                 <span className="text-stone-500 block mb-1">Exam Date</span>
-                <strong className="text-[#8c2f39] block leading-tight font-bold">{importantDates.examinationDate}</strong>
+                <strong className="text-[#0d3e2e] block leading-tight font-bold">{importantDates.examinationDate}</strong>
               </div>
               <div className="p-3 rounded-xl bg-[#fdfbf6] border border-[#efe3cc]">
                 <span className="text-stone-500 block mb-1">Result Declaration</span>
@@ -404,7 +404,7 @@ export function ExamDetailModal({
               href={exam.officialApplicationPortalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold rounded-xl bg-[#8c2f39] text-white hover:bg-[#72262e] transition shadow-md"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold rounded-xl bg-[#0d3e2e] text-white hover:bg-[#061d15] transition shadow-md"
             >
               Apply on Official Statutory Portal <ExternalLink className="w-3.5 h-3.5 ml-1" />
             </a>

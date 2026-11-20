@@ -58,7 +58,7 @@ export function ExamsDiagnosticsModal({
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-xl font-serif font-bold text-[#8c2f39]">
+              <h3 className="text-xl font-serif font-bold text-[#0d3e2e]">
                 System Telemetry & Audit
               </h3>
               <p className="text-xs text-stone-600">
@@ -79,7 +79,7 @@ export function ExamsDiagnosticsModal({
           {/* Status Metrics */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div className="p-3 rounded-xl bg-white border border-[#efe3cc]">
-              <span className="text-2xl font-serif font-bold text-[#8c2f39] block">
+              <span className="text-2xl font-serif font-bold text-[#0d3e2e] block">
                 {stats.total}
               </span>
               <span className="text-[11px] text-stone-600">Total Exams</span>

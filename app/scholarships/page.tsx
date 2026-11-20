@@ -526,7 +526,7 @@ export default function ScholarshipHubPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#8c2f39] hover:underline"
+              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:underline"
             >
               <ArrowLeft size={16} />
               <span>Back to Student RSO</span>
@@ -550,7 +550,7 @@ export default function ScholarshipHubPage() {
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
-                <User size={14} className="text-[#8c2f39]" />
+                <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
@@ -559,7 +559,7 @@ export default function ScholarshipHubPage() {
                   setAuthMode('login');
                   setAuthOpen(true);
                 }}
-                className="rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824]"
+                className="rounded-lg bg-[#0d3e2e] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c]"
               >
                 Sign In to Sync
               </button>
@@ -569,7 +569,7 @@ export default function ScholarshipHubPage() {
       </header>
 
       {/* Hero Banner Strip */}
-      <section className="border-b border-[#efe3cc] bg-[#8c2f39] text-white">
+      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -589,9 +589,9 @@ export default function ScholarshipHubPage() {
                 href="https://www.myscheme.gov.in/find-scheme"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#8c2f39] hover:bg-[#fbf5e9] shadow-sm flex items-center gap-1.5 transition border border-white/90"
+                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#0d3e2e] hover:bg-[#fbf5e9] shadow-sm flex items-center gap-1.5 transition border border-white/90"
               >
-                <Sparkles size={16} className="text-[#8c2f39]" /> Find Your Scheme (myScheme) <ExternalLink size={14} />
+                <Sparkles size={16} className="text-[#0d3e2e]" /> Find Your Scheme (myScheme) <ExternalLink size={14} />
               </a>
               <button
                 onClick={() => setActiveTab('research')}
@@ -616,7 +616,7 @@ export default function ScholarshipHubPage() {
                 onClick={() => setActiveTab(id)}
                 className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-3 py-2 font-sans text-[12px] sm:text-[13px] font-semibold transition ${
                   isActive
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#2b2118]'
                 }`}
               >
@@ -694,7 +694,7 @@ export default function ScholarshipHubPage() {
                     placeholder="Search by scholarship name, Tamil name, department, or keyword (e.g. Pudhumai Penn, BC Post-Matric, Pragati)..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                    className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                   />
                 </div>
 
@@ -835,7 +835,7 @@ export default function ScholarshipHubPage() {
                 </p>
                 <button
                   onClick={() => setActiveTab('all')}
-                  className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824]"
+                  className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#08261c]"
                 >
                   <Search size={15} /> Explore All Scholarships
                 </button>
@@ -962,7 +962,7 @@ export default function ScholarshipHubPage() {
           <div className="pt-2">
             <button
               onClick={() => setDiagnosticsModalOpen(true)}
-              className="font-mono text-[11px] text-[#8c2f39] hover:underline inline-flex items-center gap-1"
+              className="font-mono text-[11px] text-[#0d3e2e] hover:underline inline-flex items-center gap-1"
             >
               <Activity size={12} />
               <span>Autonomous Connector Telemetry & Source Status</span>

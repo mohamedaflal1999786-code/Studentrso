@@ -117,7 +117,7 @@ function AdmissionsCentreContent() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#8c2f39] hover:underline"
+              className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:underline"
             >
               <ArrowLeft size={16} />
               <span>Back to Student RSO</span>
@@ -142,7 +142,7 @@ function AdmissionsCentreContent() {
 
             {user ? (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
-                <User size={14} className="text-[#8c2f39]" />
+                <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
             ) : (
@@ -152,7 +152,7 @@ function AdmissionsCentreContent() {
                   setAuthMode('login');
                   setAuthOpen(true);
                 }}
-                className="rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824] transition cursor-pointer"
+                className="rounded-lg bg-[#0d3e2e] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c] transition cursor-pointer"
               >
                 Sign In
               </button>
@@ -162,7 +162,7 @@ function AdmissionsCentreContent() {
       </header>
 
       {/* Hero Banner Strip */}
-      <section className="border-b border-[#efe3cc] bg-[#8c2f39] text-white">
+      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -181,7 +181,7 @@ function AdmissionsCentreContent() {
               <button
                 type="button"
                 onClick={() => handleTabChange('admission-guidance')}
-                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#8c2f39] hover:bg-[#f6ede0] shadow-sm flex items-center gap-1.5 cursor-pointer"
+                className="rounded-xl bg-white px-4 py-2.5 font-sans text-[13px] font-bold text-[#0d3e2e] hover:bg-[#f6ede0] shadow-sm flex items-center gap-1.5 cursor-pointer"
               >
                 <GraduationCap size={16} /> Explore Pathways
               </button>
@@ -211,11 +211,11 @@ function AdmissionsCentreContent() {
                 onClick={() => handleTabChange(tab.id)}
                 className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl font-sans text-[13px] font-bold whitespace-nowrap transition cursor-pointer ${
                   isActive
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-white border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#2b2118]'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#8c2f39]'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#0d3e2e]'}`} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -260,7 +260,7 @@ function AdmissionsCentreContent() {
           {activeTab === 'help-guidance' && (
             <div className="p-6 rounded-3xl bg-white border border-[#efe3cc] space-y-6 text-xs sm:text-sm text-[#2b2118]">
               <div className="space-y-2">
-                <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#8c2f39]">
+                <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#0d3e2e]">
                   Student Help, Grievance Resolution &amp; Official Department Directory
                 </h2>
                 <p className="text-xs text-[#7a6a5a]">
@@ -271,7 +271,7 @@ function AdmissionsCentreContent() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2 text-xs">
-                  <span className="font-bold text-[#8c2f39] block uppercase">
+                  <span className="font-bold text-[#0d3e2e] block uppercase">
                     1. DIRECTORATE OF TECHNICAL EDUCATION (DOTE)
                   </span>
                   <p className="text-[#7a6a5a]">
@@ -281,7 +281,7 @@ function AdmissionsCentreContent() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2 text-xs">
-                  <span className="font-bold text-[#8c2f39] block uppercase">
+                  <span className="font-bold text-[#0d3e2e] block uppercase">
                     2. DIRECTORATE OF COLLEGIATE EDUCATION (DCE)
                   </span>
                   <p className="text-[#7a6a5a]">
@@ -291,7 +291,7 @@ function AdmissionsCentreContent() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2 text-xs">
-                  <span className="font-bold text-[#8c2f39] block uppercase">
+                  <span className="font-bold text-[#0d3e2e] block uppercase">
                     3. UGC E-SAMADHAAN STUDENT PORTAL
                   </span>
                   <p className="text-[#7a6a5a]">
@@ -301,7 +301,7 @@ function AdmissionsCentreContent() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2 text-xs">
-                  <span className="font-bold text-[#8c2f39] block uppercase">
+                  <span className="font-bold text-[#0d3e2e] block uppercase">
                     4. TAMIL NADU CM HELPLINE
                   </span>
                   <p className="text-[#7a6a5a]">
@@ -359,8 +359,8 @@ export default function AdmissionsPage() {
       fallback={
         <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center p-8">
           <div className="text-center space-y-3">
-            <div className="w-10 h-10 border-4 border-[#8c2f39] border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="font-serif text-lg font-bold text-[#8c2f39]">Loading Admission Centre...</p>
+            <div className="w-10 h-10 border-4 border-[#0d3e2e] border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="font-serif text-lg font-bold text-[#0d3e2e]">Loading Admission Centre...</p>
           </div>
         </div>
       }

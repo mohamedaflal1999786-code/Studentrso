@@ -168,7 +168,7 @@ export function AdmissionTrackerSection() {
             resetForm();
             setIsAdding(!isAdding);
           }}
-          className="px-4 py-2.5 rounded-2xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition text-xs font-bold flex items-center gap-1.5 shadow-xs cursor-pointer"
+          className="px-4 py-2.5 rounded-2xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition text-xs font-bold flex items-center gap-1.5 shadow-xs cursor-pointer"
         >
           {isAdding ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
           <span>{isAdding ? 'Cancel' : 'Track New Application'}</span>
@@ -189,7 +189,7 @@ export function AdmissionTrackerSection() {
           onSubmit={handleCreateApplication}
           className="p-5 sm:p-6 rounded-3xl bg-white border border-[#efe3cc] shadow-sm space-y-4 animate-slide-up"
         >
-          <h3 className="font-serif text-base font-bold text-[#8c2f39]">Add Application to Tracker</h3>
+          <h3 className="font-serif text-base font-bold text-[#0d3e2e]">Add Application to Tracker</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
             <div>
@@ -200,7 +200,7 @@ export function AdmissionTrackerSection() {
                 value={processName}
                 onChange={(e) => setProcessName(e.target.value)}
                 placeholder="Enter counseling process or application title"
-                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               />
             </div>
 
@@ -212,7 +212,7 @@ export function AdmissionTrackerSection() {
                 value={courseApplied}
                 onChange={(e) => setCourseApplied(e.target.value)}
                 placeholder="Enter course or branch"
-                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               />
             </div>
 
@@ -223,7 +223,7 @@ export function AdmissionTrackerSection() {
                 value={authority}
                 onChange={(e) => setAuthority(e.target.value)}
                 placeholder="Enter college, university, or counseling authority"
-                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               />
             </div>
 
@@ -234,7 +234,7 @@ export function AdmissionTrackerSection() {
                 value={referenceNumber}
                 onChange={(e) => setReferenceNumber(e.target.value)}
                 placeholder="Enter application reference number"
-                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               />
             </div>
 
@@ -243,7 +243,7 @@ export function AdmissionTrackerSection() {
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as ApplicationStatus)}
-                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] bg-white font-medium focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] bg-white font-medium focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               >
                 {APPLICATION_STATUSES.map((st) => (
                   <option key={st} value={st}>
@@ -260,7 +260,7 @@ export function AdmissionTrackerSection() {
                 value={counsellingDate}
                 onChange={(e) => setCounsellingDate(e.target.value)}
                 placeholder="e.g. 2026-07-15"
-                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
               />
             </div>
           </div>
@@ -272,7 +272,7 @@ export function AdmissionTrackerSection() {
               value={nextAction}
               onChange={(e) => setNextAction(e.target.value)}
               placeholder="e.g. Download tentative allotment order and report to college"
-              className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] text-xs focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+              className="w-full px-3 py-2 rounded-xl border border-[#efe3cc] text-xs focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
             />
           </div>
 
@@ -286,7 +286,7 @@ export function AdmissionTrackerSection() {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl bg-[#8c2f39] text-white text-xs font-bold hover:bg-[#6d1824] shadow-xs"
+              className="px-5 py-2 rounded-xl bg-[#0d3e2e] text-white text-xs font-bold hover:bg-[#08261c] shadow-xs"
             >
               Save Application
             </button>
@@ -313,7 +313,7 @@ export function AdmissionTrackerSection() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="space-y-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-[#8c2f39]">
+                    <span className="font-mono text-xs font-bold text-[#0d3e2e]">
                       Ref: {app.referenceNumber}
                     </span>
                     <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-bold text-[#7a6a5a]">
@@ -332,7 +332,7 @@ export function AdmissionTrackerSection() {
                   <select
                     value={app.status}
                     onChange={(e) => handleStatusChange(app.id, e.target.value as ApplicationStatus)}
-                    className="px-3 py-1.5 rounded-xl border border-[#efe3cc] bg-[#fdfbf6] text-xs font-bold text-[#8c2f39] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+                    className="px-3 py-1.5 rounded-xl border border-[#efe3cc] bg-[#fdfbf6] text-xs font-bold text-[#0d3e2e] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
                   >
                     {APPLICATION_STATUSES.map((st) => (
                       <option key={st} value={st}>
@@ -344,7 +344,7 @@ export function AdmissionTrackerSection() {
                   <button
                     type="button"
                     onClick={() => handleDelete(app.id)}
-                    className="p-2 rounded-xl text-[#7a6a5a] hover:bg-[#efe3cc]/50 hover:text-[#8c2f39] transition"
+                    className="p-2 rounded-xl text-[#7a6a5a] hover:bg-[#efe3cc]/50 hover:text-[#0d3e2e] transition"
                     title="Remove record"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -356,7 +356,7 @@ export function AdmissionTrackerSection() {
               <div className="p-3.5 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
                 <div>
                   <span className="font-bold text-[#2b2118]">Next Action: </span>
-                  <span className="text-[#8c2f39] font-medium">{app.nextAction}</span>
+                  <span className="text-[#0d3e2e] font-medium">{app.nextAction}</span>
                 </div>
                 <div className="flex items-center gap-3 text-[#7a6a5a] text-[11px]">
                   <span>Counselling: <strong>{app.counsellingDate}</strong></span>

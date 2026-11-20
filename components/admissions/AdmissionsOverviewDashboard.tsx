@@ -61,7 +61,7 @@ export function AdmissionsOverviewDashboard({
       {/* Hero Banner with Stat Badges */}
       <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#fdfbf6] via-[#fbf5e9] to-[#efe3cc]/50 border border-[#efe3cc] shadow-xs space-y-4">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[11px] text-[#8c2f39] font-bold">
+          <span className="px-3 py-1 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[11px] text-[#0d3e2e] font-bold">
             MODULE 06 • FULLY FUNCTIONAL
           </span>
           <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 font-mono text-[11px] text-emerald-800 font-bold flex items-center gap-1.5">
@@ -97,7 +97,7 @@ export function AdmissionsOverviewDashboard({
             <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#e0a526] block">
               OFFICIAL PORTALS
             </span>
-            <span className="font-serif text-2xl font-bold text-[#8c2f39]">
+            <span className="font-serif text-2xl font-bold text-[#0d3e2e]">
               {OFFICIAL_PORTALS_DIRECTORY.length} Portals
             </span>
             <span className="text-[11px] text-[#7a6a5a] block">Verified .gov.in &amp; .ac.in</span>
@@ -122,7 +122,7 @@ export function AdmissionsOverviewDashboard({
       {/* Emergency Continuity Notice */}
       <div className="p-4 sm:p-5 rounded-2xl bg-[#fdfbf6] border-2 border-dashed border-[#d8c7ad] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#8c2f39] text-white flex items-center justify-center shrink-0 mt-0.5">
+          <div className="w-10 h-10 rounded-xl bg-[#0d3e2e] text-white flex items-center justify-center shrink-0 mt-0.5">
             <AlertTriangle className="w-5 h-5 text-[#e0a526]" />
           </div>
           <div className="space-y-0.5">
@@ -138,7 +138,7 @@ export function AdmissionsOverviewDashboard({
         <button
           type="button"
           onClick={() => onNavigateTab('break-study-reentry')}
-          className="px-4 py-2 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition text-xs font-bold whitespace-nowrap shadow-xs cursor-pointer"
+          className="px-4 py-2 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition text-xs font-bold whitespace-nowrap shadow-xs cursor-pointer"
         >
           View Continuity &amp; Re-entry Options &rarr;
         </button>
@@ -154,14 +154,14 @@ export function AdmissionsOverviewDashboard({
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder="Search by course, college type, authority (e.g. TNEA, TNGASA, Lateral Entry, MBBS, Transfer, PhD)..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-[#efe3cc] text-xs sm:text-sm text-[#2b2118] placeholder-[#7a6a5a]/70 focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20"
+              className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-[#efe3cc] text-xs sm:text-sm text-[#2b2118] placeholder-[#7a6a5a]/70 focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
             />
           </div>
 
           <button
             type="button"
             onClick={() => onNavigateTab('admission-guidance')}
-            className="px-4 py-2.5 rounded-2xl bg-white border border-[#efe3cc] text-xs font-bold text-[#8c2f39] hover:bg-[#fbf5e9] transition flex items-center justify-center gap-1.5"
+            className="px-4 py-2.5 rounded-2xl bg-white border border-[#efe3cc] text-xs font-bold text-[#0d3e2e] hover:bg-[#fbf5e9] transition flex items-center justify-center gap-1.5"
           >
             <span>Explore All Pathways</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -180,8 +180,8 @@ export function AdmissionsOverviewDashboard({
                 onClick={() => onSelectStage(stg.id)}
                 className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
                   isSelected
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
-                    : 'bg-white border border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9] hover:text-[#8c2f39]'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
+                    : 'bg-white border border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9] hover:text-[#0d3e2e]'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5 shrink-0" />
@@ -213,7 +213,7 @@ export function AdmissionsOverviewDashboard({
           <button
             type="button"
             onClick={() => onNavigateTab('govt-portals')}
-            className="text-xs font-bold text-[#8c2f39] hover:underline flex items-center gap-1"
+            className="text-xs font-bold text-[#0d3e2e] hover:underline flex items-center gap-1"
           >
             <span>View All Portals</span> &rarr;
           </button>
@@ -235,13 +235,13 @@ export function AdmissionsOverviewDashboard({
                   </span>
                 </div>
 
-                <h3 className="font-serif text-base sm:text-lg font-bold text-[#2b2118] group-hover:text-[#8c2f39] transition leading-snug">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-[#2b2118] group-hover:text-[#0d3e2e] transition leading-snug">
                   {p.title}
                 </h3>
                 <p className="text-xs text-[#7a6a5a] line-clamp-2 leading-relaxed">{p.description}</p>
 
                 <div className="flex items-center gap-2 text-xs font-medium text-[#7a6a5a] pt-1">
-                  <Building className="w-3.5 h-3.5 text-[#8c2f39] shrink-0" />
+                  <Building className="w-3.5 h-3.5 text-[#0d3e2e] shrink-0" />
                   <span className="truncate">{p.authority}</span>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export function AdmissionsOverviewDashboard({
                 <button
                   type="button"
                   onClick={() => onSelectPathway(p)}
-                  className="flex-1 py-2 px-3 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                  className="flex-1 py-2 px-3 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
                   <span>View Full Procedure</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -259,7 +259,7 @@ export function AdmissionsOverviewDashboard({
                   href={p.portalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2 px-3 rounded-xl border border-[#d8c7ad] bg-[#fbf5e9] hover:bg-[#f6ede0] text-[#8c2f39] text-xs font-bold transition flex items-center gap-1 cursor-pointer"
+                  className="py-2 px-3 rounded-xl border border-[#d8c7ad] bg-[#fbf5e9] hover:bg-[#f6ede0] text-[#0d3e2e] text-xs font-bold transition flex items-center gap-1 cursor-pointer"
                 >
                   <span>Portal</span>
                   <ExternalLink className="w-3 h-3" />

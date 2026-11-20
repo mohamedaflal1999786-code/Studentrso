@@ -164,7 +164,7 @@ function AuthCallbackContent() {
           />
           <div className="h-7 w-px bg-[#d8c7ad]" />
           <div className="flex flex-col text-left">
-            <span className="font-serif text-lg font-bold text-[#8c2f39] italic leading-tight">
+            <span className="font-serif text-lg font-bold text-[#0d3e2e] italic leading-tight">
               Student RSO
             </span>
             <span className="font-mono text-[8px] uppercase tracking-widest text-[#7a6a5a] font-semibold">
@@ -175,7 +175,7 @@ function AuthCallbackContent() {
 
         {status === 'loading' && (
           <div className="space-y-4">
-            <Loader2 size={40} className="mx-auto animate-spin text-[#8c2f39]" />
+            <Loader2 size={40} className="mx-auto animate-spin text-[#0d3e2e]" />
             <h2 className="font-serif text-xl font-bold text-[#2b2118]">
               Verifying Student Session...
             </h2>
@@ -201,7 +201,7 @@ function AuthCallbackContent() {
 
         {status === 'error' && (
           <div className="space-y-4">
-            <div className="w-14 h-14 rounded-full bg-red-100 text-[#8c2f39] flex items-center justify-center mx-auto shadow-xs">
+            <div className="w-14 h-14 rounded-full bg-red-100 text-[#0d3e2e] flex items-center justify-center mx-auto shadow-xs">
               <AlertCircle size={32} />
             </div>
             <h2 className="font-serif text-xl font-bold text-[#2b2118]">
@@ -212,7 +212,7 @@ function AuthCallbackContent() {
               <button
                 type="button"
                 onClick={() => router.push('/auth')}
-                className="w-full py-2.5 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                className="w-full py-2.5 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
                 <ArrowLeft size={14} />
                 <span>Return to Sign In</span>
@@ -237,7 +237,7 @@ export default function AuthCallbackPage() {
     <Suspense
       fallback={
         <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9]">
-          <Loader2 size={36} className="animate-spin text-[#8c2f39]" />
+          <Loader2 size={36} className="animate-spin text-[#0d3e2e]" />
         </div>
       }
     >

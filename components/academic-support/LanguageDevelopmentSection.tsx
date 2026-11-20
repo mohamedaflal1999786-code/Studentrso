@@ -79,7 +79,7 @@ export function LanguageDevelopmentSection() {
     <div className="space-y-6 sm:space-y-8 font-sans">
       {/* Header Banner */}
       <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold uppercase">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold uppercase">
           COMMUNICATION MASTERY
         </div>
         <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2b2118]">
@@ -97,7 +97,7 @@ export function LanguageDevelopmentSection() {
             className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-4 flex flex-col justify-between"
           >
             <div className="space-y-3">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold">
                 {track.level}
               </span>
 
@@ -111,7 +111,7 @@ export function LanguageDevelopmentSection() {
 
               {/* Daily Habits */}
               <div className="space-y-1.5 pt-2 border-t border-[#efe3cc]/60">
-                <span className="text-[11px] font-bold text-[#8c2f39] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#0d3e2e] uppercase tracking-wider block">
                   Actionable Daily Practice Habits
                 </span>
                 <ul className="space-y-1.5">
@@ -136,10 +136,10 @@ export function LanguageDevelopmentSection() {
                   href={plat.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#8c2f39] transition flex items-center justify-between text-xs font-semibold text-[#2b2118]"
+                  className="p-2.5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#0d3e2e] transition flex items-center justify-between text-xs font-semibold text-[#2b2118]"
                 >
                   <span>{plat.title} ({plat.platform})</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#8c2f39]" />
+                  <ExternalLink className="w-3.5 h-3.5 text-[#0d3e2e]" />
                 </a>
               ))}
             </div>

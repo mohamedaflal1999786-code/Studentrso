@@ -98,11 +98,11 @@ export function StudentProfileModal({
         {/* Header */}
         <div className="flex items-start justify-between border-b border-[#efe3cc] pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] flex items-center justify-center">
               <User className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-xl font-serif font-bold text-[#8c2f39]">
+              <h3 className="text-xl font-serif font-bold text-[#0d3e2e]">
                 Student Learning Profile
               </h3>
               <p className="text-xs text-[#7a6a5a]">
@@ -131,7 +131,7 @@ export function StudentProfileModal({
               onChange={(e) =>
                 setFormData({ ...formData, educationLevel: e.target.value as EducationLevel })
               }
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               {levels.map((lvl) => (
                 <option key={lvl} value={lvl}>
@@ -152,7 +152,7 @@ export function StudentProfileModal({
                 placeholder="Enter degree or standard"
                 value={formData.currentCourse || ''}
                 onChange={(e) => setFormData({ ...formData, currentCourse: e.target.value })}
-                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
               />
             </div>
 
@@ -165,7 +165,7 @@ export function StudentProfileModal({
                 placeholder="Enter stream or core subjects"
                 value={formData.streamOrSubject || ''}
                 onChange={(e) => setFormData({ ...formData, streamOrSubject: e.target.value })}
-                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
               />
             </div>
           </div>
@@ -179,7 +179,7 @@ export function StudentProfileModal({
               <select
                 value={formData.institutionType || 'Government'}
                 onChange={(e) => setFormData({ ...formData, institutionType: e.target.value as any })}
-                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
               >
                 <option value="Government">Government Institution</option>
                 <option value="Government-Aided">Government-Aided College</option>
@@ -197,7 +197,7 @@ export function StudentProfileModal({
                 type="text"
                 value={formData.state || 'Tamil Nadu'}
                 onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+                className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
               />
             </div>
           </div>
@@ -212,7 +212,7 @@ export function StudentProfileModal({
               onChange={(e) =>
                 setFormData({ ...formData, preferredLearningStyle: e.target.value as any })
               }
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             >
               <option value="Step-by-step">Step-by-Step with Sequential Steps</option>
               <option value="Visual & Examples">Concept-Driven with Practical Examples</option>
@@ -231,7 +231,7 @@ export function StudentProfileModal({
               placeholder="Enter primary career or education goal"
               value={formData.educationGoals || ''}
               onChange={(e) => setFormData({ ...formData, educationGoals: e.target.value })}
-              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/30"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl bg-white border border-[#efe3cc] text-[#2b2118] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/30"
             />
           </div>
 
@@ -264,7 +264,7 @@ export function StudentProfileModal({
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 text-xs font-bold rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition shadow-sm flex items-center gap-1.5"
+                className="px-5 py-2 text-xs font-bold rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition shadow-sm flex items-center gap-1.5"
               >
                 {savedSuccess ? (
                   <>

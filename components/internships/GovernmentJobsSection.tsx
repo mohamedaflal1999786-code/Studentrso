@@ -38,7 +38,7 @@ export function GovernmentJobsSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Building size={14} /> OFFICIAL PUBLIC COMMISSIONS &amp; BOARDS
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -61,13 +61,13 @@ export function GovernmentJobsSection({
               href={b.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#8c2f39] transition group flex items-start justify-between"
+              className="p-3 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] hover:border-[#0d3e2e] transition group flex items-start justify-between"
             >
               <div>
-                <p className="text-xs font-bold text-[#2b2118] group-hover:text-[#8c2f39]">{b.name}</p>
+                <p className="text-xs font-bold text-[#2b2118] group-hover:text-[#0d3e2e]">{b.name}</p>
                 <p className="text-[10px] text-[#7a6a5a]">{b.desc}</p>
               </div>
-              <ExternalLink size={13} className="text-[#8c2f39] shrink-0 mt-0.5" />
+              <ExternalLink size={13} className="text-[#0d3e2e] shrink-0 mt-0.5" />
             </a>
           ))}
         </div>

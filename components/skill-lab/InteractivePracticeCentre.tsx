@@ -125,7 +125,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
               onClick={() => setActiveTool(t.id as any)}
               className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg px-3.5 py-2 font-sans text-[12px] sm:text-[13px] font-semibold transition cursor-pointer ${
                 isActive
-                  ? 'bg-[#8c2f39] text-white shadow-xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-xs'
                   : 'text-[#7a6a5a] hover:bg-[#f6ede0] hover:text-[#2b2118]'
               }`}
             >
@@ -155,7 +155,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                 type="text"
                 value={candidateName}
                 onChange={(e) => setCandidateName(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
               />
             </div>
 
@@ -168,7 +168,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                   type="text"
                   value={degree}
                   onChange={(e) => setDegree(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
                 />
               </div>
 
@@ -180,7 +180,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                   type="text"
                   value={college}
                   onChange={(e) => setCollege(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                 type="text"
                 value={primarySkill}
                 onChange={(e) => setPrimarySkill(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
               />
             </div>
 
@@ -206,7 +206,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                   type="text"
                   value={projectTitle}
                   onChange={(e) => setProjectTitle(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
                 />
               </div>
 
@@ -218,7 +218,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                   type="text"
                   value={projectMetric}
                   onChange={(e) => setProjectMetric(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
                 />
               </div>
             </div>
@@ -232,7 +232,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                   type="text"
                   value={targetCompany}
                   onChange={(e) => setTargetCompany(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
                 />
               </div>
 
@@ -244,7 +244,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                   type="text"
                   value={targetRole}
                   onChange={(e) => setTargetRole(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#8c2f39] focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-[#fdfbf6] focus:border-[#0d3e2e] focus:outline-none"
                 />
               </div>
             </div>
@@ -253,13 +253,13 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
           <div className="lg:col-span-6 bg-[#fbf5e9] p-5 rounded-xl border border-[#efe3cc] flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#efe3cc] mb-3">
-                <span className="font-mono text-[11px] uppercase font-bold text-[#8c2f39]">
+                <span className="font-mono text-[11px] uppercase font-bold text-[#0d3e2e]">
                   YOUR 90-SECOND SPOKEN SELF-INTRODUCTION SCRIPT
                 </span>
                 <button
                   type="button"
                   onClick={() => handleCopy(generatedSelfIntro, 'self-intro')}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#efe3cc] text-[#8c2f39] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#efe3cc] text-[#0d3e2e] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
                 >
                   {copiedKey === 'self-intro' ? <Check size={14} className="text-emerald-700" /> : <Copy size={14} />}
                   <span>{copiedKey === 'self-intro' ? 'Copied!' : 'Copy Script'}</span>
@@ -283,7 +283,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
       {activeTool === 'grammar-quiz' && (
         <div className="mt-6 space-y-5">
           <div className="p-4 rounded-xl bg-white border border-[#efe3cc]">
-            <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block mb-1">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block mb-1">
               DIAGNOSTIC TEST · 3 ESSENTIAL PLACEMENT GRAMMAR RULES
             </span>
             <p className="font-sans text-[13px] text-[#7a6a5a]">
@@ -306,7 +306,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                       onClick={() => setQuizAnswers((prev) => ({ ...prev, [qIndex]: optIndex }))}
                       className={`w-full text-left p-3 rounded-lg border font-sans text-[13px] transition cursor-pointer flex items-start gap-2.5 ${
                         selected === optIndex
-                          ? 'border-[#8c2f39] bg-[#8c2f39]/5 font-semibold text-[#8c2f39]'
+                          ? 'border-[#0d3e2e] bg-[#0d3e2e]/5 font-semibold text-[#0d3e2e]'
                           : 'border-[#efe3cc] bg-[#fdfbf6] text-[#554a3f] hover:bg-[#f6ede0]'
                       }`}
                     >
@@ -335,7 +335,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
             <button
               type="button"
               onClick={() => setQuizScoreRevealed(!quizScoreRevealed)}
-              className="px-5 py-2.5 rounded-lg bg-[#8c2f39] text-white font-sans text-[13px] font-bold hover:bg-[#6d1824] transition cursor-pointer"
+              className="px-5 py-2.5 rounded-lg bg-[#0d3e2e] text-white font-sans text-[13px] font-bold hover:bg-[#08261c] transition cursor-pointer"
             >
               {quizScoreRevealed ? 'Hide Explanations' : 'Check Answers & Score'}
             </button>
@@ -357,15 +357,15 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-3">
               <div className="p-3 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[12px]">
-                <strong className="text-[#8c2f39] block mb-0.5">1. Quality Over Volume</strong>
+                <strong className="text-[#0d3e2e] block mb-0.5">1. Quality Over Volume</strong>
                 Speaking twice for 40 seconds with data is worth more than dominating for 3 minutes.
               </div>
               <div className="p-3 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[12px]">
-                <strong className="text-[#8c2f39] block mb-0.5">2. Diplomatic Disagreement</strong>
+                <strong className="text-[#0d3e2e] block mb-0.5">2. Diplomatic Disagreement</strong>
                 Say: &ldquo;I understand your point; however, looking at the costs...&rdquo; Never say: &ldquo;You are wrong.&rdquo;
               </div>
               <div className="p-3 rounded-lg bg-[#fbf5e9] border border-[#efe3cc] text-[12px]">
-                <strong className="text-[#8c2f39] block mb-0.5">3. Invite Silent Members</strong>
+                <strong className="text-[#0d3e2e] block mb-0.5">3. Invite Silent Members</strong>
                 Gain leadership points by bringing hesitant peers in: &ldquo;I would love to hear what Suresh thinks about this.&rdquo;
               </div>
             </div>
@@ -377,13 +377,13 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[13px]">
               <div className="p-3 rounded-lg bg-[#fdfbf6] border border-[#efe3cc]">
-                <strong className="text-[#8c2f39] block mb-1 font-mono text-[11px] uppercase">
+                <strong className="text-[#0d3e2e] block mb-1 font-mono text-[11px] uppercase">
                   When Entering the Discussion:
                 </strong>
                 &ldquo;Adding to what Priya rightly pointed out regarding mobile bandwidth...&rdquo;
               </div>
               <div className="p-3 rounded-lg bg-[#fdfbf6] border border-[#efe3cc]">
-                <strong className="text-[#8c2f39] block mb-1 font-mono text-[11px] uppercase">
+                <strong className="text-[#0d3e2e] block mb-1 font-mono text-[11px] uppercase">
                   When Bringing Back Focus:
                 </strong>
                 &ldquo;Friends, we seem to be straying into politics; let us refocus on our core theme of educational equity.&rdquo;
@@ -402,7 +402,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
               onClick={() => setResumeMode('resume')}
               className={`px-4 py-2 rounded-lg font-sans text-[13px] font-bold transition cursor-pointer ${
                 resumeMode === 'resume'
-                  ? 'bg-[#8c2f39] text-white'
+                  ? 'bg-[#0d3e2e] text-white'
                   : 'bg-white border border-[#efe3cc] text-[#554a3f] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -413,7 +413,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
               onClick={() => setResumeMode('cover-letter')}
               className={`px-4 py-2 rounded-lg font-sans text-[13px] font-bold transition cursor-pointer ${
                 resumeMode === 'cover-letter'
-                  ? 'bg-[#8c2f39] text-white'
+                  ? 'bg-[#0d3e2e] text-white'
                   : 'bg-white border border-[#efe3cc] text-[#554a3f] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -424,7 +424,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
           {resumeMode === 'resume' ? (
             <div className="p-5 rounded-xl bg-white border border-[#efe3cc] space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-[#efe3cc]">
-                <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39]">
+                <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e]">
                   ONE-PAGE CLEAN ATS MARKDOWN RESUME FORMAT
                 </span>
                 <button
@@ -435,7 +435,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                       'resume-text'
                     )
                   }
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#8c2f39] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#0d3e2e] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
                 >
                   {copiedKey === 'resume-text' ? <Check size={14} className="text-emerald-700" /> : <Copy size={14} />}
                   <span>{copiedKey === 'resume-text' ? 'Copied!' : 'Copy Template Markdown'}</span>
@@ -449,7 +449,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
           ) : (
             <div className="p-5 rounded-xl bg-white border border-[#efe3cc] space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-[#efe3cc]">
-                <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39]">
+                <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e]">
                   3-PARAGRAPH FRESHER COVER LETTER TEMPLATE
                 </span>
                 <button
@@ -460,7 +460,7 @@ What particularly excites me about ${targetCompany || '[Company Name]'} is your 
                       'cover-letter-text'
                     )
                   }
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#8c2f39] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#0d3e2e] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
                 >
                   {copiedKey === 'cover-letter-text' ? <Check size={14} className="text-emerald-700" /> : <Copy size={14} />}
                   <span>{copiedKey === 'cover-letter-text' ? 'Copied!' : 'Copy Cover Letter'}</span>
@@ -489,7 +489,7 @@ Sincerely,
       {activeTool === 'speech-builder' && (
         <div className="mt-6 p-5 rounded-xl bg-white border border-[#efe3cc] space-y-4">
           <div className="flex items-center gap-2">
-            <Mic size={18} className="text-[#8c2f39]" />
+            <Mic size={18} className="text-[#0d3e2e]" />
             <h3 className="font-serif text-[18px] font-bold text-[#2b2118]">
               The 5-Minute Speech Architect
             </h3>
@@ -497,7 +497,7 @@ Sincerely,
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-[13px]">
             <div className="p-4 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] space-y-2">
-              <span className="font-mono text-[11px] font-bold uppercase text-[#8c2f39] block">
+              <span className="font-mono text-[11px] font-bold uppercase text-[#0d3e2e] block">
                 PART 1: THE HOOK (60s)
               </span>
               <p className="text-[#554a3f] leading-relaxed">

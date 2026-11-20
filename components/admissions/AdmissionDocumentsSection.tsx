@@ -44,7 +44,7 @@ export function AdmissionDocumentsSection() {
         {/* Link to Module 03 */}
         <div className="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-[#fdfbf6] via-[#fbf5e9] to-[#efe3cc]/50 border border-[#efe3cc] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#8c2f39] text-white flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-2xl bg-[#0d3e2e] text-white flex items-center justify-center shrink-0">
               <FileCheck2 className="w-5 h-5 text-[#e0a526]" />
             </div>
             <div>
@@ -58,7 +58,7 @@ export function AdmissionDocumentsSection() {
           </div>
           <Link
             href="/certificates"
-            className="px-4 py-2 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] text-white text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap shadow-xs cursor-pointer"
+            className="px-4 py-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] text-white text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap shadow-xs cursor-pointer"
           >
             <span>Open Certificate Service</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -74,7 +74,7 @@ export function AdmissionDocumentsSection() {
               onClick={() => setFilterStage(stg)}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
                 filterStage === stg
-                  ? 'bg-[#8c2f39] text-white shadow-xs'
+                  ? 'bg-[#0d3e2e] text-white shadow-xs'
                   : 'bg-white border border-[#efe3cc] text-[#2b2118] hover:bg-[#fbf5e9]'
               }`}
             >
@@ -93,7 +93,7 @@ export function AdmissionDocumentsSection() {
           >
             <div className="space-y-2.5">
               <div className="flex items-center justify-between gap-2">
-                <span className="font-serif text-base font-bold text-[#8c2f39] leading-snug">
+                <span className="font-serif text-base font-bold text-[#0d3e2e] leading-snug">
                   {doc.name}
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#fbf5e9] border border-[#efe3cc] font-mono text-[10px] font-bold text-[#7a6a5a] shrink-0">
@@ -109,7 +109,7 @@ export function AdmissionDocumentsSection() {
               <div className="p-3 rounded-2xl bg-[#fbf5e9] border border-[#efe3cc] space-y-1.5 text-xs">
                 <div>
                   <span className="font-bold text-[#2b2118]">Issuing Authority: </span>
-                  <span className="text-[#8c2f39] font-medium">{doc.issuingAuthority}</span>
+                  <span className="text-[#0d3e2e] font-medium">{doc.issuingAuthority}</span>
                 </div>
                 <div>
                   <span className="font-bold text-[#2b2118]">Applicable Stages: </span>
@@ -130,7 +130,7 @@ export function AdmissionDocumentsSection() {
               <div className="pt-2 border-t border-[#efe3cc] flex justify-end">
                 <Link
                   href={doc.relatedModule03Link}
-                  className="text-xs font-bold text-[#8c2f39] hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-[#0d3e2e] hover:underline flex items-center gap-1"
                 >
                   <span>Apply on Module 03</span> &rarr;
                 </Link>

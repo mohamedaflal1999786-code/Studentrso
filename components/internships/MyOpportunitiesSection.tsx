@@ -65,7 +65,7 @@ export function MyOpportunitiesSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Bookmark size={14} /> APPLICANT WORKSPACE &amp; APPLICATION TIMELINE
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -75,7 +75,7 @@ export function MyOpportunitiesSection({
               Track all your government internships, corporate drives, NATS apprenticeships and job applications in one private workspace.
             </p>
           </div>
-          <span className="font-mono text-[11px] font-semibold text-[#8c2f39] bg-[#fbf5e9] border border-[#efe3cc] px-3 py-1 rounded-full">
+          <span className="font-mono text-[11px] font-semibold text-[#0d3e2e] bg-[#fbf5e9] border border-[#efe3cc] px-3 py-1 rounded-full">
             {trackedRecords.length} Saved Opportunities
           </span>
         </div>
@@ -86,7 +86,7 @@ export function MyOpportunitiesSection({
             onClick={() => setFilterStage('all')}
             className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
               filterStage === 'all'
-                ? 'bg-[#8c2f39] text-white shadow-2xs'
+                ? 'bg-[#0d3e2e] text-white shadow-2xs'
                 : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
             }`}
           >
@@ -100,7 +100,7 @@ export function MyOpportunitiesSection({
                 onClick={() => setFilterStage(stg)}
                 className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                   filterStage === stg
-                    ? 'bg-[#8c2f39] text-white shadow-2xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-2xs'
                     : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
                 }`}
               >
@@ -115,7 +115,7 @@ export function MyOpportunitiesSection({
       {filtered.length === 0 ? (
         <div className="p-12 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] text-center space-y-3">
           <Bookmark size={32} className="mx-auto text-[#7a6a5a]/50" />
-          <h3 className="font-serif text-lg font-bold text-[#8c2f39]">
+          <h3 className="font-serif text-lg font-bold text-[#0d3e2e]">
             No applications found in this stage.
           </h3>
           <p className="text-xs sm:text-sm text-[#7a6a5a] max-w-md mx-auto">
@@ -135,7 +135,7 @@ export function MyOpportunitiesSection({
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] px-2 py-0.5 rounded-full bg-[#8c2f39]/10 border border-[#8c2f39]/20">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] px-2 py-0.5 rounded-full bg-[#0d3e2e]/10 border border-[#0d3e2e]/20">
                         {item.category.replace('-', ' ')}
                       </span>
                       <span className="text-xs text-[#7a6a5a]">
@@ -155,7 +155,7 @@ export function MyOpportunitiesSection({
                       onChange={(e) =>
                         onUpdateStage(item.id, e.target.value as ApplicationStage)
                       }
-                      className="rounded-lg border border-[#d8c7ad] bg-white px-3 py-1.5 font-sans text-xs font-bold text-[#8c2f39] outline-none focus:border-[#8c2f39]"
+                      className="rounded-lg border border-[#d8c7ad] bg-white px-3 py-1.5 font-sans text-xs font-bold text-[#0d3e2e] outline-none focus:border-[#0d3e2e]"
                     >
                       {stages.map((stg) => (
                         <option key={stg} value={stg}>
@@ -186,7 +186,7 @@ export function MyOpportunitiesSection({
                           value={editRefNo}
                           onChange={(e) => setEditRefNo(e.target.value)}
                           placeholder="e.g. AICTE-2026-9812 or TNPSC-REG-77"
-                          className="w-full rounded-lg border border-[#d8c7ad] bg-white p-2 text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                          className="w-full rounded-lg border border-[#d8c7ad] bg-white p-2 text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                         />
                       </div>
                       <div className="space-y-1">
@@ -195,7 +195,7 @@ export function MyOpportunitiesSection({
                           type="date"
                           value={editInterviewDate}
                           onChange={(e) => setEditInterviewDate(e.target.value)}
-                          className="w-full rounded-lg border border-[#d8c7ad] bg-white p-2 text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                          className="w-full rounded-lg border border-[#d8c7ad] bg-white p-2 text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                         />
                       </div>
                     </div>
@@ -206,7 +206,7 @@ export function MyOpportunitiesSection({
                         value={editNotes}
                         onChange={(e) => setEditNotes(e.target.value)}
                         placeholder="e.g. Uploaded NOC on March 2nd. Next status check on Monday."
-                        className="w-full rounded-lg border border-[#d8c7ad] bg-white p-2 text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                        className="w-full rounded-lg border border-[#d8c7ad] bg-white p-2 text-[#2b2118] outline-none focus:border-[#0d3e2e]"
                       />
                     </div>
                     <div className="flex justify-end gap-2">
@@ -220,7 +220,7 @@ export function MyOpportunitiesSection({
                       <button
                         type="button"
                         onClick={() => handleSaveEdit(item)}
-                        className="rounded-lg bg-[#8c2f39] px-4 py-1.5 font-sans text-xs font-bold text-white hover:bg-[#6d1824] cursor-pointer"
+                        className="rounded-lg bg-[#0d3e2e] px-4 py-1.5 font-sans text-xs font-bold text-white hover:bg-[#08261c] cursor-pointer"
                       >
                         Save Tracking Details
                       </button>
@@ -238,7 +238,7 @@ export function MyOpportunitiesSection({
                       {item.interviewDate && (
                         <div>
                           <span className="text-[#7a6a5a] block text-[10px]">Interview / Exam:</span>
-                          <span className="font-bold text-[#8c2f39]">{item.interviewDate}</span>
+                          <span className="font-bold text-[#0d3e2e]">{item.interviewDate}</span>
                         </div>
                       )}
                       {item.notes && (
@@ -252,7 +252,7 @@ export function MyOpportunitiesSection({
                     <button
                       type="button"
                       onClick={() => handleStartEdit(item)}
-                      className="inline-flex items-center gap-1 font-sans text-xs text-[#8c2f39] font-semibold hover:underline cursor-pointer"
+                      className="inline-flex items-center gap-1 font-sans text-xs text-[#0d3e2e] font-semibold hover:underline cursor-pointer"
                     >
                       <Edit2 size={13} />
                       <span>{item.referenceNumber ? 'Edit Notes' : 'Add Ref No / Interview Date'}</span>
@@ -267,7 +267,7 @@ export function MyOpportunitiesSection({
                   </span>
                   <button
                     onClick={() => onOpenOfficialUrl(item.officialPortalUrl)}
-                    className="inline-flex items-center gap-1 font-sans font-bold text-[#8c2f39] hover:underline cursor-pointer"
+                    className="inline-flex items-center gap-1 font-sans font-bold text-[#0d3e2e] hover:underline cursor-pointer"
                   >
                     <span>Open Official Portal</span>
                     <ExternalLink size={13} />

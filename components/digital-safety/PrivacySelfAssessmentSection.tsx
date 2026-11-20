@@ -55,7 +55,7 @@ export function PrivacySelfAssessmentSection() {
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#efe3cc] pb-5">
         <div>
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             <Lock size={13} /> PRIVACY AUDIT ENGINE
           </div>
           <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#2b2118] mt-1.5">
@@ -70,7 +70,7 @@ export function PrivacySelfAssessmentSection() {
           <button
             type="button"
             onClick={handleReset}
-            className="rounded-lg border border-[#efe3cc] bg-white p-2 text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#8c2f39] transition cursor-pointer"
+            className="rounded-lg border border-[#efe3cc] bg-white p-2 text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#0d3e2e] transition cursor-pointer"
             title="Reset Self-Assessment"
           >
             <RotateCcw size={16} />
@@ -80,7 +80,7 @@ export function PrivacySelfAssessmentSection() {
 
       {/* Privacy Guarantee Notice */}
       <div className="mt-4 flex items-center gap-2 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] p-3 text-[#554a3f] font-sans text-[12px]">
-        <Info size={15} className="text-[#8c2f39] shrink-0" />
+        <Info size={15} className="text-[#0d3e2e] shrink-0" />
         <span>
           <strong>Zero-Knowledge Guarantee:</strong> This assessment processes 100% locally inside your browser. No personal identification, email addresses, or responses are ever saved or transmitted over the network.
         </span>
@@ -97,7 +97,7 @@ export function PrivacySelfAssessmentSection() {
               className="rounded-xl border border-[#efe3cc] bg-white p-5 shadow-xs"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                <span className="font-mono text-[10.5px] font-bold uppercase text-[#8c2f39] tracking-wider">
+                <span className="font-mono text-[10.5px] font-bold uppercase text-[#0d3e2e] tracking-wider">
                   QUESTION {qIndex + 1} • {q.category}
                 </span>
                 {selectedIdx !== undefined && (
@@ -122,14 +122,14 @@ export function PrivacySelfAssessmentSection() {
                       onClick={() => handleSelectOption(q.id, optIdx)}
                       className={`w-full text-left p-3.5 rounded-xl border font-sans text-[13px] transition cursor-pointer flex items-start gap-3 ${
                         isSelected
-                          ? 'border-[#8c2f39] bg-[#8c2f39]/5 text-[#8c2f39] font-medium shadow-xs'
-                          : 'border-[#efe3cc] bg-white text-[#554a3f] hover:border-[#8c2f39]/40 hover:bg-[#fdfbf6]'
+                          ? 'border-[#0d3e2e] bg-[#0d3e2e]/5 text-[#0d3e2e] font-medium shadow-xs'
+                          : 'border-[#efe3cc] bg-white text-[#554a3f] hover:border-[#0d3e2e]/40 hover:bg-[#fdfbf6]'
                       }`}
                     >
                       <span
                         className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full font-mono text-[10px] font-bold mt-0.5 ${
                           isSelected
-                            ? 'bg-[#8c2f39] text-white'
+                            ? 'bg-[#0d3e2e] text-white'
                             : 'bg-[#fbf5e9] border border-[#efe3cc] text-[#7a6a5a]'
                         }`}
                       >
@@ -155,7 +155,7 @@ export function PrivacySelfAssessmentSection() {
           type="button"
           disabled={answeredCount < totalQuestions}
           onClick={handleCalculate}
-          className="rounded-xl bg-[#8c2f39] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#6d1824] disabled:opacity-50 disabled:cursor-not-allowed shadow-xs cursor-pointer"
+          className="rounded-xl bg-[#0d3e2e] px-6 py-2.5 font-sans text-[13px] font-bold text-white transition hover:bg-[#08261c] disabled:opacity-50 disabled:cursor-not-allowed shadow-xs cursor-pointer"
         >
           Generate Privacy Report &amp; Score
         </button>
@@ -178,7 +178,7 @@ export function PrivacySelfAssessmentSection() {
               <span className="font-mono text-[10px] font-bold uppercase text-[#7a6a5a] block">
                 Total Defense Points
               </span>
-              <span className="font-mono text-[20px] font-bold text-[#8c2f39]">
+              <span className="font-mono text-[20px] font-bold text-[#0d3e2e]">
                 {totalPoints} / {maxPoints}
               </span>
             </div>

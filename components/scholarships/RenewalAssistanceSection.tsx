@@ -139,7 +139,7 @@ export function RenewalAssistanceSection({
   if (isLoading) {
     return (
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-12 text-center space-y-3">
-        <RefreshCw size={36} className="mx-auto animate-spin text-[#8c2f39]" />
+        <RefreshCw size={36} className="mx-auto animate-spin text-[#0d3e2e]" />
         <h3 className="font-serif text-[20px] font-bold text-[#2b2118]">
           Loading Renewal Assistance Data...
         </h3>
@@ -163,7 +163,7 @@ export function RenewalAssistanceSection({
         </p>
         <button
           onClick={() => window.location.reload()}
-          className="rounded-xl bg-[#8c2f39] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824]"
+          className="rounded-xl bg-[#0d3e2e] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#08261c]"
         >
           Retry Loading
         </button>
@@ -235,14 +235,14 @@ export function RenewalAssistanceSection({
                   </p>
                   <p>
                     <strong>Next Renewal Cycle:</strong>{' '}
-                    <span className="font-semibold text-[#8c2f39]">{renewal.academicYear}</span>
+                    <span className="font-semibold text-[#0d3e2e]">{renewal.academicYear}</span>
                   </p>
                 </div>
 
                 <div className="pt-2 border-t border-blue-100 flex items-center justify-between">
                   <button
                     onClick={() => onOpenDetails(prog)}
-                    className="font-sans text-[12px] font-bold text-[#8c2f39] hover:underline"
+                    className="font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline"
                   >
                     View Guidelines →
                   </button>
@@ -252,7 +252,7 @@ export function RenewalAssistanceSection({
                       href={renewal.portalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 rounded-lg bg-[#8c2f39] px-3 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824]"
+                      className="inline-flex items-center gap-1 rounded-lg bg-[#0d3e2e] px-3 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c]"
                     >
                       <span>Open Renewal Portal</span>
                       <ExternalLink size={12} />
@@ -299,7 +299,7 @@ export function RenewalAssistanceSection({
                 placeholder="Search renewal schemes by name, department, or provider..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2 pl-9 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2 pl-9 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -318,7 +318,7 @@ export function RenewalAssistanceSection({
                   onClick={() => setStatusFilter(st)}
                   className={`rounded-lg px-2.5 py-1.5 font-sans text-[12px] font-semibold whitespace-nowrap transition ${
                     statusFilter === st
-                      ? 'bg-[#8c2f39] text-white'
+                      ? 'bg-[#0d3e2e] text-white'
                       : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
                   }`}
                 >
@@ -344,7 +344,7 @@ export function RenewalAssistanceSection({
             {onBrowseAll && (
               <button
                 onClick={onBrowseAll}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[#8c2f39] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824] shadow-2xs"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#0d3e2e] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#08261c] shadow-2xs"
               >
                 <span>Browse All Scholarships</span>
                 <ArrowRight size={14} />
@@ -361,7 +361,7 @@ export function RenewalAssistanceSection({
                 <div className="space-y-3">
                   {/* Category & Status Header */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="rounded-full bg-[#f6ede0] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+                    <span className="rounded-full bg-[#f6ede0] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
                       {prog.category || 'Government Scheme'}
                     </span>
                     {getStatusBadge(renewal.status)}
@@ -380,7 +380,7 @@ export function RenewalAssistanceSection({
                   {/* Academic Cycle & Deadline */}
                   <div className="flex flex-wrap items-center gap-3 rounded-lg border border-[#efe3cc] bg-[#fbf5e9] p-2.5 font-sans text-[12px] text-[#554a3f]">
                     <div className="flex items-center gap-1">
-                      <Calendar size={13} className="text-[#8c2f39]" />
+                      <Calendar size={13} className="text-[#0d3e2e]" />
                       <span>
                         <strong>Eligible Cycle:</strong> {renewal.academicYear}
                       </span>
@@ -400,7 +400,7 @@ export function RenewalAssistanceSection({
                   {/* Academic Performance Requirement */}
                   <div className="rounded-xl border border-[#efe3cc] bg-white p-3 space-y-1 text-[12px]">
                     <div className="flex items-center gap-1.5 font-semibold text-[#2b2118]">
-                      <GraduationCap size={15} className="text-[#8c2f39]" />
+                      <GraduationCap size={15} className="text-[#0d3e2e]" />
                       <span>Required Academic Performance:</span>
                     </div>
                     <p className="text-[#554a3f] pl-5">{renewal.academicRequirement}</p>
@@ -430,7 +430,7 @@ export function RenewalAssistanceSection({
                           key={idx}
                           className="inline-flex items-center gap-1 rounded-md border border-[#efe3cc] bg-[#fbf5e9] px-2 py-0.5 text-[11px] text-[#554a3f]"
                         >
-                          <FileText size={11} className="text-[#8c2f39]" />
+                          <FileText size={11} className="text-[#0d3e2e]" />
                           {doc}
                         </span>
                       ))}
@@ -443,7 +443,7 @@ export function RenewalAssistanceSection({
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <button
                       onClick={() => onOpenDetails(prog)}
-                      className="font-sans text-[12px] font-bold text-[#8c2f39] hover:underline"
+                      className="font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline"
                     >
                       View Complete Scheme Rules →
                     </button>
@@ -453,7 +453,7 @@ export function RenewalAssistanceSection({
                         href={renewal.notificationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-sans text-[12px] font-semibold text-[#7a6a5a] hover:text-[#8c2f39] inline-flex items-center gap-1"
+                        className="font-sans text-[12px] font-semibold text-[#7a6a5a] hover:text-[#0d3e2e] inline-flex items-center gap-1"
                       >
                         <span>Official Notification</span>
                         <ExternalLink size={12} />
@@ -467,7 +467,7 @@ export function RenewalAssistanceSection({
                         href={renewal.portalUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#8c2f39] py-2 font-sans text-[13px] font-bold text-white transition hover:bg-[#6d1824] shadow-2xs"
+                        className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#0d3e2e] py-2 font-sans text-[13px] font-bold text-white transition hover:bg-[#08261c] shadow-2xs"
                       >
                         <span>Official Renewal Portal</span>
                         <ExternalLink size={13} />

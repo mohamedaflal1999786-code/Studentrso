@@ -71,54 +71,54 @@ export function InternshipOverviewDashboard({
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         <button
           onClick={() => onNavigateTab('government-internships')}
-          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#8c2f39] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
+          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#0d3e2e] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
         >
-          <Building size={20} className="text-[#8c2f39] mb-2 group-hover:scale-105 transition-transform" />
+          <Building size={20} className="text-[#0d3e2e] mb-2 group-hover:scale-105 transition-transform" />
           <div className="font-serif text-[15px] font-bold text-[#2b2118] line-clamp-1">Government</div>
           <div className="font-mono text-[11px] text-[#7a6a5a]">{counts.govInternships} Verified Openings</div>
         </button>
 
         <button
           onClick={() => onNavigateTab('private-internships')}
-          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#8c2f39] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
+          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#0d3e2e] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
         >
-          <Briefcase size={20} className="text-[#8c2f39] mb-2 group-hover:scale-105 transition-transform" />
+          <Briefcase size={20} className="text-[#0d3e2e] mb-2 group-hover:scale-105 transition-transform" />
           <div className="font-serif text-[15px] font-bold text-[#2b2118] line-clamp-1">Private Firms</div>
           <div className="font-mono text-[11px] text-[#7a6a5a]">{counts.pvtInternships} Verified Openings</div>
         </button>
 
         <button
           onClick={() => onNavigateTab('apprenticeships')}
-          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#8c2f39] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
+          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#0d3e2e] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
         >
-          <GraduationCap size={20} className="text-[#8c2f39] mb-2 group-hover:scale-105 transition-transform" />
+          <GraduationCap size={20} className="text-[#0d3e2e] mb-2 group-hover:scale-105 transition-transform" />
           <div className="font-serif text-[15px] font-bold text-[#2b2118] line-clamp-1">Apprenticeship</div>
           <div className="font-mono text-[11px] text-[#7a6a5a]">NATS &amp; NAPS Portals</div>
         </button>
 
         <button
           onClick={() => onNavigateTab('skill-development')}
-          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#8c2f39] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
+          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#0d3e2e] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
         >
-          <Award size={20} className="text-[#8c2f39] mb-2 group-hover:scale-105 transition-transform" />
+          <Award size={20} className="text-[#0d3e2e] mb-2 group-hover:scale-105 transition-transform" />
           <div className="font-serif text-[15px] font-bold text-[#2b2118] line-clamp-1">Skills &amp; Training</div>
           <div className="font-mono text-[11px] text-[#7a6a5a]">Naan Mudhalvan &amp; NSDC</div>
         </button>
 
         <button
           onClick={() => onNavigateTab('employment-exchange')}
-          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#8c2f39] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
+          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#0d3e2e] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
         >
-          <Layers size={20} className="text-[#8c2f39] mb-2 group-hover:scale-105 transition-transform" />
+          <Layers size={20} className="text-[#0d3e2e] mb-2 group-hover:scale-105 transition-transform" />
           <div className="font-serif text-[15px] font-bold text-[#2b2118] line-clamp-1">TN Velaivaaippu</div>
           <div className="font-mono text-[11px] text-[#7a6a5a]">Employment Card Reg.</div>
         </button>
 
         <button
           onClick={() => onNavigateTab('government-jobs')}
-          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#8c2f39] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
+          className="p-4 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] hover:border-[#0d3e2e] text-left transition shadow-[0_2px_12px_rgba(43,33,24,0.04)] group cursor-pointer"
         >
-          <Sparkles size={20} className="text-[#8c2f39] mb-2 group-hover:scale-105 transition-transform" />
+          <Sparkles size={20} className="text-[#0d3e2e] mb-2 group-hover:scale-105 transition-transform" />
           <div className="font-serif text-[15px] font-bold text-[#2b2118] line-clamp-1">Jobs Directory</div>
           <div className="font-mono text-[11px] text-[#7a6a5a]">Govt &amp; Private Roles</div>
         </button>
@@ -127,7 +127,7 @@ export function InternshipOverviewDashboard({
       {/* Search & Smart Filter Bar (Matching Module 01/02 Directory Search Box) */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div>
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
             <Search size={14} /> DIRECT SEARCH &amp; COHORT FILTER
           </div>
           <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -146,7 +146,7 @@ export function InternshipOverviewDashboard({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by title, department, organisation, location, course, or skills (e.g. B.Sc, AICTE, ISRO, Chennai)..."
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2.5 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white py-2.5 pl-10 pr-4 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -168,7 +168,7 @@ export function InternshipOverviewDashboard({
                   onClick={() => setSelectedCohort(c.id)}
                   className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold transition cursor-pointer ${
                     selectedCohort === c.id
-                      ? 'bg-[#8c2f39] text-white shadow-2xs'
+                      ? 'bg-[#0d3e2e] text-white shadow-2xs'
                       : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
                   }`}
                 >
@@ -183,7 +183,7 @@ export function InternshipOverviewDashboard({
                 onClick={() => setSelectedPaid('all')}
                 className={`rounded-lg px-3 py-1.5 font-sans text-[12px] font-semibold cursor-pointer transition ${
                   selectedPaid === 'all'
-                    ? 'bg-[#8c2f39] text-white shadow-2xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-2xs'
                     : 'bg-[#fbf5e9] text-[#7a6a5a] hover:bg-[#f6ede0]'
                 }`}
               >
@@ -222,7 +222,7 @@ export function InternshipOverviewDashboard({
 
         {filteredList.length === 0 ? (
           <div className="p-10 rounded-2xl bg-[#fdfbf6] border border-[#efe3cc] text-center space-y-2">
-            <p className="font-serif text-lg font-bold text-[#8c2f39]">No opportunities match your filter.</p>
+            <p className="font-serif text-lg font-bold text-[#0d3e2e]">No opportunities match your filter.</p>
             <p className="text-xs sm:text-sm text-[#7a6a5a]">
               Try searching with broader terms or resetting your cohort filter.
             </p>

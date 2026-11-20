@@ -38,7 +38,7 @@ export function ApprenticeshipSection({
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <GraduationCap size={14} /> APPRENTICES ACT 1961 STATUTORY TRAINING
             </div>
             <h2 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -57,12 +57,12 @@ export function ApprenticeshipSection({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-[#efe3cc]">
           <div className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold text-[#8c2f39]">NATS 2.0 (Higher Education)</span>
+              <span className="font-mono text-xs font-bold text-[#0d3e2e]">NATS 2.0 (Higher Education)</span>
               <a
                 href="https://nats.education.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-[#8c2f39] hover:underline flex items-center gap-1 font-semibold"
+                className="text-xs text-[#0d3e2e] hover:underline flex items-center gap-1 font-semibold"
               >
                 <span>nats.education.gov.in</span>
                 <ExternalLink size={12} />
@@ -75,12 +75,12 @@ export function ApprenticeshipSection({
 
           <div className="rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold text-[#8c2f39]">NAPS (Trade &amp; Vocational)</span>
+              <span className="font-mono text-xs font-bold text-[#0d3e2e]">NAPS (Trade &amp; Vocational)</span>
               <a
                 href="https://www.apprenticeshipindia.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-[#8c2f39] hover:underline flex items-center gap-1 font-semibold"
+                className="text-xs text-[#0d3e2e] hover:underline flex items-center gap-1 font-semibold"
               >
                 <span>apprenticeshipindia.gov.in</span>
                 <ExternalLink size={12} />

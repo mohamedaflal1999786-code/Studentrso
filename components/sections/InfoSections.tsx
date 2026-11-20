@@ -1,22 +1,21 @@
 'use client';
 
 import { AppIcon } from '@/components/AppIcon';
-
-import { coreValues, problemCards, howItWorksSteps } from '@/lib/data';
+import { coreValues, problemCards } from '@/lib/data';
 
 export function ProblemSection() {
   return (
-    <section className="w-full bg-[#fbf5e9] py-10 lg:py-24">
+    <section className="w-full bg-[#fbf7ee] py-10 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-8 sm:mb-16">
           <div className="inline-flex items-center gap-2">
-            <span className="font-mono text-[12px] text-[#92400e] font-bold tracking-wider uppercase">THE CHALLENGE</span>
-            <div className="w-8 h-0.5 bg-[#92400e]" />
+            <span className="font-mono text-[12px] text-[#8c6d23] font-bold tracking-wider uppercase">THE CHALLENGE</span>
+            <div className="w-8 h-0.5 bg-[#c59b27]" />
           </div>
-          <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#2b2118] mt-2 mb-4 font-bold">
-            Good opportunities exist. <span className="italic text-[#8c2f39]">Finding them is the hard part.</span>
+          <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#111814] mt-2 mb-4 font-bold">
+            Good opportunities exist. <span className="italic text-[#c59b27]">Finding them is the hard part.</span>
           </h2>
-          <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
+          <p className="font-sans text-[16px] sm:text-[18px] text-[#4a4a4a] leading-relaxed">
             Students often navigate information across multiple portals, notices and sources. Understanding eligibility,
             finding the right service, completing an application and identifying reliable information can be
             unnecessarily difficult.
@@ -26,16 +25,16 @@ export function ProblemSection() {
           {problemCards.map((card) => (
             <div
               key={card.label}
-              className="bg-[#fdfbf6] border border-[#efe3cc] p-6 sm:p-8 rounded-xl shadow-xs flex flex-col justify-between hover:border-[#d8c7ad] transition-colors"
+              className="bg-[#faf6ed] border border-[#e5dcbe] p-6 sm:p-8 rounded-2xl shadow-xs flex flex-col justify-between hover:border-[#0d3e2e]/50 transition-colors"
             >
               <div>
-                <span className="font-mono text-[12px] text-[#92400e] font-bold block mb-3">{card.label}</span>
-                <h3 className="font-serif text-[21px] text-[#2b2118] font-bold mb-3">{card.title}</h3>
-                <p className="font-sans text-[15px] text-[#524336] leading-[24px]">{card.description}</p>
+                <span className="font-mono text-[12px] text-[#8c6d23] font-bold block mb-3">{card.label}</span>
+                <h3 className="font-serif text-[21px] text-[#111814] font-bold mb-3">{card.title}</h3>
+                <p className="font-sans text-[15px] text-[#57534e] leading-[24px]">{card.description}</p>
               </div>
-              <div className="mt-8 pt-4 border-t border-[#efe3cc] flex items-center gap-2 text-[#8c2f39]">
-                <AppIcon name={card.icon} className="text-[20px] text-[#8c2f39]" />
-                <span className="font-mono text-[12px] text-[#524336]">{card.footer}</span>
+              <div className="mt-8 pt-4 border-t border-[#e5dcbe] flex items-center gap-2 text-[#0d3e2e]">
+                <AppIcon name={card.icon} className="text-[20px] text-[#0d3e2e]" />
+                <span className="font-mono text-[12px] text-[#57534e]">{card.footer}</span>
               </div>
             </div>
           ))}
@@ -47,16 +46,16 @@ export function ProblemSection() {
 
 export function CoreValuesStrip() {
   return (
-    <section className="w-full bg-[#f6ede0] border-b border-[#efe3cc] py-8 lg:py-10">
+    <section className="w-full bg-[#fbf7ee] border-b border-[#e5dcbe] py-8 lg:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
           {coreValues.map((v) => (
             <div key={v.label} className="flex flex-col gap-2">
-              <div className="w-9 h-9 rounded-lg bg-[#fbf5e9] border border-[#d8c7ad] text-[#8c2f39] flex items-center justify-center shadow-xs">
+              <div className="w-9 h-9 rounded-xl bg-[#0d3e2e] text-white flex items-center justify-center shadow-xs">
                 <AppIcon name={v.icon} className="text-[18px]" />
               </div>
-              <span className="font-mono text-[12px] text-[#92400e] font-bold tracking-wider uppercase">{v.label}</span>
-              <p className="font-sans text-[13px] text-[#2b2118] leading-snug">{v.description}</p>
+              <span className="font-mono text-[12px] text-[#8c6d23] font-bold tracking-wider uppercase">{v.label}</span>
+              <p className="font-sans text-[13px] text-[#111814] leading-snug">{v.description}</p>
             </div>
           ))}
         </div>
@@ -91,17 +90,17 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section id="how-it-works" className="w-full bg-[#fbf5e9] py-14 lg:py-24 scroll-mt-20">
+    <section id="how-it-works" className="w-full bg-[#fbf7ee] py-14 lg:py-24 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2">
-            <span className="font-mono text-[12px] text-[#92400e] font-bold tracking-wider uppercase">HOW IT WORKS</span>
-            <div className="w-8 h-0.5 bg-[#92400e]" />
+            <span className="font-mono text-[12px] text-[#8c6d23] font-bold tracking-wider uppercase">HOW IT WORKS</span>
+            <div className="w-8 h-0.5 bg-[#c59b27]" />
           </div>
-          <h2 className="font-serif text-[28px] sm:text-[38px] leading-[34px] sm:leading-[46px] text-[#2b2118] mt-2 mb-4 font-bold">
-            A clearer way to <span className="italic text-[#8c2f39]">navigate student services.</span>
+          <h2 className="font-serif text-[28px] sm:text-[38px] leading-[34px] sm:leading-[46px] text-[#111814] mt-2 mb-4 font-bold">
+            A clearer way to <span className="italic text-[#c59b27]">navigate student services.</span>
           </h2>
-          <p className="font-sans text-[16px] sm:text-[18px] text-[#524336] leading-relaxed">
+          <p className="font-sans text-[16px] sm:text-[18px] text-[#4a4a4a] leading-relaxed">
             A simple three-step journey to find the right student service, access verified guidance, and take official action.
           </p>
         </div>
@@ -109,21 +108,21 @@ export function HowItWorksSection() {
           {steps.map((step) => (
             <div
               key={step.number}
-              className="p-7 sm:p-8 bg-[#fdfbf6] border border-[#efe3cc] rounded-2xl flex flex-col justify-between hover:border-[#d8c7ad] hover:shadow-[0_8px_24px_rgba(43,33,24,0.06)] transition-all relative group"
+              className="p-7 sm:p-8 bg-[#faf6ed] border border-[#e5dcbe] rounded-2xl flex flex-col justify-between hover:border-[#0d3e2e]/50 hover:shadow-md transition-all relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <span className="font-serif text-[40px] text-[#92400e] font-bold leading-none">{step.number}</span>
-                  <div className="w-12 h-12 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex items-center justify-center text-[#8c2f39] group-hover:scale-105 transition-transform">
-                    <AppIcon name={step.icon} className="text-[26px]" />
+                  <span className="font-serif text-[40px] text-[#c59b27] font-bold leading-none">{step.number}</span>
+                  <div className="w-12 h-12 rounded-xl bg-[#0d3e2e] text-white flex items-center justify-center group-hover:scale-105 transition-transform shadow-xs">
+                    <AppIcon name={step.icon} className="text-[24px]" />
                   </div>
                 </div>
-                <h3 className="font-serif text-[22px] text-[#2b2118] font-bold mb-2">{step.title}</h3>
-                <p className="font-sans text-[15px] font-semibold text-[#8c2f39] mb-2">{step.description}</p>
-                <p className="font-sans text-[13px] text-[#524336] leading-relaxed">{step.subtext}</p>
+                <h3 className="font-serif text-[22px] text-[#111814] font-bold mb-2">{step.title}</h3>
+                <p className="font-sans text-[15px] font-semibold text-[#0d3e2e] mb-2">{step.description}</p>
+                <p className="font-sans text-[13px] text-[#57534e] leading-relaxed">{step.subtext}</p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#efe3cc] flex items-center gap-1.5 text-[#524336] font-mono text-[11px] uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#92400e]" />
+              <div className="mt-6 pt-4 border-t border-[#e5dcbe] flex items-center gap-1.5 text-[#57534e] font-mono text-[11px] uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c59b27]" />
                 <span>Step {step.number} of 03</span>
               </div>
             </div>

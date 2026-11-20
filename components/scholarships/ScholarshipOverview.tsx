@@ -67,14 +67,14 @@ export function ScholarshipOverview({
       {/* Dynamic Metric Cards Banner */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-4 text-center shadow-xs">
-          <span className="font-serif text-3xl font-bold text-[#8c2f39]">{totalVerifiedCount}</span>
+          <span className="font-serif text-3xl font-bold text-[#0d3e2e]">{totalVerifiedCount}</span>
           <span className="mt-1 block font-mono text-[10px] sm:text-[11px] text-[#7a6a5a] uppercase tracking-wider font-semibold">
             Total Schemes
           </span>
         </div>
 
         <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-4 text-center shadow-xs">
-          <span className="font-serif text-3xl font-bold text-[#8c2f39]">{tnCount}</span>
+          <span className="font-serif text-3xl font-bold text-[#0d3e2e]">{tnCount}</span>
           <span className="mt-1 block font-mono text-[10px] sm:text-[11px] text-[#7a6a5a] uppercase tracking-wider font-semibold">
             TN Govt Schemes
           </span>
@@ -128,7 +128,7 @@ export function ScholarshipOverview({
         {onOpenDiagnostics && (
           <button
             onClick={onOpenDiagnostics}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2 font-mono text-[12px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0]"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2 font-mono text-[12px] font-semibold text-[#0d3e2e] hover:bg-[#f6ede0]"
           >
             <Activity size={14} />
             <span>Telemetry & Autonomous Connectors</span>
@@ -140,30 +140,30 @@ export function ScholarshipOverview({
       <div className="grid gap-4 md:grid-cols-3">
         <div
           onClick={() => onNavigateTab('matches')}
-          className="group cursor-pointer rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 transition hover:border-[#8c2f39] hover:shadow-md"
+          className="group cursor-pointer rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 transition hover:border-[#0d3e2e] hover:shadow-md"
         >
           <div className="flex items-center justify-between mb-3">
-            <div className="w-10 h-10 rounded-xl bg-[#8c2f39]/10 text-[#8c2f39] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#0d3e2e]/10 text-[#0d3e2e] flex items-center justify-center">
               <Sparkles size={20} />
             </div>
             <span className="font-mono text-[10px] uppercase font-bold text-[#e0a526] tracking-wider">
               SMART MATCHER
             </span>
           </div>
-          <h3 className="font-serif text-[18px] font-bold text-[#2b2118] group-hover:text-[#8c2f39]">
+          <h3 className="font-serif text-[18px] font-bold text-[#2b2118] group-hover:text-[#0d3e2e]">
             Smart Eligibility Checker
           </h3>
           <p className="mt-1.5 font-sans text-[13px] leading-[22px] text-[#7a6a5a]">
             Enter your study stage, community category, marks, and family income range for rule-based matching with transparent reasons.
           </p>
-          <span className="mt-4 inline-flex items-center gap-1 font-sans text-[13px] font-bold text-[#8c2f39]">
+          <span className="mt-4 inline-flex items-center gap-1 font-sans text-[13px] font-bold text-[#0d3e2e]">
             Launch Eligibility Checker <ArrowRight size={14} className="group-hover:translate-x-1 transition" />
           </span>
         </div>
 
         <div
           onClick={() => onNavigateTab('research')}
-          className="group cursor-pointer rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 transition hover:border-[#8c2f39] hover:shadow-md"
+          className="group cursor-pointer rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 transition hover:border-[#0d3e2e] hover:shadow-md"
         >
           <div className="flex items-center justify-between mb-3">
             <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-900 flex items-center justify-center">
@@ -173,7 +173,7 @@ export function ScholarshipOverview({
               SECTION 10
             </span>
           </div>
-          <h3 className="font-serif text-[18px] font-bold text-[#2b2118] group-hover:text-[#8c2f39]">
+          <h3 className="font-serif text-[18px] font-bold text-[#2b2118] group-hover:text-[#0d3e2e]">
             Postgraduate Completion & Research Funding
           </h3>
           <p className="mt-1.5 font-sans text-[13px] leading-[22px] text-[#7a6a5a]">
@@ -186,7 +186,7 @@ export function ScholarshipOverview({
 
         <div
           onClick={() => onNavigateTab('applications')}
-          className="group cursor-pointer rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 transition hover:border-[#8c2f39] hover:shadow-md"
+          className="group cursor-pointer rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 transition hover:border-[#0d3e2e] hover:shadow-md"
         >
           <div className="flex items-center justify-between mb-3">
             <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
@@ -196,13 +196,13 @@ export function ScholarshipOverview({
               TRACKER
             </span>
           </div>
-          <h3 className="font-serif text-[18px] font-bold text-[#2b2118] group-hover:text-[#8c2f39]">
+          <h3 className="font-serif text-[18px] font-bold text-[#2b2118] group-hover:text-[#0d3e2e]">
             Application Tracker (8 Stages)
           </h3>
           <p className="mt-1.5 font-sans text-[13px] leading-[22px] text-[#7a6a5a]">
             Log your external application reference number, submission dates, institution verification, and payment milestones.
           </p>
-          <span className="mt-4 inline-flex items-center gap-1 font-sans text-[13px] font-bold text-[#8c2f39]">
+          <span className="mt-4 inline-flex items-center gap-1 font-sans text-[13px] font-bold text-[#0d3e2e]">
             Open Application Tracker <ArrowRight size={14} className="group-hover:translate-x-1 transition" />
           </span>
         </div>
@@ -226,7 +226,7 @@ export function ScholarshipOverview({
               <span className="font-serif text-[15px] font-bold text-[#2b2118] block">School Education</span>
               <span className="font-sans text-[12px] text-[#7a6a5a]">Class 10, 11 & 12</span>
             </div>
-            <span className="rounded-full bg-[#8c2f39]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#8c2f39]">
+            <span className="rounded-full bg-[#0d3e2e]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#0d3e2e]">
               {schoolCount}
             </span>
           </button>
@@ -239,7 +239,7 @@ export function ScholarshipOverview({
               <span className="font-serif text-[15px] font-bold text-[#2b2118] block">Diploma & ITI</span>
               <span className="font-sans text-[12px] text-[#7a6a5a]">Polytechnic technical</span>
             </div>
-            <span className="rounded-full bg-[#8c2f39]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#8c2f39]">
+            <span className="rounded-full bg-[#0d3e2e]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#0d3e2e]">
               {programs.filter((p) => p.educationStages.includes('Diploma') || p.educationStages.includes('ITI')).length}
             </span>
           </button>
@@ -252,7 +252,7 @@ export function ScholarshipOverview({
               <span className="font-serif text-[15px] font-bold text-[#2b2118] block">Undergraduate</span>
               <span className="font-sans text-[12px] text-[#7a6a5a]">Degrees & Professional</span>
             </div>
-            <span className="rounded-full bg-[#8c2f39]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#8c2f39]">
+            <span className="rounded-full bg-[#0d3e2e]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#0d3e2e]">
               {ugCount}
             </span>
           </button>
@@ -265,7 +265,7 @@ export function ScholarshipOverview({
               <span className="font-serif text-[15px] font-bold text-[#2b2118] block">Postgraduate</span>
               <span className="font-sans text-[12px] text-[#7a6a5a]">Master’s programs</span>
             </div>
-            <span className="rounded-full bg-[#8c2f39]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#8c2f39]">
+            <span className="rounded-full bg-[#0d3e2e]/10 px-2.5 py-0.5 font-mono text-[12px] font-bold text-[#0d3e2e]">
               {pgCount}
             </span>
           </button>
@@ -298,14 +298,14 @@ export function ScholarshipOverview({
               className="flex flex-col justify-between rounded-xl border border-[#efe3cc] bg-[#fbf5e9] p-3.5 transition hover:bg-[#f6ede0] hover:border-[#d8c7ad]"
             >
               <div>
-                <span className="font-mono text-[9px] uppercase tracking-wider text-[#8c2f39] font-bold">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-[#0d3e2e] font-bold">
                   {portal.category}
                 </span>
                 <p className="font-sans text-[13px] font-bold text-[#2b2118] mt-1 line-clamp-2">
                   {portal.name}
                 </p>
               </div>
-              <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#8c2f39]">
+              <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#0d3e2e]">
                 Visit Portal <ExternalLink size={12} />
               </span>
             </a>
@@ -326,7 +326,7 @@ export function ScholarshipOverview({
           </div>
           <button
             onClick={() => onNavigateTab('all')}
-            className="font-sans text-[13px] font-bold text-[#8c2f39] hover:underline"
+            className="font-sans text-[13px] font-bold text-[#0d3e2e] hover:underline"
           >
             View all {programs.length} schemes →
           </button>
@@ -340,7 +340,7 @@ export function ScholarshipOverview({
             >
               <div>
                 <div className="flex items-center justify-between gap-1 mb-2">
-                  <span className="rounded-full bg-[#f6ede0] px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#8c2f39]">
+                  <span className="rounded-full bg-[#f6ede0] px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#0d3e2e]">
                     {p.category}
                   </span>
                   <span className="font-mono text-[10px] text-stone-500">
@@ -359,7 +359,7 @@ export function ScholarshipOverview({
                 </span>
                 <button
                   onClick={() => onSelectProgram(p)}
-                  className="font-sans text-[12px] font-bold text-[#8c2f39] hover:underline"
+                  className="font-sans text-[12px] font-bold text-[#0d3e2e] hover:underline"
                 >
                   View Details →
                 </button>

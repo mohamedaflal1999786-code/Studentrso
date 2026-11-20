@@ -74,7 +74,7 @@ export function FreeLearningResourcesSection({ onSelectResource }: FreeLearningR
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search portal name or subject..."
-              className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#efe3cc] bg-[#fbf5e9]/50 text-xs text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-2 focus:ring-[#8c2f39]/20 focus:border-[#8c2f39]"
+              className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#efe3cc] bg-[#fbf5e9]/50 text-xs text-[#2b2118] placeholder-[#7a6a5a] focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20 focus:border-[#0d3e2e]"
             />
           </div>
         </div>
@@ -90,7 +90,7 @@ export function FreeLearningResourcesSection({ onSelectResource }: FreeLearningR
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
                   isSelected
-                    ? 'bg-[#8c2f39] text-white shadow-xs'
+                    ? 'bg-[#0d3e2e] text-white shadow-xs'
                     : 'bg-[#fbf5e9] border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#efe3cc]/50 hover:text-[#2b2118]'
                 }`}
               >
@@ -106,11 +106,11 @@ export function FreeLearningResourcesSection({ onSelectResource }: FreeLearningR
         {filteredResources.map((res) => (
           <div
             key={res.id}
-            className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-4 flex flex-col justify-between hover:border-[#8c2f39]/50 transition"
+            className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#efe3cc] shadow-2xs space-y-4 flex flex-col justify-between hover:border-[#0d3e2e]/50 transition"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between gap-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#8c2f39] font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#f6ede0] border border-[#d8c7ad] font-mono text-[10px] text-[#0d3e2e] font-bold">
                   {res.category}
                 </span>
                 <span className="font-mono text-[10px] text-emerald-800 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
@@ -123,7 +123,7 @@ export function FreeLearningResourcesSection({ onSelectResource }: FreeLearningR
                   {res.title}
                 </h3>
                 <p className="text-xs text-[#7a6a5a] flex items-center gap-1.5 mt-1">
-                  <Building className="w-3.5 h-3.5 text-[#8c2f39] shrink-0" />
+                  <Building className="w-3.5 h-3.5 text-[#0d3e2e] shrink-0" />
                   <span className="truncate">{res.organisation}</span>
                 </p>
               </div>
@@ -135,12 +135,12 @@ export function FreeLearningResourcesSection({ onSelectResource }: FreeLearningR
               {/* Authority Badge */}
               <div className="p-2.5 rounded-xl bg-[#fbf5e9] border border-[#efe3cc] flex items-center justify-between text-xs">
                 <span className="text-[#7a6a5a] text-[11px] font-medium">Governing Body:</span>
-                <span className="text-xs font-bold text-[#8c2f39] truncate max-w-[180px]">{res.governingBody}</span>
+                <span className="text-xs font-bold text-[#0d3e2e] truncate max-w-[180px]">{res.governingBody}</span>
               </div>
 
               {/* Supported Languages */}
               <div className="flex items-center gap-1.5 text-xs text-[#7a6a5a]">
-                <Globe className="w-3.5 h-3.5 text-[#8c2f39]" />
+                <Globe className="w-3.5 h-3.5 text-[#0d3e2e]" />
                 <span className="truncate">Languages: {res.languages.join(', ')}</span>
               </div>
             </div>
@@ -150,7 +150,7 @@ export function FreeLearningResourcesSection({ onSelectResource }: FreeLearningR
               <button
                 type="button"
                 onClick={() => onSelectResource(res)}
-                className="px-3 py-1.5 rounded-xl border border-[#efe3cc] bg-white text-[#2b2118] hover:bg-[#fbf5e9] hover:text-[#8c2f39] transition text-xs font-bold cursor-pointer"
+                className="px-3 py-1.5 rounded-xl border border-[#efe3cc] bg-white text-[#2b2118] hover:bg-[#fbf5e9] hover:text-[#0d3e2e] transition text-xs font-bold cursor-pointer"
               >
                 Inspect Details
               </button>
@@ -159,7 +159,7 @@ export function FreeLearningResourcesSection({ onSelectResource }: FreeLearningR
                 href={res.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#8c2f39] text-white hover:bg-[#6d1824] transition text-xs font-bold"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0d3e2e] text-white hover:bg-[#08261c] transition text-xs font-bold"
               >
                 <span>Direct Access</span>
                 <ExternalLink className="w-3 h-3" />

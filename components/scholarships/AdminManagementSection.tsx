@@ -223,9 +223,9 @@ export function AdminManagementSection({
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="rounded-2xl border border-[#8c2f39]/20 bg-[#fdfbf6] p-6 shadow-xs flex flex-wrap items-center justify-between gap-4">
+      <div className="rounded-2xl border border-[#0d3e2e]/20 bg-[#fdfbf6] p-6 shadow-xs flex flex-wrap items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39] mb-1">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e] mb-1">
             <ShieldCheck size={16} /> ADMIN MANAGEMENT PORTAL
           </div>
           <h2 className="font-serif text-[24px] font-bold text-[#2b2118]">
@@ -238,7 +238,7 @@ export function AdminManagementSection({
 
         <button
           onClick={onRefreshData}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0]"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-3.5 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:bg-[#f6ede0]"
         >
           <RefreshCw size={14} /> Refresh Data
         </button>
@@ -256,7 +256,7 @@ export function AdminManagementSection({
           onClick={() => setActiveAdminTab('schemes')}
           className={`rounded-lg px-4 py-2 transition ${
             activeAdminTab === 'schemes'
-              ? 'bg-[#8c2f39] text-white'
+              ? 'bg-[#0d3e2e] text-white'
               : 'text-[#7a6a5a] hover:bg-[#f6ede0]'
           }`}
         >
@@ -266,7 +266,7 @@ export function AdminManagementSection({
           onClick={() => setActiveAdminTab('tickets')}
           className={`rounded-lg px-4 py-2 transition ${
             activeAdminTab === 'tickets'
-              ? 'bg-[#8c2f39] text-white'
+              ? 'bg-[#0d3e2e] text-white'
               : 'text-[#7a6a5a] hover:bg-[#f6ede0]'
           }`}
         >
@@ -276,7 +276,7 @@ export function AdminManagementSection({
           onClick={() => setActiveAdminTab('audit')}
           className={`rounded-lg px-4 py-2 transition ${
             activeAdminTab === 'audit'
-              ? 'bg-[#8c2f39] text-white'
+              ? 'bg-[#0d3e2e] text-white'
               : 'text-[#7a6a5a] hover:bg-[#f6ede0]'
           }`}
         >
@@ -286,7 +286,7 @@ export function AdminManagementSection({
           onClick={() => setActiveAdminTab('url-monitoring')}
           className={`rounded-lg px-4 py-2 transition ${
             activeAdminTab === 'url-monitoring'
-              ? 'bg-[#8c2f39] text-white'
+              ? 'bg-[#0d3e2e] text-white'
               : 'text-[#7a6a5a] hover:bg-[#f6ede0]'
           }`}
         >
@@ -321,7 +321,7 @@ export function AdminManagementSection({
                           <div>{p.name}</div>
                           <div className="font-normal text-[11px] text-[#7a6a5a]">{p.provider}</div>
                         </td>
-                        <td className="p-3.5 font-mono text-[11px] text-[#8c2f39]">{p.category}</td>
+                        <td className="p-3.5 font-mono text-[11px] text-[#0d3e2e]">{p.category}</td>
                         <td className="p-3.5">
                           {isEditing ? (
                             <input
@@ -371,7 +371,7 @@ export function AdminManagementSection({
                             <div className="flex items-center justify-end gap-1">
                               <button
                                 onClick={() => handleSaveEdit(p.id)}
-                                className="rounded bg-[#8c2f39] px-2.5 py-1 text-[11px] font-bold text-white hover:bg-[#6d1824]"
+                                className="rounded bg-[#0d3e2e] px-2.5 py-1 text-[11px] font-bold text-white hover:bg-[#08261c]"
                               >
                                 Save
                               </button>
@@ -386,7 +386,7 @@ export function AdminManagementSection({
                             <div className="flex items-center justify-end gap-1">
                               <button
                                 onClick={() => handleStartEdit(p)}
-                                className="rounded p-1 text-[#8c2f39] hover:bg-[#f6ede0]"
+                                className="rounded p-1 text-[#0d3e2e] hover:bg-[#f6ede0]"
                                 title="Edit Scheme"
                               >
                                 <Edit size={16} />
@@ -421,7 +421,7 @@ export function AdminManagementSection({
                 className="rounded-2xl border border-[#efe3cc] bg-white p-5 space-y-3 shadow-xs"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#8c2f39]">
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#0d3e2e]">
                     {t.category}
                   </span>
                   <span
@@ -463,7 +463,7 @@ export function AdminManagementSection({
                           placeholder="Type official guidance or explanation for the student..."
                           value={adminResponseText}
                           onChange={(e) => setAdminResponseText(e.target.value)}
-                          className="w-full rounded-lg border border-[#d8c7ad] p-2.5 text-[13px] outline-none focus:border-[#8c2f39]"
+                          className="w-full rounded-lg border border-[#d8c7ad] p-2.5 text-[13px] outline-none focus:border-[#0d3e2e]"
                         />
                         <div className="flex justify-end gap-2">
                           <button
@@ -474,7 +474,7 @@ export function AdminManagementSection({
                           </button>
                           <button
                             onClick={() => handleReplyTicketSubmit(t.id)}
-                            className="rounded bg-[#8c2f39] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#6d1824]"
+                            className="rounded bg-[#0d3e2e] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#08261c]"
                           >
                             Submit Response
                           </button>
@@ -483,7 +483,7 @@ export function AdminManagementSection({
                     ) : (
                       <button
                         onClick={() => setSelectedTicketId(t.id)}
-                        className="rounded-lg bg-[#8c2f39] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#6d1824]"
+                        className="rounded-lg bg-[#0d3e2e] px-3.5 py-1.5 font-sans text-[12px] font-bold text-white hover:bg-[#08261c]"
                       >
                         Reply to Student
                       </button>
@@ -505,7 +505,7 @@ export function AdminManagementSection({
               <span className="font-mono text-[10px] font-bold uppercase text-[#7a6a5a] block">
                 Total Reviewed
               </span>
-              <span className="font-mono text-[20px] font-bold text-[#8c2f39]">
+              <span className="font-mono text-[20px] font-bold text-[#0d3e2e]">
                 52
               </span>
             </div>
@@ -567,7 +567,7 @@ export function AdminManagementSection({
               type="button"
               disabled={isRecheckingAll}
               onClick={handleRecheckAll}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#8c2f39] px-4 py-2 font-sans text-[12.5px] font-bold text-white hover:bg-[#6d1824] transition disabled:opacity-50 cursor-pointer shadow-xs"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#0d3e2e] px-4 py-2 font-sans text-[12.5px] font-bold text-white hover:bg-[#08261c] transition disabled:opacity-50 cursor-pointer shadow-xs"
             >
               <RefreshCw size={14} className={isRecheckingAll ? 'animate-spin' : ''} />
               <span>{isRecheckingAll ? 'Sweeping 52 Records...' : 'Recheck All 52 Scholarships'}</span>
@@ -583,7 +583,7 @@ export function AdminManagementSection({
                 placeholder="Search scheme name, authority, ID or URL..."
                 value={urlSearchTerm}
                 onChange={(e) => setUrlSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-3 py-1.5 rounded-lg border border-[#efe3cc] font-sans text-[12.5px] text-[#2b2118] bg-white focus:border-[#8c2f39] focus:outline-none"
+                className="w-full pl-9 pr-3 py-1.5 rounded-lg border border-[#efe3cc] font-sans text-[12.5px] text-[#2b2118] bg-white focus:border-[#0d3e2e] focus:outline-none"
               />
             </div>
 
@@ -594,7 +594,7 @@ export function AdminManagementSection({
               <select
                 value={urlFilterStatus}
                 onChange={(e) => setUrlFilterStatus(e.target.value)}
-                className="rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-sans text-[12px] text-[#2b2118] focus:border-[#8c2f39] focus:outline-none cursor-pointer"
+                className="rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e] focus:outline-none cursor-pointer"
               >
                 <option value="All">All Statuses ({auditRecords.length})</option>
                 <option value="VERIFIED">Verified ({auditStats.verifiedDestinations})</option>
@@ -630,7 +630,7 @@ export function AdminManagementSection({
                         <td className="p-3 font-mono text-[11px] text-[#7a6a5a]">{idx + 1}</td>
                         <td className="p-3">
                           <div className="font-bold text-[#2b2118] leading-tight">{rec.scholarshipName}</div>
-                          <div className="font-mono text-[10px] text-[#8c2f39] mt-0.5">{rec.scholarshipId}</div>
+                          <div className="font-mono text-[10px] text-[#0d3e2e] mt-0.5">{rec.scholarshipId}</div>
                         </td>
                         <td className="p-3 text-[11px] text-[#554a3f] max-w-[150px] leading-snug">
                           {rec.awardingAuthority}
@@ -642,7 +642,7 @@ export function AdminManagementSection({
                               href={rec.updatedInformationUrl || rec.correctedUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="font-mono text-[10.5px] text-[#8c2f39] hover:underline"
+                              className="font-mono text-[10.5px] text-[#0d3e2e] hover:underline"
                               title={rec.updatedInformationUrl || rec.correctedUrl}
                             >
                               {new URL(rec.updatedInformationUrl || rec.correctedUrl).hostname}
@@ -696,7 +696,7 @@ export function AdminManagementSection({
                               type="button"
                               disabled={isRecheckingThis}
                               onClick={() => handleRecheckSingle(rec.scholarshipId)}
-                              className="rounded px-2 py-1 font-mono text-[10px] font-semibold border border-[#d8c7ad] bg-[#fbf5e9] text-[#8c2f39] hover:bg-[#f6ede0] transition cursor-pointer"
+                              className="rounded px-2 py-1 font-mono text-[10px] font-semibold border border-[#d8c7ad] bg-[#fbf5e9] text-[#0d3e2e] hover:bg-[#f6ede0] transition cursor-pointer"
                               title="Recheck this URL now"
                             >
                               {isRecheckingThis ? '...' : 'Check'}
@@ -726,19 +726,19 @@ export function AdminManagementSection({
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-sans text-[12px]">
               <div className="rounded-lg bg-[#fdfbf6] p-3 border border-[#efe3cc]">
-                <div className="font-mono font-bold text-[#8c2f39] mb-1">NODE.JS MONITOR</div>
-                <div className="text-[#554a3f]">Script: <code className="text-[#8c2f39]">scholarship-link-monitor.mjs</code>. Tests HTTP status, redirects &amp; titles.</div>
+                <div className="font-mono font-bold text-[#0d3e2e] mb-1">NODE.JS MONITOR</div>
+                <div className="text-[#554a3f]">Script: <code className="text-[#0d3e2e]">scholarship-link-monitor.mjs</code>. Tests HTTP status, redirects &amp; titles.</div>
               </div>
               <div className="rounded-lg bg-[#fdfbf6] p-3 border border-[#efe3cc]">
-                <div className="font-mono font-bold text-[#8c2f39] mb-1">WEEKLY GITHUB ACTION</div>
-                <div className="text-[#554a3f]">Runs every Monday at 02:17 UTC via <code className="text-[#8c2f39]">.github/workflows/scholarship-link-audit.yml</code>.</div>
+                <div className="font-mono font-bold text-[#0d3e2e] mb-1">WEEKLY GITHUB ACTION</div>
+                <div className="text-[#554a3f]">Runs every Monday at 02:17 UTC via <code className="text-[#0d3e2e]">.github/workflows/scholarship-link-audit.yml</code>.</div>
               </div>
               <div className="rounded-lg bg-[#fdfbf6] p-3 border border-[#efe3cc]">
-                <div className="font-mono font-bold text-[#8c2f39] mb-1">HEALTH ARTIFACTS</div>
-                <div className="text-[#554a3f]">Generates <code className="text-[#8c2f39]">scholarship-link-health.json</code> &amp; <code className="text-[#8c2f39]">.csv</code>.</div>
+                <div className="font-mono font-bold text-[#0d3e2e] mb-1">HEALTH ARTIFACTS</div>
+                <div className="text-[#554a3f]">Generates <code className="text-[#0d3e2e]">scholarship-link-health.json</code> &amp; <code className="text-[#0d3e2e]">.csv</code>.</div>
               </div>
               <div className="rounded-lg bg-[#fdfbf6] p-3 border border-[#efe3cc]">
-                <div className="font-mono font-bold text-[#8c2f39] mb-1">ANNUAL RECONCILIATION</div>
+                <div className="font-mono font-bold text-[#0d3e2e] mb-1">ANNUAL RECONCILIATION</div>
                 <div className="text-[#554a3f]">Full pre-academic-year audit across all 52 central, state, AICTE, UGC, and foundation portals.</div>
               </div>
             </div>

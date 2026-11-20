@@ -20,7 +20,7 @@ export function CertificateFaqsSection() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-5 sm:p-6 shadow-xs">
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39] bg-[#8c2f39]/10 border border-[#8c2f39]/20 mb-1.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e] bg-[#0d3e2e]/10 border border-[#0d3e2e]/20 mb-1.5">
           <HelpCircle size={12} /> STATUTORY CLARIFICATIONS &amp; GUIDANCE
         </div>
         <h2 className="font-serif text-[22px] font-bold text-[#2b2118]">
@@ -45,7 +45,7 @@ export function CertificateFaqsSection() {
                 className="w-full p-5 text-left flex items-center justify-between gap-4 hover:bg-[#fbf5e9] transition"
               >
                 <span className="font-serif text-[15px] font-bold text-[#2b2118] flex items-center gap-2.5">
-                  <ShieldCheck size={16} className="text-[#8c2f39] shrink-0" />
+                  <ShieldCheck size={16} className="text-[#0d3e2e] shrink-0" />
                   {faq.question}
                 </span>
                 {isOpen ? (

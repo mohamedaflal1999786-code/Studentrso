@@ -164,7 +164,7 @@ export function ComplaintReferenceTracker() {
       case 'Preparing':
       case 'Submitted':
       default:
-        return 'bg-[#f6ede0] text-[#8c2f39] border-[#d8c7ad]';
+        return 'bg-[#f6ede0] text-[#0d3e2e] border-[#d8c7ad]';
     }
   };
 
@@ -174,7 +174,7 @@ export function ComplaintReferenceTracker() {
       <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#8c2f39]">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0d3e2e]">
               <Lock size={14} /> PRIVACY-PRESERVED STUDENT LOG
             </div>
             <h3 className="font-serif text-[24px] font-bold text-[#2b2118] mt-1">
@@ -197,7 +197,7 @@ export function ComplaintReferenceTracker() {
             )}
             <button
               onClick={() => setIsAdding(!isAdding)}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#8c2f39] hover:bg-[#6d1824] px-4 py-2 font-sans text-[13px] font-bold text-white shadow-2xs transition"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#0d3e2e] hover:bg-[#08261c] px-4 py-2 font-sans text-[13px] font-bold text-white shadow-2xs transition"
             >
               <PlusCircle size={15} />
               <span>{isAdding ? 'Cancel Entry' : 'Log New External Reference'}</span>
@@ -239,7 +239,7 @@ export function ComplaintReferenceTracker() {
                 placeholder="e.g. National Anti-Ragging Portal / UGC e-Samadhaan / 112 / CM Helpline"
                 value={authorityName}
                 onChange={(e) => setAuthorityName(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -250,7 +250,7 @@ export function ComplaintReferenceTracker() {
               <select
                 value={complaintCategory}
                 onChange={(e) => setComplaintCategory(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 <option value="Ragging / Senior Intimidation">Ragging / Senior Intimidation</option>
                 <option value="Bullying & Peer Aggression">Bullying &amp; Peer Aggression</option>
@@ -275,7 +275,7 @@ export function ComplaintReferenceTracker() {
                 placeholder="e.g. AR-TN-2026-8821 or 2026/CYBER/491823"
                 value={externalReferenceNumber}
                 onChange={(e) => setExternalReferenceNumber(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -287,7 +287,7 @@ export function ComplaintReferenceTracker() {
                 type="date"
                 value={submissionDate}
                 onChange={(e) => setSubmissionDate(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
 
@@ -298,7 +298,7 @@ export function ComplaintReferenceTracker() {
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as any)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               >
                 {COMPLAINT_STATUSES.map((st) => (
                   <option key={st} value={st}>
@@ -316,7 +316,7 @@ export function ComplaintReferenceTracker() {
                 type="date"
                 value={followUpDate}
                 onChange={(e) => setFollowUpDate(e.target.value)}
-                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+                className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
               />
             </div>
           </div>
@@ -331,7 +331,7 @@ export function ComplaintReferenceTracker() {
               placeholder="Keep brief factual reminders only. Do not store sensitive confidential details here."
               value={personalNotes}
               onChange={(e) => setPersonalNotes(e.target.value)}
-              className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#8c2f39]"
+              className="w-full rounded-xl border border-[#d8c7ad] bg-white p-2.5 font-sans text-[13px] text-[#2b2118] outline-none focus:border-[#0d3e2e]"
             />
           </div>
 
@@ -345,7 +345,7 @@ export function ComplaintReferenceTracker() {
             </button>
             <button
               type="submit"
-              className="rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] px-5 py-2 font-sans text-[13px] font-bold text-white shadow-2xs"
+              className="rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] px-5 py-2 font-sans text-[13px] font-bold text-white shadow-2xs"
             >
               Save to My Log
             </button>
@@ -366,7 +366,7 @@ export function ComplaintReferenceTracker() {
           </p>
           <button
             onClick={() => setIsAdding(true)}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-[#8c2f39] hover:bg-[#6d1824] px-4 py-2 font-sans text-[13px] font-bold text-white shadow-2xs"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] px-4 py-2 font-sans text-[13px] font-bold text-white shadow-2xs"
           >
             <PlusCircle size={15} />
             <span>Add First Reference</span>
@@ -399,7 +399,7 @@ export function ComplaintReferenceTracker() {
 
                 <div className="flex flex-wrap items-center gap-3 font-mono text-[12px] text-[#554a3f]">
                   <span>
-                    Ref Number: <strong className="text-[#8c2f39]">{rec.externalReferenceNumber}</strong>
+                    Ref Number: <strong className="text-[#0d3e2e]">{rec.externalReferenceNumber}</strong>
                   </span>
                   <span className="text-[#efe3cc] hidden sm:inline">|</span>
                   <span className="flex items-center gap-1 text-[#7a6a5a]">

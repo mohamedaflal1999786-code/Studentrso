@@ -15,7 +15,7 @@ export function SafetyDiagnosticsModal({ isOpen, onClose }: SafetyDiagnosticsMod
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-[#2b2118]/60 backdrop-blur-sm" />
         <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-4xl max-h-[90vh] overflow-y-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-8 shadow-2xl">
-          <Dialog.Close className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition-colors hover:bg-[#f6ede0] hover:text-[#8c2f39]">
+          <Dialog.Close className="absolute right-4 top-4 rounded-full p-2 text-[#7a6a5a] transition-colors hover:bg-[#f6ede0] hover:text-[#0d3e2e]">
             <X size={20} />
             <span className="sr-only">Close</span>
           </Dialog.Close>
@@ -37,7 +37,7 @@ export function SafetyDiagnosticsModal({ isOpen, onClose }: SafetyDiagnosticsMod
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-xl bg-white border border-[#efe3cc] p-3 text-center">
                 <span className="font-mono text-[10px] uppercase text-[#7a6a5a] block font-bold">Total Verified Sources</span>
-                <span className="font-mono text-[22px] font-bold text-[#8c2f39]">{OFFICIAL_AUTHORITIES.length} Authorities</span>
+                <span className="font-mono text-[22px] font-bold text-[#0d3e2e]">{OFFICIAL_AUTHORITIES.length} Authorities</span>
               </div>
               <div className="rounded-xl bg-white border border-[#efe3cc] p-3 text-center">
                 <span className="font-mono text-[10px] uppercase text-[#7a6a5a] block font-bold">Government Tier</span>
@@ -65,7 +65,7 @@ export function SafetyDiagnosticsModal({ isOpen, onClose }: SafetyDiagnosticsMod
                     <tr key={auth.id} className="hover:bg-[#fdfbf6]">
                       <td className="p-3 font-bold text-[#2b2118]">{auth.name}</td>
                       <td className="p-3 text-[#7a6a5a] font-mono text-[11px]">{auth.classification}</td>
-                      <td className="p-3 font-mono text-[11px] text-[#8c2f39]">{auth.domain}</td>
+                      <td className="p-3 font-mono text-[11px] text-[#0d3e2e]">{auth.domain}</td>
                       <td className="p-3">
                         <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                           <CheckCircle2 size={11} /> Confirmed

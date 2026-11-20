@@ -53,7 +53,7 @@ export function PersonalisedRecommendations({
   if (isProfileEmpty) {
     return (
       <div className="rounded-2xl border border-dashed border-[#d8c7ad] bg-[#fdfbf6] p-10 text-center">
-        <Sparkles size={36} className="mx-auto text-[#8c2f39] mb-3" />
+        <Sparkles size={36} className="mx-auto text-[#0d3e2e] mb-3" />
         <h3 className="font-serif text-[22px] font-bold text-[#2b2118]">
           Complete Your Student Profile First
         </h3>
@@ -63,7 +63,7 @@ export function PersonalisedRecommendations({
         </p>
         <button
           onClick={onOpenEligibilityChecker}
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#8c2f39] px-5 py-3 font-sans text-[14px] font-bold text-white hover:bg-[#6d1824] shadow-xs"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#0d3e2e] px-5 py-3 font-sans text-[14px] font-bold text-white hover:bg-[#08261c] shadow-xs"
         >
           <span>Fill Eligibility Profile</span>
           <ArrowRight size={16} />
@@ -91,7 +91,7 @@ export function PersonalisedRecommendations({
 
         <button
           onClick={onOpenEligibilityChecker}
-          className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-4 py-2 font-sans text-[13px] font-semibold text-[#8c2f39] hover:bg-[#f6ede0]"
+          className="rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] px-4 py-2 font-sans text-[13px] font-semibold text-[#0d3e2e] hover:bg-[#f6ede0]"
         >
           Edit Profile Criteria
         </button>
@@ -120,7 +120,7 @@ export function PersonalisedRecommendations({
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="space-y-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-[#f6ede0] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8c2f39]">
+                      <span className="rounded-full bg-[#f6ede0] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0d3e2e]">
                         {ev.program.category}
                       </span>
                       <span
@@ -158,14 +158,14 @@ export function PersonalisedRecommendations({
                       onClick={() => onToggleBookmark(ev.program.id)}
                       aria-label="Save bookmark"
                       className={`rounded-lg p-2.5 transition ${
-                        isSaved ? 'bg-[#8c2f39]/10 text-[#8c2f39]' : 'text-[#7a6a5a] hover:bg-[#f6ede0]'
+                        isSaved ? 'bg-[#0d3e2e]/10 text-[#0d3e2e]' : 'text-[#7a6a5a] hover:bg-[#f6ede0]'
                       }`}
                     >
                       {isSaved ? <BookmarkCheck size={20} /> : <Bookmark size={20} />}
                     </button>
                     <button
                       onClick={() => onTrackApplication(ev.program)}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#8c2f39] bg-[#8c2f39]/10 px-3.5 py-2 font-sans text-[13px] font-bold text-[#8c2f39] hover:bg-[#8c2f39] hover:text-white"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#0d3e2e] bg-[#0d3e2e]/10 px-3.5 py-2 font-sans text-[13px] font-bold text-[#0d3e2e] hover:bg-[#0d3e2e] hover:text-white"
                     >
                       <PlusCircle size={15} />
                       Track
@@ -227,7 +227,7 @@ export function PersonalisedRecommendations({
                         key={idx}
                         className="inline-flex items-center gap-1 rounded-md border border-[#efe3cc] bg-[#fbf5e9] px-2.5 py-1 text-[11px] text-[#554a3f]"
                       >
-                        <FileCheck2 size={12} className="text-[#8c2f39]" />
+                        <FileCheck2 size={12} className="text-[#0d3e2e]" />
                         {doc}
                       </span>
                     ))}
@@ -238,7 +238,7 @@ export function PersonalisedRecommendations({
                 <div className="mt-5 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#efe3cc]">
                   <button
                     onClick={() => onViewDetails(ev.program)}
-                    className="font-sans text-[13px] font-bold text-[#8c2f39] hover:underline"
+                    className="font-sans text-[13px] font-bold text-[#0d3e2e] hover:underline"
                   >
                     View Complete Scheme Rules →
                   </button>
@@ -246,7 +246,7 @@ export function PersonalisedRecommendations({
                   {onApplyOfficial ? (
                     <button
                       onClick={() => onApplyOfficial(ev.program)}
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#8c2f39] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824] shadow-xs"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#0d3e2e] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#08261c] shadow-xs"
                     >
                       <span>Apply on Official Website</span>
                       <ExternalLink size={14} />
@@ -256,7 +256,7 @@ export function PersonalisedRecommendations({
                       href={ev.officialApplicationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#8c2f39] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#6d1824] shadow-xs"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#0d3e2e] px-4 py-2 font-sans text-[13px] font-bold text-white hover:bg-[#08261c] shadow-xs"
                     >
                       <span>Apply on Official Portal</span>
                       <ExternalLink size={14} />
