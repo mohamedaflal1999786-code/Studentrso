@@ -115,26 +115,30 @@ export function Footer({ onNavigate }: FooterProps) {
             >
               Verification Standards
             </button>
-            <button
-              type="button"
-              onClick={() => handleFooterNav('about')}
-              className="font-sans text-[13px] text-[#57534e] hover:text-[#0d3e2e] transition-colors cursor-pointer text-left py-0.5"
+            <Link
+              href="/privacy"
+              className="font-sans text-[13px] text-[#57534e] hover:text-[#0d3e2e] transition-colors text-left py-0.5"
             >
               Privacy &amp; Data Ethics
-            </button>
-            <button
-              type="button"
-              onClick={() => handleFooterNav('about')}
-              className="font-sans text-[13px] text-[#57534e] hover:text-[#0d3e2e] transition-colors cursor-pointer text-left py-0.5"
+            </Link>
+            <Link
+              href="/terms"
+              className="font-sans text-[13px] text-[#57534e] hover:text-[#0d3e2e] transition-colors text-left py-0.5"
             >
               Terms of Public Service
-            </button>
-            <a
-              href="mailto:support@studentrso.org"
+            </Link>
+            <Link
+              href="/accessibility"
+              className="font-sans text-[13px] text-[#57534e] hover:text-[#0d3e2e] transition-colors text-left py-0.5"
+            >
+              Accessibility Standards
+            </Link>
+            <Link
+              href="/contact"
               className="font-sans text-[13px] text-[#57534e] hover:text-[#0d3e2e] transition-colors text-left py-0.5"
             >
               Contact Support
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -148,36 +152,40 @@ export function Footer({ onNavigate }: FooterProps) {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
             <p className="text-xs text-[#57534e]">© 2026 Student RSO. All rights reserved.</p>
-            <div className="flex items-center gap-5 text-xs text-[#57534e]">
-              <button
-                type="button"
-                onClick={() => handleFooterNav('about')}
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 sm:gap-x-5 gap-y-2 text-xs text-[#57534e]">
+              <Link
+                href="/privacy"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer"
               >
                 Privacy
-              </button>
-              <span className="text-[#d8c7ad]">·</span>
-              <button
-                type="button"
-                onClick={() => handleFooterNav('about')}
+              </Link>
+              <span className="text-[#d8e5dd]">·</span>
+              <Link
+                href="/terms"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer"
               >
                 Terms
-              </button>
-              <span className="text-[#d8c7ad]">·</span>
-              <button
-                type="button"
-                onClick={() => handleFooterNav('about')}
+              </Link>
+              <span className="text-[#d8e5dd]">·</span>
+              <Link
+                href="/accessibility"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer"
               >
                 Accessibility
-              </button>
-              <span className="text-[#d8c7ad]">·</span>
-              <a
-                href="mailto:support@studentrso.org"
+              </Link>
+              <span className="text-[#d8e5dd]">·</span>
+              <Link
+                href="/contact"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer"
               >
                 Contact
+              </Link>
+              <span className="text-[#d8e5dd]">·</span>
+              <a
+                href="mailto:studentrsoin@gmail.com"
+                className="hover:text-[#0d3e2e] transition-colors cursor-pointer font-mono"
+              >
+                studentrsoin@gmail.com
               </a>
             </div>
           </div>

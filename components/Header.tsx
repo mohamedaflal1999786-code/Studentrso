@@ -353,6 +353,12 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
           >
             About
           </a>
+          <Link
+            href="/contact"
+            className="px-3 py-1.5 rounded-lg font-sans text-[13.5px] font-semibold text-[#1c1917] hover:text-[#0d3e2e] hover:bg-[#edf5f0] transition-colors cursor-pointer"
+          >
+            Contact
+          </Link>
 
           {user && (
             <Link
@@ -506,6 +512,13 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             >
               About
             </a>
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="block w-full text-left px-3 py-3 rounded-lg font-sans text-[14px] font-semibold text-[#2b2118] hover:bg-[#edf5f0] cursor-pointer min-h-[44px]"
+            >
+              Contact
+            </Link>
             {!user && (
               <button
                 type="button"

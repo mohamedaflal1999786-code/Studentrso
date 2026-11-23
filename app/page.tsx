@@ -81,7 +81,7 @@ export default function Home() {
   }, [handleNavigate]);
 
   return (
-    <main className="min-h-screen bg-[#f2f8f4] pt-20">
+    <main className="min-h-screen bg-[#f2f8f4] pt-20 w-full max-w-full overflow-x-hidden">
       <Header
         onSignIn={handleSignIn}
         onNavigate={handleNavigate}

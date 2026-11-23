@@ -128,7 +128,7 @@ console.log('\n--- AUDIT 8: FOOTER BUTTONS & NAVIGATION ---');
 const footerCode = fs.readFileSync(path.join(projectRoot, 'components', 'Footer.tsx'), 'utf8');
 assert(footerCode.includes('Link'), 'Footer must use Link for dedicated module pages');
 assert(footerCode.includes('handleFooterNav'), 'Footer must use handleFooterNav for smooth anchor navigation');
-assert(footerCode.includes('mailto:support@studentrso.org'), 'Footer must provide active mailto contact support');
+assert(footerCode.includes('mailto:support@studentrso.org') || footerCode.includes('mailto:studentrsoin@gmail.com'), 'Footer must provide active mailto contact support');
 console.log('✓ Check 8.1: Footer module routes, student journey links, governance, and contact verified');
 
 // 9. Audit Standalone Auth Page
