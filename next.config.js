@@ -7,6 +7,20 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  webpack: (config, { isServer }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      bufferutil: false,
+      'utf-8-validate': false,
+    };
+    if (isServer) {
+      config.externals.push({
+        'utf-8-validate': 'commonjs utf-8-validate',
+        bufferutil: 'commonjs bufferutil',
+      });
+    }
+    return config;
+  },
   headers: async () => [
     {
       source: '/:path*',

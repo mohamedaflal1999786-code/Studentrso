@@ -81,3 +81,12 @@ export interface QuickActionPrompt {
   prompt: string;
   category: 'Explore' | 'Learn' | 'Career' | 'Admissions';
 }
+
+// Model candidate hierarchy with automatic multi-model fallback across quota pools
+export const MODEL_CANDIDATES = [
+  'gemini-flash-lite-latest',
+  'gemini-flash-latest',
+  'gemini-3.5-flash-lite',
+  'gemini-3.1-flash-lite',
+  'gemini-3.5-flash',
+];

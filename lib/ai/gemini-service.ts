@@ -1,7 +1,9 @@
 // lib/ai/gemini-service.ts
 // Official Google Gen AI SDK Integration for Module 05: AI Student Career & Life Assistant
 import { GoogleGenAI } from '@google/genai';
-import { ChatMessage, StudentProfile } from './types';
+import { ChatMessage, StudentProfile, MODEL_CANDIDATES } from './types';
+
+export { MODEL_CANDIDATES };
 
 export interface GeminiAuthStatus {
   configured: boolean;
@@ -13,15 +15,6 @@ export interface GeminiAuthStatus {
 // In-memory cache for connection status to prevent exhausting daily API quotas on page visits
 let cachedAuthStatus: { timestamp: number; data: GeminiAuthStatus } | null = null;
 const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes cache
-
-// Model candidate hierarchy with automatic multi-model fallback across quota pools
-export const MODEL_CANDIDATES = [
-  'gemini-flash-lite-latest',
-  'gemini-flash-latest',
-  'gemini-3.5-flash-lite',
-  'gemini-3.1-flash-lite',
-  'gemini-3.5-flash',
-];
 
 export function getGeminiApiKey(): string | undefined {
   const key = process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_API_KEY;

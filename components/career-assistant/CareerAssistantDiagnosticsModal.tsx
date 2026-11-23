@@ -13,7 +13,7 @@ import {
   Layers,
   Award
 } from 'lucide-react';
-import { MODEL_CANDIDATES } from '@/lib/ai/gemini-service';
+import { MODEL_CANDIDATES } from '@/lib/ai/types';
 
 interface CareerAssistantDiagnosticsModalProps {
   isOpen: boolean;
