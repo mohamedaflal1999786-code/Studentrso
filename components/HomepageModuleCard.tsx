@@ -27,7 +27,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
     'w-full h-11 inline-flex items-center justify-center gap-2 rounded-xl bg-[#0d3e2e] hover:bg-[#08261c] px-4 font-sans text-[13px] sm:text-[14px] font-bold text-white shadow-xs transition-colors cursor-pointer text-center';
 
   return (
-    <div className="group bg-[#faf6ed] rounded-2xl p-6 border border-[#e5dcbe] shadow-xs hover:shadow-md transition-all flex flex-col justify-between text-left h-full">
+    <div className="group bg-[#f8fbf9] rounded-2xl p-6 border border-[#d8e5dd] shadow-xs hover:shadow-md transition-all flex flex-col justify-between text-left h-full">
       <div className="flex-1 flex flex-col">
         {/* Top Bar: Icon, Number & Badge */}
         <div className="flex items-center justify-between gap-2 mb-4">
@@ -49,7 +49,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
               LIVE
             </span>
           ) : (
-            <span className="px-2.5 py-0.5 rounded-full bg-[#faf5eb] border border-[#e5dcbe] font-mono text-[10px] font-semibold text-[#57534e]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#edf5f0] border border-[#d8e5dd] font-mono text-[10px] font-semibold text-[#57534e]">
               OFFICIAL
             </span>
           )}
@@ -75,7 +75,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
 
         {/* Official Source Badge (if applicable) */}
         {module.officialSource && (
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#faf5eb] border border-[#e5dcbe] text-[#57534e] font-mono text-[11px] mb-4 self-start">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#edf5f0] border border-[#d8e5dd] text-[#57534e] font-mono text-[11px] mb-4 self-start">
             <AppIcon name="verified" className="text-[15px] text-[#0d3e2e]" />
             <span className="text-[#111814] font-medium truncate max-w-[240px]">
               {module.officialSource}
@@ -85,7 +85,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
       </div>
 
       {/* Bottom Action Bar — Exactly ONE full-width primary button: Open Module → */}
-      <div className="pt-4 border-t border-[#e5dcbe] mt-auto">
+      <div className="pt-4 border-t border-[#d8e5dd] mt-auto">
         {hasDedicatedRoute ? (
           <Link href={module.route!} className={buttonClasses}>
             <span>Open Module →</span>

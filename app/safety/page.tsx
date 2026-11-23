@@ -75,9 +75,9 @@ export default function SafetyHubPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#fbf5e9] text-[#2b2118]">
+    <main className="min-h-screen bg-[#f2f8f4] text-[#2b2118]">
       {/* Top Navbar */}
-      <header className="sticky top-0 z-40 border-b border-[#efe3cc] bg-[#fdfbf6]/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-[#d8e5dd] bg-[#fdfbf6]/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
@@ -97,7 +97,7 @@ export default function SafetyHubPage() {
             {/* Autonomous System Diagnostics Trigger */}
             <button
               onClick={() => setDiagnosticsModalOpen(true)}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#d8e5dd] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#f2f8f4] transition"
               title="Inspect Official Government Source Telemetry"
             >
               <Activity size={13} className="text-emerald-700" />
@@ -105,7 +105,7 @@ export default function SafetyHubPage() {
             </button>
 
             {user ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d8e5dd] bg-[#f2f8f4] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
@@ -125,7 +125,7 @@ export default function SafetyHubPage() {
       </header>
 
       {/* Hero Banner Strip */}
-      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
+      <section className="border-b border-[#d8e5dd] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -162,7 +162,7 @@ export default function SafetyHubPage() {
       {/* Main Content Area */}
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Navigation Tabs */}
-        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#efe3cc] pb-2 scrollbar-none">
+        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#d8e5dd] pb-2 scrollbar-none">
           {primaryTabs.map(({ id, label, icon: Icon }) => {
             const isActive = activeTab === id;
             return (
@@ -242,7 +242,7 @@ export default function SafetyHubPage() {
       />
 
       {/* Footer */}
-      <footer className="mt-16 border-t border-[#efe3cc] bg-[#fdfbf6] py-8 text-center text-[12px] text-[#7a6a5a]">
+      <footer className="mt-16 border-t border-[#d8e5dd] bg-[#fdfbf6] py-8 text-center text-[12px] text-[#7a6a5a]">
         <div className="mx-auto max-w-7xl px-4 space-y-1">
           <p className="font-semibold text-[#2b2118]">
             Student RSO 2.0 · Student Safety &amp; Grievance Support Centre

@@ -107,9 +107,9 @@ function AcademicSupportContent() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fbf5e9] text-[#2b2118] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#f2f8f4] text-[#2b2118] flex flex-col font-sans">
       {/* Top Navbar */}
-      <header className="sticky top-0 z-40 border-b border-[#efe3cc] bg-[#fdfbf6]/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-[#d8e5dd] bg-[#fdfbf6]/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
@@ -130,7 +130,7 @@ function AcademicSupportContent() {
             <button
               type="button"
               onClick={() => setDiagnosticsOpen(true)}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#d8e5dd] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#f2f8f4] transition cursor-pointer"
               title="Inspect Academic Support & Curriculum Health"
             >
               <Activity size={13} className="text-emerald-700" />
@@ -138,7 +138,7 @@ function AcademicSupportContent() {
             </button>
 
             {user ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d8e5dd] bg-[#f2f8f4] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
@@ -159,7 +159,7 @@ function AcademicSupportContent() {
       </header>
 
       {/* Hero Banner Strip */}
-      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
+      <section className="border-b border-[#d8e5dd] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -197,7 +197,7 @@ function AcademicSupportContent() {
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         {/* Navigation Tabs Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-[#efe3cc]">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-[#d8e5dd]">
           {NAV_TABS.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -209,7 +209,7 @@ function AcademicSupportContent() {
                 className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl font-sans text-[13px] font-bold whitespace-nowrap transition cursor-pointer ${
                   isActive
                     ? 'bg-[#0d3e2e] text-white shadow-xs'
-                    : 'bg-white border border-[#efe3cc] text-[#7a6a5a] hover:bg-[#fbf5e9] hover:text-[#2b2118]'
+                    : 'bg-white border border-[#d8e5dd] text-[#7a6a5a] hover:bg-[#f2f8f4] hover:text-[#2b2118]'
                 }`}
               >
                 <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#0d3e2e]'}`} />
@@ -256,7 +256,7 @@ function AcademicSupportContent() {
         </div>
 
         {/* Statutory Non-Affiliation Disclaimer */}
-        <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-4 text-xs text-[#7a6a5a] space-y-1.5">
+        <div className="rounded-2xl border border-[#d8e5dd] bg-[#fdfbf6] p-4 text-xs text-[#7a6a5a] space-y-1.5">
           <div className="flex items-center gap-1.5 font-bold text-[#2b2118]">
             <ShieldCheck className="w-4 h-4 text-[#5e8b7e]" />
             <span>Academic Integrity &amp; Official Resource Notice</span>
@@ -295,7 +295,7 @@ export default function AcademicSupportPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center p-8">
+        <div className="min-h-screen bg-[#f2f8f4] flex items-center justify-center p-8">
           <div className="text-center space-y-3">
             <div className="w-10 h-10 border-4 border-[#0d3e2e] border-t-transparent rounded-full animate-spin mx-auto" />
             <p className="font-serif text-lg font-bold text-[#0d3e2e]">Loading Academic Support Centre...</p>

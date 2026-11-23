@@ -151,8 +151,8 @@ function AuthCallbackContent() {
   }, [router]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9] px-4 font-sans">
-      <div className="w-full max-w-[420px] rounded-3xl border border-[#efe3cc] bg-[#fdfbf6] p-8 text-center shadow-xl">
+    <div className="flex min-h-screen items-center justify-center bg-[#f2f8f4] px-4 font-sans">
+      <div className="w-full max-w-[420px] rounded-3xl border border-[#d8e5dd] bg-[#fdfbf6] p-8 text-center shadow-xl">
         {/* Student RSO Branding */}
         <div className="flex items-center justify-center gap-3 mb-6">
           <img
@@ -236,7 +236,7 @@ export default function AuthCallbackPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9]">
+        <div className="flex min-h-screen items-center justify-center bg-[#f2f8f4]">
           <Loader2 size={36} className="animate-spin text-[#0d3e2e]" />
         </div>
       }

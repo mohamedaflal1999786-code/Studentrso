@@ -29,11 +29,11 @@ const config: Config = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        // Design-specific palette (Deep Pine Emerald & Warm Gold Theme)
-        'surface': '#fbf7ee',
-        'surface-card': '#faf6ed',
-        'surface-container': '#f6ede0',
-        'surface-container-low': '#fdfbf6',
+        // Design-specific palette (Pine Emerald & Mint-Mist Theme)
+        'surface': '#f2f8f4',
+        'surface-card': '#f8fbf9',
+        'surface-container': '#edf5f0',
+        'surface-container-low': '#f5fbf7',
         'surface-container-lowest': '#ffffff',
         'on-surface': '#1c1917',
         'on-surface-variant': '#57534e',
@@ -57,8 +57,8 @@ const config: Config = {
           light: '#752243',
         },
         'tertiary': '#2e7d32',
-        'outline': '#e5dcbe',
-        'outline-variant': '#efe3cc',
+        'outline': '#d8e5dd',
+        'outline-variant': '#e2ebe5',
       },
       spacing: {
         'space-xs': '0.25rem',

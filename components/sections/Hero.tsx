@@ -9,7 +9,7 @@ interface HeroProps {
 
 export function Hero({ onNavigate }: HeroProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#fbf7ee] via-[#fdfbf6] to-[#fbf7ee] pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 border-b border-[#e5dcbe]">
+    <section className="relative w-full overflow-hidden bg-[#f2f8f4] pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 border-b border-[#d8e5dd]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         {/* Overline with Gold Dash — A BETTER WAY FORWARD */}
         <div className="inline-flex items-center gap-2.5 mb-6">
@@ -56,7 +56,7 @@ export function Hero({ onNavigate }: HeroProps) {
               e.preventDefault();
               onNavigate('how-it-works');
             }}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#fdfbf6] hover:bg-[#f6ede0] border border-[#d8c7ad] text-[#111814] font-sans text-[15px] font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-[0.98]"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-[#f6faf9] border border-[#d8e5dd] text-[#111814] font-sans text-[15px] font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-[0.98]"
           >
             <span>See how it works</span>
             <span className="text-[17px] font-semibold leading-none text-[#8c6d23]">↗</span>

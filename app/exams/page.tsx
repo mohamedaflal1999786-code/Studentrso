@@ -170,9 +170,9 @@ function ExamsHubContent() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#fbf5e9] text-[#2b2118]">
+    <main className="min-h-screen bg-[#f2f8f4] text-[#2b2118]">
       {/* Top Header Navbar */}
-      <header className="sticky top-0 z-40 border-b border-[#efe3cc] bg-[#fdfbf6]/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-[#d8e5dd] bg-[#fdfbf6]/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
@@ -192,7 +192,7 @@ function ExamsHubContent() {
             {/* Autonomous System Diagnostics Trigger */}
             <button
               onClick={() => setDiagnosticsOpen(true)}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#d8e5dd] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#f2f8f4] transition"
               title="Inspect Official Government & University Source Telemetry"
             >
               <Activity size={13} className="text-emerald-700" />
@@ -200,7 +200,7 @@ function ExamsHubContent() {
             </button>
 
             {user ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d8e5dd] bg-[#f2f8f4] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
@@ -220,7 +220,7 @@ function ExamsHubContent() {
       </header>
 
       {/* Hero Banner Strip */}
-      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
+      <section className="border-b border-[#d8e5dd] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -257,7 +257,7 @@ function ExamsHubContent() {
       {/* Main Content Area */}
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Horizontal Scrolling Tab Bar */}
-        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#efe3cc] pb-2 scrollbar-none">
+        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#d8e5dd] pb-2 scrollbar-none">
           {navTabs.map(({ id, label, icon: Icon }) => {
             const isActive = activeTab === id;
             return (
@@ -410,7 +410,7 @@ function ExamsHubContent() {
       />
 
       {/* Footer */}
-      <footer className="border-t border-[#efe3cc] bg-[#fdfbf6] py-8 px-4 text-center font-sans text-[12px] text-[#7a6a5a] mt-16">
+      <footer className="border-t border-[#d8e5dd] bg-[#fdfbf6] py-8 px-4 text-center font-sans text-[12px] text-[#7a6a5a] mt-16">
         <div className="max-w-7xl mx-auto space-y-2">
           <p className="font-semibold text-[#2b2118]">
             Student Rights, Services & Opportunities Platform (Student RSO 2.0)
@@ -431,7 +431,7 @@ export default function ExamsPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center p-6 text-center font-sans">
+        <div className="min-h-screen bg-[#f2f8f4] flex items-center justify-center p-6 text-center font-sans">
           <div className="space-y-3">
             <div className="w-8 h-8 border-3 border-[#0d3e2e] border-t-transparent rounded-full animate-spin mx-auto" />
             <p className="text-sm font-semibold text-[#0d3e2e]">

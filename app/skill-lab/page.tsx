@@ -131,9 +131,9 @@ function SkillLabContent() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#fbf5e9] text-[#2b2118]">
+    <main className="min-h-screen bg-[#f2f8f4] text-[#2b2118]">
       {/* 1. Top Navbar (Identical to Module 01) */}
-      <header className="sticky top-0 z-40 border-b border-[#efe3cc] bg-[#fdfbf6]/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-[#d8e5dd] bg-[#fdfbf6]/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
@@ -154,7 +154,7 @@ function SkillLabContent() {
             <button
               type="button"
               onClick={() => setDiagnosticsOpen(true)}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#d8e5dd] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#f2f8f4] transition cursor-pointer"
               title="Inspect Module 09 Curriculum & Portal Telemetry"
             >
               <Activity size={13} className="text-emerald-700" />
@@ -162,7 +162,7 @@ function SkillLabContent() {
             </button>
 
             {user ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d8e5dd] bg-[#f2f8f4] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
@@ -183,7 +183,7 @@ function SkillLabContent() {
       </header>
 
       {/* 2. Hero Banner Strip (Identical to Module 01 Maroon Palette) */}
-      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
+      <section className="border-b border-[#d8e5dd] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -224,7 +224,7 @@ function SkillLabContent() {
       {/* 3. Main Content Area */}
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Navigation Tabs (Identical to Module 01 tab scrollbar) */}
-        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#efe3cc] pb-2 scrollbar-none">
+        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#d8e5dd] pb-2 scrollbar-none">
           {navTabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -249,7 +249,7 @@ function SkillLabContent() {
         {activeTab === 'categories' && (
           <div className="space-y-6">
             {/* Search and Stage Filter Controls */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#fdfbf6] border border-[#efe3cc]">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#fdfbf6] border border-[#d8e5dd]">
               <div className="relative flex-1">
                 <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#7a6a5a]" />
                 <input
@@ -257,7 +257,7 @@ function SkillLabContent() {
                   placeholder="Search skills, interview questions, email guides, speaking tips..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-8 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-white focus:border-[#0d3e2e] focus:outline-none"
+                  className="w-full pl-9 pr-8 py-2 rounded-lg border border-[#d8e5dd] font-sans text-[13px] text-[#2b2118] bg-white focus:border-[#0d3e2e] focus:outline-none"
                 />
                 {searchQuery && (
                   <button
@@ -278,7 +278,7 @@ function SkillLabContent() {
                   onChange={(e) =>
                     setSelectedStageFilter(e.target.value === 'all' ? 'all' : Number(e.target.value))
                   }
-                  className="px-3 py-2 rounded-lg border border-[#efe3cc] bg-white font-sans text-[13px] text-[#2b2118] focus:border-[#0d3e2e] focus:outline-none cursor-pointer"
+                  className="px-3 py-2 rounded-lg border border-[#d8e5dd] bg-white font-sans text-[13px] text-[#2b2118] focus:border-[#0d3e2e] focus:outline-none cursor-pointer"
                 >
                   <option value="all">All 8 Stages</option>
                   {PATHWAY_STAGES.map((s) => (
@@ -304,7 +304,7 @@ function SkillLabContent() {
             </div>
 
             {filteredCategories.length === 0 && (
-              <div className="text-center py-12 bg-[#fdfbf6] rounded-xl border border-[#efe3cc] space-y-2">
+              <div className="text-center py-12 bg-[#fdfbf6] rounded-xl border border-[#d8e5dd] space-y-2">
                 <p className="font-serif text-[18px] font-bold text-[#2b2118]">
                   No matching skill modules found
                 </p>
@@ -346,8 +346,8 @@ function SkillLabContent() {
         {/* TAB 6: MY LEARNING PROGRESS */}
         {activeTab === 'progress' && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-[#efe3cc] bg-[#fdfbf6] p-6 sm:p-8 space-y-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#efe3cc]">
+            <div className="rounded-2xl border border-[#d8e5dd] bg-[#fdfbf6] p-6 sm:p-8 space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#d8e5dd]">
                 <div>
                   <h2 className="font-serif text-[24px] font-bold text-[#2b2118]">
                     Your Personal Learning Progress
@@ -369,7 +369,7 @@ function SkillLabContent() {
                     <div
                       key={cat.id}
                       className={`p-4 rounded-xl border flex items-center justify-between gap-3 ${
-                        done ? 'bg-emerald-50/50 border-emerald-300' : 'bg-white border-[#efe3cc]'
+                        done ? 'bg-emerald-50/50 border-emerald-300' : 'bg-white border-[#d8e5dd]'
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -395,7 +395,7 @@ function SkillLabContent() {
                       <button
                         type="button"
                         onClick={() => handleViewDetails(cat)}
-                        className="px-3 py-1.5 rounded-lg border border-[#d8c7ad] bg-[#fbf5e9] text-[#0d3e2e] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
+                        className="px-3 py-1.5 rounded-lg border border-[#d8c7ad] bg-[#f2f8f4] text-[#0d3e2e] font-sans text-[12px] font-bold hover:bg-[#f6ede0] transition cursor-pointer"
                       >
                         {done ? 'Review' : 'Open Lesson'}
                       </button>
@@ -409,7 +409,7 @@ function SkillLabContent() {
       </div>
 
       {/* 4. Footer */}
-      <footer className="border-t border-[#efe3cc] bg-[#fdfbf6] py-8 px-4 text-center font-sans text-[12px] text-[#7a6a5a] mt-16">
+      <footer className="border-t border-[#d8e5dd] bg-[#fdfbf6] py-8 px-4 text-center font-sans text-[12px] text-[#7a6a5a] mt-16">
         <div className="max-w-7xl mx-auto space-y-2">
           <p className="font-semibold text-[#2b2118]">
             Student RSO 2.0 · Module 09: Language, Soft-Skills &amp; Confidence Lab
@@ -448,7 +448,7 @@ export default function SkillLabPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center text-[#2b2118] font-sans">
+        <div className="min-h-screen bg-[#f2f8f4] flex items-center justify-center text-[#2b2118] font-sans">
           Loading Language, Soft-Skills &amp; Confidence Lab...
         </div>
       }

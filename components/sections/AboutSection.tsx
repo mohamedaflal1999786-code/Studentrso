@@ -31,7 +31,7 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="w-full bg-[#fbf7ee] py-14 lg:py-24 border-t border-b border-[#e5dcbe] scroll-mt-20">
+    <section id="about" className="w-full bg-[#f2f8f4] py-14 lg:py-24 border-t border-b border-[#d8e5dd] scroll-mt-20">
       <div id="student-journey" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2">
@@ -52,7 +52,7 @@ export function AboutSection() {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className="bg-[#faf6ed] p-6 sm:p-7 rounded-2xl border border-[#e5dcbe] flex flex-col justify-between hover:border-[#0d3e2e]/50 hover:shadow-md transition-all group"
+              className="bg-[#f8fbf9] p-6 sm:p-7 rounded-2xl border border-[#d8e5dd] flex flex-col justify-between hover:border-[#0d3e2e]/50 hover:shadow-md transition-all group"
             >
               <div>
                 <div className="w-11 h-11 rounded-xl bg-[#0d3e2e] text-white flex items-center justify-center mb-5 shadow-xs group-hover:scale-105 transition-transform">
@@ -61,7 +61,7 @@ export function AboutSection() {
                 <h3 className="font-serif text-[19px] text-[#111814] font-bold mb-3">{p.title}</h3>
                 <p className="font-sans text-[13.5px] text-[#57534e] leading-relaxed">{p.description}</p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#e5dcbe] flex items-center gap-2 font-mono text-[11px] text-[#8c6d23] font-semibold uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-[#d8e5dd] flex items-center gap-2 font-mono text-[11px] text-[#8c6d23] font-semibold uppercase tracking-wider">
                 <AppIcon name="check_circle" className="text-[15px] text-[#c59b27]" />
                 <span>Verified Standard</span>
               </div>

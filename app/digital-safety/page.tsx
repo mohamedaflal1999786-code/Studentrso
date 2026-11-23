@@ -95,9 +95,9 @@ function DigitalSafetyContent() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#fbf5e9] text-[#2b2118]">
+    <main className="min-h-screen bg-[#f2f8f4] text-[#2b2118]">
       {/* 1. Top Navbar (Identical to Module 01 & 09) */}
-      <header className="sticky top-0 z-40 border-b border-[#efe3cc] bg-[#fdfbf6]/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-[#d8e5dd] bg-[#fdfbf6]/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
@@ -118,7 +118,7 @@ function DigitalSafetyContent() {
             <button
               type="button"
               onClick={() => setDiagnosticsOpen(true)}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#d8e5dd] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#f2f8f4] transition cursor-pointer"
               title="Inspect Module 10 Cyber Defense & Telemetry"
             >
               <Activity size={13} className="text-emerald-700" />
@@ -126,7 +126,7 @@ function DigitalSafetyContent() {
             </button>
 
             {user ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d8e5dd] bg-[#f2f8f4] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
@@ -147,7 +147,7 @@ function DigitalSafetyContent() {
       </header>
 
       {/* 2. Hero Banner Strip (Identical to Module 01 Maroon Palette) */}
-      <section className="border-b border-[#efe3cc] bg-[#0d3e2e] text-white">
+      <section className="border-b border-[#d8e5dd] bg-[#0d3e2e] text-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-2">
@@ -188,7 +188,7 @@ function DigitalSafetyContent() {
       {/* 3. Main Content Area */}
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Navigation Tabs (Identical to Module 01 tab scrollbar) */}
-        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#efe3cc] pb-2 scrollbar-none">
+        <div className="mb-8 flex gap-1.5 overflow-x-auto border-b border-[#d8e5dd] pb-2 scrollbar-none">
           {navTabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -213,7 +213,7 @@ function DigitalSafetyContent() {
         {activeTab === 'features' && (
           <div className="space-y-6">
             {/* Search and Risk Severity Filter Controls */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#fdfbf6] border border-[#efe3cc]">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#fdfbf6] border border-[#d8e5dd]">
               <div className="relative flex-1">
                 <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#7a6a5a]" />
                 <input
@@ -221,7 +221,7 @@ function DigitalSafetyContent() {
                   placeholder="Search directives, UPI fraud, impersonation, bullying, malware, deepfakes..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-8 py-2 rounded-lg border border-[#efe3cc] font-sans text-[13px] text-[#2b2118] bg-white focus:border-[#0d3e2e] focus:outline-none"
+                  className="w-full pl-9 pr-8 py-2 rounded-lg border border-[#d8e5dd] font-sans text-[13px] text-[#2b2118] bg-white focus:border-[#0d3e2e] focus:outline-none"
                 />
                 {searchQuery && (
                   <button
@@ -241,7 +241,7 @@ function DigitalSafetyContent() {
                 <select
                   value={selectedRiskFilter}
                   onChange={(e) => setSelectedRiskFilter(e.target.value as any)}
-                  className="rounded-lg border border-[#efe3cc] bg-white px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e] focus:outline-none cursor-pointer"
+                  className="rounded-lg border border-[#d8e5dd] bg-white px-3 py-2 font-sans text-[12px] text-[#2b2118] focus:border-[#0d3e2e] focus:outline-none cursor-pointer"
                 >
                   <option value="all">All Severity Levels</option>
                   <option value="Critical">Critical Risk Only</option>
@@ -264,7 +264,7 @@ function DigitalSafetyContent() {
             </div>
 
             {filteredFeatures.length === 0 && (
-              <div className="text-center py-12 rounded-2xl border border-dashed border-[#efe3cc] bg-white/50">
+              <div className="text-center py-12 rounded-2xl border border-dashed border-[#d8e5dd] bg-white/50">
                 <p className="font-serif text-[18px] text-[#7a6a5a]">
                   No safety directives match your search query.
                 </p>
@@ -330,7 +330,7 @@ export default function DigitalSafetyPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center font-sans text-[14px] text-[#7a6a5a]">
+        <div className="min-h-screen bg-[#f2f8f4] flex items-center justify-center font-sans text-[14px] text-[#7a6a5a]">
           Loading Digital Safety &amp; Cyber-Wellness Shield...
         </div>
       }

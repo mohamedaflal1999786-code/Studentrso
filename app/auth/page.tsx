@@ -18,8 +18,8 @@ function AuthPageContent() {
 
   if (user && !isCreatePasswordStep) {
     return (
-      <div className="min-h-screen bg-[#fbf5e9] flex flex-col items-center justify-center p-4 font-sans">
-        <div className="w-full max-w-md bg-[#fdfbf6] rounded-3xl border border-[#efe3cc] p-8 shadow-xl text-center space-y-5">
+      <div className="min-h-screen bg-[#f2f8f4] flex flex-col items-center justify-center p-4 font-sans">
+        <div className="w-full max-w-md bg-[#fdfbf6] rounded-3xl border border-[#d8e5dd] p-8 shadow-xl text-center space-y-5">
           <div className="w-16 h-16 rounded-full bg-[#f6ede0] border border-[#d8c7ad] text-[#0d3e2e] flex items-center justify-center mx-auto shadow-xs">
             <CheckCircle2 size={36} />
           </div>
@@ -53,7 +53,7 @@ function AuthPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fbf5e9] flex flex-col items-center justify-center p-4 font-sans">
+    <div className="min-h-screen bg-[#f2f8f4] flex flex-col items-center justify-center p-4 font-sans">
       {/* Student Portal Authentication: Sign In and Sign Up modes */}
       <AuthDialog
         open={true}
@@ -70,7 +70,7 @@ export default function AuthPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-screen items-center justify-center bg-[#fbf5e9]">
+        <div className="flex min-h-screen items-center justify-center bg-[#f2f8f4]">
           <Loader2 size={36} className="animate-spin text-[#0d3e2e]" />
         </div>
       }

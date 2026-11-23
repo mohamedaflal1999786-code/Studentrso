@@ -239,7 +239,7 @@ console.log('✓ Test 14: Automated source verification & telemetry API verified
 // 16. Test Module 07 UI Design System Consistency
 const pageContent = fs.readFileSync(academicPagePath, 'utf8');
 assert(
-  (pageContent.includes('bg-[#fbf5e9]') || pageContent.includes('bg-[#fbf7ee]') || pageContent.includes('bg-[#faf6ed]')) &&
+  (pageContent.includes('bg-[#fbf5e9]') || pageContent.includes('bg-[#fbf7ee]') || pageContent.includes('bg-[#faf6ed]') || pageContent.includes('bg-[#f2f8f4]')) &&
   (pageContent.includes('bg-[#8c2f39]') || pageContent.includes('bg-[#0d3e2e]')) &&
   pageContent.includes('font-serif') &&
   pageContent.includes('Back to Student RSO') &&

@@ -376,9 +376,9 @@ function CareerAssistantContent() {
     apiStatus.status === 'QUOTA_EXCEEDED' ? 'Limit Reached' : 'Unavailable';
 
   return (
-    <div className="min-h-screen bg-[#fbf5e9] text-[#2b2118] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#f2f8f4] text-[#2b2118] flex flex-col font-sans">
       {/* Top Navbar */}
-      <header className="sticky top-0 z-40 border-b border-[#efe3cc] bg-[#fdfbf6]/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-[#d8e5dd] bg-[#fdfbf6]/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
@@ -399,7 +399,7 @@ function CareerAssistantContent() {
             <button
               type="button"
               onClick={() => setDiagnosticsModalOpen(true)}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#efe3cc] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#fbf5e9] transition cursor-pointer"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#d8e5dd] bg-white px-3 py-1.5 font-mono text-[11px] text-[#7a6a5a] hover:bg-[#f2f8f4] transition cursor-pointer"
               title="Inspect AI Engine Status & Diagnostics"
             >
               <Activity size={13} className="text-emerald-700" />
@@ -407,7 +407,7 @@ function CareerAssistantContent() {
             </button>
 
             {user ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#efe3cc] bg-[#fbf5e9] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d8e5dd] bg-[#f2f8f4] px-3 py-1 font-sans text-[12px] font-semibold text-[#2b2118]">
                 <User size={14} className="text-[#0d3e2e]" />
                 {authProfile?.full_name || user.email?.split('@')[0]}
               </span>
@@ -461,7 +461,7 @@ export default function CareerAssistantPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#fbf5e9] flex items-center justify-center p-8">
+        <div className="min-h-screen bg-[#f2f8f4] flex items-center justify-center p-8">
           <div className="text-center space-y-3">
             <div className="w-10 h-10 border-4 border-[#0d3e2e] border-t-transparent rounded-full animate-spin mx-auto" />
             <p className="font-serif text-lg font-bold text-[#0d3e2e]">Loading AI Student Career &amp; Life Assistant...</p>

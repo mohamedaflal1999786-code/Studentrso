@@ -21,7 +21,7 @@ export function ServiceCard({ service, onClick }: ServiceCardProps) {
     <button
       type="button"
       onClick={handleClick}
-      className="group bg-[#faf6ed] hover:bg-[#f6ede0] border border-[#e5dcbe] p-4 sm:p-5 rounded-2xl transition-all flex flex-col justify-between text-left hover:shadow-sm w-full min-h-[12rem] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
+      className="group bg-[#f8fbf9] hover:bg-[#edf5f0] border border-[#d8e5dd] p-4 sm:p-5 rounded-2xl transition-all flex flex-col justify-between text-left hover:shadow-sm w-full min-h-[12rem] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0d3e2e]/20"
     >
       <div>
         <div className="flex items-center justify-between mb-2.5">
@@ -39,7 +39,7 @@ export function ServiceCard({ service, onClick }: ServiceCardProps) {
           {service.description}
         </p>
       </div>
-      <div className="mt-3 pt-2.5 flex items-center text-[#0d3e2e] font-sans text-[12px] font-semibold border-t border-[#e5dcbe]">
+      <div className="mt-3 pt-2.5 flex items-center text-[#0d3e2e] font-sans text-[12px] font-semibold border-t border-[#d8e5dd]">
         <span>Open Module</span>
         <AppIcon name="arrow_forward" className="text-[14px] ml-1 text-[#c59b27] group-hover:translate-x-1 transition-transform" />
       </div>

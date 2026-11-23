@@ -81,7 +81,7 @@ export default function Home() {
   }, [handleNavigate]);
 
   return (
-    <main className="min-h-screen bg-[#fbf5e9] pt-20">
+    <main className="min-h-screen bg-[#f2f8f4] pt-20">
       <Header
         onSignIn={handleSignIn}
         onNavigate={handleNavigate}

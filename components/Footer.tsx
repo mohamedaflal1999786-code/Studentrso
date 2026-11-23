@@ -17,7 +17,7 @@ export function Footer({ onNavigate }: FooterProps) {
   }
 
   return (
-    <footer className="w-full bg-[#faf5ea] text-[#1c1917] border-t border-[#e5dcbe] pt-12 pb-8">
+    <footer className="w-full bg-[#edf5f0] text-[#1c1917] border-t border-[#d8e5dd] pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10">
           {/* Brand Info */}
@@ -31,7 +31,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 height={48}
                 loading="lazy"
               />
-              <div className="h-8 w-px bg-[#d8c7ad] hidden xs:block shrink-0" />
+              <div className="h-8 w-px bg-[#d8e5dd] hidden xs:block shrink-0" />
               <div className="flex flex-col">
                 <span className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0d3e2e] italic leading-tight">Student RSO</span>
                 <span className="font-mono text-[9.5px] uppercase tracking-widest text-[#57534e] font-semibold">STUDENT RIGHTS · SERVICES · OPPORTUNITIES</span>
@@ -139,7 +139,7 @@ export function Footer({ onNavigate }: FooterProps) {
         </div>
 
         {/* Bottom Disclaimer & Copyright */}
-        <div className="pt-6 border-t border-[#e5dcbe] flex flex-col gap-3">
+        <div className="pt-6 border-t border-[#d8e5dd] flex flex-col gap-3">
           <p className="font-sans text-[12px] sm:text-[13px] leading-relaxed text-[#57534e]">
             Platform Disclaimer: Student RSO is an independent student information and navigation platform. It does not
             replace government departments, educational institutions, examination authorities, statutory bodies or

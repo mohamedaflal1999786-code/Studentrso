@@ -9,7 +9,7 @@ interface ServicesSectionProps {
 
 export function ServicesSection({ onServiceClick }: ServicesSectionProps) {
   return (
-    <section id="modules" className="w-full bg-[#fbf7ee] py-14 lg:py-24 border-t border-b border-[#e5dcbe] scroll-mt-20">
+    <section id="modules" className="w-full bg-[#f2f8f4] py-14 lg:py-24 border-t border-b border-[#d8e5dd] scroll-mt-20">
       <div id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-8 sm:mb-14">
           <div className="inline-flex items-center gap-2">
