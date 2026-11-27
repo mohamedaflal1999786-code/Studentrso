@@ -1,8 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Newsreader } from 'next/font/google';
+import Script from 'next/script';
 import { AuthProvider } from '@/lib/auth-context';
-import { PlatformBrainChatbot } from '@/components/chatbot/PlatformBrainChatbot';
+import { ChatbotWrapper } from '@/components/chatbot/ChatbotWrapper';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
 const newsreader = Newsreader({
@@ -100,8 +101,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="google-adsense-account" content="ca-pub-3381210415508925" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/images/student-rso-emblem.jpg" fetchPriority="high" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
@@ -112,16 +111,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
           }}
         />
-        <script
-          async
+        <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381210415508925"
+          strategy="lazyOnload"
           crossOrigin="anonymous"
         />
       </head>
       <body className={`${inter.variable} ${newsreader.variable}`} style={{ fontFamily: 'var(--font-sans)' }}>
         <AuthProvider>
           {children}
-          <PlatformBrainChatbot />
+          <ChatbotWrapper />
         </AuthProvider>
       </body>
     </html>

@@ -66,7 +66,7 @@ export function HomepageModuleCard({ module, onModuleClick }: HomepageModuleCard
         )}
 
         {/* Golden accent divider */}
-        <div className="w-12 h-0.5 bg-[#c59b27] rounded-full mb-3" />
+        <div className="w-12 h-0.5 bg-[#0d3e2e] rounded-full mb-3" />
 
         {/* Short Description */}
         <p className="font-sans text-[14px] text-[#4a4a4a] leading-[22px] mb-4 flex-1">

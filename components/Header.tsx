@@ -262,7 +262,7 @@ export function Header({ onSignIn, onNavigate, onOpenProfile, onServiceClick }: 
             >
               <div className="bg-[#f8fbf9] rounded-2xl border border-[#d8e5dd] shadow-[0_12px_32px_rgba(13,62,46,0.12)] p-6 flex flex-col gap-4">
                 <div className="flex items-center justify-between pb-3.5 border-b border-[#d8e5dd]">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#c59b27] font-bold">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#0d3e2e] font-bold">
                     STUDENT RSO PLATFORM • 10 CORE MODULES
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full bg-[#edf5f0] border border-[#d8e5dd] font-mono text-[10px] text-[#0d3e2e] font-semibold uppercase tracking-wider">

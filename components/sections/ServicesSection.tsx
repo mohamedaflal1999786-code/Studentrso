@@ -13,10 +13,10 @@ export function ServicesSection({ onServiceClick }: ServicesSectionProps) {
       <div id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-8 sm:mb-14">
           <div className="inline-flex items-center gap-2">
-            <span className="font-mono text-[12px] text-[#8c6d23] font-bold tracking-wider uppercase">
+            <span className="font-mono text-[12px] text-[#0d3e2e] font-bold tracking-wider uppercase">
               STUDENT RSO PLATFORM • 10 CORE MODULES
             </span>
-            <div className="w-8 h-0.5 bg-[#c59b27]" />
+            <div className="w-8 h-0.5 bg-[#0d3e2e]" />
           </div>
           <h2 className="font-serif text-[30px] sm:text-[40px] leading-[36px] sm:leading-[48px] text-[#111814] mt-2 mb-4 font-bold">
             Student Services &amp; <span className="italic text-[#0d3e2e]">Opportunities Platform</span>

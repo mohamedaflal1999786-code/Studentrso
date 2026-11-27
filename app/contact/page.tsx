@@ -84,7 +84,7 @@ export default function ContactInfoPage() {
               <Mail size={26} />
             </div>
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#c59b27]">
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0d3e2e]">
                 Official Direct Email
               </span>
               <div className="font-mono text-xl sm:text-2xl font-bold text-[#111814] break-all">
@@ -177,7 +177,7 @@ export default function ContactInfoPage() {
                     <span className="font-mono text-xl font-bold text-[#0d3e2e] group-hover:underline">
                       {h.number}
                     </span>
-                    <Phone size={18} className="text-[#c59b27] group-hover:scale-110 transition-transform" />
+                    <Phone size={18} className="text-[#0d3e2e] group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="font-serif text-sm font-bold text-[#111814] mb-1">
                     {h.title}

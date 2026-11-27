@@ -11,9 +11,9 @@ export function Hero({ onNavigate }: HeroProps) {
   return (
     <section className="relative w-full overflow-hidden bg-[#f2f8f4] pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 border-b border-[#d8e5dd]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-        {/* Overline with Gold Dash — A BETTER WAY FORWARD */}
+        {/* Overline with Dash — A BETTER WAY FORWARD */}
         <div className="inline-flex items-center gap-2.5 mb-6">
-          <span className="w-8 h-0.5 bg-[#dfab2a] rounded-full" />
+          <span className="w-8 h-0.5 bg-[#0d3e2e] rounded-full" />
           <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-widest text-[#601a36] font-bold">
             A BETTER WAY FORWARD
           </span>
@@ -29,8 +29,8 @@ export function Hero({ onNavigate }: HeroProps) {
           </span>
         </h1>
 
-        {/* Short golden underline below heading */}
-        <div className="w-24 sm:w-32 h-1 bg-[#c59b27] rounded-full mx-auto mt-5 sm:mt-6 mb-8 sm:mb-10" />
+        {/* Pine green accent underline below heading */}
+        <div className="w-24 sm:w-32 h-1 bg-[#0d3e2e] rounded-full mx-auto mt-5 sm:mt-6 mb-8 sm:mb-10" />
 
         {/* Supporting description */}
         <p className="font-sans text-[16px] sm:text-[19px] lg:text-[20px] text-[#57534e] max-w-2xl leading-relaxed mb-10">
@@ -66,11 +66,11 @@ export function Hero({ onNavigate }: HeroProps) {
         {/* Badges below buttons: ✦ Student-first platform   ✦ 10 core services */}
         <div className="flex flex-wrap items-center justify-center gap-6 mt-9 text-[12.5px] sm:text-[13.5px] font-sans text-[#601a36] font-medium">
           <span className="inline-flex items-center gap-2">
-            <span className="text-[#dfab2a] text-sm">✦</span>
+            <span aria-hidden="true" className="text-[#0d3e2e] text-sm">✦</span>
             <span>Student-first platform</span>
           </span>
           <span className="inline-flex items-center gap-2">
-            <span className="text-[#dfab2a] text-sm">✦</span>
+            <span aria-hidden="true" className="text-[#0d3e2e] text-sm">✦</span>
             <span>10 core services</span>
           </span>
         </div>

@@ -41,7 +41,7 @@ export function ServiceCard({ service, onClick }: ServiceCardProps) {
       </div>
       <div className="mt-3 pt-2.5 flex items-center text-[#0d3e2e] font-sans text-[12px] font-semibold border-t border-[#d8e5dd]">
         <span>Open Module</span>
-        <AppIcon name="arrow_forward" className="text-[14px] ml-1 text-[#c59b27] group-hover:translate-x-1 transition-transform" />
+        <AppIcon name="arrow_forward" className="text-[14px] ml-1 text-[#0d3e2e] group-hover:translate-x-1 transition-transform" />
       </div>
     </button>
   );

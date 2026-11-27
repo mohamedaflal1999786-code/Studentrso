@@ -9,11 +9,11 @@ export function ProblemSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-8 sm:mb-16">
           <div className="inline-flex items-center gap-2">
-            <span className="font-mono text-[12px] text-[#8c6d23] font-bold tracking-wider uppercase">THE CHALLENGE</span>
-            <div className="w-8 h-0.5 bg-[#c59b27]" />
+            <span className="font-mono text-[12px] text-[#0d3e2e] font-bold tracking-wider uppercase">THE CHALLENGE</span>
+            <div className="w-8 h-0.5 bg-[#0d3e2e]" />
           </div>
           <h2 className="font-serif text-[26px] sm:text-[36px] leading-[32px] sm:leading-[44px] text-[#111814] mt-2 mb-4 font-bold">
-            Good opportunities exist. <span className="italic text-[#c59b27]">Finding them is the hard part.</span>
+            Good opportunities exist. <span className="italic text-[#0d3e2e]">Finding them is the hard part.</span>
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] text-[#4a4a4a] leading-relaxed">
             Students often navigate information across multiple portals, notices and sources. Understanding eligibility,
@@ -94,11 +94,11 @@ export function HowItWorksSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2">
-            <span className="font-mono text-[12px] text-[#8c6d23] font-bold tracking-wider uppercase">HOW IT WORKS</span>
-            <div className="w-8 h-0.5 bg-[#c59b27]" />
+            <span className="font-mono text-[12px] text-[#0d3e2e] font-bold tracking-wider uppercase">HOW IT WORKS</span>
+            <div className="w-8 h-0.5 bg-[#0d3e2e]" />
           </div>
           <h2 className="font-serif text-[28px] sm:text-[38px] leading-[34px] sm:leading-[46px] text-[#111814] mt-2 mb-4 font-bold">
-            A clearer way to <span className="italic text-[#c59b27]">navigate student services.</span>
+            A clearer way to <span className="italic text-[#0d3e2e]">navigate student services.</span>
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] text-[#4a4a4a] leading-relaxed">
             A simple three-step journey to find the right student service, access verified guidance, and take official action.
@@ -112,7 +112,7 @@ export function HowItWorksSection() {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <span className="font-serif text-[40px] text-[#c59b27] font-bold leading-none">{step.number}</span>
+                  <span className="font-serif text-[40px] text-[#0d3e2e] font-bold leading-none">{step.number}</span>
                   <div className="w-12 h-12 rounded-xl bg-[#0d3e2e] text-white flex items-center justify-center group-hover:scale-105 transition-transform shadow-xs">
                     <AppIcon name={step.icon} className="text-[24px]" />
                   </div>
@@ -122,7 +122,7 @@ export function HowItWorksSection() {
                 <p className="font-sans text-[13px] text-[#57534e] leading-relaxed">{step.subtext}</p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#d8e5dd] flex items-center gap-1.5 text-[#57534e] font-mono text-[11px] uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c59b27]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0d3e2e]" />
                 <span>Step {step.number} of 03</span>
               </div>
             </div>

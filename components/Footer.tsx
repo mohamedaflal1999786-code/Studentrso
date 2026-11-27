@@ -46,7 +46,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Column 1: Modules */}
           <div className="flex flex-col gap-2">
             <span className="font-sans text-[14px] font-bold text-[#0d3e2e] uppercase tracking-wider mb-2 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c59b27]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0d3e2e]"></span>
               <span>Modules</span>
             </span>
             {services.map((s) => {
@@ -78,7 +78,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Column 2: Student Journey */}
           <div className="flex flex-col gap-2">
             <span className="font-sans text-[14px] font-bold text-[#0d3e2e] uppercase tracking-wider mb-2 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c59b27]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0d3e2e]"></span>
               <span>Student Journey</span>
             </span>
             <Link href="/admissions" className="font-sans text-[13px] text-[#57534e] hover:text-[#0d3e2e] transition-colors text-left py-0.5">
@@ -98,7 +98,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Column 3: Governance */}
           <div className="flex flex-col gap-2">
             <span className="font-sans text-[14px] font-bold text-[#0d3e2e] uppercase tracking-wider mb-2 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c59b27]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0d3e2e]"></span>
               <span>Governance</span>
             </span>
             <button
@@ -159,28 +159,28 @@ export function Footer({ onNavigate }: FooterProps) {
               >
                 Privacy
               </Link>
-              <span className="text-[#d8e5dd]">·</span>
+              <span aria-hidden="true" className="text-[#788a80]">·</span>
               <Link
                 href="/terms"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer"
               >
                 Terms
               </Link>
-              <span className="text-[#d8e5dd]">·</span>
+              <span aria-hidden="true" className="text-[#788a80]">·</span>
               <Link
                 href="/accessibility"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer"
               >
                 Accessibility
               </Link>
-              <span className="text-[#d8e5dd]">·</span>
+              <span aria-hidden="true" className="text-[#788a80]">·</span>
               <Link
                 href="/contact"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer"
               >
                 Contact
               </Link>
-              <span className="text-[#d8e5dd]">·</span>
+              <span aria-hidden="true" className="text-[#788a80]">·</span>
               <a
                 href="mailto:studentrsoin@gmail.com"
                 className="hover:text-[#0d3e2e] transition-colors cursor-pointer font-mono"
