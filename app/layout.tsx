@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Newsreader } from 'next/font/google';
-import Script from 'next/script';
 import { AuthProvider } from '@/lib/auth-context';
 import { ChatbotWrapper } from '@/components/chatbot/ChatbotWrapper';
 
@@ -100,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="google-adsense-account" content="ca-pub-3381210415508925" />
+        <meta name="google-adsense-account" content="ca-pub-1125498789516736" />
         <link rel="preload" as="image" href="/images/student-rso-emblem.jpg" fetchPriority="high" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
@@ -111,9 +110,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
           }}
         />
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381210415508925"
-          strategy="lazyOnload"
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1125498789516736"
           crossOrigin="anonymous"
         />
       </head>
